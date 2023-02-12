@@ -1,0 +1,9 @@
+.register {
+    display: grid;
+    gap: 16px;
+    justify-content: center;
+
+    &__title {
+        text-align: center;
+    }
+}

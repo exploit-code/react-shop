@@ -1,23 +1,14 @@
-@use '../../mixins.scss';
-
 .header {
-    background-color: var(--black-bg);
-    padding: 14px 0;
+    padding: 24px 0;
+    background-color: black;
 
     &__content {
-        @include mixins.flex(space-between, center);
-        color: var(--white);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;gap: 16px;
     }
 
-    &-login {
-        @include mixins.flex(center, center);
-        @include mixins.font(12px, 700, 100%);
-        gap: 10px;
-        border: none;
-        background: none;
-        color: var(--white);
-        position: relative;
-        z-index: 1;
-        cursor: pointer;
+    &__link {
+        color: white;
     }
 }

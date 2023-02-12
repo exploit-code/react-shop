@@ -1,13 +1,6 @@
-@use '../../mixins.scss';
-
 .footer {
-    background-color: var(--black-bg);
+    padding: 24px;
+    background-color: black;
+    color: white;
     flex: 0 0 auto;
-    padding: 14px 0;
-
-    &__content {
-        @include mixins.flex(space-between, center);
-        color: var(--white);
-    }
-
 }
