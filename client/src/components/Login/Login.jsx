@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
+import { Link } from 'react-router-dom';
 import './Login.scss'
 
 const Login = () => {
@@ -31,6 +32,7 @@ const Login = () => {
             <input type="email" name='email' placeholder="Email" required />
             <input type="password" name='password' placeholder="Password" required />
             <button>Login btn</button>
+            <Link to='/register'>Registration</Link>
         </form>
     );
 };

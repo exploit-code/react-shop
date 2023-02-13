@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import './Register.scss';
 
@@ -40,7 +39,6 @@ const Register = () => {
             <input type="text" name='name' placeholder="Name" required />
             <input type="email" name='email' placeholder="Email" required />
             <input type="password" name='password' placeholder="Password" required />
-            <Link to='/login'>Already have an account?</Link>
             <button>Register</button>
             <button onClick={handleGoogleSignIn}>Register with Google</button>
         </form>
