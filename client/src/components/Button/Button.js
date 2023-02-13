@@ -6,4 +6,5 @@ const Button = ({ text }) => {
     )
 }
 
+
 export default Button;
