@@ -5,7 +5,7 @@ import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 import Categories from "../../components/Categories/Categories";
 
 const Home = () => {
-    
+
     const { user } = useContext(AuthContext);
     return (
         <div>
