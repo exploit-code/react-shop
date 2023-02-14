@@ -5,6 +5,7 @@ import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 import Categories from "../../components/Categories/Categories";
 import PartWithBannersAndFilters from "../PartWithBannersAndFilters/PartWithBannersAndFilters";
 import BuyTogether from '../BuyTogether/BuyTogether'
+import Basket from '../Basket/Basket';
 
 const Home = () => {
     const { user } = useContext(AuthContext);
@@ -20,6 +21,7 @@ const Home = () => {
                 <FeaturedProducts type="featured" />
                 <PartWithBannersAndFilters />
                 <BuyTogether />
+                <Basket />
             </div>
 
 
