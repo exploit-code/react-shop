@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 import PartWithBannersAndFilters from '../components/PartWithBannersAndFilters/PartWithBannersAndFilters';
 
 
-const Main = () => {
+const Layout = () => {
     return (
         <>
             <Header></Header>
@@ -20,4 +20,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default Layout;
