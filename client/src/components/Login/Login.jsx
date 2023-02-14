@@ -29,10 +29,10 @@ const Login = () => {
     return (
         <form onSubmit={handleSubmit} className='login'>
             <h1 className='login__title'>Login</h1>
-            <input type="email" name='email' placeholder="Email" required />
-            <input type="password" name='password' placeholder="Password" required />
-            <button>Login btn</button>
-            <Link to='/register'>Registration</Link>
+            <input className='login__input' type="email" name='email' placeholder="Email" required />
+            <input className='login__input' type="password" name='password' placeholder="Password" required />
+            <button className='login__btn'>Login</button>
+            <Link className='login__link' to='/register'>Registration</Link>
         </form>
     );
 };
