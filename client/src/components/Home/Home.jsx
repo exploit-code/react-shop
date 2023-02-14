@@ -6,6 +6,7 @@ import Categories from "../../components/Categories/Categories";
 import PartWithBannersAndFilters from "../PartWithBannersAndFilters/PartWithBannersAndFilters";
 import BuyTogether from '../BuyTogether/BuyTogether'
 import Basket from '../Basket/Basket';
+import Blog from '../Blog/Blog';
 
 const Home = () => {
     const { user } = useContext(AuthContext);
@@ -22,6 +23,7 @@ const Home = () => {
                 <PartWithBannersAndFilters />
                 <BuyTogether />
                 <Basket />
+                <Blog />
             </div>
 
 

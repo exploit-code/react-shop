@@ -1,0 +1,104 @@
+.footer {
+    background-color: black;
+}
+
+body {
+    font-family: 'Cerebri Sans Pro';
+    font-weight: 300;
+}
+
+.desc {
+    font-family: 'Cerebri Sans Pro';
+    font-weight: 900;
+    font-size: 34px;
+    color: #2A2A2A;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.line {
+    width: 80px;
+    height: 4px;
+}
+
+.green-line {
+    text-align: center;
+    margin-top: 26px;
+    margin-bottom: 40px;
+}
+
+.item {
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.item-prod {
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.item-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 137px;
+}
+
+.item-link {
+    display: block;
+    text-decoration: none;
+    width: 367px;
+}
+
+.calendar-chat {
+    margin-left: 12px;
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #757575;
+}
+
+.chat {
+    margin-left: 26px;
+}
+
+.item-heading-box {
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: #2A2A2A;
+}
+
+.item-desc {
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: #757575;
+}
+
+
+.wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
