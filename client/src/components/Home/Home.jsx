@@ -5,7 +5,6 @@ import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 import Categories from "../../components/Categories/Categories";
 import PartWithBannersAndFilters from "../PartWithBannersAndFilters/PartWithBannersAndFilters";
 import BuyTogether from '../BuyTogether/BuyTogether'
-import Basket from '../Basket/Basket';
 import Blog from '../Blog/Blog';
 
 const Home = () => {
@@ -22,7 +21,6 @@ const Home = () => {
                 <FeaturedProducts type="featured" />
                 <PartWithBannersAndFilters />
                 <BuyTogether />
-                <Basket />
                 <Blog />
             </div>
 
