@@ -4,7 +4,7 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 
-const Main = () => {
+const Layout = () => {
     return (
         <>
             <Header></Header>
@@ -18,4 +18,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default Layout;

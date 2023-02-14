@@ -1,0 +1,11 @@
+.footer {
+  background-color: var(--black-bg);
+  flex: 0 0 auto;
+  padding: 14px 0;
+}
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+}/*# sourceMappingURL=footer.css.map */
