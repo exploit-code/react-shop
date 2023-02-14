@@ -1,0 +1,82 @@
+@use '../../mixins.scss';
+
+.product {
+    margin-top: 25px;
+    margin-bottom: 126px;
+
+    &__content__link {
+        @include mixins.flex(_, center);
+        @include mixins.font(16px, 500, 36px);
+        font-family: 'Cerebri Sans Pro';
+        text-align: center;
+        text-decoration-line: underline;
+        color: #2A2A2A;
+        &:hover{
+            color: var(--green);
+        }
+    }
+    &__content__img {
+        margin-bottom: 14px;
+        max-width: 100%;
+        transition: transform .3s;
+        &:hover{
+            transform: scale(1.03)
+        }
+        
+    }
+    &__content__heading {
+        @include mixins.font(34px, 900, 50px);
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        color: #2A2A2A;
+
+    }
+    &__content__shortLine {
+        width: 80%;
+        height: 5px;
+        background: var(--green);
+        margin-bottom: 44px;
+    }
+    &__content__text {
+        @include mixins.font(20px, 400, 30px);
+        font-family: Cerebri Sans Pro;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #2A2A2A;
+        padding: 22px;
+    }
+    &__content__box {
+        display: flex;
+        gap: 152px;
+    }
+    &__content__boxleft {
+        @include mixins.flex(flex-end, center);
+        flex-direction: column;
+        width: 364px;
+        position: relative;
+    }
+    &__content__boxright {
+        @include mixins.flex(_, center);
+        background: #F5F5F5;
+        width: 70%;
+       
+    }
+}
+.alignCenter {
+    @include mixins.flex(space-evenly, center);
+    flex-direction: column;
+    align-content: center;
+}
+.alignLeft {
+    display: flex;
+}
+.price_text{
+    position: absolute;
+    left: 240px;
+    top: -20px;
+    @include mixins.font(36px, 900, 30px);
+
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    color: #2A2A2A;
+}
