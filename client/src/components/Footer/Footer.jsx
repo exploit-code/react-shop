@@ -1,4 +1,7 @@
-import './footer.scss'
+import './footer.scss';
+import Salat from './img/Salat.png'
+import AmericanExpress from './img/AmericanExpress-light.svg'
+import Green_line from './img/Green_line.svg'
 
 
 const Footer = () => {
@@ -7,12 +10,12 @@ const Footer = () => {
             <div className="container">
                 <h3 className="desc">From The Blog</h3>
                 <div className="green-line">
-                    <img className="line" src="img/Green line.svg" alt="line" />
+                    <img className="line" src={Green_line} alt="line" />
                 </div>
                 <div className="item-flex">
                     <div className="item">
                         <a className="item-link" href="#">
-                            <img className="item-pic" src="img/Salat.png" alt="product" />
+                            <img className="item-pic" src={Salat} alt="product" />
                             <div className="txt-box">
                                 <div className="txt-boxer">
                                     <img className="calendar" src="img/Calendar.svg" alt="calendar" />
@@ -72,7 +75,7 @@ const Footer = () => {
 
 
 
-            <footer classNames="footer">
+            <footer className="footer">
                 <div className="container">
                     <div className="footer-flex">
                         <div className="footer__top__right">
@@ -128,7 +131,7 @@ const Footer = () => {
                             <a href="#" className="pay__link"><img src="img/MasterCard-light.svg" /></a>
                             <a href="#" className="pay__link"><img src="img/Maestro-light.svg" /></a>
                             <a href="#" className="pay__link"><img src="img/Cirrus-light.svg" /></a>
-                            <a href="#" className="pay__link"><img src="img/AmericanExpress-light.svg" /></a>
+                            <a href="#" className="pay__link"><img src={AmericanExpress} /></a>
                         </nav>
                     </div>
                 </div>
