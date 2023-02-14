@@ -1,4 +1,4 @@
-import './product.scss'
+import './Product.scss'
 import Button from '../Button/Button'
 import BuyTogether from '../BuyTogether/BuyTogether'
 

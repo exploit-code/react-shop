@@ -1,0 +1,140 @@
+@use '../../mixins.scss';
+
+@font-face {
+    font-family: 'Celebri Sans Pro';
+    src: url(../../fonts/Cerebri.Sans.Pro/CerebriSansPro-Medium.ttf) format('truetype');
+}
+
+.bannermainpage {
+    margin-top: 20px;
+    margin-bottom: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    list-style: none;
+    width: calc(100% - 30px);
+    max-width: 1142px;
+    margin: 0 auto;
+
+    @media screen and (min-width: 768px) {
+        width: calc(100% - 60px);
+    }
+
+    &__top {
+        @include mixins.flex(space-between, center);
+        gap: 20px;
+
+        &_list {
+            width: 270px;
+            height: 441px;
+            border: 1px solid #E5E5E5;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 20px;
+
+            &_a {
+                text-decoration: none;
+                @include mixins.font(16px, 500, 36px);
+                font-family: Celebri Sans Pro;
+                color: #999999;
+                cursor: pointer;
+            }
+
+            &_a:hover {
+                color: #7FAD39;
+            }
+        }
+
+        &_poster {
+            @include mixins.flex(space-between, center);
+            width: 851px;
+            height: 441px;
+
+            &_left {
+                display: flex;
+                margin-left: 77px;
+                flex-direction: column;
+                gap: 30px;
+                position: absolute;
+
+                &_p {
+                    margin-left: 77px;
+
+                    &_ff {
+                        @include mixins.font(16px, 800, 20px);
+                        font-family: Celebri Sans Pro;
+                        color: #7FAD39;
+                    }
+
+                    &_free {
+                        color: #999999;
+                        @include mixins.font(16px, 500, 20px);
+                        font-family: Celebri Sans Pro;
+                    }
+                }
+
+                &_h1 {
+                    @include mixins.font(40px, 900, 50px);
+                    font-family: Celebri Sans Pro;
+                    color: #2A2A2A;
+                }
+
+                &_button {
+                    @include mixins.font(16px, 700, 20px);
+                    font-family: Celebri Sans Pro;
+                    color: #FFFFFF;
+                    background-color: #7FAD39;
+                    padding: 17px 20px 18px 20px;
+                    width: 141px;
+                    height: 50px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                &_button:hover {
+                    background-color: #57801a;
+                }
+            }
+
+            &_right {
+                margin-left: 309px;
+            }
+        }
+    }
+
+    &__bottom {
+        @include mixins.flex(space-between, center);
+        gap: 20px;
+
+        &_fruit {
+            width: 270px;
+            height: 270px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 19px;
+            justify-content: center;
+
+            &_button {
+                width: 230px;
+                height: 43px;
+                background-color: #FFFFFF;
+                border: none;
+                @include mixins.font(20px, 900, 50px);
+                text-align: center;
+                cursor: pointer;
+                font-family: Celebri Sans Pro;
+            }
+
+            &_button:hover {
+                background-color: #7FAD39;
+            }
+        }
+    }
+}
