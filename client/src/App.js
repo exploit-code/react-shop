@@ -5,6 +5,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PrivateRoute from './routes/PrivateRoute';
 import Basket from './components/Basket/Basket';
+import Footer from './components/Footer/Footer';
 
 function App() {
     const router = createBrowserRouter([
