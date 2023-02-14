@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/UserContext';
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 import Categories from "../../components/Categories/Categories";
 import PartWithBannersAndFilters from "../PartWithBannersAndFilters/PartWithBannersAndFilters";
+import BuyTogether from '../BuyTogether/BuyTogether'
 
 const Home = () => {
     const { user } = useContext(AuthContext);
@@ -18,6 +19,7 @@ const Home = () => {
                 <FeaturedProducts id="con3" type="review" />
                 <FeaturedProducts type="featured" />
                 <PartWithBannersAndFilters />
+                <BuyTogether />
             </div>
 
 
