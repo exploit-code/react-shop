@@ -3,6 +3,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import classNames from 'classnames';
 import Catalog from '../Catalog/Catalog';
+import FeaturedProducts from '../FeaturedProducts/FeaturedProducts'
 
 function Layout({ children }) {
     return (
@@ -10,9 +11,10 @@ function Layout({ children }) {
             <Header />
             <main className={classNames('container', 'main')}>{children}</main>
             <Catalog />
+            <FeaturedProducts />
             <Footer />
         </>
     );
 }
 
-export default Layout
+export default Layout;
