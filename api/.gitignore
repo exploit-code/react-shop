@@ -1,4 +1,21 @@
+############################
+# OS X
+############################
 
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+
+
+############################
+# Linux
+############################
+
+*~
 
 
 ############################
@@ -45,6 +62,17 @@ $RECYCLE.BIN/
 
 
 ############################
+# Logs and databases
+############################
+
+.tmp
+*.log
+*.sql
+data/development
+data/production
+
+
+############################
 # Misc.
 ############################
 
@@ -63,8 +91,10 @@ lcov.info
 pids
 logs
 results
+build
 node_modules
 .node_history
+
 
 ############################
 # Tests
@@ -72,6 +102,20 @@ node_modules
 
 testApp
 coverage
+
+
+############################
+# Front-end workflow
+############################
+
+bower_components
+
+
+############################
+# Strapi Studio
+############################
+
+config/studio.json
 
 
 /.tmp/
