@@ -20,7 +20,7 @@ function App() {
                 },
                 {
                     path: '/basket',
-                    element: <PrivateRoute><Basket /></PrivateRoute>
+                    element: <Basket />
                 },
                 {
                     path: 'login',
