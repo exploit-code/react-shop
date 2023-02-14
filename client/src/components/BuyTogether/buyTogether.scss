@@ -1,11 +1,21 @@
-@use '../../mixins.scss';
+@mixin flex ($jc, $ai) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin font ($s, $w, $h) {
+    font-size: $s;
+    font-weight: $w;
+    line-height: $h;
+}
 
 .buytogether {
     margin-top: 80px;
     
     &__content__heading {
         font-family: 'Cerebri Sans Pro';
-        @include mixins.font(24px, 400, 50px);
+        @include font(24px, 400, 50px);
         font-style: normal;
               
         color: #2A2A2A;
@@ -19,7 +29,7 @@
     }
     &__content__text {
         font-family: 'Cerebri Sans Pro';
-        @include mixins.font(20px, 400, 30px);
+        @include font(20px, 400, 30px);
         letter-spacing: 0em;
         text-align: left;
         color: #2A2A2A;
@@ -27,7 +37,7 @@
         
     }
     &__content__boxProds{
-        @include mixins.flex(space-evenly, _);
+        @include flex(space-evenly, _);
         flex-direction: row;
         flex-wrap: wrap;
         
@@ -39,17 +49,17 @@
         gap: 20px;
     }
     &__content__boxProd{
-        @include mixins.flex(_, flex-start);
+        @include flex(_, flex-start);
         flex-direction: column;
         gap: 20px;
     }
     &__content__boxleft {
-        @include mixins.flex(flex-end, center);
+        @include flex(flex-end, center);
         flex-direction: row;
         width: 110px;
     }
     &__content__boxright {
-        @include mixins.flex(_, center);
+        @include flex(_, center);
         background: var(--white);
         width: 70%;
         flex-direction: column;
@@ -64,7 +74,7 @@
     }
 }
 .alignCenter {
-    @include mixins.flex(space-evenly, center);
+    @include flex(space-evenly, center);
     flex-direction: column;
     align-content: center;
 }
