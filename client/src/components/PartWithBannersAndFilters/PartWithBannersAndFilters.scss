@@ -1,0 +1,286 @@
+@import url('https://fonts.cdnfonts.com/css/cerebri-sans');
+
+.containerPartWithBannersAndFilters {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.bannerBlock,
+.filterBlock {
+  font-family: 'Cerebri Sans', sans-serif;
+}
+
+.bannerBlock {
+  margin-top: 108px;
+  display: flex;
+  justify-content: center;
+}
+
+.bannerBlock__item {
+  position: relative;
+  width: 560px;
+  height: 263px;
+
+  &:nth-child(1) {
+    margin-right: 10px;
+  }
+
+  &:nth-child(2) {
+    margin-left: 10px;
+  }
+}
+
+.bannerBlock__item_img {
+  width: inherit;
+}
+
+.bannerBlock__item_titleLeft {
+  position: absolute;
+  top: 42px;
+  left: 290px;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 34px;
+  text-transform: capitalize;
+  color: #FFFFFF;
+}
+
+.bannerBlock__item_textLeft {
+  position: absolute;
+  top: 80px;
+  left: 290px;
+  font-size: 20px;
+  line-height: 34px;
+  color: #FFFFFF;
+}
+
+.bannerBlock__item_btnLeft {
+  cursor: pointer;
+  position: absolute;
+  top: 147px;
+  left: 290px;
+  width: 141px;
+  height: 50px;
+  border: none;
+  background: #7FAD39;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+
+.bannerBlock__item_titleRight {
+  position: absolute;
+  top: 23px;
+  left: 290px;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 34px;
+  text-transform: capitalize;
+  color: #FFFFFF;
+}
+
+.bannerBlock__item_textRight {
+  position: absolute;
+  top: 94px;
+  left: 290px;
+  font-size: 20px;
+  line-height: 34px;
+  color: #FFFFFF;
+}
+
+.bannerBlock__item_btnRight {
+  cursor: pointer;
+  position: absolute;
+  top: 155px;
+  left: 290px;
+  width: 141px;
+  height: 50px;
+  border: none;
+  background: #7FAD39;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.filterBlock {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+// latestProduct
+
+.filterBlock__latestProduct {
+  width: 368px;
+}
+
+.filterBlock__latestProduct_titleBlock {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filterBlock__latestProduct_titleBlock_title {
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 50px;
+  color: #2A2A2A;
+}
+
+.filterBlock__latestProduct_titleBlock_arrowLeft {
+  cursor: pointer;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.filterBlock__latestProduct_titleBlock_arrowRight {
+  cursor: pointer;
+  width: 50px;
+}
+
+.filterBlock__latestProduct_item_left_img {
+  width: 110px;
+}
+
+.filterBlock__latestProduct_item {
+  display: flex;
+}
+
+.filterBlock__latestProduct_item_right_name {
+  margin-left: 20px;
+  margin-top: 32px;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #2A2A2A;
+}
+
+.filterBlock__latestProduct_item_right_price {
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #2A2A2A;
+}
+
+// topRatedProducts
+
+.filterBlock__topRatedProducts {
+  width: 368px;
+}
+
+.filterBlock__topRatedProducts_titleBlock {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filterBlock__topRatedProducts_titleBlock_title {
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 50px;
+  color: #2A2A2A;
+}
+
+.filterBlock__topRatedProducts_titleBlock_arrowLeft {
+  cursor: pointer;
+  width: 50px;
+  margin-right: 10px;
+}
+
+
+.filterBlock__topRatedProducts_item_left_img {
+  width: 110px;
+}
+
+.filterBlock__topRatedProducts_item {
+  display: flex;
+}
+
+.filterBlock__topRatedProducts_item_right_name {
+  margin-left: 20px;
+  margin-top: 32px;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #2A2A2A;
+}
+
+.filterBlock__topRatedProducts_item_right_price {
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #2A2A2A;
+}
+
+// reviewProducts
+
+.filterBlock__reviewProducts {
+  width: 368px;
+}
+
+.filterBlock__reviewProducts_titleBlock {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filterBlock__reviewProducts_titleBlock_title {
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 50px;
+  color: #2A2A2A;
+}
+
+.filterBlock__reviewProducts_titleBlock_arrowLeft {
+  cursor: pointer;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.filterBlock__reviewProducts_titleBlock_arrowRight {
+  cursor: pointer;
+  width: 50px;
+}
+
+.filterBlock__reviewProducts_item_left_img {
+  width: 110px;
+}
+
+.filterBlock__reviewProducts_item {
+  display: flex;
+}
+
+.filterBlock__reviewProducts_item_right_name {
+  margin-left: 20px;
+  margin-top: 32px;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #2A2A2A;
+}
+
+.filterBlock__reviewProducts_item_right_price {
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #2A2A2A;
+}
