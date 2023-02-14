@@ -1,14 +1,79 @@
+@use '../../mixins.scss';
+
+@font-face {
+    font-family: 'Celebri Sans Pro';
+    src: url(../../fonts/Cerebri.Sans.Pro/CerebriSansPro-Medium.ttf) format('truetype');
+}
+
 .header {
-    padding: 24px 0;
-    background-color: black;
+    background-color: var(--black-bg);
+    padding: 14px 0;
 
     &__content {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;gap: 16px;
+        @include mixins.flex(space-between, center);
+        color: var(--white);
+
+        &_left {
+            @include mixins.flex(center, center);
+            gap: 20px;
+
+            &_p {
+                @include mixins.font(13px, 700, 100%);
+                font-family: Celebri Sans Pro;
+            }
+
+            &_stick {
+                height: 14px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.5);
+            }
+
+            &_email {
+                @include mixins.flex(center, center);
+                gap: 8px;
+            }
+        }
+
+        &_right {
+            @include mixins.flex(center, center);
+            gap: 40px;
+
+            &_socnet {
+                @include mixins.flex(center, center);
+                gap: 20px;
+            }
+
+            &_socnet_link {
+                cursor: pointer;
+            }
+
+            &_socnet_select {
+                border: none;
+                color: #FFFFFF;
+                background-color: var(--black-bg);
+                cursor: pointer;
+            }
+
+            &_socnet_div_select {
+                gap: 9px;
+                @include mixins.flex(center, center);
+                font-family: Celebri Sans Pro;
+            }
+        }
     }
 
-    &__link {
-        color: white;
+    &-login {
+        @include mixins.flex(center, center);
+        @include mixins.font(12px, 700, 100%);
+        font-family: Celebri Sans Pro;
+        gap: 10px;
+        border: none;
+        background: none;
+        color: var(--white);
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+
     }
+
 }
