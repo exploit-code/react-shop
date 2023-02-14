@@ -6,4 +6,33 @@
     &__title {
         text-align: center;
     }
+
+    &__input {
+        padding: 8px 16px;
+        border: 1px solid var(--green);
+        border-radius: 5px;
+        color: var(--black);
+    }
+
+    &__btn {
+        background-color: var(--green);
+        border: none;
+        padding: 8px;
+        border-radius: 5px;
+        color: var(--white);
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--light-green);
+        }
+    }
+
+    &__link {
+        color: var(--black);
+        width: max-content;
+
+        &:hover {
+            color: var(--light-green);
+        }
+    }
 }

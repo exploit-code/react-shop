@@ -1,0 +1,83 @@
+@mixin flex ($jc, $ai) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin font ($s, $w, $h) {
+    font-size: $s;
+    font-weight: $w;
+    line-height: $h;
+}
+
+.buytogether {
+    margin-top: 80px;
+    
+    &__content__heading {
+        font-family: 'Cerebri Sans Pro';
+        @include font(24px, 400, 50px);
+        font-style: normal;
+              
+        color: #2A2A2A;
+
+    }
+    &__content__shortLine {
+        width: 80%;
+        height: 5px;
+        background:var(--green);
+        margin-bottom: 44px;
+    }
+    &__content__text {
+        font-family: 'Cerebri Sans Pro';
+        @include font(20px, 400, 30px);
+        letter-spacing: 0em;
+        text-align: left;
+        color: #2A2A2A;
+        text-transform: capitalize;
+        
+    }
+    &__content__boxProds{
+        @include flex(space-evenly, _);
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+    }
+    
+    &__content__box {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    &__content__boxProd{
+        @include flex(_, flex-start);
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__content__boxleft {
+        @include flex(flex-end, center);
+        flex-direction: row;
+        width: 110px;
+    }
+    &__content__boxright {
+        @include flex(_, center);
+        background: var(--white);
+        width: 70%;
+        flex-direction: column;
+        
+    }
+    &__content__img{
+        max-width: 100%;
+        transition: transform .3s;
+        &:hover{
+            transform: scale(1.03)
+        }
+    }
+}
+.alignCenter {
+    @include flex(space-evenly, center);
+    flex-direction: column;
+    align-content: center;
+}
+.bold{
+    font-weight: 900;
+}
