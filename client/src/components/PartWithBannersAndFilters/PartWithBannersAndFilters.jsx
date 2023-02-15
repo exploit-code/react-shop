@@ -2,6 +2,7 @@ import '../../normalize.css';
 import './PartWithBannersAndFilters.scss';
 import './media_PartWithBannersAndFilters.scss';
 
+import {AuthContext} from "../../context/UserContext";
 
 import banner_1 from './img/banner_1.png';
 import banner_2 from './img/banner_2.png';
@@ -11,20 +12,25 @@ import arrowLeft from './img/arrow_left.png';
 import apple from './img/apple.png';
 import blueberry from './img/blueberry.png';
 import capsicumGreen from './img/capsicum_green.png';
-import cauliflower from './img/cauliflower.png';
+// import cauliflower from './img/cauliflower.png';
 import nut from './img/nut.png';
-import organicQuince from './img/organic_quince.png';
+// import organicQuince from './img/organic_quince.png';
 import pomegranate from './img/pomegranate.png';
 import raspberry from './img/raspberry.png';
-import tomato from './img/tomato.png';
+// import tomato from './img/tomato.png';
+import { productItem } from "../AddToCart/itemProduct";
+import { useContext } from "react";
+
 
 const PartWithBannersAndFilters = () => {
+  const { onAddToCart } = useContext(AuthContext)
+
   return (
     <>
       <div className="containerPartWithBannersAndFilters">
         <div className="bannerBlock">
           <div className="bannerBlock__item">
-            <img className='bannerBlock__item_img' src={banner_1} alt="banner 1" />
+            <img className='bannerBlock__item_img' src={banner_1} alt="banner 1"/>
             <h2 className='bannerBlock__item_titleLeft'>summer fruits</h2>
             <p className="bannerBlock__item_textLeft">100% all natural fruit juice</p>
             <button className="bannerBlock__item_btnLeft">SHOP NOW</button>
@@ -44,33 +50,17 @@ const PartWithBannersAndFilters = () => {
               <img className="filterBlock__latestProduct_titleBlock_arrowLeft" src={arrowLeft} alt="arrow left" ></img>
               <img className="filterBlock__latestProduct_titleBlock_arrowRight" src={arrowRight} alt="arrow right"></img>
             </div>
-            <div className="filterBlock__latestProduct_item">
+            {productItem.map((obj, index) => (
+            <div key={index} onClick={() => onAddToCart(obj)} className="filterBlock__latestProduct_item">
               <div className="filterBlock__latestProduct_item_left">
-                <img className="filterBlock__latestProduct_item_left_img" src={cauliflower} alt="cauliflower" />
+                <img className="filterBlock__latestProduct_item_left_img" src={obj.imageUrl} alt={obj.title}/>
               </div>
               <div className="filterBlock__latestProduct_item_right">
-                <div className="filterBlock__latestProduct_item_right_name">Cauliflower</div>
-                <div className="filterBlock__latestProduct_item_right_price">$30.00</div>
+                <div className="filterBlock__latestProduct_item_right_name">{obj.title}</div>
+                <div className="filterBlock__latestProduct_item_right_price">${obj.price}</div>
               </div>
             </div>
-            <div className="filterBlock__latestProduct_item">
-              <div className="filterBlock__latestProduct_item_left">
-                <img className="filterBlock__latestProduct_item_left_img" src={organicQuince} alt="Organic quince" />
-              </div>
-              <div className="filterBlock__latestProduct_item_right">
-                <div className="filterBlock__latestProduct_item_right_name">Organic quince</div>
-                <div className="filterBlock__latestProduct_item_right_price">$30.00</div>
-              </div>
-            </div>
-            <div className="filterBlock__latestProduct_item">
-              <div className="filterBlock__latestProduct_item_left">
-                <img className="filterBlock__latestProduct_item_left_img" src={tomato} alt="tomato hybrid" />
-              </div>
-              <div className="filterBlock__latestProduct_item_right">
-                <div className="filterBlock__latestProduct_item_right_name">Tomato hybrid</div>
-                <div className="filterBlock__latestProduct_item_right_price">$30.00</div>
-              </div>
-            </div>
+              ))}
           </div>
 
           <div className="filterBlock__topRatedProducts">

@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AuthContext } from "./context/UserContext";
 import Layout from './Layout/Layout';
 import Home from './components/HomePage/Home';
 import Login from './components/Login/Login';
@@ -11,6 +12,7 @@ import Home_backend from "./components/HomePage/Home_backend";
 import Catalog from "./components/Catalog/Catalog";
 import Product_verstka from "./components/ProductPage/Product_verstka";
 import Product from './components/ProductPage__back/Product'
+
 
 function App() {
     const router = createBrowserRouter([
