@@ -17,7 +17,11 @@ const Header = () => {
         <header className='header'>
             <div className='header__content container'>
                 <Link className='header__link' to='/'>Home</Link>
+                <Link className='header__link' to='/banan'>ProductPage</Link>
+                <Link className='header__link' to='/back'>Backend</Link>
                 <Link className='header__link' to='/basket'>Basket</Link>
+
+
                 {
                     user?.email ? <Link className='header__link' onClick={handleSignOut}>Log Out</Link> : <Link className='header__link' to='/login'>Login</Link>
                 }

@@ -3,7 +3,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import classNames from 'classnames';
 import Catalog from '../Catalog/Catalog';
-import FeaturedProducts from '../FeaturedProducts/FeaturedProducts'
+import FeaturedProducts from '../FeaturedProducts__back/FeaturedProducts'
 
 function Layout({ children }) {
     return (

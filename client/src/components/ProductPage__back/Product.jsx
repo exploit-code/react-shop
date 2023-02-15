@@ -8,6 +8,8 @@ import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartReducer";
+import BuyTogether from "../BuyTogether/BuyTogether";
+import Button from "../Button/Button";
 
 const Product = () => {
   const id = useParams().id;
@@ -78,32 +80,19 @@ const Product = () => {
             >
               <AddShoppingCartIcon /> ADD TO CART
             </button>
-            <div className="links">
-              <div className="item">
-                <FavoriteBorderIcon /> ADD TO WISH LIST
-              </div>
-              <div className="item">
-                <BalanceIcon /> ADD TO COMPARE
-              </div>
-            </div>
             <div className="info">
               <span>Название: Капуста</span>
               <span>Категория: овощи</span>
               <span>Type: latest</span>
             </div>
             <hr />
-            <div className="info">
-              <span>DESCRIPTION</span>
-              <hr />
-              <span>ADDITIONAL INFORMATION</span>
-              <hr />
-              <span>FAQ</span>
-            </div>
           </div>
         </>
       )}
+
     </div>
+
   );
 };
 
-export default Products;
+export default Product;
