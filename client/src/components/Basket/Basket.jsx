@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext} from "../../context/UserContext";
 import './basket-style.scss';
 import Raspberry from './img/raspberry.png'
 import BasketPng from './img/basket.png'
 
 const Basket = () => {
+    const { cartItems } = useContext(AuthContext)
     return (
         <>
             <main className="page-basket-wrp">
@@ -17,33 +19,17 @@ const Basket = () => {
                         </div>
                     </header>
                     <section className='basket-products'>
-                        <div className="basket-items-wrp">
-                            <img src={Raspberry} alt="img" />
-                            <div className='basket-item'>
-                                <h4 className='basket-item-title'>
-                                    Fresh Raspberry
-                                </h4>
-                                <p className='basket-item-txt'>$30.00</p>
-                            </div>
-                        </div>
-                        <div className="basket-items-wrp">
-                            <img src={Raspberry} alt="img" />
-                            <div className='basket-item'>
-                                <h4 className='basket-item-title'>
-                                    Fresh Raspberry
-                                </h4>
-                                <p className='basket-item-txt'>$30.00</p>
-                            </div>
-                        </div>
-                        <div className="basket-items-wrp">
-                            <img src={Raspberry} alt="img" />
-                            <div className='basket-item'>
-                                <h4 className='basket-item-title'>
-                                    Fresh Raspberry
-                                </h4>
-                                <p className='basket-item-txt'>$30.00</p>
-                            </div>
-                        </div>
+                        {cartItems.map((obj, index) => (
+                          <div key={index} className="basket-items-wrp">
+                              <img width={110} height={110} src={obj.imageUrl} alt={obj.title}/>
+                              <div className='basket-item'>
+                                  <h4 className='basket-item-title'>
+                                      {obj.title}
+                                  </h4>
+                                  <p className='basket-item-txt'>${obj.price}</p>
+                              </div>
+                          </div>
+                        ))}
                     </section>
                     <div className='basket-btn-wrp'>
                         <button className='basket-btn'>
