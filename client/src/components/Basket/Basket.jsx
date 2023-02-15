@@ -9,11 +9,11 @@ const Basket = () => {
             <main className="page-basket-wrp">
                 <div className="basket">
                     <header className='head-basket-wrp'>
-                        <h3>
+                        <h3 className='head-basket-title'>
                             My Cart
                         </h3>
-                        <div>
-                            <p>Total Price: $<span>333.00</span></p>
+                        <div className='head-basket-txt'>
+                            <p className='head-basket-txt_2'>Total Price: $<span>333.00</span></p>
                         </div>
                     </header>
                     <section className='basket-products'>
@@ -56,6 +56,7 @@ const Basket = () => {
                             <h4 className='bskt-title'>IS EMPTY</h4>
                             <p className='bskt-txt'>Add something to order</p>
                             <button className='bskt-empty-btn'>
+                                <a href=""></a>
                                 SHOP NOW
                             </button>
                         </div>
