@@ -9,7 +9,7 @@ const Layout = () => {
     return (
         <>
             <Header></Header>
-            <UpMainPage />
+            {/* <UpMainPage /> */}
             <main className='main container'>
                 <Outlet></Outlet>
             </main>
