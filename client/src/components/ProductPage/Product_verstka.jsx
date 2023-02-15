@@ -19,7 +19,7 @@ const _getDefaultProps = () => {
   }
 }
 
-export const Product_verstka = (props) => {
+export const Product = (props) => {
   // проверяем пустые ли пропсы, если да, то заполняем данными по умолчанию
   const { product, addToCart } =
     JSON.stringify(props) === JSON.stringify({}) ? _getDefaultProps() : props
@@ -27,7 +27,7 @@ export const Product_verstka = (props) => {
   return (
     <div className='product'>
       <div className='product__content'>
-        <a className='product__content__link' href='catalog.html'>
+        <a className='product__content__link' href='/catalog'>
           Back to catalog
         </a>
         <div className='alignLeft'>
@@ -39,16 +39,15 @@ export const Product_verstka = (props) => {
 
         <div className='product__content__box'>
           <div className='product__content__boxleft'>
-            <div className='product__content__boxleftfirst'>
-              <a href='#'>
-                <img
-                  className='product__content__img'
-                  src={`img/${product.img}`}
-                  alt='product_photo'
-                ></img>
-              </a>
-              <Button text='ADD TO CART' />
-            </div>
+            {/* <a href='#'> */}
+            <img
+              className='product__content__img'
+              src={`../img/${product.img}`}
+              alt={product.name}
+            ></img>
+            {/* </a> */}
+            <Button text='ADD TO CART' onClick={addToCart} />
+
             <div className='price_text'>${product.price}</div>
           </div>
 
@@ -61,11 +60,11 @@ export const Product_verstka = (props) => {
             </div>
           </div>
         </div>
-         // нижний блок Покупают вместе - отдельный компонент
+        {/* нижний блок Покупают вместе - отдельный компонент */}
         <BuyTogether />
       </div>
     </div>
   )
 }
 
-export default Product_verstka
+export default Product

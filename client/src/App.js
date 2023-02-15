@@ -10,54 +10,58 @@ import Products from "./components/ProductsPage/Products";
 import Home_backend from "./components/HomePage/Home_backend";
 import Catalog from "./components/Catalog/Catalog";
 import Product_verstka from "./components/ProductPage/Product_verstka";
-import Product from "./components/ProductPage__back/Product";
+import Product from './components/ProductPage__back/Product'
 
 function App() {
-    const router = createBrowserRouter([
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Layout />,
+      children: [
         {
-            path: '/',
-            element: <Layout />,
-            children: [
-                {
-                    path: '/',
-                    element: <Home />
-                },
-                {
-                    path: '/back',
-                    element: <Home_backend />
-                },
-                {
-                    path: '/banan',
-                    element: <Product_verstka />
-                },
-                {
-                    path: '/basket',
-                    element: <Basket />
-                },
-                {
-                    path: 'login',
-                    element: <Login />
-                },
-                {
-                    path: 'register',
-                    element: <Register />
-                },
-                {
-                    path: "/products/:id",
-                    element: <Products />,
-                },
-                {
-                    path: "/product/:id",
-                    element: <Product />,
-                },
-            ]
-        }
-    ])
-    return (
-        <div className="app">
-            <RouterProvider router={router}></RouterProvider>
-        </div>
-    );
+          path: '/',
+          element: <Home />,
+        },
+        {
+          path: '/back',
+          element: <Home_backend />,
+        },
+        {
+          path: '/banan',
+          element: <Product_verstka />,
+        },
+        {
+          path: '/basket',
+          element: <Basket />,
+        },
+        {
+          path: 'login',
+          element: <Login />,
+        },
+        {
+          path: 'register',
+          element: <Register />,
+        },
+        {
+          path: '/products/:id',
+          element: <Products />,
+        },
+        {
+          path: 'catalog',
+          element: <Catalog />,
+        },
+        {
+          path: '/product/:id',
+          element: <Product_verstka />,
+        },
+      ],
+    },
+  ])
+  return (
+    <div className='app'>
+      <RouterProvider router={router}></RouterProvider>
+    </div>
+  )
 }
 
 export default App;
