@@ -21,8 +21,8 @@ const Categories = () => {
       <div className="col ">
         <div className="row">
           <img
-              src="http://localhost:1337/uploads/dried_fruit_cat_461137b72f.jpg?updated_at=2023-02-15T03:03:03.232Z"
-              alt=""
+            src="http://localhost:1337/uploads/dried_fruit_cat_461137b72f.jpg?updated_at=2023-02-15T03:03:03.232Z"
+            alt=""
           />
           <button>
             <Link className="link" to="/products/2">
@@ -34,8 +34,8 @@ const Categories = () => {
       <div className="col ">
         <div className="row">
           <img
-              src="http://localhost:1337/uploads/vegetables_cat_f04de0f086.jpg?updated_at=2023-02-15T03:03:03.768Z"
-              alt=""
+            src="http://localhost:1337/uploads/vegetables_cat_f04de0f086.jpg?updated_at=2023-02-15T03:03:03.768Z"
+            alt=""
           />
           <button>
             <Link className="link" to="/products/3">
@@ -47,8 +47,8 @@ const Categories = () => {
       <div className="col ">
         <div className="row">
           <img
-              src="http://localhost:1337/uploads/drink_fruits_cat_4d70d3108a.jpg?updated_at=2023-02-15T03:03:03.738Z"
-              alt=""
+            src="http://localhost:1337/uploads/drink_fruits_cat_4d70d3108a.jpg?updated_at=2023-02-15T03:03:03.738Z"
+            alt=""
           />
           <button>
             <Link className="link" to="/products/4">

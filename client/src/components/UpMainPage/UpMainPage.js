@@ -5,7 +5,7 @@ import heartIcon from '../../images/heartIcon.svg';
 import cartIcon from '../../images/cartIcon.svg';
 import callIcon from '../../images/callIcon.svg';
 import BannerMainPage from '../BannerMainPage/BannerMainPage.js';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -31,7 +31,7 @@ const UpMainPage = () => {
                 </div>
                 <div className='upmainpage__column_center'>
                     <div className='upmainpage__column_center_routing'>
-                        <a href='*' className='upmainpage__column_center_routing_link'>HOME</a>
+                        <Link href='*' className='upmainpage__column_center_routing_link' to='/'>HOME</Link>
                         <a href='*' className='upmainpage__column_center_routing_link'>SHOP</a>
                         <a href='*' className='upmainpage__column_center_routing_link'>PAGES</a>
                         <a href='*' className='upmainpage__column_center_routing_link'>BLOG</a>
@@ -52,10 +52,10 @@ const UpMainPage = () => {
                             <img src={heartIcon} alt='heart'></img>
                             <div className='upmainpage__column_right_favoritems_circle'>{numberfavor + 2}</div>
                         </div>
-                        <div className='upmainpage__column_right_favoritems_cart'>
+                        <Link className='upmainpage__column_right_favoritems_cart' to='/basket'>
                             <img src={cartIcon} alt='cart'></img>
                             <div className='upmainpage__column_right_favoritems_circle'>{numberfavor}</div>
-                        </div>
+                        </Link>
                         <p className='upmainpage__column_right_favoritems_p'>item: <span className='upmainpage__column_right_favoritems_span'>$150.00</span></p>
                     </div>
                     <div className='upmainpage__column_right_info'>
