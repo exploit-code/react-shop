@@ -13,11 +13,7 @@ import Product_verstka from "./components/ProductPage/Product_verstka";
 import Product from './components/ProductPage__back/Product'
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Layout />,
-      children: [
+    const router = createBrowserRouter([
         {
             path: '/',
             element: <Layout />,
