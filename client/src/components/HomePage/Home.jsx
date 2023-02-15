@@ -6,14 +6,13 @@ import Categories from "../Categories__back/Categories";
 import PartWithBannersAndFilters from "../PartWithBannersAndFilters/PartWithBannersAndFilters";
 import Blog from '../Blog/Blog';
 import Catalog from "../Catalog/Catalog";
+import BannerMainPage from '../BannerMainPage/BannerMainPage'
 
 const Home = () => {
-    const { user } = useContext(AuthContext);
-
     return (
         <div>
             <div className="contain" >
-                <h2>welcome {user?.email}</h2>
+                <BannerMainPage />
                 <Categories />
                 {/*<FeaturedProducts__back id="con1" type="latest" />*/}
                 {/*<FeaturedProducts__back id="con2" type="top-rated" />*/}
@@ -23,8 +22,6 @@ const Home = () => {
                 <Catalog />
                 <Blog />
             </div>
-
-
         </div>
     );
 };

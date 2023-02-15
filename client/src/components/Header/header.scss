@@ -6,74 +6,259 @@
 }
 
 .header {
-    background-color: var(--black-bg);
-    padding: 14px 0;
+    // background-color: var(--black-bg);
+    // padding: 14px 0;
 
-    &__content {
-        @include mixins.flex(space-between, center);
-        color: var(--white);
+    // &__content {
+    //     padding: 20px 0;
+    //     @include mixins.flex(space-between, center);
+    //     color: var(--white);
 
-        &_left {
-            @include mixins.flex(center, center);
-            gap: 20px;
 
-            &_p {
-                @include mixins.font(13px, 700, 100%);
-                font-family: Celebri Sans Pro;
-            }
+    //     &--sup {
+    //         background-color: var(--black-bg);
+    //     }
 
-            &_stick {
-                height: 14px;
-                background-color: rgba(255, 255, 255, 0.5);
-                border: 1px solid rgba(255, 255, 255, 0.5);
-            }
+    //     &--sub {
+    //         background-color: var(--white);
+    //     }
 
-            &_email {
-                @include mixins.flex(center, center);
-                gap: 8px;
-            }
+
+
+
+    //     &_left {
+    //         @include mixins.flex(center, center);
+    //         gap: 20px;
+
+    //         &_p {
+    //             @include mixins.font(13px, 700, 100%);
+    //             font-family: Celebri Sans Pro;
+    //         }
+
+    //         &_stick {
+    //             height: 14px;
+    //             background-color: rgba(255, 255, 255, 0.5);
+    //             border: 1px solid rgba(255, 255, 255, 0.5);
+    //         }
+
+    //         &_email {
+    //             @include mixins.flex(center, center);
+    //             gap: 8px;
+    //         }
+    //     }
+
+    //     &_right {
+    //         @include mixins.flex(center, center);
+    //         gap: 40px;
+
+    //         &_socnet {
+    //             @include mixins.flex(center, center);
+    //             gap: 20px;
+    //         }
+
+    //         &_socnet_link {
+    //             cursor: pointer;
+    //         }
+
+    //         &_socnet_select {
+    //             border: none;
+    //             color: #FFFFFF;
+    //             background-color: var(--black-bg);
+    //             cursor: pointer;
+    //         }
+
+    //         &_socnet_div_select {
+    //             gap: 9px;
+    //             @include mixins.flex(center, center);
+    //             font-family: Celebri Sans Pro;
+    //         }
+    //     }
+    // }
+
+    // &__logo {
+    //     @include mixins.font(36px, 700, 100%);
+    //     color: var(--black)
+    // }
+
+    // &__nav {
+    //     display: flex;
+
+    //     &-list {
+    //         display: flex;
+    //         gap: 35px;
+    //     }
+
+    //     &-link {
+    //         @include mixins.font(16px, 500, 100%);
+    //         color: var(--black);
+
+    //         &:hover {
+    //             color: var(--green);
+    //         }
+
+
+    //     }
+    // }
+
+    // &-login {
+    //     @include mixins.flex(center, center);
+    //     @include mixins.font(12px, 700, 100%);
+    //     font-family: Celebri Sans Pro;
+    //     gap: 10px;
+    //     border: none;
+    //     background: none;
+    //     color: var(--white);
+    //     position: relative;
+    //     z-index: 1;
+    //     cursor: pointer;
+
+    // }
+
+
+    &__box {
+        padding: 20px 0;
+
+        &--black {
+            background-color: var(--black);
         }
 
-        &_right {
-            @include mixins.flex(center, center);
-            gap: 40px;
-
-            &_socnet {
-                @include mixins.flex(center, center);
-                gap: 20px;
-            }
-
-            &_socnet_link {
-                cursor: pointer;
-            }
-
-            &_socnet_select {
-                border: none;
-                color: #FFFFFF;
-                background-color: var(--black-bg);
-                cursor: pointer;
-            }
-
-            &_socnet_div_select {
-                gap: 9px;
-                @include mixins.flex(center, center);
-                font-family: Celebri Sans Pro;
-            }
+        &--white {
+            background-color: var(--white);
         }
     }
 
-    &-login {
-        @include mixins.flex(center, center);
-        @include mixins.font(12px, 700, 100%);
-        font-family: Celebri Sans Pro;
-        gap: 10px;
-        border: none;
-        background: none;
-        color: var(--white);
-        position: relative;
-        z-index: 1;
-        cursor: pointer;
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
+    &__fx {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__socnet {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__login {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &-text {
+            color: #fff;
+            // font-weight: 500;
+        }
+
+        &-icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+
+
+    &__logo {
+        @include mixins.font(36px, 700, 100%);
+        color: #000;
+    }
+
+    &__email {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &-icon {
+            width: 24px;
+            height: auto;
+        }
+
+        &-text {
+            color: #fff;
+            font-weight: 600;
+        }
+    }
+
+    &__delivery {
+        color: #fff;
+        font-weight: 600;
+    }
+
+    &__line {
+        width: 1px;
+        background-color: #999;
+    }
+
+    &__nav {
+        display: flex;
+
+        &-list {
+            display: flex;
+            gap: 35px;
+        }
+
+        &-link {
+            @include mixins.font(16px, 500, 100%);
+            color: var(--black);
+
+            &:hover {
+                color: var(--green);
+            }
+
+
+        }
+    }
+
+    &__info {
+        display: flex;
+        gap: 20px;
+
+        &-likes {
+            position: relative;
+        }
+
+        &-basket {
+            position: relative;
+        }
+
+        &-price {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &-text {
+                color: #999;
+            }
+
+            &-value {
+                color: #000;
+            }
+        }
+
+        &-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        &-count {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: -5px;
+            top: -5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #7FAD39;
+            ;
+            padding: 3px;
+            font-size: 10px;
+            color: white;
+        }
     }
 
 }

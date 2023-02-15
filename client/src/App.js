@@ -15,55 +15,56 @@ import Product from './components/ProductPage__back/Product'
 
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Layout />,
-      children: [
+    const router = createBrowserRouter([
         {
-          path: '/',
-          element: <Home />,
-        },
-        {
-          path: '/back',
-          element: <Home_backend />,
-        },
-        {
-          path: '/banan',
-          element: <Product_verstka />,
-        },
-        {
-          path: '/basket',
-          element: <Basket />,
-        },
-        {
-          path: 'login',
-          element: <Login />,
-        },
-        {
-          path: 'register',
-          element: <Register />,
-        },
-        {
-          path: '/products/:id',
-          element: <Products />,
-        },
-        {
-          path: 'catalog',
-          element: <Catalog />,
-        },
-        {
-          path: '/product/:id',
-          element: <Product_verstka />,
-        },
-      ],
-    },
-  ])
-  return (
-    <div className='app'>
-      <RouterProvider router={router}></RouterProvider>
-    </div>
-  )
+            path: '/',
+            element: <Layout />,
+            children: [
+                {
+                    path: '/',
+                    element: <Home />
+                },
+                {
+                    path: '/back',
+                    element: <Home_backend />
+                },
+                {
+                    path: '/banan',
+                    element: <Product_verstka />
+                },
+                {
+                    path: '/basket',
+                    element: <Basket />
+                },
+                {
+                    path: 'login',
+                    element: <Login />
+                },
+                {
+                    path: 'register',
+                    element: <Register />
+                },
+                {
+                    path: 'likes',
+                    element: <></>
+                },
+                {
+                    path: "/products/:id",
+                    element: <Products />,
+                },
+                {
+                    path: "/product/:id",
+                    element: <Product />,
+                },
+            ]
+        }
+    ])
+    
+    return (
+        <div className="app">
+            <RouterProvider router={router}></RouterProvider>
+        </div>
+    );
 }
 
 export default App;
