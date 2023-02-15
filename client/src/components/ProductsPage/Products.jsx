@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductsList from "../../components/ProductsList/ProductsList";
 import useFetch from "../../hooks/useFetch";
-import "./Products.scss";
+import "./ProductsPage.scss";
 
-const Products = () => {
+const ProductsPage = () => {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState("asc");
@@ -92,4 +92,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductsPage;

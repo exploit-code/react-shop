@@ -5,12 +5,10 @@ import { Link } from "react-router-dom";
 const Categories = () => {
   return (
     <div className="categories">
-      <h1>Categories</h1>
       <div className="col">
-
         <div className="row">
           <img
-            src="http://localhost:1337/uploads/thumbnail_fresh_fruit_cat_7501c8fbcb.png?width=240&height=176"
+            src="http://localhost:1337/uploads/fresh_fruit_cat_5b5ea8e2f7.jpg?updated_at=2023-02-15T03:03:03.793Z"
             alt=""
           />
           <button>
@@ -23,7 +21,7 @@ const Categories = () => {
       <div className="col ">
         <div className="row">
           <img
-              src="http://localhost:1337/uploads/thumbnail_dried_fruit_cat_4022640ca7.jpg?width=240&height=176"
+              src="http://localhost:1337/uploads/dried_fruit_cat_461137b72f.jpg?updated_at=2023-02-15T03:03:03.232Z"
               alt=""
           />
           <button>
@@ -36,7 +34,7 @@ const Categories = () => {
       <div className="col ">
         <div className="row">
           <img
-              src="http://localhost:1337/uploads/thumbnail_vegetables_cat_d97f16a526.png?width=240&height=176"
+              src="http://localhost:1337/uploads/vegetables_cat_f04de0f086.jpg?updated_at=2023-02-15T03:03:03.768Z"
               alt=""
           />
           <button>
@@ -49,7 +47,7 @@ const Categories = () => {
       <div className="col ">
         <div className="row">
           <img
-              src="http://localhost:1337/uploads/thumbnail_drink_fruits_cat_c8e09645af.png?width=240&height=176"
+              src="http://localhost:1337/uploads/drink_fruits_cat_4d70d3108a.jpg?updated_at=2023-02-15T03:03:03.738Z"
               alt=""
           />
           <button>
