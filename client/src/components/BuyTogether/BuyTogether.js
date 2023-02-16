@@ -44,7 +44,7 @@ export const BuyTogether = (props) => {
                 <div className='buytogether__content__box'>
                   <div className='buytogether__content__boxleft'>
                     {/* ссылка на страницу с продуктом */}
-                    <a href={getUrl(`product/${product.id}`)}>
+                    <a href={getUrl(`productpage/${product.id}`)}>
                       <img
                         className='buytogether__content__img'
                         src={`../img/${product.img}`}
