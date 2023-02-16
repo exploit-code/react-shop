@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <>
             <UpMainPage />
-            <BannerMainPage />
+            {/* <BannerMainPage /> */}
             <Categories />
             {/*<FeaturedProducts__back id="con1" type="latest" />*/}
             {/*<FeaturedProducts__back id="con2" type="top-rated" />*/}
