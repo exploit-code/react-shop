@@ -6,9 +6,6 @@ import vegetablesIcon from '../../images/vegetablesIcon.svg';
 import drinkfruitsIcon from '../../images/drinkfruitsIcon.svg';
 
 
-
-
-
 const BannerMainPage = (props) => {
     const categories = ['Fresh Meat',
         'Vegetables',

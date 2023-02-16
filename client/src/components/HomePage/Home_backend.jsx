@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/UserContext';
 
-import FeaturedProducts from "../FeaturedProducts__back/FeaturedProducts";
-import Categories from "../Categories__back/Categories";
+import FeaturedProducts from "../_backend_folder/FeaturedProducts__back/FeaturedProducts";
+import Categories from "../_backend_folder/Categories__back/Categories";
 import PartWithBannersAndFilters from "../PartWithBannersAndFilters/PartWithBannersAndFilters";
 import BuyTogether from '../BuyTogether/BuyTogether'
 import Blog from '../Blog/Blog';

@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProductsList.scss";
 import Card from "../Card__back/Card";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 
 const ProductsList = ({ subCats, maxPrice, sort, catId }) => {
   const { data, loading, error } = useFetch(

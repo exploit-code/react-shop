@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import ProductsList from "../../components/ProductsList/ProductsList";
-import useFetch from "../../hooks/useFetch";
+import ProductsList from "../ProductsList_back/ProductsList";
+import useFetch from "../hooks/useFetch";
 import "./ProductsPage.scss";
 
 const ProductsPage = () => {
