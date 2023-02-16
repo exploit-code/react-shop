@@ -131,6 +131,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
     }
 
     &__fx {
@@ -151,6 +152,7 @@
         &-text {
             color: #fff;
             // font-weight: 500;
+            font-family: Celebri Sans Pro;
         }
 
         &-icon {
@@ -163,6 +165,7 @@
 
     &__logo {
         @include mixins.font(36px, 700, 100%);
+        font-family: Celebri Sans Pro;
         color: #000;
     }
 
@@ -179,12 +182,14 @@
         &-text {
             color: #fff;
             font-weight: 600;
+            font-family: Celebri Sans Pro;
         }
     }
 
     &__delivery {
         color: #fff;
         font-weight: 600;
+        font-family: Celebri Sans Pro;
     }
 
     &__line {
@@ -202,6 +207,7 @@
 
         &-link {
             @include mixins.font(16px, 500, 100%);
+            font-family: Celebri Sans Pro;
             color: var(--black);
 
             &:hover {
@@ -231,10 +237,12 @@
 
             &-text {
                 color: #999;
+                font-family: Celebri Sans Pro;
             }
 
             &-value {
                 color: #000;
+                font-family: Celebri Sans Pro;
             }
         }
 
@@ -258,6 +266,7 @@
             padding: 3px;
             font-size: 10px;
             color: white;
+            font-family: Celebri Sans Pro;
         }
     }
 
