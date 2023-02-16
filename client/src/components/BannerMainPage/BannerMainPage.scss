@@ -17,17 +17,13 @@
     text-decoration: none;
     outline: none;
     list-style: none;
-    width: calc(100% - 30px);
     max-width: 1142px;
     margin: 0 auto;
-
-    @media screen and (min-width: 768px) {
-        width: calc(100% - 60px);
-    }
 
     &__top {
         @include mixins.flex(space-between, center);
         gap: 20px;
+        margin-top: 20px;
 
         &_list {
             width: 270px;
