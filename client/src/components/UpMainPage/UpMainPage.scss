@@ -8,14 +8,19 @@
 
 .upmainpage {
     @include mixins.flex(space-between, center);
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    outline: none;
-    list-style: none;
-    max-width: 1142px;
-    margin: 0 auto;
-    margin-top: 12px;
+    width: 100%;
+    // padding: 0;
+    // box-sizing: border-box;
+    // text-decoration: none;
+    // outline: none;
+    // list-style: none;
+    // max-width: 1142px;
+    // margin: 0 auto;
+    // margin-top: 12px;
+
+    // @media screen and (min-width: 768px) {
+    //     width: calc(100% - 60px);
+    // }
 
     &__column {
         &_left {
@@ -49,6 +54,7 @@
             display: flex;
             flex-direction: column;
             gap: 33px;
+            // padding-top: 17px;
 
             &_search {
                 width: 621px;
@@ -119,6 +125,7 @@
             display: flex;
             flex-direction: column;
             gap: 27px;
+            // padding-top: 17px;
 
             &_favoritems {
                 @include mixins.flex(space-between, center);

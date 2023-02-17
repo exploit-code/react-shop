@@ -10,50 +10,58 @@ import Products from "./components/_backend_folder/ProductsPage_back/Products";
 
 import Home_backend from "./components/HomePage/Home_backend";
 import Catalog from "./components/Catalog/Catalog";
-// import Product_verstka from "./components/ProductPage/Product_verstka";
+import Product_verstka from "./components/ProductPage/Product_verstka";
 import Product from "./components/ProductPage/Product_verstka"
 
 
 function App() {
     const router = createBrowserRouter([
-        {
+      {
+        path: '/',
+        element: <Layout />,
+        children: [
+          {
             path: '/',
-            element: <Layout />,
-            children: [
-                {
-                    path: '/',
-                    element: <Home />
-                },
-                {
-                    path: '/back',
-                    element: <Home_backend />
-                },
-                {
-                    path: '/basket',
-                    element: <Basket />
-                },
-                {
-                    path: 'login',
-                    element: <Login />
-                },
-                {
-                    path: 'register',
-                    element: <Register />
-                },
-                {
-                    path: 'likes',
-                    element: <></>
-                },
-                {
-                    path: "/products/:id",
-                    element: <Products />,
-                },
-                {
-                    path: "/product/:id",
-                    element: <Product />,
-                },
-            ]
-        }
+            element: <Home />,
+          },
+          {
+            path: '/back',
+            element: <Home_backend />,
+          },
+          {
+            path: '/basket',
+            element: <Basket />,
+          },
+          {
+            path: 'login',
+            element: <Login />,
+          },
+          {
+            path: 'register',
+            element: <Register />,
+          },
+          {
+            path: 'likes',
+            element: <></>,
+          },
+          {
+            path: '/products/:id',
+            element: <Products />,
+          },
+          {
+            path: '/product/:id',
+            element: <Product />,
+          },
+          {
+            path: '/productpage/:id',
+            element: <Product_verstka />,
+          },
+          {
+            path: '/catalog',
+            element: <Catalog />,
+          },
+        ],
+      },
     ])
 
     return (

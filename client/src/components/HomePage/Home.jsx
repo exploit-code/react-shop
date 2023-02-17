@@ -8,6 +8,7 @@ import Catalog from "../Catalog/Catalog";
 import BannerMainPage from '../BannerMainPage/BannerMainPage'
 import UpMainPage from '../UpMainPage/UpMainPage';
 
+
 const Home = () => {
     const [stateCategories, setstateCategories] = useState(false)
 
@@ -29,6 +30,7 @@ const Home = () => {
                 <Blog />
             </div>
         </div>
+
     );
 };
 

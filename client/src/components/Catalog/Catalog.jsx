@@ -19,7 +19,9 @@ const Catalog = () => {
           </div>
         </div>
         <div className='catalog-item-box'>
+
           <a href='/product/12'>
+
             <div className='product-card'>
               <img src={banan} alt='banana' className='product-card-img' />
               <div className='text-box-roduct-card'>
