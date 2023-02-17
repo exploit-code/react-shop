@@ -7,7 +7,7 @@ import UserContext from './context/UserContext';
 
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { persistor, store } from "./redux/store";
+import { persistor, store } from "./components/_backend_folder/redux/store";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

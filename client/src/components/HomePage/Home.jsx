@@ -1,29 +1,38 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../context/UserContext';
+import { useState } from 'react';
 
-// import FeaturedProducts__back from "../FeaturedProducts__back/FeaturedProducts__back";
-import Categories from "../Categories__back/Categories";
+
 import PartWithBannersAndFilters from "../PartWithBannersAndFilters/PartWithBannersAndFilters";
 import Blog from '../Blog/Blog';
 import Catalog from "../Catalog/Catalog";
 import BannerMainPage from '../BannerMainPage/BannerMainPage'
-import UpMainPage from '../UpMainPage/UpMainPage'
+import UpMainPage from '../UpMainPage/UpMainPage';
+
 
 const Home = () => {
+    const [stateCategories, setstateCategories] = useState(false)
+
+    const categoriesClick = () => {
+        if (stateCategories) {
+            setstateCategories(false)
+        }
+        else {
+            setstateCategories(true)
+        }
+    }
     return (
-        <>
-            <UpMainPage />
-            {/* <BannerMainPage /> */}
-            <Categories />
-            {/*<FeaturedProducts__back id="con1" type="latest" />*/}
-            {/*<FeaturedProducts__back id="con2" type="top-rated" />*/}
-            {/*<FeaturedProducts__back id="con3" type="review" />*/}
-            {/*<FeaturedProducts__back type="featured" />*/}
-            <PartWithBannersAndFilters />
-            <Catalog />
-            <Blog />
-        </>
+        <div>
+            <div className="contain" >
+                <UpMainPage categoriesClick={categoriesClick} />
+                <BannerMainPage stateCategories={stateCategories} />
+                <PartWithBannersAndFilters />
+                <Catalog />
+                <Blog />
+            </div>
+        </div>
+
     );
 };
 
 export default Home;
+
