@@ -1,10 +1,11 @@
 import './buyTogether.scss'
 import Button from '../Button/Button'
+import { getHttpHost, getUrl } from '../../helpers/UrlHelper'
 
 // дефолтная модель данных
 const _getDefaultProps = () => {
   const defaultProduct = {
-    id: 0,
+    id: 1,
     img: 'nuts.png',
     name: 'Hazelnuts filbert nut',
     price: 30.0,
@@ -26,7 +27,6 @@ export const BuyTogether = (props) => {
   // проверяем пустые ли пропсы, если да, то заполняем данными по умолчанию
   const { title, products, addToCart } =
     JSON.stringify(props) === JSON.stringify({}) ? _getDefaultProps() : props
-
   return (
     <div className='buytogether'>
       <div className='buytogether__content'>
@@ -44,10 +44,10 @@ export const BuyTogether = (props) => {
                 <div className='buytogether__content__box'>
                   <div className='buytogether__content__boxleft'>
                     {/* ссылка на страницу с продуктом */}
-                    <a href='#'>
+                    <a href={getUrl(`productpage/${product.id}`)}>
                       <img
                         className='buytogether__content__img'
-                        src={`img/${product.img}`}
+                        src={`../img/${product.img}`}
                         alt={product.name}
                       ></img>
                     </a>

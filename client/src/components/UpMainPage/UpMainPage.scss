@@ -1,0 +1,187 @@
+@use '../../mixins.scss';
+
+@font-face {
+    font-family: 'Celebri Sans Pro';
+    src: url(../../fonts/Cerebri.Sans.Pro/CerebriSansPro-Medium.ttf) format('truetype');
+}
+
+
+.upmainpage {
+    @include mixins.flex(space-between, center);
+    width: 100%;
+    // padding: 0;
+    // box-sizing: border-box;
+    // text-decoration: none;
+    // outline: none;
+    // list-style: none;
+    // max-width: 1142px;
+    // margin: 0 auto;
+    // margin-top: 12px;
+
+    // @media screen and (min-width: 768px) {
+    //     width: calc(100% - 60px);
+    // }
+
+    &__column {
+        &_left {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            &_logo {
+                @include mixins.font(36px, 900, 40px);
+                font-family: Celebri Sans Pro;
+            }
+
+            &_depart {
+                padding-left: 23px;
+                width: 270px;
+                height: 50px;
+                background-color: #7FAD39;
+                @include mixins.flex(left, center);
+                color: white;
+                gap: 23px;
+                cursor: pointer;
+                font-family: 'Celebri Sans Pro';
+            }
+
+            &_depart:hover {
+                background-color: #57801a;
+            }
+        }
+
+        &_center {
+            display: flex;
+            flex-direction: column;
+            gap: 33px;
+            // padding-top: 17px;
+
+            &_search {
+                width: 621px;
+                height: 50px;
+                border: 1px solid rgba(42, 42, 42, 0.2);
+                @include mixins.flex(left, center);
+                gap: 25px;
+
+                &_stick {
+                    height: 14px;
+                    border: 1px solid rgba(42, 42, 42, 0.2);
+                    border: 1px solid rgba(42, 42, 42, 0.2);
+                }
+
+                &_select {
+                    width: 167px;
+                    border: none;
+                    height: 100%;
+                    padding-left: 18px;
+                    @include mixins.font(16px, 800, 20px);
+                    cursor: pointer;
+                    font-family: 'Celebri Sans Pro';
+                }
+
+                &_input {
+                    height: 100%;
+                    border: none;
+                    @include mixins.font(16px, 500, 20px);
+                    padding-top: 3px;
+                    padding-right: 77px;
+                    font-family: 'Celebri Sans Pro';
+                }
+
+                &_button {
+                    height: 100%;
+                    width: 106px;
+                    border: none;
+                    background-color: #7FAD39;
+                    color: #FFFFFF;
+                    cursor: pointer;
+                    @include mixins.font(16px, 700, 20px);
+                    font-family: 'Celebri Sans Pro';
+                }
+
+                &_button:hover {
+                    background-color: #57801a;
+                }
+            }
+
+            &_routing {
+                @include mixins.flex(left, center);
+                gap: 35px;
+
+                &_link {
+                    text-decoration: none;
+                    @include mixins.font(16px, 500, 20px);
+                    color: #2a2a2a;
+                    font-family: 'Celebri Sans Pro';
+                }
+
+                &_link:hover {
+                    color: #7FAD39
+                }
+            }
+        }
+
+        &_right {
+            display: flex;
+            flex-direction: column;
+            gap: 27px;
+            // padding-top: 17px;
+
+            &_favoritems {
+                @include mixins.flex(space-between, center);
+                gap: 25px;
+                position: relative;
+
+                &_cart {
+                    cursor: pointer;
+                }
+
+                &_heart {
+                    cursor: pointer;
+                }
+
+                &_p {
+                    @include mixins.font(16px, 400, 20px);
+                    color: #999999;
+                    font-family: 'Celebri Sans Pro';
+                }
+
+                &_span {
+                    @include mixins.font(16px, 800, 20px);
+                    color: #2a2a2a;
+                    font-family: 'Celebri Sans Pro';
+                }
+
+                &_circle {
+                    @include mixins.flex(space-between, center);
+                    border-radius: 50px;
+                    background-color: #7FAD39;
+                    color: #FFFFFF;
+                    padding-left: 5px;
+                    position: absolute;
+                    bottom: 17px;
+                    margin-left: 12px;
+                    width: 17px;
+                    height: 17px;
+                }
+            }
+
+            &_info {
+                @include mixins.flex(space-between, center);
+
+                &_number {
+                    &_p {
+                        @include mixins.font(12px, 400, 20px);
+                        color: #999999;
+                        font-family: 'Celebri Sans Pro';
+                    }
+
+                    &_span {
+                        @include mixins.font(16px, 900, 20px);
+                        font-family: 'Celebri Sans Pro';
+                    }
+                }
+            }
+        }
+    }
+}
