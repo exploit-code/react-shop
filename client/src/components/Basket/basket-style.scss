@@ -13,6 +13,31 @@
     justify-content: space-evenly;
 }
 
+.head-basket-title {
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 50px;
+}
+
+.head-basket-txt {
+    border: 3px solid #7FAD39;
+    box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
+    width: 219px;
+
+    &_2 {
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 40px;
+        text-align: center;
+    }
+}
+
+
+
 .basket-products {
     display: flex;
     justify-content: space-evenly;
@@ -26,13 +51,37 @@
 }
 
 .basket-item {
-    padding: 15px 0 15px 0;
+    padding: 25px 0 15px 0;
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #2A2A2A;
 }
 
 .basket-btn-wrp {
     display: flex;
     justify-content: center;
     margin-top: 25px;
+}
+
+.basket-btn {
+    width: 141px;
+    height: 50px;
+    background: #7FAD39;
+    border: rgba(127, 173, 57, 1);
+
+    &-txt {
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #FFFFFF;
+    }
 }
 
 .basket-empty-container {
@@ -49,12 +98,30 @@
 
 .bskt-title {
     margin: 1px 0 8px 0;
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2A2A2A;
 }
 
 .bskt-txt {
     margin: 0 0 16px 0;
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #757575;
 }
 
 .bskt-empty-btn {
     margin: 0 0 20px 0;
+    width: 141px;
+    height: 50px;
+    background: #7FAD39;
+    border: #7FAD39;
+    color: white;
 }
