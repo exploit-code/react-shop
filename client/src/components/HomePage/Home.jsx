@@ -7,22 +7,22 @@ import PartWithBannersAndFilters from "../PartWithBannersAndFilters/PartWithBann
 import Blog from '../Blog/Blog';
 import Catalog from "../Catalog/Catalog";
 import BannerMainPage from '../BannerMainPage/BannerMainPage'
+import UpMainPage from '../UpMainPage/UpMainPage'
 
 const Home = () => {
     return (
-        <div>
-            <div className="contain" >
-                <BannerMainPage />
-                <Categories />
-                {/*<FeaturedProducts__back id="con1" type="latest" />*/}
-                {/*<FeaturedProducts__back id="con2" type="top-rated" />*/}
-                {/*<FeaturedProducts__back id="con3" type="review" />*/}
-                {/*<FeaturedProducts__back type="featured" />*/}
-                <PartWithBannersAndFilters />
-                <Catalog />
-                <Blog />
-            </div>
-        </div>
+        <>
+            <UpMainPage />
+            {/* <BannerMainPage /> */}
+            <Categories />
+            {/*<FeaturedProducts__back id="con1" type="latest" />*/}
+            {/*<FeaturedProducts__back id="con2" type="top-rated" />*/}
+            {/*<FeaturedProducts__back id="con3" type="review" />*/}
+            {/*<FeaturedProducts__back type="featured" />*/}
+            <PartWithBannersAndFilters />
+            <Catalog />
+            <Blog />
+        </>
     );
 };
 
