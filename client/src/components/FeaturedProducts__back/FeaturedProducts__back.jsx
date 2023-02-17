@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "../Card__back/Card";
-import "./FeaturedProducts.scss";
-import useFetch from "../hooks/useFetch";
+import Card__back from "../Card__back/Card__back";
+import "./FeaturedProducts__back.scss";
+import useFetch from "../../hooks/useFetch";
 
-const FeaturedProducts = ({ type }) => {
+const FeaturedProducts__back = ({ type }) => {
   const { data, loading, error } = useFetch(
     `/products?populate=*&[filters][type][$eq]=${type}`
   );
@@ -18,10 +18,10 @@ const FeaturedProducts = ({ type }) => {
           ? "Something went wrong!"
           : loading
           ? "loading"
-          : data?.map((item) => <Card item={item} key={item.id} />)}
+          : data?.map((item) => <Card__back item={item} key={item.id} />)}
       </div>
     </div>
   );
 };
 
-export default FeaturedProducts;
+export default FeaturedProducts__back;

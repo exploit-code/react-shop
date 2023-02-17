@@ -1,14 +1,14 @@
 import React from "react";
-import "./Card.scss";
+import "./Card__back.scss";
 import { Link } from "react-router-dom";
 
-const Card = ({ item }) => {
+const Card__back = ({ item }) => {
   console.log(item);
   return (
-    <Link className="link" to={`/product/${item.id}`}>
+    <Link className="link" to={`/productpage/${item.id}`}>
       <div className="card">
         <div className="image">
-          {item?.attributes.isNew && <span>Latest!</span>}
+          {item?.attributes.isNew && <span>New!</span>}
           <img
             src={
               process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url
@@ -26,4 +26,4 @@ const Card = ({ item }) => {
   );
 };
 
-export default Card;
+export default Card__back;

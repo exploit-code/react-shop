@@ -4,23 +4,25 @@ import freshfruitIcon from '../../images/freshfruitIcon.svg';
 import driedfruitIcon from '../../images/driedfruitIcon.svg';
 import vegetablesIcon from '../../images/vegetablesIcon.svg';
 import drinkfruitsIcon from '../../images/drinkfruitsIcon.svg';
-import { Link } from 'react-router-dom';
+
+
+
 
 
 const BannerMainPage = (props) => {
-    const categories = [{ name: 'Fresh Meat', id: 0 },
-    { name: 'Vegetables', id: 1 },
-    { name: 'Fruit & Nut Gifts', id: 2 },
-    { name: 'Fresh Berries', id: 3 },
-    { name: 'Ocean Foods', id: 4 },
-    { name: 'Butter & Eggs', id: 5 },
-    { name: 'Fastfood', id: 6 },
-    { name: 'Fresh Onion', id: 7 },
-    { name: 'Papayaya & Crisps', id: 8 },
-    { name: 'Oatmeal', id: 9 },
-    { name: 'Fresh Bananas', id: 10 }];
+    const categories = ['Fresh Meat',
+        'Vegetables',
+        'Fruit & Nut Gifts',
+        'Fresh Berries',
+        'Ocean Foods',
+        'Butter & Eggs',
+        'Fastfood',
+        'Fresh Onion',
+        'Papayaya & Crisps',
+        'Oatmeal',
+        'Fresh Bananas'];
     const listCategories = categories.map((categorie) =>
-        <Link className='bannermainpage__top_list_a' to={`/products/${categorie.id}`}>{categorie.name}</Link>
+        <a href='*' className='bannermainpage__top_list_a'>{categorie}</a>
     );
 
     const fruits = [{ desc: 'FRESH FRUIT', img: freshfruitIcon }, { desc: 'DRIED FRUIT', img: driedfruitIcon }, { desc: 'VEGETABLES', img: vegetablesIcon }, { desc: 'DRINK FRUITS', img: drinkfruitsIcon }];
