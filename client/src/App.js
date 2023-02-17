@@ -1,18 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AuthContext } from "./context/UserContext";
 import Layout from './Layout/Layout';
-import Home from './components/HomePage/Home';
+import HomePage from './pages/HomePage/HomePage';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PrivateRoute from './routes/PrivateRoute';
 import Basket from './components/Basket/Basket';
-import Products from "./components/ProductsPage/Products";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
 
-import Home_backend from "./components/HomePage/Home_backend";
 import Catalog from "./components/Catalog/Catalog";
-import Product_verstka from "./components/ProductPage/Product_verstka";
-import Product from './components/ProductPage__back/Product'
-
+import ProductPage from "./pages/ProductPage/ProductPage";
 
 function App() {
     const router = createBrowserRouter([
@@ -22,11 +19,7 @@ function App() {
         children: [
           {
             path: '/',
-            element: <Home />,
-          },
-          {
-            path: '/back',
-            element: <Home_backend />,
+            element: <HomePage />,
           },
           {
             path: '/basket',
@@ -46,20 +39,13 @@ function App() {
           },
           {
             path: '/products/:id',
-            element: <Products />,
-          },
-          {
-            path: '/product/:id',
-            element: <Product />,
+            element: <ProductsPage />,
           },
           {
             path: '/productpage/:id',
-            element: <Product_verstka />,
+            element: <ProductPage/>,
           },
-          {
-            path: '/banan',
-            element: <Product_verstka />,
-          },
+
           {
             path: '/catalog',
             element: <Catalog />,
@@ -67,7 +53,7 @@ function App() {
         ],
       },
     ])
-    
+
     return (
         <div className="app">
             <RouterProvider router={router}></RouterProvider>

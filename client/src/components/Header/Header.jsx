@@ -132,7 +132,7 @@ const Header = () => {
                         <span className='header__delivery'>Free Shipping for all order of $99</span>
                     </div>
 
-                
+
 
                     <div className='header__fx'>
                         <div className='header__socnet'>
@@ -156,7 +156,7 @@ const Header = () => {
                             <img className='header__login-icon' src={loginIcon} alt="" />
                             <span className='header__login-text'>Login</span>
                         </Link>
-                    
+
                     </div>
 
                 </div>
@@ -173,7 +173,7 @@ const Header = () => {
                                 <Link className='header__nav-link' to='/'>HOME</Link>
                             </li>
                             <li className='header__nav-item'>
-                                <Link className='header__nav-link' to='/'>SHOP</Link>
+                                <Link className='header__nav-link' to='/products/1'>SHOP</Link>
                             </li>
                             <li className='header__nav-item'>
                                 <Link className='header__nav-link' to='/'>PAGES</Link>

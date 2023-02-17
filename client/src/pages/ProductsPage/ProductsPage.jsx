@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ProductsList from "../../components/ProductsList/ProductsList";
 import useFetch from "../../hooks/useFetch";
 import "./ProductsPage.scss";
+import Catalog from "../../components/Catalog/Catalog";
 
 const ProductsPage = () => {
   const catId = parseInt(useParams().id);
@@ -86,6 +87,7 @@ const ProductsPage = () => {
               src="https://avatars.mds.yandex.net/i?id=c72bf677ffb019918435d0e52b185fe69e79f6e5-8497071-images-thumbs&n=13&exp=1"
               alt=""
           />
+          {/*<Catalog />*/}
           <ProductsList catId={catId} maxPrice={maxPrice} sort={sort} subCats={selectedSubCats}/>
         </div>
       </div>

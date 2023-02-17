@@ -1,8 +1,8 @@
 import React from "react";
-import "./Card.scss";
+import "./Card__back.scss";
 import { Link } from "react-router-dom";
 
-const Card = ({ item }) => {
+const Card__back = ({ item }) => {
   console.log(item);
   return (
     <Link className="link" to={`/product/${item.id}`}>
@@ -26,4 +26,4 @@ const Card = ({ item }) => {
   );
 };
 
-export default Card;
+export default Card__back;
