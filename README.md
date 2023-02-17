@@ -3,8 +3,7 @@
 # Запускаем api:
 1)  cd ./api/
 2)  npm i
-3)  npm run develop
-
+3)  npm start
 
 
 # Запускаем клиент в отдельном терминале:
