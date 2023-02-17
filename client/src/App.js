@@ -6,12 +6,12 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PrivateRoute from './routes/PrivateRoute';
 import Basket from './components/Basket/Basket';
-import Products from "./components/ProductsPage/Products";
+import Products from "./components/_backend_folder/ProductsPage_back/Products";
 
 import Home_backend from "./components/HomePage/Home_backend";
 import Catalog from "./components/Catalog/Catalog";
 import Product_verstka from "./components/ProductPage/Product_verstka";
-import Product from './components/ProductPage__back/Product'
+import Product from "./components/ProductPage/Product_verstka"
 
 
 function App() {
@@ -57,17 +57,13 @@ function App() {
             element: <Product_verstka />,
           },
           {
-            path: '/banan',
-            element: <Product_verstka />,
-          },
-          {
             path: '/catalog',
             element: <Catalog />,
           },
         ],
       },
     ])
-    
+
     return (
         <div className="app">
             <RouterProvider router={router}></RouterProvider>
