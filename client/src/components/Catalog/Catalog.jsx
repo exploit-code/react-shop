@@ -2,9 +2,13 @@ import './catalog.scss';
 // import '../../index.scss';
 import banan from '../../images/banan.png';
 import line from '../../images/line.png';
+import useFetch from "../../hooks/useFetch";
+import { Link } from "react-router-dom";
 
 const Catalog = () => {
-
+  const { data, loading, error } = useFetch(
+    `/products?populate=*`
+  );
     return (
       <section className='catalog-container'>
         <div className='catalog-heading'>
@@ -19,81 +23,23 @@ const Catalog = () => {
           </div>
         </div>
         <div className='catalog-item-box'>
-          <a href='/productpage/1'>
+          {data?.slice(1,9).map((item, index) => (
+            <Link key={index} to={`/productpage/${item.id}`}>
             <div className='product-card'>
-              <img src={banan} alt='banana' className='product-card-img' />
+
+              <img src={
+                process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url
+              } alt={item.attributes.title} className='product-card-img' />
+
               <div className='text-box-roduct-card'>
-                <p className='text-product-card'>Bunch of bananas</p>
+                <p className='text-product-card'>{item.attributes.title}</p>
                 <b>
-                  <p className='price-product-card'>$30.00</p>
+                  <p className='price-product-card'>${item.attributes.price}</p>
                 </b>
               </div>
             </div>
-          </a>
-
-          <div className='product-card'>
-            <img src={banan} alt='banana' className='product-card-img' />
-            <div className='text-box-roduct-card'>
-              <p className='text-product-card'>Bunch of bananas</p>
-              <b>
-                <p className='price-product-card'>$30.00</p>
-              </b>
-            </div>
-          </div>
-          <div className='product-card'>
-            <img src={banan} alt='banana' className='product-card-img' />
-            <div className='text-box-roduct-card'>
-              <p className='text-product-card'>Bunch of bananas</p>
-              <b>
-                <p className='price-product-card'>$30.00</p>
-              </b>
-            </div>
-          </div>
-          <div className='product-card'>
-            <img src={banan} alt='banana' className='product-card-img' />
-            <div className='text-box-roduct-card'>
-              <p className='text-product-card'>Bunch of bananas</p>
-              <b>
-                <p className='price-product-card'>$30.00</p>
-              </b>
-            </div>
-          </div>
-          <div className='product-card'>
-            <img src={banan} alt='banana' className='product-card-img' />
-            <div className='text-box-roduct-card'>
-              <p className='text-product-card'>Bunch of bananas</p>
-              <b>
-                <p className='price-product-card'>$30.00</p>
-              </b>
-            </div>
-          </div>
-          <div className='product-card'>
-            <img src={banan} alt='banana' className='product-card-img' />
-            <div className='text-box-roduct-card'>
-              <p className='text-product-card'>Bunch of bananas</p>
-              <b>
-                <p className='price-product-card'>$30.00</p>
-              </b>
-            </div>
-          </div>
-          <div className='product-card'>
-            <img src={banan} alt='banana' className='product-card-img' />
-            <div className='text-box-roduct-card'>
-              <p className='text-product-card'>Bunch of bananas</p>
-              <b>
-                <p className='price-product-card'>$30.00</p>
-              </b>
-            </div>
-          </div>
-          <div className='product-card'>
-            <img src={banan} alt='banana' className='product-card-img' />
-            <div className='text-box-roduct-card'>
-              <p className='text-product-card'>Bunch of bananas</p>
-              <b>
-                <p className='price-product-card'>$30.00</p>
-              </b>
-            </div>
-          </div>
+            </Link>
+          ))}
         </div>
       </section>
     )

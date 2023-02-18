@@ -50,7 +50,7 @@ const PartWithBannersAndFilters = () => {
               <img className="filterBlock__latestProduct_titleBlock_arrowLeft" src={arrowLeft} alt="arrow left" ></img>
               <img className="filterBlock__latestProduct_titleBlock_arrowRight" src={arrowRight} alt="arrow right"></img>
             </div>
-            {productItem.map((obj, index) => (
+            {productItem.slice(0,3).map((obj, index) => (
             <div key={index} onClick={() => onAddToCart(obj)} className="filterBlock__latestProduct_item">
               <div className="filterBlock__latestProduct_item_left">
                 <img className="filterBlock__latestProduct_item_left_img" src={obj.imageUrl} alt={obj.title}/>
