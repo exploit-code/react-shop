@@ -1,0 +1,26 @@
+@use '../../mixins.scss';
+
+.like {
+    @include mixins.flex(center, center);
+    background: none;
+    border: none;
+    width: max-content;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &--active {
+        &>.like__icon {
+            fill: var(--red);
+        }
+    }
+
+    &--disabled {
+        cursor: default;
+
+        &>.like__icon {
+            stroke: var(--dark-gray);
+            pointer-events: none;
+        }
+    }
+}

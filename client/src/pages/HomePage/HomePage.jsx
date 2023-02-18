@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/UserContext';
+import Like from '../../components/Like/Like'
 
 
 import PartWithBannersAndFilters from "../../components/PartWithBannersAndFilters/PartWithBannersAndFilters";
@@ -12,6 +13,7 @@ const HomePage = () => {
     return (
         <>
             <UpMainPage />
+            <Like />
             <PartWithBannersAndFilters />
             <Catalog />
             <Blog />

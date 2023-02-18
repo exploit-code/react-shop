@@ -38,7 +38,7 @@ const Register = () => {
             <h1 className='register__title'>Register now!</h1>
             <input className='register__input' type="text" name='name' placeholder="Name" required />
             <input className='register__input' type="email" name='email' placeholder="Email" required />
-            <input className='register__input' type="password" name='password' placeholder="Password" required />
+            <input className='register__input' type="password" name='password' placeholder="Password" minlength="6" required />
             <button className='register__btn'>Register</button>
             <button className='register__btn' onClick={handleGoogleSignIn}>Register with Google</button>
         </form>
