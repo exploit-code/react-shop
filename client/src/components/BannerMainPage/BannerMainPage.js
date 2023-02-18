@@ -4,6 +4,7 @@ import freshfruitIcon from '../../images/freshfruitIcon.svg';
 import driedfruitIcon from '../../images/driedfruitIcon.svg';
 import vegetablesIcon from '../../images/vegetablesIcon.svg';
 import drinkfruitsIcon from '../../images/drinkfruitsIcon.svg';
+import {Link} from "react-router-dom";
 
 
 
@@ -25,11 +26,15 @@ const BannerMainPage = (props) => {
         <a href='*' className='bannermainpage__top_list_a'>{categorie}</a>
     );
 
-    const fruits = [{ desc: 'FRESH FRUIT', img: freshfruitIcon }, { desc: 'DRIED FRUIT', img: driedfruitIcon }, { desc: 'VEGETABLES', img: vegetablesIcon }, { desc: 'DRINK FRUITS', img: drinkfruitsIcon }];
+    const fruits = [{ desc: 'FRESH FRUIT', img: freshfruitIcon, path:"/products/1"}, { desc: 'DRIED FRUIT', img: driedfruitIcon, path:"/products/2" },
+        { desc: 'VEGETABLES', img: vegetablesIcon, path:"/products/3" }, { desc: 'DRINK FRUITS', img: drinkfruitsIcon, path:"/products/4" }];
     const listFruits = fruits.map((fruit) =>
         <div className='bannermainpage__bottom_fruit'>
             <img src={fruit.img} alt='fruit'></img>
-            <button className='bannermainpage__bottom_fruit_button'>{fruit.desc}</button>
+
+            <button className='bannermainpage__bottom_fruit_button'><Link className="link" to={fruit.path}>
+                {fruit.desc}
+            </Link></button>
         </div>
     );
 
