@@ -9,21 +9,16 @@ import banner_2 from './img/banner_2.png';
 import arrowRight from './img/arrow_right.png';
 import arrowLeft from './img/arrow_left.png';
 
-import apple from './img/apple.png';
-import blueberry from './img/blueberry.png';
-import capsicumGreen from './img/capsicum_green.png';
-// import cauliflower from './img/cauliflower.png';
-import nut from './img/nut.png';
-// import organicQuince from './img/organic_quince.png';
-import pomegranate from './img/pomegranate.png';
-import raspberry from './img/raspberry.png';
-// import tomato from './img/tomato.png';
-import { productItem } from "../AddToCart/itemProduct";
 import { useContext } from "react";
+import useFetch from "../../hooks/useFetch";
 
 
 const PartWithBannersAndFilters = () => {
   const { onAddToCart } = useContext(AuthContext)
+
+  const { data } = useFetch(
+    `/products?populate=*`
+  );
 
   return (
     <>
@@ -50,17 +45,19 @@ const PartWithBannersAndFilters = () => {
               <img className="filterBlock__latestProduct_titleBlock_arrowLeft" src={arrowLeft} alt="arrow left" ></img>
               <img className="filterBlock__latestProduct_titleBlock_arrowRight" src={arrowRight} alt="arrow right"></img>
             </div>
-            {productItem.slice(0,3).map((obj, index) => (
-            <div key={index} onClick={() => onAddToCart(obj)} className="filterBlock__latestProduct_item">
-              <div className="filterBlock__latestProduct_item_left">
-                <img className="filterBlock__latestProduct_item_left_img" src={obj.imageUrl} alt={obj.title}/>
+            {data?.slice(1, 4).map((item, index) => (
+              <div key={index} onClick={() => onAddToCart(item)} className="filterBlock__latestProduct_item">
+                <div className="filterBlock__latestProduct_item_left">
+                  <img className="filterBlock__latestProduct_item_left_img"
+                       src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
+                       alt={item.attributes.title}/>
+                </div>
+                <div className="filterBlock__latestProduct_item_right">
+                  <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>
+                  <div className="filterBlock__latestProduct_item_right_price">${item.attributes.price}</div>
+                </div>
               </div>
-              <div className="filterBlock__latestProduct_item_right">
-                <div className="filterBlock__latestProduct_item_right_name">{obj.title}</div>
-                <div className="filterBlock__latestProduct_item_right_price">${obj.price}</div>
-              </div>
-            </div>
-              ))}
+            ))}
           </div>
 
           <div className="filterBlock__topRatedProducts">
@@ -69,33 +66,19 @@ const PartWithBannersAndFilters = () => {
               <img className="filterBlock__topRatedProducts_titleBlock_arrowLeft" src={arrowLeft} alt="arrow left"></img>
               <img className="filterBlock__reviewProducts_titleBlock_arrowRight" src={arrowRight} alt="arrow right"></img>
             </div>
-            <div className="filterBlock__topRatedProducts_item">
-              <div className="filterBlock__topRatedProducts_item_left">
-                <img className="filterBlock__topRatedProducts_item_left_img" src={blueberry} alt="blueberry" />
+            {data?.slice(4, 7).map((item, index) => (
+              <div key={index} onClick={() => onAddToCart(item)} className="filterBlock__latestProduct_item">
+                <div className="filterBlock__latestProduct_item_left">
+                  <img className="filterBlock__latestProduct_item_left_img"
+                       src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
+                       alt={item.attributes.title}/>
+                </div>
+                <div className="filterBlock__latestProduct_item_right">
+                  <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>
+                  <div className="filterBlock__latestProduct_item_right_price">${item.attributes.price}</div>
+                </div>
               </div>
-              <div className="filterBlock__topRatedProducts_item_right">
-                <div className="filterBlock__topRatedProducts_item_right_name">Blueberry</div>
-                <div className="filterBlock__topRatedProducts_item_right_price">$30.00</div>
-              </div>
-            </div>
-            <div className="filterBlock__topRatedProducts_item">
-              <div className="filterBlock__topRatedProducts_item_left">
-                <img className="filterBlock__topRatedProducts_item_left_img" src={capsicumGreen} alt="capsicum green" />
-              </div>
-              <div className="filterBlock__topRatedProducts_item_right">
-                <div className="filterBlock__topRatedProducts_item_right_name">Capsicum-green</div>
-                <div className="filterBlock__topRatedProducts_item_right_price">$30.00</div>
-              </div>
-            </div>
-            <div className="filterBlock__topRatedProducts_item">
-              <div className="filterBlock__topRatedProducts_item_left">
-                <img className="filterBlock__topRatedProducts_item_left_img" src={pomegranate} alt="pomegranate" />
-              </div>
-              <div className="filterBlock__topRatedProducts_item_right">
-                <div className="filterBlock__topRatedProducts_item_right_name">Pomegranate</div>
-                <div className="filterBlock__topRatedProducts_item_right_price">$30.00</div>
-              </div>
-            </div>
+            ))}
           </div>
 
           <div className="filterBlock__reviewProducts">
@@ -104,33 +87,19 @@ const PartWithBannersAndFilters = () => {
               <img className="filterBlock__reviewProducts_titleBlock_arrowLeft" src={arrowLeft} alt="arrow left"></img>
               <img className="filterBlock__reviewProducts_titleBlock_arrowRight" src={arrowRight} alt="arrow right"></img>
             </div>
-            <div className="filterBlock__reviewProducts_item">
-              <div className="filterBlock__reviewProducts_item_left">
-                <img className="filterBlock__reviewProducts_item_left_img" src={nut} alt="hazelnuts filbert nut" />
+            {data?.slice(7, 10).map((item, index) => (
+              <div key={index} onClick={() => onAddToCart(item)} className="filterBlock__latestProduct_item">
+                <div className="filterBlock__latestProduct_item_left">
+                  <img className="filterBlock__latestProduct_item_left_img"
+                       src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
+                       alt={item.attributes.title}/>
+                </div>
+                <div className="filterBlock__latestProduct_item_right">
+                  <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>
+                  <div className="filterBlock__latestProduct_item_right_price">${item.attributes.price}</div>
+                </div>
               </div>
-              <div className="filterBlock__reviewProducts_item_right">
-                <div className="filterBlock__reviewProducts_item_right_name">Hazelnuts filbert nut</div>
-                <div className="filterBlock__reviewProducts_item_right_price">$30.00</div>
-              </div>
-            </div>
-            <div className="filterBlock__reviewProducts_item">
-              <div className="filterBlock__reviewProducts_item_left">
-                <img className="filterBlock__reviewProducts_item_left_img" src={apple} alt="apple" />
-              </div>
-              <div className="filterBlock__reviewProducts_item_right">
-                <div className="filterBlock__reviewProducts_item_right_name">Green apple</div>
-                <div className="filterBlock__reviewProducts_item_right_price">$30.00</div>
-              </div>
-            </div>
-            <div className="filterBlock__reviewProducts_item">
-              <div className="filterBlock__reviewProducts_item_left">
-                <img className="filterBlock__reviewProducts_item_left_img" src={raspberry} alt="raspberry" />
-              </div>
-              <div className="filterBlock__reviewProducts_item_right">
-                <div className="filterBlock__reviewProducts_item_right_name">Fresh raspberry</div>
-                <div className="filterBlock__reviewProducts_item_right_price">$30.00</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
