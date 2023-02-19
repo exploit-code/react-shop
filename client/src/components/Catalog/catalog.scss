@@ -1,3 +1,8 @@
+.switch-button {
+    width:50px;
+    height:50px;
+}
+
  .catalog-container {
      margin: 52px;
  }
@@ -20,25 +25,14 @@
 .catalog-filter-btn {
     display: flex;
     width: 410px;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 40px 0 40px 0;
     margin: 0 auto;
 }
 
-.filter-btn {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 36px;
-    color: #999999;
-    cursor: pointer;
-}
 
-.filter-btn:hover {
-    color: #2A2A2A;
-    text-decoration: underline;
-    cursor: pointer;
-}
+
+
 
 .active {
     color: #2A2A2A;

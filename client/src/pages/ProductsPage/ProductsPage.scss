@@ -17,12 +17,14 @@
 
       .inputItem{
         margin-bottom: 10px;
+
         label{
           margin-left: 10px;
         }
       }
     }
   }
+  label {display: none;}
 
   .right {
     flex: 3;
