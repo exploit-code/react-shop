@@ -1,4 +1,5 @@
 import './catalog.scss';
+import styles from './catalog.scss';
 // import '../../index.scss';
 import banan from '../../images/banan.png';
 import line from '../../images/line.png';
@@ -11,13 +12,11 @@ import React, {useState} from "react";
 const Catalog = () => {
 
   const catId = parseInt(useParams().id);
-
   const [selectedCats, setSelectedCats] = useState([]);
+  const [value, setValue] = useState(1);
 
-
-
-  const  { data, loading, error } = useFetch(
-      `/categories?[id][$eq]=${catId}`
+  const { data, loading, error } = useFetch(
+    `/categories?[id][$eq]=${catId}`
   );
 
   const handleClick = (e) => {
@@ -26,41 +25,42 @@ const Catalog = () => {
 
     setSelectedCats(
 
-        isChecked
-            ? [...selectedCats, value]
-            : selectedCats.filter((item) => item !== value)
+      isChecked
+        ? [...selectedCats, value]
+        : selectedCats.filter((item) => item !== value)
 
     );
+    setValue(e.target.value);
   };
 
-    return (
-      <section className='catalog-container'>
-        <div className='catalog-heading'>
-          <b>Featured Product</b>
-          <img src={line} alt='line' className='heading-line-img' />
-          <div className="filterItem">
-            <div className="checkbox-btn-group">
+  console.log(value)
 
-            </div>
-            <div className='catalog-filter-btn'>
-              {data?.slice(0,5).map((item) => (
-                  <div className="inputItem" key={item.id}>
-                    <input
-                        type="checkbox"
-                        id={item.id}
-                        value={item.id}
-                        onClick={handleClick}
-                    />
-                    <label htmlFor={item.id}>{item.attributes.title}</label>
-                  </div>
-              ))}
-            </div>
+  return (
+    <section className='catalog-container'>
+      <div className='catalog-heading'>
+        <b>Featured Product</b>
+        <img src={line} alt='line' className='heading-line-img'/>
+        <div className="filterItem">
+          <div className="checkbox-btn-group">
 
           </div>
-
-
+          <div className='catalog-filter-btn'>
+            {data?.slice(0, 5).map((item) => (
+              <label htmlFor={item.id} className="checkbox-btn" key={item.id}>
+                <input
+                  type="checkbox"
+                  id={item.id}
+                  value={item.id}
+                  onClick={handleClick}
+                  onChange={handleClick}
+                  checked={Number(value) === Number(item.id)}
+                />
+                <span>{item.attributes.title}</span>
+              </label>
+            ))}
+          </div>
         </div>
-
+        </div>
         <CatalogList catId={catId} cats={selectedCats} />
       </section>
     )
