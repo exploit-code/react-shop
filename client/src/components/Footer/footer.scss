@@ -1,173 +1,77 @@
-.footer {
-    background-color: black;
-}
-
-body {
-    font-family: 'Cerebri Sans Pro';
-    font-weight: 300;
-}
-
-.desc {
-    font-family: 'Cerebri Sans Pro';
-    font-weight: 900;
-    font-size: 34px;
-    color: #2A2A2A;
-    text-align: center;
-    margin-top: 100px;
-}
-
-.line {
-    width: 80px;
-    height: 4px;
-}
-
-.green-line {
-    text-align: center;
-    margin-top: 26px;
-    margin-bottom: 40px;
-}
-
-.item {
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.item-prod {
-    flex-wrap: wrap;
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.item-flex {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 137px;
-}
-
-.item-link {
-    display: block;
-    text-decoration: none;
-    width: 367px;
-}
-
-.calendar-chat {
-    margin-left: 12px;
-    font-family: 'Cerebri Sans Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    color: #757575;
-}
-
-.chat {
-    margin-left: 26px;
-}
-
-.item-heading-box {
-    font-family: 'Cerebri Sans Pro';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 20px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-transform: capitalize;
-    color: #2A2A2A;
-}
-
-.item-desc {
-    font-family: 'Cerebri Sans Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    text-transform: capitalize;
-    color: #757575;
-}
-
-
-.wrap {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+@use '../../mixins.scss';
 
 .container {
     width: 1140px;
     margin: 0 auto;
 }
 
-.footer__top-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 450px;
-}
-
-.footer__top__left {
-    text-align: center;
-    width: 340px;
-}
-
-.footer__top__right {
-    margin-top: 62px;
-}
-
-.footer__top__right2 {
-    margin-top: 62px;
-    display: flex;
-}
-
-.footer__top__right__text {
-    width: 257px;
-}
-
-.footer__top__right__heading {
+body {
     font-family: 'Cerebri Sans Pro';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 30px;
-    text-transform: capitalize;
-    color: #FFFFFF;
-    margin-top: 210px;
+    font-weight: 300;
 }
+.footer {
+    background-color: black;
+    &__logo{
+        @include mixins.font(36px, 700, 100%);
+        color: #FFF;
+    }
+    &_top{
+        margin-top: 60px;
+        margin-bottom: 30px;
+    }
+    &__link {
+        display: block;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+        text-decoration: none;
+        &:hover{
+            color:#7FAD39;
+        }
+    }
 
-.footer__top__right__subtitle {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
+    &__address{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    &_subscribe{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    &__content{
+        display: flex;
+        justify-content: space-between;
+    }
+ 
 }
-
 .footer__top__right__form {
     text-align: center;
-    margin-bottom: 40px;
-    margin-top: 39px;
+    margin-top: 15px;
+    margin-bottom: 28px;
 }
-
-.footer__top__right__input {
-    border: none;
-    background-color: #FFFFFF;
-    padding: 25px 118px 25px 30px;
-    font-size: 14px;
-    font-weight: 400;
+.footer__top__right__form:hover .footer__top__right__btn {
+    background-color: #57801a;
 }
-
 .footer__top__right__btn {
     border: none;
     background-color: #7FAD39;
-    padding: 25px 17px;
+    padding: 18px 17px 18px 17px;
     margin-left: -5px;
     font-family: 'Cerebri Sans Pro';
     font-style: normal;
@@ -180,61 +84,23 @@ body {
     cursor: pointer;
 }
 
-.footer__top__right__form:hover .footer__top__right__btn {
-    background-color: rgba(117, 117, 117, 1);
-}
-
-.footer {
-    background-color: #191919;
-}
-
-.footer-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 557px;
-}
-
-.footer-flex1 {
-    display: flex;
-    align-items: center;
-}
-
-.copyrate {
-    font-size: 16px;
-    font-weight: 400;
-    color: #FBFBFB;
-    margin-bottom: 127px;
-    margin-right: 210px;
-}
-
-.footer__link {
+.footer__top__right__input {
+    border: none;
     background-color: #FFFFFF;
-    color: #000000;
-    display: inline-block;
-    transition: 1s;
-    margin-right: 27px
+    padding: 19px 118px 18px 30px;
+    font-size: 14px;
+    font-weight: 400;
 }
-
-.footer__link i {
-    line-height: 32px;
-    width: 24px;
-    height: 24px;
-    text-align: center;
+.footer__top__right__heading {
+    font-family: 'Cerebri Sans Pro';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #FFFFFF;
 }
-
-.footer__link:hover {
-    background-color: rgba(127, 173, 57, 1);
-    color: #fff;
-}
-
-.txt-boxer {
-    display: flex;
-    margin-top: 21px;
-    margin-bottom: 21px;
-}
-
-.addresss {
+.footer__top__right__subtitle {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -243,68 +109,43 @@ body {
     display: flex;
     align-items: center;
     color: #FFFFFF;
-    margin-top: 40px;
 }
-
-.footer__soc {
-
-    margin-bottom: 70px;
-}
-
-.mega-link {
-    display: block;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 16px;
-    line-height: 30px;
+.footer_bottom{
     display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding-top: 43px;
+    padding-bottom: 20px;
+    gap: 40px;
     align-items: center;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    text-decoration: none;
-}
+    
+    .copyright{
+        font-size: 16px;
+        line-height: 19px;
+        color: #FBFBFB;
+        font-style: normal;
+        font-weight: normal;
 
-.mega-link1 {
-    display: block;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 16px;
-    line-height: 30px;
+    }
+    
+}
+.social_buttons_box{
     display: flex;
-    align-items: center;
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-.mega-item {
-    box-sizing: border-box;
-}
-
-.mega-item2 {
-    box-sizing: border-box;
-    margin-left: 33px;
-    margin-top: 92px;
-}
-
-.mega-box {
-    display: flex;
-}
-
-.menu-heading {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 16px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    margin-top: 62px;
-}
-
-.pay__link {
-    margin-right: 10px;
+    justify-content: center;
+    gap: 8px;
+        
+    .social_link{
+        color: black;
+        background: white;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .social_link:hover{
+    background: #7FAD39;
+    color: white;
+    }
+    
 }
