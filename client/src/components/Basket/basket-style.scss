@@ -44,18 +44,16 @@
 
 .basket-products {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .basket-items-wrp {
-    margin: 0 20px 20px 20px;
     display: flex;
     max-width: 310px;
 }
 
 .basket-item {
-    padding: 25px 0 15px 0;
+    padding: 25px;
     font-family: 'Cerebri Sans Pro';
     font-style: normal;
     font-weight: 400;
@@ -151,7 +149,82 @@
     background: #7FAD39;
 }
 
-.bskt-products-wrp {
-    max-width: 950px;
-    margin: 0 auto;
+
+.basket-product-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        width: 1050px;
+        height: 1px;
+        left: 40px;
+        top: 120px;
+        background: #7FAD39;
+        content: "";
+    }
+}
+
+.basket-total {
+    display: flex;
+    height: 110px;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &-info {
+        display: flex;
+        width: 284px;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 50px;
+        margin: 0 37px 0 0;
+    }
+
+    &-remove-btn {
+        width: 106px;
+        height: 50px;
+        background: #AD4E39;
+        color: white;
+        border: #AD4E39;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+    }
+
+    &-count-btn {
+        width: 50px;
+        height: 50px;
+        background: #F5F5F5;
+        border: #F5F5F5;
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        color: #2A2A2A;
+    }
+
+    &-txt {
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        color: #2A2A2A;
+    }
+
+    &-title {
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 20px;
+        line-height: 30px;
+        color: #2A2A2A;
+    }
 }
