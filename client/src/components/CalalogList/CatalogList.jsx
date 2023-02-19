@@ -12,10 +12,10 @@ const CatalogList = ({  catId, cats }) => {
     );
 
   return (
-      <div className="list">
+      <div className="catalog-item-box" >
         {loading
             ? "loading"
-            : data?.slice(0,9).map((item) => <Card item={item} key={item.id} />)}
+            : data?.slice(0,8).map((item) => <Card item={item} key={item.id} />)}
       </div>
   );
 };
