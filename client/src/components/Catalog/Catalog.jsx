@@ -3,44 +3,65 @@ import './catalog.scss';
 import banan from '../../images/banan.png';
 import line from '../../images/line.png';
 import useFetch from "../../hooks/useFetch";
-import { Link } from "react-router-dom";
+import { useParams} from "react-router-dom";
+import CatalogList from "../CalalogList/CatalogList";
+import React, {useState} from "react";
+
 
 const Catalog = () => {
-  const { data } = useFetch(
-    `/products?populate=*`
+
+  const catId = parseInt(useParams().id);
+
+  const [selectedCats, setSelectedCats] = useState([]);
+
+
+
+  const  { data, loading, error } = useFetch(
+      `/categories?[id][$eq]=${catId}`
   );
+
+  const handleClick = (e) => {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+
+    setSelectedCats(
+
+        isChecked
+            ? [...selectedCats, value]
+            : selectedCats.filter((item) => item !== value)
+
+    );
+  };
+
     return (
       <section className='catalog-container'>
         <div className='catalog-heading'>
           <b>Featured Product</b>
           <img src={line} alt='line' className='heading-line-img' />
-          <div className='catalog-filter-btn'>
-            <div className='filter-btn active'>All</div>
-            <div className='filter-btn'>Oranges</div>
-            <div className='filter-btn'>Freash Meat</div>
-            <div className='filter-btn'>Vegetables</div>
-            <div className='filter-btn'>Fastfood</div>
-          </div>
-        </div>
-        <div className='catalog-item-box'>
-          {data?.slice(1,9).map((item, index) => (
-            <Link key={index} to={`/productpage/${item.id}`}>
-            <div className='product-card'>
+          <div className="filterItem">
+            <div className="checkbox-btn-group">
 
-              <img src={
-                process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url
-              } alt={item.attributes.title} className='product-card-img' />
-
-              <div className='text-box-roduct-card'>
-                <p className='text-product-card'>{item.attributes.title}</p>
-                <b>
-                  <p className='price-product-card'>${item.attributes.price}</p>
-                </b>
-              </div>
             </div>
-            </Link>
-          ))}
+            <div className='catalog-filter-btn'>
+              {data?.slice(1,6).map((item) => (
+                  <div className="inputItem" key={item.id}>
+                    <input
+                        type="checkbox"
+                        id={item.id}
+                        value={item.id}
+                        onClick={handleClick}
+                    />
+                    <label htmlFor={item.id}>{item.attributes.title}</label>
+                  </div>
+              ))}
+            </div>
+
+          </div>
+
+
         </div>
+
+        <CatalogList catId={catId} cats={selectedCats} />
       </section>
     )
 }
