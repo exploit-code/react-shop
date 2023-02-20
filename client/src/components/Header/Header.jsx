@@ -11,14 +11,19 @@ import twitIcon from '../../images/twitIcon.svg';
 import engIcon from '../../images/engIcon.svg';
 import rusIcon from '../../images/rusIcon.svg';
 import loginIcon from '../../images/loginIcon.svg'
-
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import basketIcon from '../../images/basket-icon.svg'
 import likesIcon from '../../images/likes-icon.svg'
+import Cart from "../Cart/Cart";
+import {useSelector} from "react-redux";
 
 const Header = () => {
     const [activeModal, setActiveModal] = useState(false);
     const [select, setSelect] = useState('eng');
-
+    //
+    const [open,setOpen] = useState(false)
+    const products = useSelector((state) => state.cart.products);
+    //
     const selectLang = (e) => {
         if (e === 'rus') {
             setSelect('rus')
@@ -206,12 +211,18 @@ const Header = () => {
                             <span className='header__info-price-text'>Price:</span>
                             <span className='header__info-price-value'>$150.00</span>
                         </div>
+                        <div className="icons">
+                            <div className="cartIcon" onClick={()=>setOpen(!open)}>
+                                <ShoppingCartOutlinedIcon/>
+                                <span>{products.length}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
 
-
+            {open && <Cart/>}
         </header >
     )
 }

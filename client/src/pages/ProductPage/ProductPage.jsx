@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import './Product.scss'
 import Button from '../../components/Button/Button'
 import BuyTogether from '../../components/BuyTogether/BuyTogether'
 import {useParams} from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartReducer";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 
 export const ProductPage = () => {
   const id = useParams().id;
-
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
   return (
@@ -37,8 +40,36 @@ export const ProductPage = () => {
               alt=""
             />
             {/* </a> */}
-            <Button text='ADD TO CART'
-            />
+            {/*<Button text='ADD TO CART'*/}
+            {/*/>*/}
+            <div className="quantity">
+              <button
+                  onClick={() =>
+                      setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
+                  }
+              >
+                -
+              </button>
+              {quantity}
+              <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
+            </div>
+            <Button
+                text='ADD TO CART'
+                onClick={() =>
+                    dispatch(
+                        addToCart({
+                          id: data.id,
+                          title: data.attributes.title,
+                          desc: data.attributes.desc,
+                          price: data.attributes.price,
+                          img: data.attributes.img.data.attributes.url,
+                          quantity,
+                        })
+                    )
+                }
+            >
+              <AddShoppingCartIcon /> ADD TO CART
+            </Button>
             <div className='price_text'>${data?.attributes?.price}</div>
           </div>
 

@@ -10,7 +10,8 @@ const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [cartItems, setCartItems] = useState([]);
-    console.log(cartItems);
+
+    console.log(cartItems, 'cartitems');
 
     const googleProvider = new GoogleAuthProvider();
 
