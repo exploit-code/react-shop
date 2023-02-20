@@ -10,7 +10,7 @@ const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [cartItems, setCartItems] = useState([]);
-    console.log(cartItems);
+    // console.log(cartItems);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -35,7 +35,7 @@ const UserContext = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             setLoading(false);
-            console.log('auth state changed', currentUser);
+            // console.log('auth state changed', currentUser);
         })
         return () => {
             unsubscribe();
@@ -46,7 +46,11 @@ const UserContext = ({ children }) => {
         setCartItems((prev) => [...prev, obj]);
     };
 
-    const authInfo = { user, loading, createUser, signIn, logOut, signInWithGoogle, onAddToCart, cartItems }
+    const deleteItems = (id) => {
+        setCartItems(cartItems.filter(el => el.id !== id))
+    }
+
+    const authInfo = { user, loading, createUser, signIn, logOut, signInWithGoogle, onAddToCart, cartItems, deleteItems }
 
     return (
         <AuthContext.Provider value={authInfo}>
