@@ -2,16 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from "../../context/UserContext";
 import './basket-style.scss';
-import Raspberry from './img/raspberry.png'
 import BasketPng from './img/basket.png'
-import useFetch from "../../hooks/useFetch";
 
 const Basket = () => {
     const { cartItems } = useContext(AuthContext)
 
-    const { data } = useFetch(
-        `/products?populate=*`
-    );
     return (
         <>
             <div className="page-basket-wrp">
