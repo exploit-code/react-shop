@@ -46,7 +46,11 @@ const UserContext = ({ children }) => {
         setCartItems((prev) => [...prev, obj]);
     };
 
-    const authInfo = { user, loading, createUser, signIn, logOut, signInWithGoogle, onAddToCart, cartItems }
+    const deleteItems = (id) => {
+        setCartItems(cartItems.filter(el => el.id !== id))
+    }
+
+    const authInfo = { user, loading, createUser, signIn, logOut, signInWithGoogle, onAddToCart, cartItems, deleteItems }
 
     return (
         <AuthContext.Provider value={authInfo}>

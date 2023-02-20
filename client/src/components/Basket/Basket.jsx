@@ -6,6 +6,8 @@ import BasketPng from './img/basket.png'
 
 const Basket = () => {
     const { cartItems } = useContext(AuthContext)
+    const { deleteItems } = useContext(AuthContext)
+
 
     return (
         <>
@@ -41,7 +43,7 @@ const Basket = () => {
                                                 <button className='basket-total-count-btn'>+</button>
                                             </div>
                                             <div>
-                                                <button className='basket-total-remove-btn'>Remove</button>
+                                                <button className='basket-total-remove-btn' onClick={() => deleteItems(item.id)}>Remove</button>
                                             </div>
                                         </div>
                                     </div>
