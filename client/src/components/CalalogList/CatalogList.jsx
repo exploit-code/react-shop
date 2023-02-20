@@ -4,10 +4,10 @@ import Card from "../Card/Card";
 import useFetch from "../../hooks/useFetch";
 
 
-const CatalogList = ({  catId, cats }) => {
+const CatalogList = ({ cats }) => {
     const { data, loading, error } = useFetch(
-        `/products?populate=*&${catId}${cats.map(
-            (item) => `&[filters][categories][id][$eq]=${item}`
+        `/products?populate=*${cats.map(
+            (cats) => `&[filters][categories][id][$eq]=${cats}`
         )}`
     );
 

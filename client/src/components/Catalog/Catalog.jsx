@@ -51,7 +51,6 @@ const Catalog = () => {
                   type="checkbox"
                   id={item.id}
                   value={item.id}
-                  onClick={handleClick}
                   onChange={handleClick}
                   checked={Number(value) === Number(item.id)}
                 />
