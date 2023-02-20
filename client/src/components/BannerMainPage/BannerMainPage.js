@@ -1,66 +1,31 @@
 import './BannerMainPage.scss';
 import poster from '../../images/poster.svg';
-import freshfruitIcon from '../../images/freshfruitIcon.svg';
-import driedfruitIcon from '../../images/driedfruitIcon.svg';
-import vegetablesIcon from '../../images/vegetablesIcon.svg';
-import drinkfruitsIcon from '../../images/drinkfruitsIcon.svg';
-import {Link} from "react-router-dom";
+
 
 
 
 
 
 const BannerMainPage = (props) => {
-    const categories = ['Fresh Meat',
-        'Vegetables',
-        'Fruit & Nut Gifts',
-        'Fresh Berries',
-        'Ocean Foods',
-        'Butter & Eggs',
-        'Fastfood',
-        'Fresh Onion',
-        'Papayaya & Crisps',
-        'Oatmeal',
-        'Fresh Bananas'];
-    const listCategories = categories.map((categorie) =>
-        <a href='*' className='bannermainpage__top_list_a'>{categorie}</a>
-    );
-
-    const fruits = [{ desc: 'FRESH FRUIT', img: freshfruitIcon, path:"/products/1"}, { desc: 'DRIED FRUIT', img: driedfruitIcon, path:"/products/2" },
-        { desc: 'VEGETABLES', img: vegetablesIcon, path:"/products/3" }, { desc: 'DRINK FRUITS', img: drinkfruitsIcon, path:"/products/4" }];
-    const listFruits = fruits.map((fruit) =>
-        <Link className="link" to={fruit.path}>
-        <div className='bannermainpage__bottom_fruit'>
-            <img src={fruit.img} alt='fruit'></img>
-
-            <button className='bannermainpage__bottom_fruit_button'>
-                {fruit.desc}
-
-            </button>
-        </div>
-</Link>
-    );
-
     return (
         <div className='bannermainpage'>
             <div className='bannermainpage__top'>
                 <div className='bannermainpage__top_list' style={{ display: props.stateCategories ? 'flex' : 'none' }}>
-                    {listCategories}
+                    {props.listCategories}
                 </div>
                 <div className='bannermainpage__top_poster'>
                     <div className='bannermainpage__top_poster_left'>
                         <p className='bannermainpage__top_poster_left_p_ff'>FRUIT FRESH</p>
                         <p className='bannermainpage__top_poster_left_h1'>Vegetable <br></br>100% Organic</p>
                         <p className='bannermainpage__top_poster_left_p_free'>Free Pickup and Delivery Available</p>
-                        <button className='bannermainpage__top_poster_left_button'>SHOP NOW</button>
                     </div>
                     <div className='bannermainpage__top_poster_right'>
-                        <img src={poster} alt='poster'></img>
+                        <img className='bannermainpage__top_poster_right_img' src={poster} alt='poster'></img>
                     </div>
                 </div>
             </div>
             <div className='bannermainpage__bottom'>
-                {listFruits}
+                {props.listFruits}
             </div>
         </div>
     )

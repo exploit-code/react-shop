@@ -6,115 +6,6 @@
 }
 
 .header {
-    // background-color: var(--black-bg);
-    // padding: 14px 0;
-
-    // &__content {
-    //     padding: 20px 0;
-    //     @include mixins.flex(space-between, center);
-    //     color: var(--white);
-
-
-    //     &--sup {
-    //         background-color: var(--black-bg);
-    //     }
-
-    //     &--sub {
-    //         background-color: var(--white);
-    //     }
-
-
-
-
-    //     &_left {
-    //         @include mixins.flex(center, center);
-    //         gap: 20px;
-
-    //         &_p {
-    //             @include mixins.font(13px, 700, 100%);
-    //             font-family: Celebri Sans Pro;
-    //         }
-
-    //         &_stick {
-    //             height: 14px;
-    //             background-color: rgba(255, 255, 255, 0.5);
-    //             border: 1px solid rgba(255, 255, 255, 0.5);
-    //         }
-
-    //         &_email {
-    //             @include mixins.flex(center, center);
-    //             gap: 8px;
-    //         }
-    //     }
-
-    //     &_right {
-    //         @include mixins.flex(center, center);
-    //         gap: 40px;
-
-    //         &_socnet {
-    //             @include mixins.flex(center, center);
-    //             gap: 20px;
-    //         }
-
-    //         &_socnet_link {
-    //             cursor: pointer;
-    //         }
-
-    //         &_socnet_select {
-    //             border: none;
-    //             color: #FFFFFF;
-    //             background-color: var(--black-bg);
-    //             cursor: pointer;
-    //         }
-
-    //         &_socnet_div_select {
-    //             gap: 9px;
-    //             @include mixins.flex(center, center);
-    //             font-family: Celebri Sans Pro;
-    //         }
-    //     }
-    // }
-
-    // &__logo {
-    //     @include mixins.font(36px, 700, 100%);
-    //     color: var(--black)
-    // }
-
-    // &__nav {
-    //     display: flex;
-
-    //     &-list {
-    //         display: flex;
-    //         gap: 35px;
-    //     }
-
-    //     &-link {
-    //         @include mixins.font(16px, 500, 100%);
-    //         color: var(--black);
-
-    //         &:hover {
-    //             color: var(--green);
-    //         }
-
-
-    //     }
-    // }
-
-    // &-login {
-    //     @include mixins.flex(center, center);
-    //     @include mixins.font(12px, 700, 100%);
-    //     font-family: Celebri Sans Pro;
-    //     gap: 10px;
-    //     border: none;
-    //     background: none;
-    //     color: var(--white);
-    //     position: relative;
-    //     z-index: 1;
-    //     cursor: pointer;
-
-    // }
-
-
     &__box {
         padding: 20px 0;
 
@@ -124,6 +15,7 @@
 
         &--white {
             background-color: var(--white);
+            margin-top: 10px;
         }
     }
 
@@ -151,6 +43,7 @@
         &-text {
             color: #fff;
             // font-weight: 500;
+            font-family: Celebri Sans Pro;
         }
 
         &-icon {
@@ -164,6 +57,7 @@
     &__logo {
         @include mixins.font(36px, 700, 100%);
         color: #000;
+        font-family: Celebri Sans Pro;
     }
 
     &__email {
@@ -179,12 +73,14 @@
         &-text {
             color: #fff;
             font-weight: 600;
+            font-family: Celebri Sans Pro;
         }
     }
 
     &__delivery {
         color: #fff;
         font-weight: 600;
+        font-family: Celebri Sans Pro;
     }
 
     &__line {
@@ -195,14 +91,16 @@
     &__nav {
         display: flex;
 
+
         &-list {
             display: flex;
-            gap: 35px;
+            gap: 50px;
         }
 
         &-link {
             @include mixins.font(16px, 500, 100%);
             color: var(--black);
+            font-family: Celebri Sans Pro;
 
             &:hover {
                 color: var(--green);
@@ -231,10 +129,12 @@
 
             &-text {
                 color: #999;
+                font-family: Celebri Sans Pro;
             }
 
             &-value {
                 color: #000;
+                font-family: Celebri Sans Pro;
             }
         }
 
@@ -258,6 +158,7 @@
             padding: 3px;
             font-size: 10px;
             color: white;
+            font-family: Celebri Sans Pro;
         }
     }
 

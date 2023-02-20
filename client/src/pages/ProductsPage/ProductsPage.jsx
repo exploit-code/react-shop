@@ -67,7 +67,7 @@ const ProductsPage = () => {
                   name="price"
                   onChange={(e) => setSort("asc")}
               />
-              <label htmlFor="asc">Price (Lowest first)</label>
+              <label htmlFor="asc"> Price (Lowest first)</label>
             </div>
             <div className="inputItem">
               <input
