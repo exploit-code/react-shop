@@ -55,10 +55,10 @@ const Header = () => {
 
                         <div className='header__line'></div>
 
-                        <Link className='header__login' to='/login'>
+                        <div className='header__login'>
                             <img className='header__login-icon' src={loginIcon} alt="" />
-                            <span className='header__login-text'>Login</span>
-                        </Link>
+                            {user?.email ? <Link className='header__login-text' onClick={handleSignOut}>Log Out</Link> : <Link className='header__login-text' to='/login'>Login</Link>}
+                        </div>
 
                     </div>
 
