@@ -18,15 +18,21 @@ const Footer = () => {
             <div>Email: hello@colorlib.com</div>
           </address>
           <div className='footer_menu'>
-            <a className='footer__link' href='#'>
+            <Link className='footer__link' to='/'>
               SHOP
-            </a>
-            <a className='footer__link' href='#'>
+            </Link>
+            <Link className='footer__link' to='/'>
               BLOG
-            </a>
-            <a className='footer__link' href='#'>
+            </Link>
+            <Link className='footer__link' to='/'>
               CONTACT
-            </a>
+            </Link>
+            <Link className='footer__link' to='/aboutus'>
+              ABOUT US
+            </Link>
+            <Link className='footer__link' to='/aboutourshop'>
+              ABOUT OUR SHOP
+            </Link>
           </div>
           <div className='footer_subscribe'>
             <h2 className='footer__top__right__heading'>
