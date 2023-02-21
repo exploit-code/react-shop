@@ -12,6 +12,8 @@ import loginIcon from '../../images/loginIcon.svg'
 import basketIcon from '../../images/basket-icon.svg'
 import likesIcon from '../../images/likes-icon.svg'
 
+import ScrollToTop from '../../utils/scrollToTop';
+
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
 
@@ -23,6 +25,7 @@ const Header = () => {
 
     return (
         <header className='header'>
+            <ScrollToTop />
             <div className='header__box header__box--black'>
                 <div className='header__content container'>
 
