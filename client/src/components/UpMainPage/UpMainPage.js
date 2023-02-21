@@ -53,7 +53,7 @@ const UpMainPage = () => {
     const listFruits = fruits.map((fruit) =>
         <Link key={fruit.id} className="link" to={fruit.path}>
             <div className='bannermainpage__bottom_fruit'>
-                <img src={fruit.img} alt='fruit'></img>
+                <img src={fruit.img} className='bannermainpage__bottom_fruit_img' alt='fruit'></img>
                 <button className='bannermainpage__bottom_fruit_button'>
                     {fruit.desc}
                 </button>
