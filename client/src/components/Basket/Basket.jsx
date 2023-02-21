@@ -4,11 +4,43 @@ import './basket-style.scss';
 import BasketPng from './img/basket.png'
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItems, deleteItem } from "../../redux/cartReducer";
-
+import {makeRequest} from "../../makeRequest";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Basket = () => {
   const cartItems = useSelector((state) => state.cart.products)
   const dispatch = useDispatch()
+
+  const totalPrice = () => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.quantity * item.price;
+    });
+    return total.toFixed(2);
+  };
+  //Checkout
+  const stripePromise = loadStripe(
+      "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
+  );
+
+  const checkoutPayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      const res = await makeRequest.post("/orders", {
+        cartItems,
+      });
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // end of Checkout
+
+console.log(cartItems, "cartitems")
 
   return (
     <>
@@ -26,7 +58,7 @@ const Basket = () => {
                   <div key={item.id} className='basket-product-total'>
                     <div className="basket-items-wrp">
                       <img width={110} height={110}
-                           src={process.env.REACT_APP_UPLOAD_URL + item.img} alt={item.tittle}/>
+                           src={process.env.REACT_APP_UPLOAD_URL + item.img} alt={item.title}/>
                       <div className='basket-item'>
                         <h4 className='basket-item-title'>
                           {item.title}
@@ -36,7 +68,7 @@ const Basket = () => {
                     </div>
                     <div className='basket-total'>
                       <div className='basket-total-info'>
-                        <h3 className='basket-total-title'>${(item.quantity * item.price).toFixed(2)}</h3>
+                        <h3 className='basket-total-title'>${totalPrice}</h3>
                         <button onClick={() => dispatch(deleteItem(item))} className='basket-total-count-btn'>-</button>
                         <span className='basket-total-txt'>{item.quantity}</span>
                         <button onClick={() => dispatch(addItem(item))} className='basket-total-count-btn'>+</button>
@@ -54,7 +86,7 @@ const Basket = () => {
               </section>
               <div className='basket-btn-wrp'>
                 <button className='basket-btn'>
-                  <span className='basket-btn-txt'>GO to checkout</span>
+                  <span className='basket-btn-txt' onClick={checkoutPayment}>GO to checkout</span>
                 </button>
               </div>
             </div>
