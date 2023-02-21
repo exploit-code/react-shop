@@ -9,8 +9,6 @@ const auth = getAuth(app);
 const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
-    const [cartItems, setCartItems] = useState([]);
-    // console.log(cartItems);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -42,15 +40,7 @@ const UserContext = ({ children }) => {
         }
     }, [])
 
-    const onAddToCart = (obj) => {
-        setCartItems((prev) => [...prev, obj]);
-    };
-
-    const deleteItems = (id) => {
-        setCartItems(cartItems.filter(el => el.id !== id))
-    }
-
-    const authInfo = { user, loading, createUser, signIn, logOut, signInWithGoogle, onAddToCart, cartItems, deleteItems }
+    const authInfo = { user, loading, createUser, signIn, logOut, signInWithGoogle }
 
     return (
         <AuthContext.Provider value={authInfo}>

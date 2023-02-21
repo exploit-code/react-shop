@@ -1,7 +1,4 @@
 import './catalog.scss';
-import styles from './catalog.scss';
-// import '../../index.scss';
-import banan from '../../images/banan.png';
 import line from '../../images/line.png';
 import useFetch from "../../hooks/useFetch";
 import { useParams} from "react-router-dom";
@@ -32,8 +29,6 @@ const Catalog = () => {
     );
     setValue(e.target.value);
   };
-
-  console.log(value)
 
   return (
     <section className='catalog-container'>

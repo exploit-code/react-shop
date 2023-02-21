@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='container'>
-        <div class='footer_top'>
+        <div className='footer_top'>
           <Link className='footer__logo' to='/'>
             GOOD-FOOD 🍎🥝
           </Link>
@@ -64,7 +64,7 @@ const Footer = () => {
               </div>
               <div className='social_button'>
                 <a href='#' className='social_link'>
-                  <i class='fa-brands fa-linkedin-in'></i>
+                  <i className='fa-brands fa-linkedin-in'></i>
                 </a>
               </div>
               <div className='social_button'>
@@ -76,8 +76,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div class='footer_bottom container'>
-          <p class='copyright'>
+        <div className='footer_bottom container'>
+          <p className='copyright'>
             Copyright &copy; 2021 All rights reserved | This template is made
             with 💚 by LOGO.
           </p>
