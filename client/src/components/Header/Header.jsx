@@ -13,19 +13,38 @@ import basketIcon from '../../images/basket-icon.svg'
 import likesIcon from '../../images/likes-icon.svg'
 
 import ScrollToTop from '../../utils/scrollToTop';
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
 
+    const cartItems = useSelector((state) => state.cart.products)
+
     const handleSignOut = () => {
         logOut()
-            .then(() => { })
-            .catch(error => console.error(error));
+        .then(() => { })
+        .catch(error => console.error(error));
     }
 
+    const totalPrice = () => {
+        let total = 0;
+        cartItems.forEach((item) => {
+            total += item.quantity * item.price;
+        });
+        return total.toFixed(2);
+    };
+
+    const totalQuantity = () => {
+        let total = 0;
+        cartItems.forEach((item) => {
+            total += item.quantity;
+        });
+        return total;
+    };
+
     return (
-        <header className='header'>
-            <ScrollToTop />
+      <header className='header'>
+          <ScrollToTop/>
             <div className='header__box header__box--black'>
                 <div className='header__content container'>
 
@@ -71,7 +90,7 @@ const Header = () => {
             <div className='header__box header__box--white'>
                 <div className='header__content container'>
 
-                    <Link className='header__logo' to='/'>LOGO🍎🥝</Link>
+                    <Link className='header__logo' to='/'>GOOD-FOOD🍎🥝</Link>
 
                     <nav className='header__nav'>
                         <ul className='header__nav-list'>
@@ -100,14 +119,14 @@ const Header = () => {
 
                         <div className='header__info-basket'>
                             <Link to='/basket'>
-                                <img className='header__info-icon' src={basketIcon} alt="basket" />
-                                <span className='header__info-count'>0</span>
+                                <img className='header__info-icon' src={basketIcon} alt="basket"/>
+                                <span className='header__info-count'>{totalQuantity()}</span>
                             </Link>
                         </div>
 
                         <div className='header__info-price'>
                             <span className='header__info-price-text'>Price:</span>
-                            <span className='header__info-price-value'>$150.00</span>
+                            <span className='header__info-price-value'>${totalPrice()}</span>
                         </div>
                     </div>
                 </div>

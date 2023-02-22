@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import './Product.scss'
 import Button from '../../components/Button/Button'
 import BuyTogether from '../../components/BuyTogether/BuyTogether'
@@ -6,10 +6,13 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import plusIcon from "./img/icon-plus.png";
 import minusIcon from "./img/icon-minus.png";
+import { AuthContext } from "../../context/UserContext";
 
 
 export const ProductPage = () => {
   const id = useParams().id;
+
+  const { onAddToCart } = useContext(AuthContext)
 
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
@@ -59,7 +62,7 @@ export const ProductPage = () => {
             <div className='price_text'>${data?.attributes?.price}</div>
 
             <div className="count_block">
-              <Button text='ADD TO CART'
+              <Button onClick={() => onAddToCart(data)} text='ADD TO CART'
               />
               <div className="count__box">
                 {count}
