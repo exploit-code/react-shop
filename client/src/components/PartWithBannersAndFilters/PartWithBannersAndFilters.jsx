@@ -9,7 +9,8 @@ import arrowLeft from './img/arrow_left.png';
 
 import useFetch from "../../hooks/useFetch";
 import { useDispatch } from "react-redux";
-import { addToCart, resetCart } from "../../redux/cartReducer";
+import { addToCart } from "../../redux/cartReducer";
+import { Link } from "react-router-dom";
 
 
 const PartWithBannersAndFilters = () => {
@@ -43,25 +44,33 @@ const PartWithBannersAndFilters = () => {
               <img className="filterBlock__latestProduct_titleBlock_arrowRight" src={arrowRight}
                    alt="arrow right"></img>
             </div>
-            {data?.slice(1, 4).map((item) => (
-              <div key={item.id} onClick={() => dispatch(addToCart({
-                id: item.id,
-                title: item.attributes.title,
-                desc: item.attributes.desc,
-                price: (item.attributes.price).toFixed(2),
-                img: item.attributes.img.data.attributes.url,
-                quantity
-              }))}
-                   className="filterBlock__latestProduct_item">
-                <div className="filterBlock__latestProduct_item_left">
+            {data?.slice(1, 4).map((item, idx) => (
+              <div key={idx} className="filterBlock__latestProduct_item">
+                <Link to={`/productpage/${item.id}`} className="filterBlock__latestProduct_item_left">
                   <img className="filterBlock__latestProduct_item_left_img"
                        src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
                        alt={item.attributes.title}/>
-                </div>
+                </Link>
                 <div className="filterBlock__latestProduct_item_right">
                   <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>
                   <div
                     className="filterBlock__latestProduct_item_right_price">${(item.attributes.price).toFixed(2)}</div>
+                  <p onClick={() =>
+                    dispatch(
+                      addToCart({
+                          id: item.id,
+                          title: item.attributes.title,
+                          desc: item.attributes.desc,
+                          price: item.attributes.price,
+                          img: item.attributes.img.data.attributes.url,
+                          totalPriceItem: (item.attributes.price).toFixed(2),
+                          quantity,
+                        }
+                      )
+                    )
+                  }>
+                    Add to cart
+                  </p>
                 </div>
               </div>
             ))}
@@ -75,25 +84,34 @@ const PartWithBannersAndFilters = () => {
               <img className="filterBlock__reviewProducts_titleBlock_arrowRight" src={arrowRight}
                    alt="arrow right"></img>
             </div>
-            {data?.slice(4, 7).map((item) => (
-              <div key={item.id} onClick={() => dispatch(addToCart({
-                id: item.id,
-                title: item.attributes.title,
-                desc: item.attributes.desc,
-                price: item.attributes.price,
-                img: item.attributes.img.data.attributes.url,
-                quantity
-              }))}
-                   className="filterBlock__latestProduct_item">
-                <div className="filterBlock__latestProduct_item_left">
+            {data?.slice(4, 7).map((item, idx) => (
+              <div key={idx} className="filterBlock__latestProduct_item">
+                <Link to={`/productpage/${item.id}`} className="filterBlock__latestProduct_item_left">
                   <img className="filterBlock__latestProduct_item_left_img"
                        src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
                        alt={item.attributes.title}/>
-                </div>
+                </Link>
                 <div className="filterBlock__latestProduct_item_right">
                   <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>
                   <div
                     className="filterBlock__latestProduct_item_right_price">${(item.attributes.price).toFixed(2)}</div>
+                  <p onClick={() =>
+                    dispatch(
+                      addToCart(
+                        {
+                          id: item.id,
+                          title: item.attributes.title,
+                          desc: item.attributes.desc,
+                          price: item.attributes.price,
+                          img: item.attributes.img.data.attributes.url,
+                          totalPriceItem: (item.attributes.price).toFixed(2),
+                          quantity,
+                        }
+                      )
+                    )
+                  }>
+                    Add to cart
+                  </p>
                 </div>
               </div>
             ))}
@@ -106,25 +124,34 @@ const PartWithBannersAndFilters = () => {
               <img className="filterBlock__reviewProducts_titleBlock_arrowRight" src={arrowRight}
                    alt="arrow right"></img>
             </div>
-            {data?.slice(7, 10).map((item) => (
-              <div key={item.id} onClick={() => dispatch(addToCart({
-                id: item.id,
-                title: item.attributes.title,
-                desc: item.attributes.desc,
-                price: item.attributes.price,
-                img: item.attributes.img.data.attributes.url,
-                quantity
-              }))}
-                   className="filterBlock__latestProduct_item">
-                <div className="filterBlock__latestProduct_item_left">
+            {data?.slice(7, 10).map((item, idx) => (
+              <div key={idx} className="filterBlock__latestProduct_item">
+                <Link to={`/productpage/${item.id}`} className="filterBlock__latestProduct_item_left">
                   <img className="filterBlock__latestProduct_item_left_img"
                        src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
                        alt={item.attributes.title}/>
-                </div>
+                </Link>
                 <div className="filterBlock__latestProduct_item_right">
                   <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>
                   <div
                     className="filterBlock__latestProduct_item_right_price">${(item.attributes.price).toFixed(2)}</div>
+                  <p onClick={() =>
+                    dispatch(
+                      addToCart(
+                        {
+                          id: item.id,
+                          title: item.attributes.title,
+                          desc: item.attributes.desc,
+                          price: item.attributes.price,
+                          img: item.attributes.img.data.attributes.url,
+                          totalPriceItem: (item.attributes.price).toFixed(2),
+                          quantity,
+                        }
+                      )
+                    )
+                  }>
+                    Add to cart
+                  </p>
                 </div>
               </div>
             ))}
