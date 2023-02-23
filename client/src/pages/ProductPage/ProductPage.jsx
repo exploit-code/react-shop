@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import './Product.scss'
 import Button from '../../components/Button/Button'
 import BuyTogether from '../../components/BuyTogether/BuyTogether'
@@ -6,30 +6,18 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import plusIcon from "./img/icon-plus.png";
 import minusIcon from "./img/icon-minus.png";
-import { AuthContext } from "../../context/UserContext";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartReducer";
 
 
 export const ProductPage = () => {
+  const dispatch = useDispatch()
+  let [quantity, setQuantity] = useState(1);
+
   const id = useParams().id;
-
-  const { onAddToCart } = useContext(AuthContext)
-
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
-  let [count, setCount] = useState(1);
-
-  const price = data?.attributes?.price;
-
-  const totalPrice = count * price;
-
-  const handleDec = () => {
-    setCount(count - 1 > 0 ? count - 1 : count = 1)
-  }
-
-  const handleInc = () => {
-    setCount(count + 1)
-  }
-
+  console.log(quantity)
   return (
     <div className='product'>
       <div className='product__content'>
@@ -41,8 +29,7 @@ export const ProductPage = () => {
             <div className='product__content__heading'>{data?.attributes?.title}</div>
             <div className='product__content__shortLine'></div>
           </div>
-          <div className='price_text'>Price per unit ${price}</div>
-          <div className="price_total">Total price: ${totalPrice}</div>
+          <div className='price_text'>${(Number(data?.attributes?.price)).toFixed(2)}</div>
         </div>
 
         <div className='product__content__box'>
@@ -59,21 +46,37 @@ export const ProductPage = () => {
             {/* </a> */}
             {/* <Button text='ADD TO CART'
             /> */}
-            <div className='price_text'>${data?.attributes?.price}</div>
 
             <div className="count_block">
-              <Button onClick={() => onAddToCart(data)} text='ADD TO CART'
+              <Button onClick={() =>
+                dispatch(
+                  addToCart({
+                      id: data.id,
+                      title: data.attributes.title,
+                      desc: data.attributes.desc,
+                      price: data.attributes.price,
+                      img: data.attributes.img.data.attributes.url,
+                      totalPriceItem: (data.attributes.price * quantity).toFixed(2),
+                      quantity,
+                    }
+                  )
+                )
+              }
+                      text={quantity > 1 ? 'GO TO CART' : 'ADD TO CART'}
+
               />
               <div className="count__box">
-                {count}
+                {quantity}
                 {/* <input type="number" className="count__input" min="1" max="100" value="1" /> */}
               </div>
               <div className="count__controls">
-                <button onClick={handleInc} type="button" className="count_up">
-                  <img className="count_up_img" src={plusIcon} alt="Increase" />
+                <button onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))} type="button"
+                        className="count_up">
+                  <img className="count_up_img" src={minusIcon} alt="Increase"/>
                 </button>
-                <button onClick={handleDec} type="button" className="count_down">
-                  <img className="count_down_img" src={minusIcon} alt="Decrease" />
+                <button onClick={() => setQuantity((prev) =>  prev + 1)} type="button"
+                        className="count_down">
+                  <img className="count_down_img" src={plusIcon} alt="Decrease"/>
                 </button>
               </div>
             </div>

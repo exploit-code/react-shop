@@ -4,7 +4,7 @@
 }
 
  .catalog-container {
-     margin-top: 52px;
+     margin-top: 32px;
  }
 
 .catalog-heading {
@@ -52,11 +52,6 @@
     cursor: pointer;
 }
 
-//.checked{
-//    color: #2A2A2A !important;
-//    text-decoration: underline;
-//}
-
 /* Checked */
 .checkbox-btn input[type=checkbox]:checked + span {
     color: #2A2A2A;
@@ -72,6 +67,7 @@
 /* Active */
 .checkbox-btn input[type=checkbox]:active:not(:disabled) + span {
     color: #2A2A2A;
+    text-decoration: underline;
     text-decoration: underline;
 }
 
@@ -113,7 +109,7 @@
     margin: 25px 15px 0 15px;
     width: 240px;
     height: 176px;
-}
+ }
 
 .text-box-roduct-card {
     width: 230px;

@@ -116,10 +116,12 @@
     }
 
     &__content__img {
-        margin-bottom: 14px;
-        max-width: 100%;
+        margin-bottom: 39px;
+        width: 364px;
+        height: 307px;
         transition: transform .3s;
         cursor: pointer;
+        object-fit: contain;
 
         &:hover {
             transform: scale(1.03)

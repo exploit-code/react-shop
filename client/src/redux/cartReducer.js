@@ -11,9 +11,11 @@ export const cartSlice = createSlice({
     addToCart: (state, action) => {
       const item = state.products.find((item) => item.id === action.payload.id);
       if(item) {
-        item.quantity += action.payload.quantity;
+        // item.quantity += action.payload.quantity;
+        item.totalPriceItem = (item.quantity * item.price).toFixed(2) // стоимость одного вида товара
       } else {
         state.products.push(action.payload);
+        state.totalPriceItem = action.payload.price // стоимость одного вида товара
       }
     },
     removeItems: (state, action) => { // Удаление одного вида товара
@@ -24,12 +26,14 @@ export const cartSlice = createSlice({
     },
     addItem: (state, action) => {
       const item = state.products.find((item) => item.id === action.payload.id);
-      item.quantity = action.payload.quantity + 1;
+      item.quantity = item.quantity + 1;
+      item.totalPriceItem = (Number(item.totalPriceItem) + Number(item.price)).toFixed(2)
     },
     deleteItem: (state, action) => { // Удаление одной штуки товара
       const item = state.products.find((item) => item.id === action.payload.id);
-      if (item.quantity > 1) {
-        item.quantity = action.payload.quantity - 1
+      if(item.quantity > 1) {
+        item.quantity = item.quantity - 1
+        item.totalPriceItem = (Number(item.totalPriceItem) - Number(item.price)).toFixed(2)
       } else {
         state.products = state.products.filter(item => item.id !== action.payload.id)
       }

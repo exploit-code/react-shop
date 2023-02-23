@@ -11,14 +11,7 @@ const Basket = () => {
   const cartItems = useSelector((state) => state.cart.products)
   const dispatch = useDispatch()
 
-  const totalPrice = () => {
-    let total = 0;
-    cartItems.forEach((item) => {
-      total += item.quantity * item.price;
-    });
-    return total.toFixed(2);
-  };
-  //Checkout
+   //Checkout
   const stripePromise = loadStripe(
       "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
   );
@@ -54,8 +47,8 @@ console.log(cartItems, "cartitems")
           {cartItems.length > 0 ? (
             <div className='bskt-products-wrp'>
               <section className='basket-products'>
-                {cartItems.map((item) => (
-                  <div key={item.id} className='basket-product-total'>
+                {cartItems.map((item, idx) => (
+                  <div key={idx} className='basket-product-total'>
                     <div className="basket-items-wrp">
                       <img width={110} height={110}
                            src={process.env.REACT_APP_UPLOAD_URL + item.img} alt={item.title}/>
@@ -68,7 +61,7 @@ console.log(cartItems, "cartitems")
                     </div>
                     <div className='basket-total'>
                       <div className='basket-total-info'>
-                        <h3 className='basket-total-title'>${totalPrice}</h3>
+                        <h3 className='basket-total-title'>${item.totalPriceItem}</h3>
                         <button onClick={() => dispatch(deleteItem(item))} className='basket-total-count-btn'>-</button>
                         <span className='basket-total-txt'>{item.quantity}</span>
                         <button onClick={() => dispatch(addItem(item))} className='basket-total-count-btn'>+</button>

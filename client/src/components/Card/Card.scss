@@ -28,3 +28,12 @@
 .text-product-card {
   padding-top: 10px;
 }
+
+.link {
+  color: var(--black);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--green);
+  }
+}
