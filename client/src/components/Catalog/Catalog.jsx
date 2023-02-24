@@ -40,8 +40,8 @@ const Catalog = () => {
 
           </div>
           <div className='catalog-filter-btn'>
-            {data?.slice(0, 5).map((item, idx) => (
-              <label htmlFor={idx} className="checkbox-btn" key={item.id}>
+            {data?.slice(0, 5).map((item) => (
+              <label htmlFor={item.id} className="checkbox-btn" key={item.id}>
                 <input
                   type="checkbox"
                   id={item.id}

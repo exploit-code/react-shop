@@ -11,7 +11,7 @@ export const cartSlice = createSlice({
     addToCart: (state, action) => {
       const item = state.products.find((item) => item.id === action.payload.id);
       if(item) {
-        // item.quantity += action.payload.quantity;
+        item.quantity += action.payload.quantity;
         item.totalPriceItem = (item.quantity * item.price).toFixed(2) // стоимость одного вида товара
       } else {
         state.products.push(action.payload);
