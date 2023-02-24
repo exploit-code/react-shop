@@ -1,8 +1,15 @@
 .product-card {
+  position: relative;
   background: var(--gray);
   border: none;
   padding-bottom: 10px;
   margin-bottom: 10px;
+
+ .product-card-marker {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 
 .product-card-img {
