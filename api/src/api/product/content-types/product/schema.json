@@ -32,11 +32,11 @@
     "price": {
       "type": "decimal"
     },
-    "isNew": {
+    "onTop": {
       "type": "boolean",
       "default": false
     },
-    "isReview": {
+    "onSale": {
       "type": "boolean",
       "default": false
     },
