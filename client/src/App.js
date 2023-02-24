@@ -11,6 +11,7 @@ import AboutAs from './components/AboutUs/AboutUs'
 import AboutOurShop from './components/AboutOurShop/AboutOurShop'
 import Catalog from './components/Catalog/Catalog'
 import ProductPage from './pages/ProductPage/ProductPage'
+import Contacts from './components/Contacts/Contacts'
 
 function App() {
   const router = createBrowserRouter([
@@ -58,6 +59,10 @@ function App() {
         {
           path: '/aboutourshop',
           element: <AboutOurShop />,
+        },
+        {
+          path: '/contacts',
+          element: <Contacts />,
         },
       ],
     },
