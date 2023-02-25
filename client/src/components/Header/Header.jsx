@@ -9,7 +9,7 @@ import inIcon from '../../images/inIcon.svg';
 import twitIcon from '../../images/twitIcon.svg';
 import loginIcon from '../../images/loginIcon.svg'
 
-import basketIcon from '../../images/basket-icon.svg'
+import cartIcon from '../../images/cart-icon.svg'
 import likesIcon from '../../images/likes-icon.svg'
 
 import ScrollToTop from '../../utils/scrollToTop';
@@ -137,12 +137,12 @@ const Header = () => {
                 </Link>
               </div>
 
-              <div className='header__info-basket'>
-                <Link to='/basket'>
+              <div className='header__info-cart'>
+                <Link to='/cart'>
                   <img
                     className='header__info-icon'
-                    src={basketIcon}
-                    alt='basket'
+                    src={cartIcon}
+                    alt='cart'
                   />
                   <span className='header__info-count'>{totalQuantity()}</span>
                 </Link>
