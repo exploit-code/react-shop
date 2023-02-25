@@ -47,9 +47,11 @@ const PartWithBannersAndFilters = () => {
             {data?.slice(1, 4).map((item, idx) => (
               <div key={idx} className="filterBlock__latestProduct_item">
                 <Link to={`/productpage/${item.id}`} className="filterBlock__latestProduct_item_left">
-                  <img className="filterBlock__latestProduct_item_left_img"
-                       src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
-                       alt={item.attributes.title}/>
+                  <div className='overlay'>
+                    <img className="filterBlock__latestProduct_item_left_img"
+                         src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
+                         alt={item.attributes.title}/>
+                  </div>
                 </Link>
                 <div className="filterBlock__latestProduct_item_right">
                   <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>
@@ -58,8 +60,8 @@ const PartWithBannersAndFilters = () => {
                   <p onClick={() =>
                     dispatch(
                       addToCart({
-                          id: item.id,
-                          title: item.attributes.title,
+                        id: item.id,
+                        title: item.attributes.title,
                           desc: item.attributes.desc,
                           price: item.attributes.price,
                           img: item.attributes.img.data.attributes.url,
@@ -87,9 +89,11 @@ const PartWithBannersAndFilters = () => {
             {data?.slice(4, 7).map((item, idx) => (
               <div key={idx} className="filterBlock__latestProduct_item">
                 <Link to={`/productpage/${item.id}`} className="filterBlock__latestProduct_item_left">
-                  <img className="filterBlock__latestProduct_item_left_img"
-                       src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
-                       alt={item.attributes.title}/>
+                  <div className='overlay'>
+                    <img className="filterBlock__latestProduct_item_left_img"
+                         src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
+                         alt={item.attributes.title}/>
+                  </div>
                 </Link>
                 <div className="filterBlock__latestProduct_item_right">
                   <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>
@@ -127,9 +131,11 @@ const PartWithBannersAndFilters = () => {
             {data?.slice(7, 10).map((item, idx) => (
               <div key={idx} className="filterBlock__latestProduct_item">
                 <Link to={`/productpage/${item.id}`} className="filterBlock__latestProduct_item_left">
-                  <img className="filterBlock__latestProduct_item_left_img"
-                       src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
-                       alt={item.attributes.title}/>
+                  <div className="overlay">
+                    <img className="filterBlock__latestProduct_item_left_img"
+                         src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
+                         alt={item.attributes.title}/>
+                  </div>
                 </Link>
                 <div className="filterBlock__latestProduct_item_right">
                   <div className="filterBlock__latestProduct_item_right_name">{item.attributes.title}</div>

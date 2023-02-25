@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage/HomePage';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PrivateRoute from './routes/PrivateRoute';
-import Basket from './components/Basket/Basket';
+import Cart from './pages/Cart/Cart';
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import AboutAs from './components/AboutUs/AboutUs'
 import AboutOurShop from './components/AboutOurShop/AboutOurShop'
@@ -24,8 +24,8 @@ function App() {
           element: <HomePage />,
         },
         {
-          path: '/basket',
-          element: <Basket />,
+          path: '/cart',
+          element: <Cart />,
         },
         {
           path: 'login',
