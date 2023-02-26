@@ -12,7 +12,7 @@ export const favoritesSlice = createSlice({
     addToFavorites: (state, action) => {
       const item = state.products.find((item) => item.id === action.payload.id);
       if(item) {
-        state.products.pop(action.payload)
+        state.products = state.products.filter(item => item.id !== action.payload.id)
       } else {
         state.products.push(action.payload);
       }
