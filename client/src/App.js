@@ -12,6 +12,7 @@ import AboutOurShop from './components/AboutOurShop/AboutOurShop'
 import Catalog from './components/Catalog/Catalog'
 import ProductPage from './pages/ProductPage/ProductPage'
 import Contacts from './components/Contacts/Contacts'
+import Favorites from "./pages/Favorites/Favorites";
 
 function App() {
   const router = createBrowserRouter([
@@ -36,8 +37,8 @@ function App() {
           element: <Register />,
         },
         {
-          path: 'likes',
-          element: <></>,
+          path: 'favorites',
+          element: <Favorites/>,
         },
         {
           path: '/products/:id',

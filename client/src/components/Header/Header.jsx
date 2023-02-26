@@ -17,8 +17,8 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-
     const cartItems = useSelector((state) => state.cart.products)
+    const favoritesItems = useSelector((state) => state.favorites.products)
 
     const handleSignOut = () => {
         logOut()
@@ -41,6 +41,14 @@ const Header = () => {
         });
         return total;
     };
+
+  const totalQuantityFavorites = () => {
+    let total = 0;
+    favoritesItems.forEach((item) => {
+      total += item.quantity;
+    });
+    return total;
+  };
 
     return (
       <header className='header'>
@@ -127,13 +135,13 @@ const Header = () => {
 
             <div className='header__info'>
               <div className='header__info-likes'>
-                <Link to='/likes'>
+                <Link to='/favorites'>
                   <img
                     className='header__info-icon'
                     src={likesIcon}
-                    alt='likes'
+                    alt='favorites'
                   />
-                  <span className='header__info-count'>0</span>
+                  <span className='header__info-count'>{totalQuantityFavorites()}</span>
                 </Link>
               </div>
 
