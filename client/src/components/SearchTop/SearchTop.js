@@ -1,11 +1,11 @@
-import './UpMainPage.scss';
+import './SearchTop.scss';
 import { useState } from 'react';
 import menuIcon from '../../images/menuIcon.svg';
 import callIcon from '../../images/callIcon.svg';
-import BannerMainPage from '../BannerMainPage/BannerMainPage.js';
+
 import { Link } from "react-router-dom";
 
-const UpMainPage = () => {
+const SearchTop = () => {
     const [stateCategories, setstateCategories] = useState(false)
     const [nameCategories, setnameCategories] = useState('All Categories')
 
@@ -22,7 +22,6 @@ const UpMainPage = () => {
     const handler = (id) => {
         setnameCategories(categories[id].name)
     }
-
     const categories = [{ name: 'Fresh Meat', id: 0 },
     { name: 'Vegetables', id: 1 },
     { name: 'Fruit & Nut Gifts', id: 2 },
@@ -35,10 +34,9 @@ const UpMainPage = () => {
     { name: 'Oatmeal', id: 9 },
     { name: 'Fresh Bananas', id: 10 }];
 
-    const listCategories = categories.map((categorie) =>
-        <Link onClick={() => handler(categorie.id)} key={categorie.id} className='bannermainpage__top_list_a'>{categorie.name}</Link>
+    const listCategories = categories.map((item) =>
+        <Link onClick={() => handler(item.id)} key={item.id} className='bannermainpage__top_list_a'>{item.name}</Link>
     );
-
     return (
         <div>
             <div className='upmainpage'>
@@ -63,9 +61,11 @@ const UpMainPage = () => {
                     </div>
                 </div>
             </div>
-            <BannerMainPage stateCategories={stateCategories} listCategories={listCategories} />
+            <div className='bannermainpage__top_list' style={{ display: stateCategories ? 'flex' : 'none' }}>
+                {listCategories}
+            </div>
         </div >
     )
 }
 
-export default UpMainPage;
+export default SearchTop;
