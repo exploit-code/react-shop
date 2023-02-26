@@ -46,7 +46,7 @@ const UpMainPage = () => {
         <Link onClick={() => handler(categorie.id)} key={categorie.id} className='bannermainpage__top_list_a'>{categorie.name}</Link>
     );
 
-    const fruits = [{ desc: 'FRESH FRUIT', img: freshfruitIcon, path: "/products/1", id: 0 },
+    const fruits = [{ desc: 'FRESH FRUIT', img: freshfruitIcon, path: "/products/15", id: 0 },
     { desc: 'DRIED FRUIT', img: driedfruitIcon, path: "/products/2", id: 1 },
     { desc: 'VEGETABLES', img: vegetablesIcon, path: "/products/3", id: 2 },
     { desc: 'DRINK FRUITS', img: drinkfruitsIcon, path: "/products/4", id: 3 }];
