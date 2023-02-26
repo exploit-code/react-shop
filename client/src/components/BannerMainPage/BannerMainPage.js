@@ -1,16 +1,11 @@
 import './BannerMainPage.scss';
 import poster from '../../images/poster.svg';
 
-
-
-
-
-
 const BannerMainPage = (props) => {
     return (
         <div className='bannermainpage'>
             <div className='bannermainpage__top'>
-                <div className='bannermainpage__top_list' style={{ display: props.stateCategories ? 'flex' : 'none' }}>
+                <div className='bannermainpage__top_list' style={{display: props.stateCategories ? 'flex' : 'none'}}>
                     {props.listCategories}
                 </div>
                 <div className='bannermainpage__top_poster'>
@@ -23,9 +18,6 @@ const BannerMainPage = (props) => {
                         <img className='bannermainpage__top_poster_right_img' src={poster} alt='poster'></img>
                     </div>
                 </div>
-            </div>
-            <div className='bannermainpage__bottom'>
-                {props.listFruits}
             </div>
         </div>
     )
