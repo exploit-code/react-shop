@@ -9,10 +9,10 @@ import {Link} from "react-router-dom";
 const SearchTop = () => {
 
     const [stateCategories, setstateCategories] = useState(false)
-    const [nameCategories, setnameCategories] = useState('All Categories')
+    const [nameCategories, setnameCategories] = useState('All')
 
     const categoriesClick = () => {
-        setnameCategories('All Categories')
+        setnameCategories('All')
         if(stateCategories) {
             setstateCategories(false)
         } else {
@@ -50,7 +50,7 @@ const SearchTop = () => {
     console.log('data', data)
 
     const listCategories = data?.map((item) =>
-      <Link onClick={() => handler(item)} key={item.id}
+      <Link to={`/products/${item.id}`} onClick={() => handler(item)} key={item.id}
             className='bannermainpage__top_list_a'>{item.attributes.title}</Link>
     );
     return (
