@@ -3,9 +3,10 @@ import { useState } from 'react';
 import menuIcon from '../../images/menuIcon.svg';
 import callIcon from '../../images/callIcon.svg';
 
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const SearchTop = () => {
+
     const [stateCategories, setstateCategories] = useState(false)
     const [nameCategories, setnameCategories] = useState('All Categories')
 
@@ -20,22 +21,22 @@ const SearchTop = () => {
     }
 
     const handler = (id) => {
-        setnameCategories(categories[id].name)
+        setnameCategories(categories[id].attributes.title)
     }
-    const categories = [{ name: 'Fresh Meat', id: 0 },
-    { name: 'Vegetables', id: 1 },
-    { name: 'Fruit & Nut Gifts', id: 2 },
-    { name: 'Fresh Berries', id: 3 },
-    { name: 'Ocean Foods', id: 4 },
-    { name: 'Butter & Eggs', id: 5 },
-    { name: 'Fastfood', id: 6 },
-    { name: 'Fresh Onion', id: 7 },
-    { name: 'Papayaya & Crisps', id: 8 },
-    { name: 'Oatmeal', id: 9 },
-    { name: 'Fresh Bananas', id: 10 }];
+    const categories = [{ id: 0 , attributes: {title: 'Fresh Meat'}},
+        { id: 1 , attributes: {title: 'Vegetables'}},
+        { id: 2 , attributes: {title: 'Fruit & Nut Gifts'}},
+        { id: 3 , attributes: {title: 'Fresh Berries'}},
+        { id: 4 , attributes: {title: 'Ocean Foods'}},
+        { id: 5 , attributes: {title: '5'}},
+        { id: 6 , attributes: {title: '6'}},
+        { id: 7 , attributes: {title: '7'}},
+        { id: 8 , attributes: {title: '8'}}];
+
+    console.log(nameCategories, 'catTitle');
 
     const listCategories = categories.map((item) =>
-        <Link onClick={() => handler(item.id)} key={item.id} className='bannermainpage__top_list_a'>{item.name}</Link>
+        <Link onClick={() => handler(item.id)} key={item.id} className='bannermainpage__top_list_a'>{item.attributes.title}</Link>
     );
     return (
         <div>
