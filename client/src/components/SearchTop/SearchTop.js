@@ -29,13 +29,13 @@ const SearchTop = () => {
     );
 
     //Функция для удаления каждого значения объекта data (модифицирует исходную константу)
-    const findAllCategories = (obj) => {
-        obj?.map(item => delete item.attributes.desc)
-        data?.map(item => delete item.attributes.createdAt)
-        data?.map(item => delete item.attributes.publishedAt)
-        return data?.map(item => delete item.attributes.updatedAt)
-    }
-    findAllCategories(data)
+    // const findAllCategories = (obj) => {
+    //     obj?.map(item => delete item.attributes.desc)
+    //     data?.map(item => delete item.attributes.createdAt)
+    //     data?.map(item => delete item.attributes.publishedAt)
+    //     return data?.map(item => delete item.attributes.updatedAt)
+    // }
+    // findAllCategories(data)
 
     // const categories = [{ id: 0, attributes: { title: 'Fresh Meat' } },
     //     { id: 1, attributes: { title: 'Vegetables' } },
@@ -50,11 +50,11 @@ const SearchTop = () => {
     console.log('data', data)
 
     const listCategories = data?.map((item) =>
-      <Link onClick={() => handler(item.id)} key={item.id}
+      <Link onClick={() => handler(item.id)} key={item.id} to={`/products/${item.id}`}
             className='bannermainpage__top_list_a'>{item.attributes.title}</Link>
     );
     return (
-      <div>
+      <div className='container header__box--white'>
           <div className='upmainpage'>
               <div className='upmainpage__left'>
                   <div className='upmainpage__left_search'>
