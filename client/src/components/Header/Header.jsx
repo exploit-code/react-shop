@@ -166,7 +166,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-          <SearchTop/>
+          <SearchTop />
       </header>
     )
 }
