@@ -14,6 +14,7 @@ import likesIcon from '../../images/likes-icon.svg'
 
 import ScrollToTop from '../../utils/scrollToTop';
 import { useSelector } from "react-redux";
+import SearchTop from "../SearchTop/SearchTop";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -165,6 +166,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+          <SearchTop />
       </header>
     )
 }
