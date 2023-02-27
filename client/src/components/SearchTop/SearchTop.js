@@ -20,11 +20,11 @@ const SearchTop = () => {
         }
     }
 
-    const handler = (id) => {
-        setnameCategories(data[id].attributes.title)
+    const handler = (item) => {
+        setnameCategories(item.attributes.title)
     }
 
-    const { data, loading, error } = useFetch(
+    const { data} = useFetch(
       `/categories`
     );
 
@@ -50,7 +50,7 @@ const SearchTop = () => {
     console.log('data', data)
 
     const listCategories = data?.map((item) =>
-      <Link onClick={() => handler(item.id)} key={item.id} to={`/products/${item.id}`}
+      <Link onClick={() => handler(item)} key={item.id}
             className='bannermainpage__top_list_a'>{item.attributes.title}</Link>
     );
     return (
