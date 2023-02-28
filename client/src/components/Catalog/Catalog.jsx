@@ -10,7 +10,7 @@ const Catalog = () => {
 
   const catId = parseInt(useParams().id);
   const [selectedCats, setSelectedCats] = useState([]);
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState(1);
 
   const { data, loading, error } = useFetch(
     `/categories?[id][$eq]=${catId}`

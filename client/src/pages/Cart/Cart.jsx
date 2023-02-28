@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './cart-style.scss';
+import Form from './Form/Form';
 import cartPng from './img/cart.png'
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItems, deleteItem } from "../../redux/cartReducer";
@@ -11,6 +13,7 @@ import { loadStripe } from "@stripe/stripe-js";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.products)
   const dispatch = useDispatch()
+  const [shopOrder, setShopOrder] = useState(false)
 
   //Checkout
   const stripePromise = loadStripe(
@@ -35,6 +38,13 @@ const Cart = () => {
   // end of Checkout
 
 console.log(cartItems, "cartitems")
+
+
+  const className = shopOrder ? 'flex' : 'hidden';
+
+  const clickShopOrder = () => {
+    setShopOrder(() => !shopOrder)
+  }
 
   return (
     <>
@@ -81,12 +91,15 @@ console.log(cartItems, "cartitems")
                 ))}
               </section>
               <div className='cart-btn-wrp'>
-                <button className='cart-btn'>
-                  <span className='cart-btn-txt' onClick={checkoutPayment}>GO to checkout</span>
+                <button className='cart-btn' onClick={() => clickShopOrder()}>
+                  <span className='cart-btn-txt'>
+                    GO to checkout
+                  </span>
                 </button>
               </div>
+              {shopOrder && <Form className={className} />}
             </div>
-                    ) : (
+          ) : (
             <div className='cart-empty-container'>
               <div className='cart-empty-wrp'>
                 <img src={cartPng} alt="cart-img"/>

@@ -53,16 +53,16 @@ const Header = () => {
     return total;
   };
 
-    return (
-      <header className='header'>
-        <ScrollToTop />
-        <div className='header__box header__box--black'>
-          <div className='header__content container'>
-            <div className='header__fx'>
-              <Link className='header__email' to='#'>
-                <img className='header__email-icon' src={emailIcon} alt='' />
-                <span className='header__email-text'>Hello@colorlib.com</span>
-              </Link>
+  return (
+    <header className='header' id='header'>
+      <ScrollToTop />
+      <div className='header__box header__box--black'>
+        <div className='header__content container'>
+          <div className='header__fx'>
+            <Link className='header__email' to='#'>
+              <img className='header__email-icon' src={emailIcon} alt='' />
+              <span className='header__email-text'>Hello@colorlib.com</span>
+            </Link>
 
               <div className='header__line'></div>
 
