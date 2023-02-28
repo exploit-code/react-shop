@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  list-style: none;
+}
+
+.head-favorites-wrp {
+  margin: 50px 0 50px 0;
+}
+
+.favorites-products-title {
+  margin: 20px 0 20px 0;
+}
+
+.head-favorites-title {
+  font-family: 'Cerebri Sans Pro', serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 50px;
+  position: relative;
+}
+
+.favorites-products-title {
+  font-family: 'Cerebri Sans Pro', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 50px;
+  position: relative;
+}
+
+.head-favorites-txt {
+  border: 3px solid #7FAD39;
+  box-shadow: inset 0 4px 4px rgb(0 0 0 / 25%);
+  width: 219px;
+  position: absolute;
+  top: 190px;
+  right: 381px;
+
+  &_2 {
+    font-family: 'Cerebri Sans Pro', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+  }
+}
+
+
+.favorites-products {
+  display: flex;
+  flex-direction: column;
+}
+
+.favorites-items-wrp {
+  display: flex;
+  max-width: 310px;
+}
+
+
+.favorites-item-img {
+  height: 110px;
+  width: 110px;
+  object-fit: contain;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.favorites-item-title, .favorites-item-txt {
+  font-size: 20px;
+  margin: 0 0 0 20px;
+}
+
+.favorites-item-img:hover .overlay {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: #2a2a2a;
+}
+
+.favorites-item {
+  padding: 25px 0 15px 0;
+  font-family: 'Cerebri Sans Pro', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  color: #2A2A2A;
+  width: 150px;
+}
+
+.favorites-total-txt {
+  display: flex;
+  align-items: center;
+}
+
+.favorites-btn-wrp {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 25px 0;
+}
+
+.favorites-btn {
+  margin: 0 0 140px 0;
+  width: 141px;
+  height: 50px;
+  background: #7FAD39;
+  border: #7FAD39;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.favorites-btn:hover {
+  background-color: #57801a;
+}
+
+.favorites-empty-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+.favorites-empty-wrp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorites-title {
+  margin: 34px 0 8px 0;
+  font-family: 'Cerebri Sans Pro', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #2A2A2A;
+}
+
+.favorites-txt {
+  margin: 0 0 46px 0;
+  font-family: 'Cerebri Sans Pro', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: capitalize;
+  color: #757575;
+}
+
+.head-favorites-title::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  left: 60px;
+  top: 60px;
+  background: #7FAD39;
+}
+
+.favorites-products-title::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  left: 25px;
+  top: 45px;
+  background: #7FAD39;
+}
+
+.favorites-product-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px 0;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    width: 1050px;
+    height: 1px;
+    left: 40px;
+    top: 120px;
+    background: #7FAD39;
+    content: "";
+  }
+}
+
+.favorites-total {
+  display: flex;
+  height: 110px;
+  justify-content: space-evenly;
+  align-items: center;
+
+  &-info {
+    display: flex;
+    width: 284px;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    margin: 0 37px 0 0;
+  }
+
+  &-remove-btn {
+    background: #AD4E39;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+    border: none;
+    color: var(--white);
+    padding: 18px 20px;
+    cursor: pointer;
+
+    &:hover {
+      background: #86382a;
+    }
+  }
+
+  &-count-btn {
+    width: 50px;
+    height: 50px;
+    background: #F5F5F5;
+    border: #F5F5F5;
+    font-family: 'Cerebri Sans Pro', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #2A2A2A;
+    cursor: pointer;
+
+    &:hover {
+      background: #d5d5d5;
+    }
+  }
+
+  &-txt {
+    font-family: 'Cerebri Sans Pro', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #2A2A2A;
+  }
+
+  &-title {
+    font-family: 'Cerebri Sans Pro', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 30px;
+    color: #2A2A2A;
+  }
+}

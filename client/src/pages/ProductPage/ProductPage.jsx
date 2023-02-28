@@ -6,35 +6,70 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import plusIcon from "./img/icon-plus.png";
 import minusIcon from "./img/icon-minus.png";
-import { useDispatch } from "react-redux";
+import unlikesIcon from '../../images/likes-icon.svg'
+import likedIcon from '../../images/addfavorite.svg'
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartReducer";
+import { addToFavorites } from "../../redux/favoritesReducer";
 
 
 export const ProductPage = () => {
+  const favoritesItems = useSelector((state) => state.favorites.products)
   const dispatch = useDispatch()
-  let [quantity, setQuantity] = useState(1);
-
+  const [quantity, setQuantity] = useState(1);
   const id = useParams().id;
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
-  console.log(quantity)
+  const favoriteObj = {
+    id: data?.id,
+    title: data?.attributes?.title,
+    desc: data?.attributes?.desc,
+    price: data?.attributes?.price,
+    img: data?.attributes?.img?.data?.attributes?.url,
+    totalPriceItem: data?.attributes?.price,
+    category: data?.attributes?.categories?.data[0]?.attributes?.title,
+    isFavorite: true,
+    quantity: 1,
+  }
+
+  const isFavorite = favoritesItems.reduce((res, obj) => {
+    if(obj.id === Number(id)) {
+      return obj['isFavorite']; // возвращаем только одно значение
+    } else {
+      return res;
+    }
+  }, false);
+
+  console.log('data', data)
+  console.log('category', data?.attributes?.categories?.data[0]?.attributes?.title)
+
   return (
     <div className='product'>
       <div className='product__content'>
         <a className='product__content__link' href='/catalog'>
           Back to catalog
         </a>
-        <div className='alignLeft'>
-          <div className='alignCenter'>
-            <div className='product__content__heading'>{data?.attributes?.title}</div>
-            <div className='product__content__shortLine'></div>
+        <div className='product__content__title'>
+          <div className='alignLeft'>
+            <div className='alignCenter'>
+              <div className='product__content__heading'>{data?.attributes?.title}</div>
+              <div className='product__content__shortLine'></div>
+            </div>
+            <div className='price_text'>${(Number(data?.attributes?.price)).toFixed(2)}</div>
           </div>
-          <div className='price_text'>${(Number(data?.attributes?.price)).toFixed(2)}</div>
+          {addToFavorites && (
+            <div className='product__content__boxfavorite' onClick={() =>
+              dispatch(addToFavorites(favoriteObj))}>
+              <img width={'30px'} height={'30px'}
+                src={isFavorite ? likedIcon : unlikesIcon}
+                alt="Unliked"
+              />
+            </div>
+          )}
         </div>
 
         <div className='product__content__box'>
           <div className='product__content__boxleft'>
-            {/* <a href='#'> */}
             <img
               className='product__content__img'
               src={
@@ -43,9 +78,6 @@ export const ProductPage = () => {
               }
               alt={data?.attributes?.title}
             />
-            {/* </a> */}
-            {/* <Button text='ADD TO CART'
-            /> */}
 
             <div className="count_block">
               <Button onClick={() =>
@@ -62,7 +94,7 @@ export const ProductPage = () => {
                   )
                 )
               }
-                      text={quantity > 1 ? 'GO TO CART' : 'ADD TO CART'}
+                      text='ADD TO CART'
 
               />
               <div className="count__box">
@@ -74,7 +106,7 @@ export const ProductPage = () => {
                         className="count_up">
                   <img className="count_up_img" src={minusIcon} alt="Increase"/>
                 </button>
-                <button onClick={() => setQuantity((prev) =>  prev + 1)} type="button"
+                <button onClick={() => setQuantity((prev) => prev + 1)} type="button"
                         className="count_down">
                   <img className="count_down_img" src={plusIcon} alt="Decrease"/>
                 </button>
