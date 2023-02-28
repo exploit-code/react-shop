@@ -2,6 +2,7 @@ import React from "react";
 import "./ProductsList.scss";
 import Card from "../Card/Card";
 import useFetch from "../../hooks/useFetch";
+import { useSelector } from "react-redux";
 
 const ProductsList = ({ subCats, maxPrice, sort, catId }) => {
   const { data, loading, error } = useFetch(
@@ -10,11 +11,18 @@ const ProductsList = ({ subCats, maxPrice, sort, catId }) => {
       )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
   );
 
+  const filteredValue= useSelector((state) => state.search.inputValue)
+console.log('filteredValue', filteredValue)
+
+  const filtredItems = data?.filter((item) =>
+    item.attributes.title.toLowerCase().includes(filteredValue.toLowerCase())
+  );
+
   return (
     <div className="list">
       {loading
         ? "loading"
-        : data?.map((item) => <Card item={item} key={item.id} />)}
+        : filtredItems?.map((item) => <Card item={item} key={item.id} />)}
     </div>
   );
 };

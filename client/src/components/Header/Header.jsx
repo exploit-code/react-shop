@@ -15,21 +15,23 @@ import likesIcon from '../../images/likes-icon.svg'
 import ScrollToTop from '../../utils/scrollToTop';
 import { useSelector } from "react-redux";
 import SearchTop from "../SearchTop/SearchTop";
+// import { setValue } from "../../redux/searchReducer";
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
-    const cartItems = useSelector((state) => state.cart.products)
-    const favoritesItems = useSelector((state) => state.favorites.products)
+  const { user, logOut } = useContext(AuthContext);
+  const cartItems = useSelector((state) => state.cart.products)
+  const favoritesItems = useSelector((state) => state.favorites.products)
 
-    const handleSignOut = () => {
-        logOut()
-        .then(() => { })
-        .catch(error => console.error(error));
-    }
 
-    const totalPrice = () => {
-        let total = 0;
-        cartItems.forEach((item) => {
+  const handleSignOut = () => {
+    logOut()
+    .then(() => { })
+    .catch(error => console.error(error));
+  }
+
+  const totalPrice = () => {
+    let total = 0;
+    cartItems.forEach((item) => {
             total += item.quantity * item.price;
         });
         return total.toFixed(2);
