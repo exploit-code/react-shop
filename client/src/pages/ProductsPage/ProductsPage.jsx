@@ -31,7 +31,7 @@ const ProductsPage = () => {
       <div className="products">
         <div className="left">
           <div className="filterItem">
-            <h2>Product Filters</h2>
+            <h2>Product Categories</h2>
             {data?.map((item) => (
                 <div className="inputItem" key={item.id}>
                   <input

@@ -9,16 +9,20 @@ body {
     font-family: 'Cerebri Sans Pro';
     font-weight: 300;
 }
+
 .footer {
     background-color: black;
-    &__logo{
+
+    &__logo {
         @include mixins.font(36px, 700, 100%);
         color: #FFF;
     }
-    &_top{
+
+    &_top {
         margin-top: 60px;
         margin-bottom: 30px;
     }
+
     &__link {
         display: block;
         font-family: 'Inter';
@@ -30,12 +34,13 @@ body {
         align-items: center;
         color: #FFFFFF;
         text-decoration: none;
-        &:hover{
-            color:#7FAD39;
+
+        &:hover {
+            color: #7FAD39;
         }
     }
 
-    &__address{
+    &__address {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
@@ -49,25 +54,30 @@ body {
         flex-direction: column;
         align-items: flex-start;
     }
-    &_subscribe{
+
+    &_subscribe {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
-    &__content{
+
+    &__content {
         display: flex;
         justify-content: space-between;
     }
- 
+
 }
+
 .footer__top__right__form {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 28px;
 }
+
 .footer__top__right__form:hover .footer__top__right__btn {
     background-color: #57801a;
 }
+
 .footer__top__right__btn {
     border: none;
     background-color: #7FAD39;
@@ -91,6 +101,7 @@ body {
     font-size: 14px;
     font-weight: 400;
 }
+
 .footer__top__right__heading {
     font-family: 'Cerebri Sans Pro';
     font-style: normal;
@@ -100,6 +111,7 @@ body {
     text-transform: capitalize;
     color: #FFFFFF;
 }
+
 .footer__top__right__subtitle {
     font-family: 'Inter';
     font-style: normal;
@@ -110,7 +122,8 @@ body {
     align-items: center;
     color: #FFFFFF;
 }
-.footer_bottom{
+
+.footer_bottom {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -118,8 +131,8 @@ body {
     padding-bottom: 20px;
     gap: 40px;
     align-items: center;
-    
-    .copyright{
+
+    .copyright {
         font-size: 16px;
         line-height: 19px;
         color: #FBFBFB;
@@ -127,14 +140,15 @@ body {
         font-weight: normal;
 
     }
-    
+
 }
-.social_buttons_box{
+
+.social_buttons_box {
     display: flex;
     justify-content: center;
     gap: 15px;
-        
-    .social_link{
+
+    .social_link {
         color: black;
         background: white;
         width: 32px;
@@ -143,9 +157,10 @@ body {
         justify-content: center;
         align-items: center;
     }
-    .social_link:hover{
-    background: #7FAD39;
-    color: white;
+
+    .social_link:hover {
+        background: #7FAD39;
+        color: white;
     }
-    
+
 }
