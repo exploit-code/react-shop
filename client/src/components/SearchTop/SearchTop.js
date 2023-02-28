@@ -3,13 +3,35 @@ import { useState } from 'react';
 import menuIcon from '../../images/menuIcon.svg';
 import callIcon from '../../images/callIcon.svg';
 import useFetch from "../../hooks/useFetch";
+import Button from "../Button/Button";
 
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setValue } from "../../redux/searchReducer";
+
 
 const SearchTop = () => {
 
     const [stateCategories, setstateCategories] = useState(false)
     const [nameCategories, setnameCategories] = useState('All')
+    const [searchValue, setSearchValue] = useState("");
+
+    const dispatch = useDispatch()
+
+    const onChangeSearchInput = (event) => {
+        // console.log(event.target.value);
+        setSearchValue(event.target.value);
+    };
+
+    const handlerChangeSearchInput = (event) => {
+        event.preventDefault();
+        dispatch(setValue(searchValue))
+        setSearchValue('')
+    }
+    const handlerdeleiValueInput = (event) => {
+        event.preventDefault();
+        dispatch(setValue(''))
+    }
 
     const categoriesClick = () => {
         setnameCategories('All')
@@ -47,12 +69,18 @@ const SearchTop = () => {
     //     { id: 7, attributes: { title: '7' } },
     //     { id: 8, attributes: { title: '8' } }];
 
-    console.log('data', data)
+    // console.log('data', data)
+
+    // const listCategories = data?.map((item) =>
+    //   <Link to={`/products/${item.id}`} onClick={() => handler(item)} key={item.id}
+    //         className='bannermainpage__top_list_a'>{item.attributes.title}</Link>
+    // );
 
     const listCategories = data?.map((item) =>
       <Link to={`/products/${item.id}`} onClick={() => handler(item)} key={item.id}
             className='bannermainpage__top_list_a'>{item.attributes.title}</Link>
     );
+
     return (
       <div className='container header__box--white'>
           <div className='upmainpage'>
@@ -63,8 +91,21 @@ const SearchTop = () => {
                           </img>
                           {nameCategories}
                       </div>
-                      <input className='upmainpage__left_search_input' placeholder='What do you need?'/>
-                      <button className='upmainpage__left_search_button'>SEARCH</button>
+                      <form onSubmit={handlerChangeSearchInput}>
+                          <input
+                            onChange={event => onChangeSearchInput(event)}
+                            value={searchValue}
+                            type="text"
+                            className='upmainpage__left_search_input'
+                            placeholder='What do you need?'/>
+                          <button className='upmainpage__left_search_button'>SEARCH</button>
+                      </form>
+                      <img
+                        onClick={handlerdeleiValueInput}
+                        className="upmainpage__left_search_delbutton"
+                        src="/img/cross.svg"
+                        alt="Remove"
+                      />
                   </div>
               </div>
               <div className='upmainpage__right'>
