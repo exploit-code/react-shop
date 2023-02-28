@@ -1,0 +1,192 @@
+@use '../../mixins.scss';
+
+@font-face {
+    font-family: 'Celebri Sans Pro';
+    src: url(../../fonts/Cerebri.Sans.Pro/CerebriSansPro-Medium.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../../fonts/Inter/Inter-Medium.woff2) format('woff2');
+}
+
+
+.post {
+    &__up {
+        margin-bottom: 45px;
+        margin-top: 53px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        &_stick {
+            width: 608px;
+            height: 3px;
+            background-color: #E5E5E5;
+        }
+
+        &_title {
+            width: 628px;
+            text-align: center;
+            @include mixins.font(40px, 400, 50px);
+            font-family: Inter;
+        }
+
+        &_writer {
+            @include mixins.font(16px, 400, 50px);
+            font-family: Inter;
+        }
+    }
+
+    &__photo {
+        @include mixins.flex(center, center);
+        gap: 55px;
+        margin-bottom: 55px;
+
+        &_left {
+            width: 507px;
+            height: 272px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            @include mixins.font(20px, 400, 24px);
+            font-family: Inter;
+        }
+
+        &_right {
+            flex-direction: column;
+            gap: 32px;
+            display: flex;
+
+            &_descimage {
+                @include mixins.font(20px, 500, 24px);
+                font-style: italic;
+                font-family: Inter;
+            }
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        margin-bottom: 73px;
+
+        &_h1 {
+            @include mixins.font(32px, 400, 38px);
+            font-family: Inter;
+        }
+
+        &_p {
+            @include mixins.font(20px, 400, 24px);
+            font-family: Inter;
+        }
+    }
+
+    &__text:last-child {
+        margin-bottom: 110px;
+    }
+
+    &__button {
+        width: 825px;
+        height: 80px;
+        background: #7FAD39;
+        box-shadow: 0px 20px 40px rgba(111, 72, 72, 0.25);
+        margin-bottom: 131px;
+        margin-left: 15%;
+        cursor: pointer;
+        color: #FFFFFF;
+        font-family: Inter;
+        @include mixins.font(20px, 700, 24px);
+        @include mixins.flex(center, center);
+    }
+
+    &__button:hover {
+        background-color: #57801a;
+    }
+}
+
+.formsubscribe {
+    background-color: #FFFFFF;
+    width: 950px;
+    height: 650px;
+    left: 18%;
+    top: 520px;
+    position: absolute;
+    box-shadow: 1px 4px 17px rgba(127, 173, 57, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 61px;
+    align-items: center;
+    justify-content: center;
+
+    &_title {
+        font-family: Inter;
+        @include mixins.font(40px, 400, 50px);
+    }
+
+    &_input {
+        width: 637px;
+        height: 99px;
+        font-family: Inter;
+        @include mixins.font(24px, 300, 30px);
+        text-align: center;
+        background: #FFFFFF;
+        box-shadow: 5px 10px 50px rgba(127, 173, 57, 0.2);
+        border-radius: 10px;
+        border: none;
+    }
+
+    &_confirm {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+
+        &_checkbox {
+            width: 1.3em;
+            height: 1.3em;
+            background-color: white;
+            border-radius: 50%;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        &_checkbox:checked {
+            background-color: #7FAD39;
+        }
+
+        &_label {
+            @include mixins.font(16px, 300, 30px);
+            font-family: Inter;
+        }
+    }
+
+    &_bottom {
+        @include mixins.flex(space-between, center);
+        gap: 115px;
+
+        &_button {
+            width: 219px;
+            height: 80px;
+            background: #7FAD39;
+            box-shadow: 0px 20px 40px rgba(111, 72, 72, 0.25);
+            border-radius: 0px;
+            border: none;
+            @include mixins.font(20px, 700, 26px);
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        &_button:hover {
+            background-color: #57801a;
+        }
+    }
+}
