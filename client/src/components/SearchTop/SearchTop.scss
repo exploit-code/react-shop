@@ -43,13 +43,13 @@
             &_input {
                 border: none;
                 @include mixins.font(16px, 500, 20px);
-                padding-top: 3px;
                 padding-right: 337px;
                 padding-left: 25px;
                 font-family: 'Celebri Sans Pro';
             }
 
             &_button {
+                margin: 0 auto;
                 height: 100%;
                 width: 106px;
                 border: none;

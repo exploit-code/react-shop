@@ -9,9 +9,11 @@ body {
     font-family: 'Cerebri Sans Pro';
     font-weight: 300;
 }
+
 .footer {
     background-color: black;
-    &__logo{
+
+    &__logo {
         @include mixins.font(36px, 700, 100%);
         color: #FFF;
     }
@@ -19,6 +21,7 @@ body {
         margin-top: 60px;
         margin-bottom: 30px;
     }
+
     &__link {
         display: block;
         font-family: 'Inter';
@@ -58,7 +61,7 @@ body {
         display: flex;
         justify-content: space-between;
     }
- 
+
 }
 .footer__top__right__form {
     text-align: center;
@@ -118,7 +121,7 @@ body {
     padding-bottom: 20px;
     gap: 40px;
     align-items: center;
-    
+
     .copyright{
         font-size: 16px;
         line-height: 19px;
@@ -127,13 +130,13 @@ body {
         font-weight: normal;
 
     }
-    
+
 }
 .social_buttons_box{
     display: flex;
     justify-content: center;
     gap: 15px;
-        
+
     .social_link{
         color: black;
         background: white;
@@ -147,5 +150,5 @@ body {
     background: #7FAD39;
     color: white;
     }
-    
+
 }
