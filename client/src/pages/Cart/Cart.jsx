@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './cart-style.scss';
+import Form from './Form/Form';
 import cartPng from './img/cart.png'
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItems, deleteItem } from "../../redux/cartReducer";
@@ -11,11 +13,13 @@ import { loadStripe } from "@stripe/stripe-js";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.products)
   const dispatch = useDispatch()
+  const [shopOrder, setShopOrder] = useState(false)
 
   //Checkout
   const stripePromise = loadStripe(
     "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
   );
+
 
   const checkoutPayment = async () => {
     try {
@@ -34,7 +38,14 @@ const Cart = () => {
 
   // end of Checkout
 
-console.log(cartItems, "cartitems")
+  console.log(cartItems, "cartitems")
+
+
+  const className = shopOrder ? 'flex' : 'hidden';
+
+  const clickShopOrder = () => {
+    setShopOrder(() => !shopOrder)
+  }
 
   return (
     <>
@@ -53,7 +64,7 @@ console.log(cartItems, "cartitems")
                     <Link to={`/productpage/${item.id}`} className="cart-items-wrp">
                       <div className='overlay'>
                         <img className='cart-item-img' src={process.env.REACT_APP_UPLOAD_URL + item.img}
-                             alt={item.title}/>
+                          alt={item.title} />
                       </div>
                       <div className='cart-item'>
                         <h4 className='cart-item-title'>
@@ -71,7 +82,7 @@ console.log(cartItems, "cartitems")
                       </div>
                       <div>
                         <button className='cart-total-remove-btn'
-                                onClick={() => dispatch(removeItems(item))}
+                          onClick={() => dispatch(removeItems(item))}
                         >
                           Remove
                         </button>
@@ -81,15 +92,18 @@ console.log(cartItems, "cartitems")
                 ))}
               </section>
               <div className='cart-btn-wrp'>
-                <button className='cart-btn'>
-                  <span className='cart-btn-txt' onClick={checkoutPayment}>GO to checkout</span>
+                <button className='cart-btn' onClick={() => clickShopOrder()}>
+                  <span className='cart-btn-txt'>
+                    GO to checkout
+                  </span>
                 </button>
               </div>
+              {shopOrder && <Form className={className} />}
             </div>
-                    ) : (
+          ) : (
             <div className='cart-empty-container'>
               <div className='cart-empty-wrp'>
-                <img src={cartPng} alt="cart-img"/>
+                <img src={cartPng} alt="cart-img" />
                 <h4 className='cart-title'>IS EMPTY</h4>
                 <p className='cart-txt'>Add something to order</p>
                 <Link to="/">
@@ -101,10 +115,10 @@ console.log(cartItems, "cartitems")
             </div>
           )}
 
-                </div>
-            </div>
-        </>
-    );
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Cart;
