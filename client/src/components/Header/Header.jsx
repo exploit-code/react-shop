@@ -14,12 +14,18 @@ import likesIcon from '../../images/likes-icon.svg'
 
 import ScrollToTop from '../../utils/scrollToTop';
 import { useSelector } from "react-redux";
+<<<<<<< HEAD
+=======
+import SearchTop from "../SearchTop/SearchTop";
+// import { setValue } from "../../redux/searchReducer";
+>>>>>>> main
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const cartItems = useSelector((state) => state.cart.products)
   const favoritesItems = useSelector((state) => state.favorites.products)
 
+<<<<<<< HEAD
   const handleSignOut = () => {
     logOut()
       .then(() => { })
@@ -33,6 +39,22 @@ const Header = () => {
     });
     return total.toFixed(2);
   };
+=======
+
+  const handleSignOut = () => {
+    logOut()
+    .then(() => { })
+    .catch(error => console.error(error));
+  }
+
+  const totalPrice = () => {
+    let total = 0;
+    cartItems.forEach((item) => {
+            total += item.quantity * item.price;
+        });
+        return total.toFixed(2);
+    };
+>>>>>>> main
 
   const totalQuantity = () => {
     let total = 0;
@@ -59,9 +81,85 @@ const Header = () => {
             <Link className='header__email' to='#'>
               <img className='header__email-icon' src={emailIcon} alt='' />
               <span className='header__email-text'>Hello@colorlib.com</span>
+<<<<<<< HEAD
             </Link>
 
             <div className='header__line'></div>
+=======
+            </Link>
+
+              <div className='header__line'></div>
+
+              <span className='header__delivery'>
+                Free Shipping for all order of $99
+              </span>
+            </div>
+
+            <div className='header__fx'>
+              <div className='header__socnet'>
+                <Link to='/'>
+                  <img src={fbIcon} alt='' />
+                </Link>
+                <Link to='/'>
+                  <img src={twitIcon} alt='' />
+                </Link>
+                <Link to='/'>
+                  <img src={waIcon} alt='' />
+                </Link>
+                <Link to='/'>
+                  <img src={inIcon} alt='' />
+                </Link>
+              </div>
+
+              <div className='header__line'></div>
+
+              <div className='header__login'>
+                <img className='header__login-icon' src={loginIcon} alt='' />
+                {user?.email ? (
+                  <Link className='header__login-text' onClick={handleSignOut}>
+                    Log Out
+                  </Link>
+                ) : (
+                  <Link className='header__login-text' to='/login'>
+                    Login
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className='header__box header__box--white'>
+          <div className='header__content container'>
+            <Link className='header__logo' to='/'>
+              GOOD-FOOD🍎🥝
+            </Link>
+
+            <nav className='header__nav'>
+              <ul className='header__nav-list'>
+                <li className='header__nav-item'>
+                  <Link className='header__nav-link' to='/'>
+                    HOME
+                  </Link>
+                </li>
+                <li className='header__nav-item'>
+                  <Link className='header__nav-link' to='/products/1'>
+                    SHOP
+                  </Link>
+                </li>
+                <li className='header__nav-item'>
+                  <Link className='header__nav-link' to='/blog'>
+                    BLOG
+                  </Link>
+                </li>
+                <li className='header__nav-item'>
+                  <Link className='header__nav-link' to='/contacts'>
+                    CONTACT
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+>>>>>>> main
 
             <span className='header__delivery'>
               Free Shipping for all order of $99

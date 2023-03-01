@@ -37,18 +37,18 @@
             border: 1px solid rgba(42, 42, 42, 0.2);
             border-right: none;
             display: flex;
+            position: relative;
 
             &_input {
-                height: 100%;
                 border: none;
                 @include mixins.font(16px, 500, 20px);
-                padding-top: 3px;
                 padding-right: 337px;
                 padding-left: 25px;
                 font-family: 'Celebri Sans Pro';
             }
 
             &_button {
+                margin: 0 auto;
                 height: 100%;
                 width: 106px;
                 border: none;
@@ -61,6 +61,14 @@
 
             &_button:hover {
                 background-color: #57801a;
+            }
+
+            &_delbutton {
+                position: absolute;
+                right: 110px;
+                top: 10px;
+                cursor: pointer;
+                background: var(--grey);
             }
         }
 

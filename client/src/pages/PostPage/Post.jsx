@@ -89,7 +89,10 @@ const Post = () => {
 
     return (
         <div>
+<<<<<<< HEAD
             <SearchTop />
+=======
+>>>>>>> main
             <div className="post" id='post'>
                 <div className="post__up">
                     <div className="post__up_title">{getPost.maintitle}</div>
@@ -133,4 +136,8 @@ const Post = () => {
     )
 }
 
+<<<<<<< HEAD
 export default Post;
+=======
+export default Post;
+>>>>>>> main
