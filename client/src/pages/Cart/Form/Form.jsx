@@ -3,38 +3,99 @@ import './style-form.scss'
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-
 const Form = () => {
     const cartItems = useSelector((state) => state.cart.products)
 
+//**START of controlled input
+    const [firstName, setFirstName] = React.useState('');
+    const [secondName, setSecondName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [phone, setPhone] = React.useState('');
+    const [deliveryAddress, setDeliveryAddress] = React.useState('');
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        console.log('firstName:', firstName);
+        console.log('secondName:', secondName);
+        console.log('email:', email);
+        console.log('phone:', phone);
+        console.log('deliveryAddress:', deliveryAddress);
+    }
+//**END of controlled input
+
+//**START of axios request
     const getOrder = () => {
         axios.defaults.headers.post['Content-Type'] = 'application/json';
         axios.post('https://formsubmit.co/ajax/9264549700@mail.ru', {
-            name: "FormSubmit",
-            message: "I'm from Devro LABS",
-            data: JSON.stringify(cartItems)
+            firstName: firstName,
+            secondName: secondName,
+            email: email,
+            phone: phone,
+            deliveryAddress: deliveryAddress,
+            data: (JSON.stringify(cartItems))
         })
             .then(response => console.log(response))
             .catch(error => console.log(error));
     }
-
-    // const orderItems = (cartItems) => {
-    //     const txt = document.querySelector('.form-order');
-    //     cartItems.map((item) => txt.appendChild(document.createTextNode(item.title.join(', '))));
-    //     // Хотел пройтись по массиву и запушить данные в элемент html в ввиде строки.
-    //     return txt;
-    // }
+//**END of axios request
 
     return (
         <>
             <div className="form-wrp">
                 <h1>Form of the order</h1>
-                <button type="submit" onClick={getOrder} className="btn btn-lg btn-dark btn-block">Payment order</button>
-                {/*<form target="_blank" action='https://formsubmit.co/9264549700@mail.ru' method="POST">*/}
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="firstName">Name</label>
+                        <input
+                            id="firstName"
+                            type="text"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="secondName">secondName</label>
+                        <input
+                            id="secondName"
+                            type="text"
+                            value={secondName}
+                            onChange={(e) => setSecondName(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="phone">Phone</label>
+                        <textarea
+                            id="phone"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="deliveryAddress">Delivery Address</label>
+                        <input
+                            id="deliveryAddress"
+                            type="text"
+                            value={deliveryAddress}
+                            onChange={(e) => setDeliveryAddress(e.target.value)}
+                        />
+                    </div>
+                    <button onClick={getOrder} type="submit">Submit</button>
+                </form>
+                {/*<form target="_blank" >*/}
                 {/*    <div className="form-group">*/}
                 {/*        <div className="form-row">*/}
                 {/*            <div className="col">*/}
-                {/*                <input type="text" name="First-Name" className="form-control" placeholder="First Name"*/}
+                {/*                <input type="text"*/}
+                {/*                        name="First-Name" className="form-control" placeholder="First Name"*/}
                 {/*                       required/>*/}
                 {/*            </div>*/}
                 {/*            <div className="col">*/}
@@ -50,29 +111,14 @@ const Form = () => {
                 {/*                       required/>*/}
                 {/*            </div>*/}
                 {/*            <div className="col">*/}
-                {/*                <input type="text" name="Delivery" className="form-control"*/}
-                {/*                       placeholder="Delivery address" required/>*/}
+                {/*                <input type="text" name="Delivery" className="form-control" placeholder="Delivery address" required/>*/}
                 {/*            </div>*/}
-                {/*            /!*<div type="Order">*!/*/}
-                {/*            /!*    /!* <textarea className="form-order" name="Order" id="Order" cols="30" rows="10"> *!/*!/*/}
-                {/*            /!*    /!* Orders ....*!/*/}
-                {/*            /!*        Сюда нужно попробовать закинуть данные из cartitems*!/*/}
-                {/*            /!*        *!/*!/*/}
-                {/*            /!*    /!* </textarea> *!/*!/*/}
-                {/*            /!*    /!* {cartItems.map((item, index) => (*!/*/}
-                {/*            /!*        <ul key={index}>*!/*/}
-                {/*            /!*            <li>{item.title}</li>*!/*/}
-                {/*            /!*            <h4>{item.totalPriceItem}</h4>*!/*/}
-                {/*            /!*        </ul>*!/*/}
-                {/*            /!*    ))} *!/*!/*/}
-                {/*            /!*</div>*!/*/}
                 {/*        </div>*/}
                 {/*    </div>*/}
                 {/*    <fieldset>*/}
                 {/*        <div className="form-wrp-pay-card">*/}
                 {/*            <legend>Payment method</legend>*/}
                 {/*            <input type="hidden" name="_subject" value="Ваш заказ №2312"></input>*/}
-                {/*            /!*<input type="hidden" name="_subject" value={orderItems}></input>*!/*/}
                 {/*            <input type="hidden" name="_template" value="table"></input>*/}
                 {/*            <input type="checkbox" name="pay-card" value="pay-card" id="pay-card"/>*/}
                 {/*            <label htmlFor="pay-card">Pay with a card</label>*/}
@@ -82,11 +128,7 @@ const Form = () => {
                 {/*            <label htmlFor="pay-cash">Cash/ card upon receipt</label>*/}
                 {/*        </div>*/}
                 {/*    </fieldset>*/}
-                {/*    /!* <div class="form-group">*/}
-                {/*        <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>*/}
-                {/*    </div> *!/*/}
-                {/*    <button type="submit" onClick={getOrder} className="btn btn-lg btn-dark btn-block">Payment order*/}
-                {/*    </button>*/}
+                {/*    <button type="submit" onClick={getOrder} className="btn btn-lg btn-dark btn-block">Payment order</button>*/}
                 {/*    <button className="btn btn-lg btn-dark btn-block">Cancel</button>*/}
                 {/*</form>*/}
             </div>
