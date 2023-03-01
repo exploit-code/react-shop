@@ -17,7 +17,7 @@ const Form = () => {
         <>
             <div className="form-wrp">
                 <h1>Form of the order</h1>
-                <form target="_blank" action='https://formsubmit.co/hasanovmaxim@yandex.ru' method="POST">
+                <form target="_blank" action='https://formsubmit.co/9264549700@mail.ru' method="POST">
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col">
@@ -37,7 +37,7 @@ const Form = () => {
                             </div>
                             <div type="Order">
                                 {/* <textarea className="form-order" name="Order" id="Order" cols="30" rows="10"> */}
-                                {/* Orders .... 
+                                {/* Orders ....
                                     Сюда нужно попробовать закинуть данные из cartitems
                                     */}
                                 {/* </textarea> */}
