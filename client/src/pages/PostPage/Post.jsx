@@ -20,24 +20,22 @@ const Post = () => {
     const [stateChecked, setstateChecked] = useState(false)
     const [valueInput, setvalueInput] = useState()
 
-    const getStyle = (header, footer, upmainpage, post, none, blur) => {
+    const getStyle = (header, footer, post, none, blur) => {
         header.style = none || blur
         footer.style = none || blur
-        upmainpage.style = none || blur
         post.style = none || blur
     }
 
     const changeshowForm = (e) => {
         const header = document.getElementById('header')
         const footer = document.getElementById('footer')
-        const upmainpage = document.getElementById('upmainpage')
         const post = document.getElementById('post')
         const blur = 'filter: blur(2px)'
         const none = 'filter: none'
         if (showForm) {
             e.preventDefault();
             setshowForm(false)
-            getStyle(header, footer, upmainpage, post, none)
+            getStyle(header, footer, post, none)
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
@@ -45,7 +43,7 @@ const Post = () => {
         }
         else {
             setshowForm(true)
-            getStyle(header, footer, upmainpage, post, '', blur)
+            getStyle(header, footer, post, '', blur)
             window.scrollTo({
                 top: 500,
                 behavior: 'smooth',
@@ -55,7 +53,6 @@ const Post = () => {
     const handleSubmit = (e) => {
         const header = document.getElementById('header')
         const footer = document.getElementById('footer')
-        const upmainpage = document.getElementById('upmainpage')
         const post = document.getElementById('post')
         const none = 'filter: none'
         var re = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
@@ -65,7 +62,7 @@ const Post = () => {
                 e.preventDefault();
                 alert('Письмо отправлено на почту ' + valueInput)
                 setshowForm(false)
-                getStyle(header, footer, upmainpage, post, none)
+                getStyle(header, footer, post, none)
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth',
@@ -89,10 +86,6 @@ const Post = () => {
 
     return (
         <div>
-<<<<<<< HEAD
-            <SearchTop />
-=======
->>>>>>> main
             <div className="post" id='post'>
                 <div className="post__up">
                     <div className="post__up_title">{getPost.maintitle}</div>
@@ -136,8 +129,4 @@ const Post = () => {
     )
 }
 
-<<<<<<< HEAD
 export default Post;
-=======
-export default Post;
->>>>>>> main
