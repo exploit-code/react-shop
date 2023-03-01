@@ -94,7 +94,14 @@ const Cart = () => {
                   <div className='cart-btn-wrp'>
                     <button className='cart-btn' onClick={() => clickShopOrder()}>
                   <span className='cart-btn-txt'>
-                    GO to checkout
+                    Pay after Delivery
+                  </span>
+                    </button>
+                  </div>
+                  <div className='cart-btn-wrp'>
+                    <button className='cart-btn' onClick={() => checkoutPayment()}>
+                  <span className='cart-btn-txt'>
+                    Pay with Card
                   </span>
                     </button>
                   </div>
