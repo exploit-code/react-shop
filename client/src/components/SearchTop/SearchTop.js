@@ -26,14 +26,15 @@ const SearchTop = () => {
     const handlerChangeSearchInput = (event) => {
         event.preventDefault();
         dispatch(setValue(searchValue))
-        setSearchValue('')
+
     }
     const handlerdeleiValueInput = (event) => {
         event.preventDefault();
         dispatch(setValue(''))
+        setSearchValue('')
     }
-
     const categoriesClick = () => {
+
         setnameCategories('All')
         if(stateCategories) {
             setstateCategories(false)
