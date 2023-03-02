@@ -15,7 +15,7 @@ const Footer = () => {
           <address className='footer__address'>
             <div>Address: 60-49 Road 11378 New York</div>
             <div>Phone: +65 11.188.888</div>
-            <div>Email: hello@colorlib.com</div>
+            <div>Email: good.food23@mail.ru</div>
           </address>
           <div className='footer_menu'>
             <Link className='footer__link' to='/'>
@@ -78,7 +78,7 @@ const Footer = () => {
 
         <div className='footer_bottom container'>
           <p className='copyright'>
-            Copyright &copy; 2021 All rights reserved | This template is made
+            Copyright &copy; 2023 All rights reserved | This template is made
             with 💚 by LOGO.
           </p>
         </div>
