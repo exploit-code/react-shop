@@ -152,12 +152,12 @@ const Form = () => {
                             onChange={(e) => setDeliveryAddress(e.target.value)}
                         />
                     </div>
-                    <Button onClick={getOrder} type='submit' text='Pay with Card'
+                    <Button onClick={getOrder} type='submit' text='Checkout'
                             className="btn btn-lg btn-dark btn-block">
                     </Button>
-                    <Button onClick={checkoutPayment} type='submit' text='Pay after Delivery'
-                            className="btn btn-lg btn-dark btn-block">
-                    </Button>
+                    {/*<Button onClick={checkoutPayment} type='submit' text='Pay with Card'*/}
+                    {/*        className="btn btn-lg btn-dark btn-block">*/}
+                    {/*</Button>*/}
                     {/*<Button text='Cancel' className="btn btn-lg btn-dark btn-block">*/}
                     {/*</Button>*/}
                 </form>

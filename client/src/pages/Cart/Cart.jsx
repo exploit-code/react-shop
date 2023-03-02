@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItems, deleteItem } from "../../redux/cartReducer";
 import { makeRequest } from "../../makeRequest";
 import { loadStripe } from "@stripe/stripe-js";
+import Button from "../../components/Button/Button";
 
 
 const Cart = () => {
@@ -15,28 +16,28 @@ const Cart = () => {
   const dispatch = useDispatch()
   const [shopOrder, setShopOrder] = useState(false)
 
-  // //Checkout
-  // const stripePromise = loadStripe(
-  //     "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
-  // );
-  //
-  //
-  // const checkoutPayment = async () => {
-  //   try {
-  //     const stripe = await stripePromise;
-  //     const res = await makeRequest.post("/orders", {
-  //       cartItems,
-  //     });
-  //     await stripe.redirectToCheckout({
-  //       sessionId: res.data.stripeSession.id,
-  //     });
-  //
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  //
-  // // end of Checkout
+  //Checkout
+  const stripePromise = loadStripe(
+      "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
+  );
+
+
+  const checkoutPayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      const res = await makeRequest.post("/orders", {
+        cartItems,
+      });
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // end of Checkout
 
   console.log(cartItems, "cartitems")
 
@@ -91,13 +92,17 @@ const Cart = () => {
                         </div>
                     ))}
                   </section>
+
                   <div className='cart-btn-wrp'>
+                    <button onClick={checkoutPayment} type='submit' className='cart-btn' >Pay by Card
+                    </button>
                     <button className='cart-btn' onClick={() => clickShopOrder()}>
                   <span className='cart-btn-txt'>
-                    Checkout
+                    Cash/ uppon receipt
                   </span>
                     </button>
                   </div>
+
                   {shopOrder && <Form className={className} />}
                 </div>
             ) : (
