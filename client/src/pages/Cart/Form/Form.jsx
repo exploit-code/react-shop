@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import './style-form.scss'
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -9,6 +9,33 @@ import {makeRequest} from "../../../makeRequest";
 
 const Form = () => {
     const cartItems = useSelector((state) => state.cart.products)
+
+    // //new
+    //
+    // const [payByCreditCard,setPayByCreditCard] = useState(false);
+    //
+    // let ccForm = () => {
+    //     <p> Swow CreditCard form here</p>
+    // }
+    //
+    // let cdForm = () => {
+    //    <p> Swow CashDelivery form here</p>
+    // }
+    // let variableForm = <h1> Credit Form</h1>;
+    // if (!this.state.payByCreditCard) {
+    //     variableForm = <h1> Cash  Delivery form</h1>;
+    // }
+    //
+    // let paymentTypeHandler =  (e) => {
+    // let value = e.target.value;
+    // let ccSelected = false;
+    // if (value == 'CC') {
+    //     ccSelected = true;
+    //   }
+    //     this.setState({payByCreditCard: ccSelected});
+    // }
+    //
+    // //end new
 
 //**START of controlled input
     const [firstName, setFirstName] = React.useState('');
@@ -58,12 +85,14 @@ const Form = () => {
             email: email,
             phone: phone,
             deliveryAddress: deliveryAddress,
+            payByCreditCard: false,
             data: (JSON.stringify(cartItems))
         })
             .then(response => console.log(response))
             .catch(error => console.log(error));
     }
 //**END of axios request
+//делаем чекбокс=первый вариант-оплата картой, второй вариант- оплата при получении.(при выборе это  чекбокса тут же подрендеривается формочка оплаты )
 
     return (
         <>
@@ -72,12 +101,13 @@ const Form = () => {
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Choose your payment method</legend>
-                        <input type="radio" id="pay-card" name="monster" value="P"/>
+                        <input  type="radio" id="pay-card" name="payment" value="CC"/>
                         <label htmlFor="pay-card">Pay card</label>
                         <br></br>
-                        <input type="radio" id="pay-cash" name="monster" value="C"/>
+                        <input   type="radio" id="pay-cash" name="payment" value="CD"/>
                         <label htmlFor="pay-cash">Pay cash</label>
                     </fieldset>
+
                     <div>
                         <label htmlFor="firstName">First Name</label>
                         <input
