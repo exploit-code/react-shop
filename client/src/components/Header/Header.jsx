@@ -59,9 +59,9 @@ const Header = () => {
       <div className='header__box header__box--black'>
         <div className='header__content container'>
           <div className='header__fx'>
-            <Link className='header__email' to='#'>
+            <Link target="blank"className='header__email' to='#'>
               <img className='header__email-icon' src={emailIcon} alt='' />
-              <span className='header__email-text'>Hello@colorlib.com</span>
+              <span className='header__email-text'>good.food23@mail.ru</span>
             </Link>
 
               <div className='header__line'></div>
@@ -73,18 +73,18 @@ const Header = () => {
 
             <div className='header__fx'>
               <div className='header__socnet'>
-                <Link to='/'>
+                <Link target="blank"to='https://vk.com/club219140677'>
                   <img src={fbIcon} alt='' />
                 </Link>
-                <Link to='/'>
+                <Link target="blank"to='https://t.me/good_food_chanal'>
                   <img src={twitIcon} alt='' />
                 </Link>
-                <Link to='/'>
+                <Link target="blank"to='https://chat.whatsapp.com/J7A58kQEO1679axpbCMoR6'>
                   <img src={waIcon} alt='' />
                 </Link>
-                <Link to='/'>
+                <Link target="blank"to='/'>
                   <img src={inIcon} alt='' />
-                </Link>
+                </Link> 
               </div>
 
               <div className='header__line'></div>

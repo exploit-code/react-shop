@@ -14,6 +14,7 @@ import ProductPage from './pages/ProductPage/ProductPage'
 import Contacts from './components/Contacts/Contacts'
 import Favorites from "./pages/Favorites/Favorites";
 import Post from './pages/PostPage/Post';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 
 function App() {
   const router = createBrowserRouter([
