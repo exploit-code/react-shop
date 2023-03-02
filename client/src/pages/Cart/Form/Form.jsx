@@ -2,6 +2,10 @@ import React from "react"
 import './style-form.scss'
 import { useSelector } from "react-redux";
 import axios from "axios";
+import Button from "../../../components/Button/Button";
+import {loadStripe} from "@stripe/stripe-js";
+import {makeRequest} from "../../../makeRequest";
+
 
 const Form = () => {
     const cartItems = useSelector((state) => state.cart.products)
@@ -22,6 +26,28 @@ const Form = () => {
         console.log('deliveryAddress:', deliveryAddress);
     }
 //**END of controlled input
+//Checkout
+    const stripePromise = loadStripe(
+        "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
+    );
+
+
+    const checkoutPayment = async () => {
+        try {
+            const stripe = await stripePromise;
+            const res = await makeRequest.post("/orders", {
+                cartItems,
+            });
+            await stripe.redirectToCheckout({
+                sessionId: res.data.stripeSession.id,
+            });
+
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    // end of Checkout
 
 //**START of axios request
     const getOrder = () => {
@@ -45,7 +71,7 @@ const Form = () => {
                 <h1>Form of the order</h1>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="firstName">Name</label>
+                        <label htmlFor="firstName">First Name</label>
                         <input
                             id="firstName"
                             type="text"
@@ -54,7 +80,7 @@ const Form = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="secondName">secondName</label>
+                        <label htmlFor="secondName">Second Name</label>
                         <input
                             id="secondName"
                             type="text"
@@ -88,49 +114,29 @@ const Form = () => {
                             onChange={(e) => setDeliveryAddress(e.target.value)}
                         />
                     </div>
-                    <button onClick={getOrder} type="submit">Submit</button>
+                    {/*<button onClick={getOrder} type="submit">Submit</button>*/}
+                    <Button onClick={getOrder}  type='submit' text='Next(Cash/uppon receipt)' className="btn btn-lg btn-dark btn-block">Payment order</Button>
+                    <Button onClick={checkoutPayment}  type='submit' text='Next(Pay with card)' className="btn btn-lg btn-dark btn-block">Payment order</Button>
+                    <Button text='Cancel'  className="btn btn-lg btn-dark btn-block"></Button>
                 </form>
-                {/*<form target="_blank" >*/}
-                {/*    <div className="form-group">*/}
-                {/*        <div className="form-row">*/}
-                {/*            <div className="col">*/}
-                {/*                <input type="text"*/}
-                {/*                        name="First-Name" className="form-control" placeholder="First Name"*/}
-                {/*                       required/>*/}
-                {/*            </div>*/}
-                {/*            <div className="col">*/}
-                {/*                <input type="text" name="Last-Name" className="form-control" placeholder="Last Name"*/}
-                {/*                       required/>*/}
-                {/*            </div>*/}
-                {/*            <div className="col">*/}
-                {/*                <input type="text" name="Phone" className="form-control" placeholder="Phone number"*/}
-                {/*                       required/>*/}
-                {/*            </div>*/}
-                {/*            <div className="col">*/}
-                {/*                <input type="email" name="Email" className="form-control" placeholder="Email Address"*/}
-                {/*                       required/>*/}
-                {/*            </div>*/}
-                {/*            <div className="col">*/}
-                {/*                <input type="text" name="Delivery" className="form-control" placeholder="Delivery address" required/>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*    <fieldset>*/}
-                {/*        <div className="form-wrp-pay-card">*/}
-                {/*            <legend>Payment method</legend>*/}
-                {/*            <input type="hidden" name="_subject" value="Ваш заказ №2312"></input>*/}
-                {/*            <input type="hidden" name="_template" value="table"></input>*/}
-                {/*            <input type="checkbox" name="pay-card" value="pay-card" id="pay-card"/>*/}
-                {/*            <label htmlFor="pay-card">Pay with a card</label>*/}
-                {/*        </div>*/}
-                {/*        <div className="form-wrp-pay-cash">*/}
-                {/*            <input type="checkbox" name="pay-cash" id="pay-cash" value="pay-cash"/>*/}
-                {/*            <label htmlFor="pay-cash">Cash/ card upon receipt</label>*/}
-                {/*        </div>*/}
-                {/*    </fieldset>*/}
-                {/*    <button type="submit" onClick={getOrder} className="btn btn-lg btn-dark btn-block">Payment order</button>*/}
-                {/*    <button className="btn btn-lg btn-dark btn-block">Cancel</button>*/}
-                {/*</form>*/}
+                <fieldset>
+                    <div className="form-wrp-pay-card">
+                        <legend>Payment method</legend>
+                        <input type="hidden" name="_subject" value="Ваш заказ №2312"></input>
+                        <input type="hidden" name="_template" value="table"></input>
+                        <input type="checkbox" name="pay-card" value="pay-card" id="pay-card"/>
+                        <label htmlFor="pay-card">Pay with a card</label>
+                    </div>
+                    <div className="form-wrp-pay-cash">
+                        <input type="checkbox" name="pay-cash" id="pay-cash" value="pay-cash"/>
+                        <label htmlFor="pay-cash">Cash/ card upon receipt</label>
+                    </div>
+                </fieldset>
+                {/* <div class="form-group">
+                        <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+                    </div> */}
+                {/*<button type="submit" className="btn btn-lg btn-dark btn-block">Payment order</button>*/}
+                {/*<button className="btn btn-lg btn-dark btn-block">Cancel</button>*/}
             </div>
         </>
     );

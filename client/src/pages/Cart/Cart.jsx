@@ -15,28 +15,28 @@ const Cart = () => {
   const dispatch = useDispatch()
   const [shopOrder, setShopOrder] = useState(false)
 
-  //Checkout
-  const stripePromise = loadStripe(
-      "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
-  );
-
-
-  const checkoutPayment = async () => {
-    try {
-      const stripe = await stripePromise;
-      const res = await makeRequest.post("/orders", {
-        cartItems,
-      });
-      await stripe.redirectToCheckout({
-        sessionId: res.data.stripeSession.id,
-      });
-
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  // end of Checkout
+  // //Checkout
+  // const stripePromise = loadStripe(
+  //     "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
+  // );
+  //
+  //
+  // const checkoutPayment = async () => {
+  //   try {
+  //     const stripe = await stripePromise;
+  //     const res = await makeRequest.post("/orders", {
+  //       cartItems,
+  //     });
+  //     await stripe.redirectToCheckout({
+  //       sessionId: res.data.stripeSession.id,
+  //     });
+  //
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  //
+  // // end of Checkout
 
   console.log(cartItems, "cartitems")
 
@@ -94,14 +94,7 @@ const Cart = () => {
                   <div className='cart-btn-wrp'>
                     <button className='cart-btn' onClick={() => clickShopOrder()}>
                   <span className='cart-btn-txt'>
-                    Pay after Delivery
-                  </span>
-                    </button>
-                  </div>
-                  <div className='cart-btn-wrp'>
-                    <button className='cart-btn' onClick={() => checkoutPayment()}>
-                  <span className='cart-btn-txt'>
-                    Pay with Card
+                    Checkout
                   </span>
                     </button>
                   </div>
