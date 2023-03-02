@@ -70,6 +70,14 @@ const Form = () => {
             <div className="form-wrp">
                 <h1>Form of the order</h1>
                 <form onSubmit={handleSubmit}>
+                    <fieldset>
+                        <legend>Choose your payment method</legend>
+                        <input type="radio" id="pay-card" name="monster" value="P"/>
+                        <label htmlFor="pay-card">Pay card</label>
+                        <br></br>
+                        <input type="radio" id="pay-cash" name="monster" value="C"/>
+                        <label htmlFor="pay-cash">Pay cash</label>
+                    </fieldset>
                     <div>
                         <label htmlFor="firstName">First Name</label>
                         <input
@@ -114,29 +122,17 @@ const Form = () => {
                             onChange={(e) => setDeliveryAddress(e.target.value)}
                         />
                     </div>
-                    {/*<button onClick={getOrder} type="submit">Submit</button>*/}
-                    <Button onClick={getOrder}  type='submit' text='Next(Cash/uppon receipt)' className="btn btn-lg btn-dark btn-block">Payment order</Button>
-                    <Button onClick={checkoutPayment}  type='submit' text='Next(Pay with card)' className="btn btn-lg btn-dark btn-block">Payment order</Button>
-                    <Button text='Cancel'  className="btn btn-lg btn-dark btn-block"></Button>
+                    <Button onClick={getOrder} type='submit' text='Next(Cash/uppon receipt)'
+                            className="btn btn-lg btn-dark btn-block">
+                    </Button>
+                    <Button onClick={checkoutPayment} type='submit' text='Next(Pay with card)'
+                            className="btn btn-lg btn-dark btn-block">
+                    </Button>
+                    <Button text='Cancel' className="btn btn-lg btn-dark btn-block">
+                    </Button>
+
+
                 </form>
-                <fieldset>
-                    <div className="form-wrp-pay-card">
-                        <legend>Payment method</legend>
-                        <input type="hidden" name="_subject" value="Ваш заказ №2312"></input>
-                        <input type="hidden" name="_template" value="table"></input>
-                        <input type="checkbox" name="pay-card" value="pay-card" id="pay-card"/>
-                        <label htmlFor="pay-card">Pay with a card</label>
-                    </div>
-                    <div className="form-wrp-pay-cash">
-                        <input type="checkbox" name="pay-cash" id="pay-cash" value="pay-cash"/>
-                        <label htmlFor="pay-cash">Cash/ card upon receipt</label>
-                    </div>
-                </fieldset>
-                {/* <div class="form-group">
-                        <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-                    </div> */}
-                {/*<button type="submit" className="btn btn-lg btn-dark btn-block">Payment order</button>*/}
-                {/*<button className="btn btn-lg btn-dark btn-block">Cancel</button>*/}
             </div>
         </>
     );
