@@ -3,15 +3,16 @@ import Card from "../Card/Card";
 import "./CatalogCategoriesList.scss";
 import useFetch from "../../hooks/useFetch";
 
-const CatalogCategoriesList = ({ cat }) => {
+const CatalogCategoriesList = ({  item }) => {
   const { data, loading, error } = useFetch(
-    `/products?populate=*&[filters][categories][id][$eq]=${cat}`
+    `/products?populate=*&[filters][categories][id][$eq]=${item.id}`
   );
-console.log(cat, 'catt')
+
 
   return (
     <div className="featuredProducts">
       <div className="top">
+          <h1>{item.attributes.title}</h1>
       </div>
       <div className="bottom">
         {error

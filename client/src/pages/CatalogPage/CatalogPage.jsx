@@ -5,8 +5,6 @@ import useFetch from "../../hooks/useFetch";
 import {useParams} from "react-router-dom";
 
 
-
-
 const CatalogPage = () => {
     const catId = parseInt(useParams().id);
     const { data} = useFetch(
@@ -17,11 +15,8 @@ const CatalogPage = () => {
         <div>
             <div className="contain" >
                 <div>
-                    {data?.map((item) => (
-                        <>
-                            <h1>{item.attributes.title}</h1>
-                        <CatalogCategoriesList cat={item.id}/>
-                        </>
+                    {data?.slice(1,8).map((item) => (
+                        <CatalogCategoriesList item={item}/>
                     ))}
                 </div>
             </div>
