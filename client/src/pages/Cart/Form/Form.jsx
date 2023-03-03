@@ -1,10 +1,10 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import './style-form.scss'
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Button from "../../../components/Button/Button";
-import {loadStripe} from "@stripe/stripe-js";
-import {makeRequest} from "../../../makeRequest";
+import { loadStripe } from "@stripe/stripe-js";
+import { makeRequest } from "../../../makeRequest";
 
 
 const Form = () => {
@@ -37,23 +37,23 @@ const Form = () => {
     //
     // //end new
 
-//**START of controlled input
+    //**START of controlled input
     const [firstName, setFirstName] = React.useState('');
     const [secondName, setSecondName] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [phone, setPhone] = React.useState('');
     const [deliveryAddress, setDeliveryAddress] = React.useState('');
+    const [payMethod, setValuePayMethod] = useState('')
 
     function handleSubmit(event) {
-        event.preventDefault();
         console.log('firstName:', firstName);
         console.log('secondName:', secondName);
         console.log('email:', email);
         console.log('phone:', phone);
         console.log('deliveryAddress:', deliveryAddress);
     }
-//**END of controlled input
-//Checkout
+    //**END of controlled input
+    //Checkout
     const stripePromise = loadStripe(
         "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
     );
@@ -76,7 +76,7 @@ const Form = () => {
 
     // end of Checkout
 
-//**START of axios request
+    //**START of axios request
     const getOrder = () => {
         axios.defaults.headers.post['Content-Type'] = 'application/json';
         axios.post('https://formsubmit.co/ajax/9264549700@mail.ru', {
@@ -91,8 +91,23 @@ const Form = () => {
             .then(response => console.log(response))
             .catch(error => console.log(error));
     }
-//**END of axios request
-//делаем чекбокс=первый вариант-оплата картой, второй вариант- оплата при получении.(при выборе это  чекбокса тут же подрендеривается формочка оплаты )
+    //**END of axios request
+    //делаем чекбокс=первый вариант-оплата картой, второй вариант- оплата при получении.(при выборе это  чекбокса тут же подрендеривается формочка оплаты )
+
+    // function изменяет состояние радио кнопки. 
+    // От state - payMethod зависит, какой метод будет запускаться при нажатии "Checkout".
+    const payCard = (event) => {
+        setValuePayMethod(event.target.value)
+    }
+
+
+    // function которая отвечает за распределение методов "Способа оплаты".
+    const makeAnOrder = () => {
+        if (payMethod == 'CC') {
+            checkoutPayment()
+        }
+        getOrder()
+    };
 
     return (
         <>
@@ -101,10 +116,12 @@ const Form = () => {
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Choose your payment method</legend>
-                        <input  type="radio" id="pay-card" name="payment" value="CC"/>
+                        <input type="radio" id="pay-card" name="payment" value="CC" checked={payMethod == 'CC'}
+                            onChange={payCard} />
                         <label htmlFor="pay-card">Pay card</label>
                         <br></br>
-                        <input   type="radio" id="pay-cash" name="payment" value="CD"/>
+                        <input type="radio" id="pay-cash" name="payment" value="CD" checked={payMethod == 'CD'}
+                            onChange={payCard} />
                         <label htmlFor="pay-cash">Pay cash</label>
                     </fieldset>
 
@@ -137,7 +154,7 @@ const Form = () => {
                     </div>
                     <div>
                         <label htmlFor="phone">Phone</label>
-                        <textarea
+                        <input
                             id="phone"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
@@ -152,9 +169,11 @@ const Form = () => {
                             onChange={(e) => setDeliveryAddress(e.target.value)}
                         />
                     </div>
-                    <Button onClick={getOrder} type='submit' text='Checkout'
-                            className="btn btn-lg btn-dark btn-block">
-                    </Button>
+                    <div className="form-btn-buyOrder">
+                        <Button onClick={makeAnOrder} type='submit' text='Place an order'
+                            className="form-btn-buyOrder">
+                        </Button>
+                    </div>
                     {/*<Button onClick={checkoutPayment} type='submit' text='Pay with Card'*/}
                     {/*        className="btn btn-lg btn-dark btn-block">*/}
                     {/*</Button>*/}
