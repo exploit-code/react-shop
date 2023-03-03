@@ -1,17 +1,17 @@
 import React from "react";
 import Card from "../Card/Card";
-import "./FeaturedProducts__back.scss";
+import "./CatalogCategoriesList.scss";
 import useFetch from "../../hooks/useFetch";
 
-const FeaturedProducts__back = ({ type }) => {
+const CatalogCategoriesList = ({ cat }) => {
   const { data, loading, error } = useFetch(
-    `/products?populate=*&[filters][type][$eq]=${type}`
+    `/products?populate=*&[filters][categories][id][$eq]=${cat}`
   );
+console.log(cat, 'catt')
 
   return (
     <div className="featuredProducts">
       <div className="top">
-        <h1>{type} products</h1>
       </div>
       <div className="bottom">
         {error
@@ -24,4 +24,4 @@ const FeaturedProducts__back = ({ type }) => {
   );
 };
 
-export default FeaturedProducts__back;
+export default CatalogCategoriesList;

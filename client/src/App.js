@@ -15,6 +15,8 @@ import Contacts from './components/Contacts/Contacts'
 import Favorites from "./pages/Favorites/Favorites";
 import Post from './pages/PostPage/Post';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import CatalogCategoriesList from "./components/CatalogCategoriesList/CatalogCategoriesList";
+import CatalogPage from "./pages/CatalogPage/CatalogPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -71,6 +73,15 @@ function App() {
           path: '/blog',
           element: <Post />,
         },
+        {
+          path: '/FP',
+          element: <CatalogCategoriesList />,
+        },
+        {
+          path: '/catalogPage',
+          element: <CatalogPage />,
+        },
+
       ],
     },
   ])
