@@ -58,7 +58,7 @@ const Catalog = () => {
           </div>
         </div>
         </div>
-        <CatalogList catId={catId} cats={selectedCats} />
+        <CatalogList catId={catId} selectedCats={selectedCats} />
       </section>
     )
 }

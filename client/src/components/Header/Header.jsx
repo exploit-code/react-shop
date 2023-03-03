@@ -84,7 +84,7 @@ const Header = () => {
                 </Link>
                 <Link target="blank"to='/'>
                   <img src={inIcon} alt='' />
-                </Link> 
+                </Link>
               </div>
 
               <div className='header__line'></div>
@@ -131,6 +131,11 @@ const Header = () => {
                 <li className='header__nav-item'>
                   <Link className='header__nav-link' to='/contacts'>
                     CONTACT
+                  </Link>
+                </li>
+                <li className='header__nav-item'>
+                  <Link className='header__nav-link' to='/catalogPage'>
+                    CatalogPAge
                   </Link>
                 </li>
               </ul>
