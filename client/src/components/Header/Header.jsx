@@ -120,7 +120,12 @@ const Header = () => {
                 </li>
                 <li className='header__nav-item'>
                   <Link className='header__nav-link' to='/products/1'>
-                    SHOP
+                    SHOP(ALL)
+                  </Link>
+                </li>
+                <li className='header__nav-item'>
+                  <Link className='header__nav-link' to='/catalogPage'>
+                   CATEGORIES
                   </Link>
                 </li>
                 <li className='header__nav-item'>
@@ -133,11 +138,7 @@ const Header = () => {
                     CONTACT
                   </Link>
                 </li>
-                <li className='header__nav-item'>
-                  <Link className='header__nav-link' to='/catalogPage'>
-                    CatalogPAge
-                  </Link>
-                </li>
+
               </ul>
             </nav>
 
