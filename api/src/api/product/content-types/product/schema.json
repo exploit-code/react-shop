@@ -18,6 +18,15 @@
     "desc": {
       "type": "text"
     },
+    "volume_unit": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
     "img": {
       "type": "media",
       "multiple": false,
