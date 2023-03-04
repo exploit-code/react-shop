@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import './Product.scss'
 import Button from '../../components/Button/Button'
 import BuyTogether from '../../components/BuyTogether/BuyTogether'
@@ -6,14 +6,15 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import plusIcon from "./img/icon-plus.png";
 import minusIcon from "./img/icon-minus.png";
-import unlikesIcon from '../../images/likes-icon.svg'
-import likedIcon from '../../images/addfavorite.svg'
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartReducer";
 import { addToFavorites } from "../../redux/favoritesReducer";
+import Favorite from "../../components/Favorite/Favorite";
+import { AuthContext } from "../../context/UserContext";
 
 
 export const ProductPage = () => {
+  const { user } = useContext(AuthContext);
   const favoritesItems = useSelector((state) => state.favorites.products)
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1);
@@ -40,8 +41,8 @@ export const ProductPage = () => {
     }
   }, false);
 
-  console.log('data', data)
-  console.log('category', data?.attributes?.categories?.data[0]?.attributes?.title)
+  // console.log('favoritesItems', favoritesItems)
+  // console.log('category', data?.attributes?.categories?.data[0]?.attributes?.title)
 
   return (
     <div className='product'>
@@ -58,13 +59,10 @@ export const ProductPage = () => {
             <div className='price_text'>${(Number(data?.attributes?.price)).toFixed(2)}</div>
           </div>
           {addToFavorites && (
-            <div className='product__content__boxfavorite' onClick={() =>
+            <div className={!user?.email ? 'product__content__boxfavorite disabled' :'product__content__boxfavorite'} onClick={() =>
               dispatch(addToFavorites(favoriteObj))}>
-              <img width={'30px'} height={'30px'}
-                src={isFavorite ? likedIcon : unlikesIcon}
-                alt="Unliked"
-              />
-            </div>
+              <Favorite isFavorite={isFavorite}/>
+             </div>
           )}
         </div>
 

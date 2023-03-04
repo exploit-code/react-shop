@@ -191,6 +191,11 @@
     }
 }
 
+
+.disabled {
+    pointer-events: none;
+}
+
 .alignCenter {
     display: flex;
     justify-content: space-evenly;
