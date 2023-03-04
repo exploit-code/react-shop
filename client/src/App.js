@@ -15,7 +15,7 @@ import Contacts from './components/Contacts/Contacts'
 import Favorites from "./pages/Favorites/Favorites";
 import Post from './pages/PostPage/Post';
 import PageNotFound from './components/PageNotFound/PageNotFound';
-import CatalogCategoriesList from "./components/CatalogCategoriesList/CatalogCategoriesList";
+import CatalogCategoriesList from "./components/CatalogPageList/CatalogPageList";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 
 function App() {
