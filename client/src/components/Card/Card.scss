@@ -18,6 +18,12 @@
     position: absolute;
     top: 5px;
     right: 5px;
+    &__top {
+      padding-right: 7px;
+    }
+    &__sale {
+      padding-right: 7px;
+    }
   }
 }
 
