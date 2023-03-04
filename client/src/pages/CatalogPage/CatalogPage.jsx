@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/UserContext';
-import CatalogCategoriesList from "../../components/CatalogCategoriesList/CatalogCategoriesList";
+import CatalogCategoriesList from "../../components/CatalogPageList/CatalogPageList";
 import useFetch from "../../hooks/useFetch";
 import {useParams} from "react-router-dom";
 
