@@ -11,16 +11,18 @@ const Card = ({ item }) => {
           {item?.attributes.onTop && <span>Top! </span>}
           {item?.attributes.onSale && <span>Sale! </span>}
         </div>
-        <img src={
+        <div className="product-card__content">
+          <img src={
             process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url
-        } alt='banana' className='product-card-img' />
-        <div className='text-box-roduct-card'>
-          <p className='text-product-card'>{item?.attributes.title}</p>
-          <b>
-            <p className='price-product-card'>${item?.attributes.price}</p>
-          </b>
+          } alt='banana' className='product-card-img' />
+          <div className='text-box-roduct-card'>
+            <p className='text-product-card'>{item?.attributes.title}</p>
+            <b>
+              <p className='price-product-card'>${item?.attributes.price}</p>
+            </b>
+          </div>
         </div>
-        </div>
+      </div>
     </Link>
   );
 };

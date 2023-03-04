@@ -31,7 +31,7 @@ const Catalog = () => {
     setValue(e.target.value);
   };
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <section className='catalog-container'>
