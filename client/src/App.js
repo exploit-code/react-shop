@@ -78,7 +78,7 @@ function App() {
           element: <CatalogCategoriesList />,
         },
         {
-          path: '/catalogPage',
+          path: '/categories',
           element: <CatalogPage />,
         },
 

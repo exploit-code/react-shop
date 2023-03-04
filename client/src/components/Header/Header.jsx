@@ -120,11 +120,11 @@ const Header = () => {
                 </li>
                 <li className='header__nav-item'>
                   <Link className='header__nav-link' to='/products/1'>
-                    SHOP(ALL)
+                    PRODUCTS
                   </Link>
                 </li>
                 <li className='header__nav-item'>
-                  <Link className='header__nav-link' to='/catalogPage'>
+                  <Link className='header__nav-link' to='/categories'>
                    CATEGORIES
                   </Link>
                 </li>
