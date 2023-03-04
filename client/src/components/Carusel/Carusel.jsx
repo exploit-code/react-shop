@@ -18,7 +18,7 @@ const Carusel = ({ data }) => {
     return (
         <div className="slider">
             <ItemsCarousel
-                gutter={32}
+                gutter={20}
                 children={carouselItems}
                 numberOfCards={noOfCards}
                 activeItemIndex={state}
