@@ -118,20 +118,20 @@
   justify-content: space-between;
 }
 
-// latestProduct
+// latestProducts
 
-.filterBlock__latestProduct {
+.filterBlock__latestProducts {
   width: 368px;
 }
 
-.filterBlock__latestProduct_titleBlock {
+.filterBlock__latestProducts_titleBlock {
   margin-bottom: 40px;
   position: relative;
   display: flex;
   justify-content: flex-end;
 }
 
-.filterBlock__latestProduct_titleBlock_title {
+.filterBlock__latestProducts_titleBlock_title {
   position: absolute;
   left: 0;
   font-weight: 900;
@@ -140,25 +140,25 @@
   color: #2A2A2A;
 }
 
-.filterBlock__latestProduct_titleBlock_arrowLeft {
+.filterBlock__latestProducts_titleBlock_arrowLeft {
   cursor: pointer;
   width: 50px;
   margin-right: 10px;
 }
 
-.filterBlock__latestProduct_titleBlock_arrowRight {
+.filterBlock__latestProducts_titleBlock_arrowRight {
   cursor: pointer;
   width: 50px;
 }
 
-.filterBlock__latestProduct_item_left_img {
+.filterBlock__latestProducts_item_left_img {
   height: 110px;
   width: 110px;
   object-fit: contain;
   position: relative;
 }
 
-.filterBlock__latestProduct_item {
+.filterBlock__latestProducts_item {
   max-height: 110px;
   display: flex;
   border: 1px solid #f3f3f3;
@@ -171,7 +171,7 @@
   }
 }
 
-.filterBlock__latestProduct_item_right_name {
+.filterBlock__latestProducts_item_right_name {
   margin-left: 20px;
   //margin-top: 32px;
   font-size: 20px;
@@ -180,7 +180,7 @@
   color: #2A2A2A;
 }
 
-.filterBlock__latestProduct_item_right_price {
+.filterBlock__latestProducts_item_right_price {
   margin-left: 20px;
   font-weight: 900;
   font-size: 20px;
@@ -189,7 +189,7 @@
   color: #2A2A2A;
 }
 
-.filterBlock__latestProduct_item_right_price + p {
+.filterBlock__latestProducts_item_right_price+p {
   margin: 16px 0 0 20px;
   cursor: pointer;
   text-decoration: underline;
@@ -199,20 +199,20 @@
   }
 }
 
-// topRatedProducts
+// topProducts
 
-.filterBlock__topRatedProducts {
+.filterBlock__topProducts {
   width: 368px;
 }
 
-.filterBlock__topRatedProducts_titleBlock {
+.filterBlock__topProducts_titleBlock {
   margin-bottom: 40px;
   position: relative;
   display: flex;
   justify-content: flex-end;
 }
 
-.filterBlock__topRatedProducts_titleBlock_title {
+.filterBlock__topProducts_titleBlock_title {
   position: absolute;
   left: 0;
   font-weight: 900;
@@ -221,22 +221,22 @@
   color: #2A2A2A;
 }
 
-.filterBlock__topRatedProducts_titleBlock_arrowLeft {
+.filterBlock__topProducts_titleBlock_arrowLeft {
   cursor: pointer;
   width: 50px;
   margin-right: 10px;
 }
 
 
-.filterBlock__topRatedProducts_item_left_img {
+.filterBlock__topProducts_item_left_img {
   width: 110px;
 }
 
-.filterBlock__topRatedProducts_item {
+.filterBlock__topProducts_item {
   display: flex;
 }
 
-.filterBlock__topRatedProducts_item_right_name {
+.filterBlock__topProducts_item_right_name {
   margin-left: 20px;
   margin-top: 32px;
   font-size: 20px;
@@ -245,7 +245,7 @@
   color: #2A2A2A;
 }
 
-.filterBlock__topRatedProducts_item_right_price {
+.filterBlock__topProducts_item_right_price {
   margin-left: 20px;
   font-weight: 900;
   font-size: 20px;
@@ -254,20 +254,20 @@
   color: #2A2A2A;
 }
 
-// reviewProducts
+// saleProducts
 
-.filterBlock__reviewProducts {
+.filterBlock__saleProducts {
   width: 368px;
 }
 
-.filterBlock__reviewProducts_titleBlock {
+.filterBlock__saleProducts_titleBlock {
   margin-bottom: 40px;
   position: relative;
   display: flex;
   justify-content: flex-end;
 }
 
-.filterBlock__reviewProducts_titleBlock_title {
+.filterBlock__saleProducts_titleBlock_title {
   position: absolute;
   left: 0;
   font-weight: 900;
@@ -276,26 +276,26 @@
   color: #2A2A2A;
 }
 
-.filterBlock__reviewProducts_titleBlock_arrowLeft {
+.filterBlock__saleProducts_titleBlock_arrowLeft {
   cursor: pointer;
   width: 50px;
   margin-right: 10px;
 }
 
-.filterBlock__reviewProducts_titleBlock_arrowRight {
+.filterBlock__saleProducts_titleBlock_arrowRight {
   cursor: pointer;
   width: 50px;
 }
 
-.filterBlock__reviewProducts_item_left_img {
+.filterBlock__saleProducts_item_left_img {
   width: 110px;
 }
 
-.filterBlock__reviewProducts_item {
+.filterBlock__saleProducts_item {
   display: flex;
 }
 
-.filterBlock__reviewProducts_item_right_name {
+.filterBlock__saleProducts_item_right_name {
   margin-left: 20px;
   margin-top: 32px;
   font-size: 20px;
@@ -304,7 +304,7 @@
   color: #2A2A2A;
 }
 
-.filterBlock__reviewProducts_item_right_price {
+.filterBlock__saleProducts_item_right_price {
   margin-left: 20px;
   font-weight: 900;
   font-size: 20px;
