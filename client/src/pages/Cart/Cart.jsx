@@ -14,6 +14,8 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.products)
   const dispatch = useDispatch()
   const [shopOrder, setShopOrder] = useState(false)
+  const [payMethod, setValuePayMethod] = useState('')
+  const [payCash, setPayCash] = useState(false);
 
   const stripePromise = loadStripe("pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX");
 
@@ -39,9 +41,24 @@ const Cart = () => {
 
   const className = shopOrder ? 'flex' : 'hidden';
 
-  const clickShopOrder = () => {
-    setShopOrder(() => !shopOrder)
+  // new code 05.03.
+
+  const payCard = (event) => {
+    setValuePayMethod(event.target.value)
   }
+
+  const clickPayCash = () => {
+    setPayCash(() => !payCash)
+  }
+
+  const makeAnOrder = () => {
+    if (payMethod == 'CC') {
+      checkoutPayment()
+    } else if (payMethod == 'CD') {
+      clickPayCash()
+    }
+  };
+
 
   return (
     <>
@@ -88,15 +105,29 @@ const Cart = () => {
                 ))}
               </section>
 
+              {/* new code 05.03*/}
+
+              <fieldset>
+                <legend>Choose your payment method</legend>
+                <input type="radio" id="pay-card" name="payment" value="CC" checked={payMethod == 'CC'}
+                  onChange={payCard} />
+                <label htmlFor="pay-card">Pay card</label>
+                <br></br>
+                <input type="radio" id="pay-cash" name="payment" value="CD" checked={payMethod == 'CD'}
+                  onChange={payCard} />
+                <label htmlFor="pay-cash">Pay cash</label>
+              </fieldset>
+
               <div className='cart-btn-wrp'>
-                <button className='cart-btn' onClick={() => clickShopOrder()}>
+                <button className='cart-btn' onClick={makeAnOrder}>
                   <span className='cart-btn-txt'>
                     Go to checkout
                   </span>
                 </button>
               </div>
 
-              {shopOrder && <Form className={className} />}
+              {payCash && <Form className={className} />}
+
             </div>
           ) : (
             <div className='cart-empty-container'>
