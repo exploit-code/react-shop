@@ -1,6 +1,5 @@
 import '../../normalize.css';
 import './PartWithBannersAndFilters.scss';
-import './media_PartWithBannersAndFilters.scss';
 
 import FilteredColumn from "../FilteredColumn/FilteredColumn";
 import BannerPart from "../BannerPart/BannerPart";
