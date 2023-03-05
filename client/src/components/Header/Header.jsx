@@ -15,7 +15,6 @@ import likesIcon from '../../images/likes-icon.svg'
 import ScrollToTop from '../../utils/scrollToTop';
 import { useSelector } from "react-redux";
 import SearchTop from "../SearchTop/SearchTop";
-// import { setValue } from "../../redux/searchReducer";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
