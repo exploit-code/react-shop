@@ -10,33 +10,6 @@ import { makeRequest } from "../../../makeRequest";
 const Form = () => {
     const cartItems = useSelector((state) => state.cart.products)
 
-    // //new
-    //
-    // const [payByCreditCard,setPayByCreditCard] = useState(false);
-    //
-    // let ccForm = () => {
-    //     <p> Swow CreditCard form here</p>
-    // }
-    //
-    // let cdForm = () => {
-    //    <p> Swow CashDelivery form here</p>
-    // }
-    // let variableForm = <h1> Credit Form</h1>;
-    // if (!this.state.payByCreditCard) {
-    //     variableForm = <h1> Cash  Delivery form</h1>;
-    // }
-    //
-    // let paymentTypeHandler =  (e) => {
-    // let value = e.target.value;
-    // let ccSelected = false;
-    // if (value == 'CC') {
-    //     ccSelected = true;
-    //   }
-    //     this.setState({payByCreditCard: ccSelected});
-    // }
-    //
-    // //end new
-
     //**START of controlled input
     const [firstName, setFirstName] = React.useState('');
     const [secondName, setSecondName] = React.useState('');
@@ -105,8 +78,9 @@ const Form = () => {
     const makeAnOrder = () => {
         if (payMethod == 'CC') {
             checkoutPayment()
+        } else {
+            getOrder()
         }
-        getOrder()
     };
 
     return (
@@ -114,17 +88,9 @@ const Form = () => {
             <div className="form-wrp">
                 <h1>Form of the order</h1>
                 <form onSubmit={handleSubmit}>
-                    <fieldset>
-                        <legend>Choose your payment method</legend>
-                        <input type="radio" id="pay-card" name="payment" value="CC" checked={payMethod == 'CC'}
-                            onChange={payCard} />
-                        <label htmlFor="pay-card">Pay card</label>
-                        <br></br>
-                        <input type="radio" id="pay-cash" name="payment" value="CD" checked={payMethod == 'CD'}
-                            onChange={payCard} />
-                        <label htmlFor="pay-cash">Pay cash</label>
-                    </fieldset>
+                    <div>
 
+                    </div>
                     <div>
                         <label htmlFor="firstName">First Name</label>
                         <input
