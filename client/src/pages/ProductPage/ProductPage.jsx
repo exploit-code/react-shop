@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './Product.scss'
-import Button from '../../components/Button/Button'
 import BuyTogether from '../../components/BuyTogether/BuyTogether'
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
@@ -18,7 +17,9 @@ export const ProductPage = () => {
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1);
   const id = useParams().id;
-  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+  const { data } = useFetch(`/products/${id}?populate=*`);
+
+  const [activeState, setActiveState] = useState(false);
 
   const favoriteObj = {
     id: data?.id,
@@ -40,8 +41,37 @@ export const ProductPage = () => {
     }
   }, false);
 
-  console.log('data', data)
-  console.log('category', data?.attributes?.categories?.data[0]?.attributes?.title)
+  const handlerAdded = () => {
+    if(!activeState) {
+      return 'add-to-cart'
+    } else {
+      return 'add-to-cart added'
+    }
+  }
+
+  const cartState = () => {
+    dispatch(
+      addToCart({
+          id: data.id,
+          title: data.attributes.title,
+          desc: data.attributes.desc,
+          price: data.attributes.price,
+          img: data.attributes.img.data.attributes.url,
+          totalPriceItem: (data.attributes.price * quantity).toFixed(2),
+          quantity,
+        }
+      )
+    )
+    setActiveState(!activeState);
+
+    setTimeout(() => {
+      setActiveState(activeState);
+      }, 3000)
+
+  }
+
+  console.log('activeState', activeState)
+  // console.log('category', data?.attributes?.categories?.data[0]?.attributes?.title)
 
   return (
     <div className='product'>
@@ -80,23 +110,20 @@ export const ProductPage = () => {
             />
 
             <div className="count_block">
-              <Button onClick={() =>
-                dispatch(
-                  addToCart({
-                      id: data.id,
-                      title: data.attributes.title,
-                      desc: data.attributes.desc,
-                      price: data.attributes.price,
-                      img: data.attributes.img.data.attributes.url,
-                      totalPriceItem: (data.attributes.price * quantity).toFixed(2),
-                      quantity,
-                    }
-                  )
-                )
-              }
-                      text='ADD TO CART'
 
-              />
+              <button onClick={() => cartState()} className={handlerAdded()}>
+                <div className="default">ADD TO CART</div>
+                <div className="success">ADDED</div>
+                <div className="cart">
+                  <div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <div className="dots"></div>
+              </button>
+
+
               <div className="count__box">
                 {quantity}
                 {/* <input type="number" className="count__input" min="1" max="100" value="1" /> */}
