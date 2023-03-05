@@ -11,40 +11,39 @@
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   font-size: 16px;
-  padding: 18px 20px;
+  padding: 19px 15px;
   font-weight: 500;
   line-height: 20px;
   transform: scale(var(--s, .97));
-  box-shadow: 0 var(--s-y, 4px) var(--s-b, 12px) var(--shadow);
   color: var(--color);
   background: var(--background);
   transition: transform .3s, box-shadow .3s;
+  width: 141px;
 
   .default {
-    padding-left: 16px;
     position: relative;
     opacity: var(--o, 1);
     transform: scale(var(--s, 1));
     transition: transform .3s, opacity .3s;
     transition-delay: var(--d, .3s);
 
-    &:before,
-    &:after {
-      content: '';
-      width: 2px;
-      height: 12px;
-      left: 0;
-      top: 4px;
-      border-radius: 1px;
-      background: var(--icon);
-      position: absolute;
-      transform: rotate(var(--r, 0deg));
-      transition: transform .25s;
-    }
-
-    &:after {
-      --r: 90deg;
-    }
+    //&:before,
+    //&:after {
+    //  content: '';
+    //  width: 2px;
+    //  height: 12px;
+    //  left: 0;
+    //  top: 4px;
+    //  border-radius: 1px;
+    //  background: var(--icon);
+    //  position: absolute;
+    //  transform: rotate(var(--r, 0deg));
+    //  transition: transform .25s;
+    //}
+    //
+    //&:after {
+    //  --r: 90deg;
+    //}
   }
 
   .success {
@@ -216,20 +215,24 @@
   }
 }
 
+.add-to-cart {
+  box-shadow: 0 var(--s-y, 4px) var(--s-b, 12px) var(--shadow);
+}
+
 @keyframes cart {
   41%,
   49%,
   57%,
   60% {
-    transform: translateX(72px) rotate(0deg);
+    transform: translateX(63px) rotate(0deg);
   }
   40%,
   47%,
   54% {
-    transform: translateX(72px) rotate(0deg) translateY(1px);
+    transform: translateX(63px) rotate(0deg) translateY(1px);
   }
   100% {
-    transform: translateX(180px) rotate(-16deg);
+    transform: translateX(155px) rotate(-16deg);
   }
 }
 
