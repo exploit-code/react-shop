@@ -3,7 +3,6 @@ import { useState } from 'react';
 import menuIcon from '../../images/menuIcon.svg';
 import callIcon from '../../images/callIcon.svg';
 import useFetch from "../../hooks/useFetch";
-import Button from "../Button/Button";
 
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -11,11 +10,9 @@ import { setValue } from "../../redux/searchReducer";
 
 
 const SearchTop = () => {
-
     const [stateCategories, setstateCategories] = useState(false)
     const [nameCategories, setnameCategories] = useState('All')
     const [searchValue, setSearchValue] = useState("");
-
     const dispatch = useDispatch()
 
     const onChangeSearchInput = (event) => {
@@ -28,11 +25,13 @@ const SearchTop = () => {
         dispatch(setValue(searchValue))
 
     }
+
     const handlerdeleiValueInput = (event) => {
         event.preventDefault();
         dispatch(setValue(''))
         setSearchValue('')
     }
+
     const categoriesClick = () => {
 
         setnameCategories('All')
@@ -44,7 +43,8 @@ const SearchTop = () => {
     }
 
     const handler = (item) => {
-        setnameCategories(item.attributes.title)
+        setnameCategories(item.attributes.title);
+        setstateCategories(false)
     }
 
     const { data} = useFetch(
