@@ -8,7 +8,6 @@ import minusIcon from "./img/icon-minus.png";
 import unlikesIcon from '../../images/likes-icon.svg'
 import likedIcon from '../../images/addfavorite.svg'
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../redux/cartReducer";
 import { addToFavorites } from "../../redux/favoritesReducer";
 import { AddToCartBtn } from "../../components/AddToCartBtn/AddToCartBtn";
 
@@ -19,8 +18,6 @@ export const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const id = useParams().id;
   const { data } = useFetch(`/products/${id}?populate=*`);
-
-  const [activeState, setActiveState] = useState(false);
 
   const favoriteObj = {
     id: data?.id,
@@ -41,38 +38,6 @@ export const ProductPage = () => {
       return res;
     }
   }, false);
-
-  const handlerAdded = () => {
-    if(!activeState) {
-      return 'add-to-cart'
-    } else {
-      return 'add-to-cart added'
-    }
-  }
-
-  const cartState = () => {
-    dispatch(
-      addToCart({
-          id: data.id,
-          title: data.attributes.title,
-          desc: data.attributes.desc,
-          price: data.attributes.price,
-          img: data.attributes.img.data.attributes.url,
-          totalPriceItem: (data.attributes.price * quantity).toFixed(2),
-          quantity,
-        }
-      )
-    )
-    setActiveState(!activeState);
-
-    setTimeout(() => {
-      setActiveState(activeState);
-      }, 3000)
-
-  }
-
-  console.log('activeState', activeState)
-  // console.log('category', data?.attributes?.categories?.data[0]?.attributes?.title)
 
   return (
     <div className='product'>
@@ -112,7 +77,15 @@ export const ProductPage = () => {
 
             <div className="count_block">
 
-              <AddToCartBtn click={() => cartState()} className={handlerAdded()}/>
+              <AddToCartBtn
+                id={data?.id}
+                title={data?.attributes.title}
+                desc={data?.attributes.desc}
+                price={data?.attributes.price}
+                img={data?.attributes.img.data.attributes.url}
+                totalpriceitem={(Number(data?.attributes?.price)).toFixed(2)}
+                quantity={1}
+              />
 
               <div className="count__box">
                 {quantity}
