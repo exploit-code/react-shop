@@ -10,6 +10,7 @@ import likedIcon from '../../images/addfavorite.svg'
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartReducer";
 import { addToFavorites } from "../../redux/favoritesReducer";
+import { AddToCartBtn } from "../../components/AddToCartBtn/AddToCartBtn";
 
 
 export const ProductPage = () => {
@@ -111,22 +112,10 @@ export const ProductPage = () => {
 
             <div className="count_block">
 
-              <button onClick={() => cartState()} className={handlerAdded()}>
-                <div className="default">ADD TO CART</div>
-                <div className="success">ADDED</div>
-                <div className="cart">
-                  <div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <div className="dots"></div>
-              </button>
-
+              <AddToCartBtn click={() => cartState()} className={handlerAdded()}/>
 
               <div className="count__box">
                 {quantity}
-                {/* <input type="number" className="count__input" min="1" max="100" value="1" /> */}
               </div>
               <div className="count__controls">
                 <button onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))} type="button"
