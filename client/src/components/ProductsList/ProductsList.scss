@@ -14,8 +14,22 @@
   &--list {
     grid-template-columns: 1fr;
 
+    & .product-card {
+      padding: 0;
+      background-color: #f5f6f5;
+    }
+
+    & .text-box-roduct-card {
+      background-color: var(--transparent);
+    }
+
+    & .product-card-img {
+      height: 50px;
+    }
+
     & .product-card__content {
       grid-template-columns: 1fr 2fr;
+      align-items: center;
     }
   }
 }

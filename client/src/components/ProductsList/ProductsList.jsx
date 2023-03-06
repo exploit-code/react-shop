@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import useFetch from "../../hooks/useFetch";
 import { useSelector } from "react-redux";
 
-const ProductsList = ({ subCats, maxPrice, sort, catId, view }) => {
+const ProductsList = ({ subCats, maxPrice, sort, catId, view}) => {
   const { data, loading, error } = useFetch(
     `/products?populate=*&[filters][categories][id]=${catId}${subCats.map(
       (item) => `&[filters][sub_categories][id][$eq]=${item}`
