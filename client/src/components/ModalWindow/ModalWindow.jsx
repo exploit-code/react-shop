@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import ChildModal from "./ChildModal";
 
 const style = {
     position: 'absolute',
@@ -17,14 +18,15 @@ const style = {
     p: 4,
 };
 
-const ModalWindow = () => {
+const ModalWindow = (props) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [payment, setpayment] = useState('')
 
     return (
         <>
-            <Button onClick={handleOpen}>Open modal</Button>
+            <Button onClick={handleOpen}>Go to checkout</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -32,23 +34,26 @@ const ModalWindow = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    {/* <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography> */}
 
                     <div>
-
+                        <fieldset>
+                            <legend>Choose your payment method</legend>
+                            <input type="radio" id="pay-card" name="payment" value="CC" checked={payment == 'CC'}
+                                onChange={((event) => setpayment(event.target.value))} />
+                            <label htmlFor="pay-card">Online payment</label>
+                            <br></br>
+                            <input type="radio" id="pay-cash" name="payment" value="CD" checked={payment == 'CD'}
+                                onChange={((event) => setpayment(event.target.value))} />
+                            <label htmlFor="pay-cash">Payment upon receipt</label>
+                        </fieldset>
                     </div>
 
                     <div className="testModal">
                         <div>
-                            <Button onClick={handleOpen}>Next</Button>
+                            <ChildModal payment={payment} checkoutPayment={props.checkoutPayment} />
                         </div>
                         <div>
-                            <Button onClose={handleClose}>Cancel</Button>
+                            <Button onClick={handleClose}>Cancel</Button>
                         </div>
                     </div>
                 </Box>

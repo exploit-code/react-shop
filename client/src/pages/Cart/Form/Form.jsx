@@ -14,6 +14,7 @@ const Form = () => {
     const [email, setEmail] = React.useState('');
     const [phone, setPhone] = React.useState('');
     const [deliveryAddress, setDeliveryAddress] = React.useState('');
+    const [payMethod, setPayMethod] = useState('')
 
 
     // end of Checkout
@@ -27,7 +28,7 @@ const Form = () => {
             email: email,
             phone: phone,
             deliveryAddress: deliveryAddress,
-            payByCreditCard: 'Cash or Card',
+            payByCreditCard: payMethod,
             data: (JSON.stringify(cartItems))
         })
             .then(response => console.log(response))
@@ -35,13 +36,28 @@ const Form = () => {
     }
     //**END of axios request
 
+    const changePaymentMethod = (e) => {
+        setPayMethod(e.target.value)
+    }
+
     return (
         <>
             <div className="form-wrp">
                 <h1>Form of the order</h1>
-                <form>
+                <form action="https://formsubmit.co/ajax/hasanovmaxim@yandex.ru">
                     <div>
-
+                        <div>
+                            <label htmlFor="PayCard">Payment by terminal</label>
+                            <input type="radio" name="card" value="PayCard" id="pay-card"
+                                checked={payMethod == 'PayCard'}
+                                onChange={changePaymentMethod} />
+                        </div>
+                        <div>
+                            <label htmlFor="PayCard">Payment in cash</label>
+                            <input type="radio" name="cash" value="PayCash" id="pay-cash"
+                                checked={payMethod == 'PayCash'}
+                                onChange={changePaymentMethod} />
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="firstName">First Name</label>
@@ -92,11 +108,6 @@ const Form = () => {
                             className="form-btn-buyOrder">
                         </Button>
                     </div>
-                    {/*<Button onClick={checkoutPayment} type='submit' text='Pay with Card'*/}
-                    {/*        className="btn btn-lg btn-dark btn-block">*/}
-                    {/*</Button>*/}
-                    {/*<Button text='Cancel' className="btn btn-lg btn-dark btn-block">*/}
-                    {/*</Button>*/}
                 </form>
             </div>
         </>
