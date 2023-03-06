@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { setValue } from "../../redux/searchReducer";
 
 
-const SearchTop = ({updateData}) => {
+const SearchTop = ({takeCategoryId}) => {
     const [stateCategories, setstateCategories] = useState(false)
     const [nameCategories, setNameCategories] = useState('All')
     const [searchValue, setSearchValue] = useState("");
@@ -26,7 +26,7 @@ const SearchTop = ({updateData}) => {
 
     }
 
-    const handlerdeleiValueInput = (event) => {
+    const handlerDeleteValueInput = (event) => {
         event.preventDefault();
         dispatch(setValue(''))
         setSearchValue('')
@@ -45,7 +45,7 @@ const SearchTop = ({updateData}) => {
 
     const handler = (item) => {
         setNameCategories(item.attributes.title);
-        updateData(item.id)
+        takeCategoryId(item.id)
         setstateCategories(false)
     }
 
@@ -106,7 +106,7 @@ const SearchTop = ({updateData}) => {
                           <button className='upmainpage__left_search_button'>SEARCH</button>
                       </form>
                       <img
-                        onClick={handlerdeleiValueInput}
+                        onClick={handlerDeleteValueInput}
                         className="upmainpage__left_search_delbutton"
                         src="/img/cross.svg"
                         alt="Remove"

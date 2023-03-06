@@ -20,7 +20,7 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const cartItems = useSelector((state) => state.cart.products)
   const favoritesItems = useSelector((state) => state.favorites.products)
-  const [state, setState] = useState(1)
+  const [categoryId, setCategoryId] = useState(1)
 
 
   const handleSignOut = () => {
@@ -53,8 +53,8 @@ const Header = () => {
     return total;
   };
 
-  const updateData = (value) => {
-    setState(value)
+  const takeCategoryId = (value) => {
+    setCategoryId(value)
   }
 
   return (
@@ -123,7 +123,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className='header__nav-item'>
-                  <Link className='header__nav-link' to={`/products/${state}`}
+                  <Link className='header__nav-link' to={`/products/${categoryId}`}
                   >
                     PRODUCTS
                   </Link>
@@ -179,7 +179,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      <SearchTop updateData={updateData}/>
+      <SearchTop takeCategoryId={takeCategoryId}/>
       </header>
     )
 }
