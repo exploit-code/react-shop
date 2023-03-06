@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItems, deleteItem } from "../../redux/cartReducer";
 import { makeRequest } from "../../makeRequest";
 import { loadStripe } from "@stripe/stripe-js";
+import ModalWindow from '../../components/ModalWindow/ModalWindow';
 
 
 const Cart = () => {
@@ -35,9 +36,6 @@ const Cart = () => {
   };
 
   // end of Checkout
-
-  // console.log(cartItems, "cartitems")
-
 
   const className = shopOrder ? 'flex' : 'hidden';
 
@@ -118,6 +116,10 @@ const Cart = () => {
                 <label htmlFor="pay-cash">Pay cash</label>
               </fieldset>
 
+              <div className='testModal'>
+                <ModalWindow></ModalWindow>
+              </div>
+
               <div className='cart-btn-wrp'>
                 <button className='cart-btn' onClick={makeAnOrder}>
                   <span className='cart-btn-txt'>
@@ -125,7 +127,6 @@ const Cart = () => {
                   </span>
                 </button>
               </div>
-
               {payCash && <Form className={className} />}
 
             </div>
