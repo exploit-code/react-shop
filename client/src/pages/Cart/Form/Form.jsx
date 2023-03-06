@@ -9,20 +9,19 @@ const Form = () => {
     const cartItems = useSelector((state) => state.cart.products)
 
     //**START of controlled input
-    const [firstName, setFirstName] = React.useState('');
-    const [secondName, setSecondName] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [phone, setPhone] = React.useState('');
-    const [deliveryAddress, setDeliveryAddress] = React.useState('');
+    const [firstName, setFirstName] = useState('');
+    const [secondName, setSecondName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [deliveryAddress, setDeliveryAddress] = useState('');
     const [payMethod, setPayMethod] = useState('')
 
 
     // end of Checkout
-
     //**START of axios request
     const getOrder = () => {
         axios.defaults.headers.post['Content-Type'] = 'application/json';
-        axios.post('https://formsubmit.co/ajax/hasanovmaxim@yandex.ru', {
+        axios.post('https://formsubmit.co/ajax/9264549700@mail.ru', {
             firstName: firstName,
             secondName: secondName,
             email: email,
@@ -35,7 +34,6 @@ const Form = () => {
             .catch(error => console.log(error));
     }
     //**END of axios request
-
     const changePaymentMethod = (e) => {
         setPayMethod(e.target.value)
     }
@@ -44,18 +42,18 @@ const Form = () => {
         <>
             <div className="form-wrp">
                 <h1>Form of the order</h1>
-                <form action="https://formsubmit.co/ajax/hasanovmaxim@yandex.ru">
+                <form>
                     <div>
                         <div>
                             <label htmlFor="PayCard">Payment by terminal</label>
                             <input type="radio" name="card" value="PayCard" id="pay-card"
-                                checked={payMethod == 'PayCard'}
+                                checked={payMethod === 'PayCard'}
                                 onChange={changePaymentMethod} />
                         </div>
                         <div>
                             <label htmlFor="PayCard">Payment in cash</label>
                             <input type="radio" name="cash" value="PayCash" id="pay-cash"
-                                checked={payMethod == 'PayCash'}
+                                checked={payMethod === 'PayCash'}
                                 onChange={changePaymentMethod} />
                         </div>
                     </div>
