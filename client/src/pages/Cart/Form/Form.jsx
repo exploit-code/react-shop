@@ -16,7 +16,9 @@ const Form = () => {
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [payMethod, setPayMethod] = useState('')
 
-
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
     // end of Checkout
     //**START of axios request
     const getOrder = () => {
@@ -42,7 +44,7 @@ const Form = () => {
         <>
             <div className="form-wrp">
                 <h1>Form of the order</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div>
                         <div>
                             <label htmlFor="PayCard">Payment by terminal</label>
