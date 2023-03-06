@@ -36,3 +36,18 @@
     }
   }
 }
+
+.btn-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 16px;
+  line-height: 100%;
+  border: none;
+  min-width: 120px;
+  border: 1px solid var(--green);
+  background-color: var(--transparent);
+  color: var(--black);
+  cursor: pointer;
+}
