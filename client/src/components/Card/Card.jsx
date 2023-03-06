@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import saleIcon from '../../images/saleIcon.svg';
 import topIcon from '../../images/topIcon.svg';
 
-const Card = ({ item }) => {
+const Card = ({ item, view }) => {
   return (
     <Link className="link" to={`/productpage/${item.id}`}>
       <div className='product-card'>
@@ -12,7 +12,7 @@ const Card = ({ item }) => {
           {item?.attributes.onTop && <img  src={topIcon} className="product-card-marker__top"  alt='top'/>}
           {item?.attributes.onSale && <img  src={saleIcon} className="product-card-marker__sale"  alt='sale'/>}
         </div>
-        <div className="product-card__content">
+        <div className={view ? `${'product-card__content product-card__content--vertical'}` : `${'product-card__content product-card__content--horizontal'}`}>
           <img src={
             process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url
           } alt='banana' className='product-card-img' />
