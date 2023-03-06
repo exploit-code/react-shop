@@ -12,6 +12,7 @@ body {
 
 .footer {
     background-color: black;
+    margin: 137px 0 0 0;
 
     &__logo {
         @include mixins.font(36px, 700, 100%);
