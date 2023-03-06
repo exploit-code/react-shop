@@ -29,7 +29,6 @@
 
     &__content__text {
         @include font(20px, 400, 30px);
-        letter-spacing: 0em;
         text-align: left;
         color: #2A2A2A;
         text-transform: capitalize;
@@ -40,7 +39,6 @@
         @include flex(space-between, _);
         flex-direction: row;
         flex-wrap: wrap;
-        margin: 0 0 132px 0;
     }
 
     &__content__item {
