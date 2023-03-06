@@ -1,5 +1,21 @@
-.list {
+.products-box {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  padding-bottom: 32px;
+
+  &--tile {
+    grid-template-columns: repeat(3, 1fr);
+
+    & .product-card__content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--list {
+    grid-template-columns: 1fr;
+
+    & .product-card__content {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
 }
