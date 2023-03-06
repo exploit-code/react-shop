@@ -105,7 +105,16 @@ export const ProductPage = () => {
 
           <div className='product__content__boxright'>
             <div className='product__content__text'>
-              {data?.attributes?.desc}
+              <span>Description: {data?.attributes?.desc}</span>
+            </div>
+            <div className='product__content__text'>
+              <span> Brand: {data?.attributes?.brand}</span>
+            </div>
+            <div className='product__content__text'>
+              <span>Country: {data?.attributes?.country}</span>
+            </div>
+            <div className='product__content__text'>
+              <span>Volume: {data?.attributes?.volume_unit}</span>
             </div>
           </div>
         </div>
