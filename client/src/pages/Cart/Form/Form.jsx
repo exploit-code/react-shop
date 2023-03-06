@@ -3,8 +3,6 @@ import './style-form.scss'
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Button from "../../../components/Button/Button";
-import { loadStripe } from "@stripe/stripe-js";
-import { makeRequest } from "../../../makeRequest";
 
 
 const Form = () => {
@@ -16,80 +14,50 @@ const Form = () => {
     const [email, setEmail] = React.useState('');
     const [phone, setPhone] = React.useState('');
     const [deliveryAddress, setDeliveryAddress] = React.useState('');
-    const [payMethod, setValuePayMethod] = useState('')
+    const [payMethod, setPayMethod] = useState('')
 
-    function handleSubmit(event) {
-        console.log('firstName:', firstName);
-        console.log('secondName:', secondName);
-        console.log('email:', email);
-        console.log('phone:', phone);
-        console.log('deliveryAddress:', deliveryAddress);
-    }
-    //**END of controlled input
-    //Checkout
-    const stripePromise = loadStripe(
-        "pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX"
-    );
-
-
-    const checkoutPayment = async () => {
-        try {
-            const stripe = await stripePromise;
-            const res = await makeRequest.post("/orders", {
-                cartItems,
-            });
-            await stripe.redirectToCheckout({
-                sessionId: res.data.stripeSession.id,
-            });
-
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     // end of Checkout
 
     //**START of axios request
     const getOrder = () => {
         axios.defaults.headers.post['Content-Type'] = 'application/json';
-        axios.post('https://formsubmit.co/ajax/9264549700@mail.ru', {
+        axios.post('https://formsubmit.co/ajax/hasanovmaxim@yandex.ru', {
             firstName: firstName,
             secondName: secondName,
             email: email,
             phone: phone,
             deliveryAddress: deliveryAddress,
-            payByCreditCard: false,
+            payByCreditCard: payMethod,
             data: (JSON.stringify(cartItems))
         })
             .then(response => console.log(response))
             .catch(error => console.log(error));
     }
     //**END of axios request
-    //делаем чекбокс=первый вариант-оплата картой, второй вариант- оплата при получении.(при выборе это  чекбокса тут же подрендеривается формочка оплаты )
 
-    // function изменяет состояние радио кнопки. 
-    // От state - payMethod зависит, какой метод будет запускаться при нажатии "Checkout".
-    const payCard = (event) => {
-        setValuePayMethod(event.target.value)
+    const changePaymentMethod = (e) => {
+        setPayMethod(e.target.value)
     }
-
-
-    // function которая отвечает за распределение методов "Способа оплаты".
-    const makeAnOrder = () => {
-        if (payMethod == 'CC') {
-            checkoutPayment()
-        } else {
-            getOrder()
-        }
-    };
 
     return (
         <>
             <div className="form-wrp">
                 <h1>Form of the order</h1>
-                <form onSubmit={handleSubmit}>
+                <form action="https://formsubmit.co/ajax/hasanovmaxim@yandex.ru">
                     <div>
-
+                        <div>
+                            <label htmlFor="PayCard">Payment by terminal</label>
+                            <input type="radio" name="card" value="PayCard" id="pay-card"
+                                checked={payMethod == 'PayCard'}
+                                onChange={changePaymentMethod} />
+                        </div>
+                        <div>
+                            <label htmlFor="PayCard">Payment in cash</label>
+                            <input type="radio" name="cash" value="PayCash" id="pay-cash"
+                                checked={payMethod == 'PayCash'}
+                                onChange={changePaymentMethod} />
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="firstName">First Name</label>
@@ -136,15 +104,10 @@ const Form = () => {
                         />
                     </div>
                     <div className="form-btn-buyOrder">
-                        <Button onClick={makeAnOrder} type='submit' text='Place an order'
+                        <Button onClick={getOrder} type='submit' text='Place an order'
                             className="form-btn-buyOrder">
                         </Button>
                     </div>
-                    {/*<Button onClick={checkoutPayment} type='submit' text='Pay with Card'*/}
-                    {/*        className="btn btn-lg btn-dark btn-block">*/}
-                    {/*</Button>*/}
-                    {/*<Button text='Cancel' className="btn btn-lg btn-dark btn-block">*/}
-                    {/*</Button>*/}
                 </form>
             </div>
         </>

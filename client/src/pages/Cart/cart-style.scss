@@ -86,7 +86,7 @@
 .cart-btn-wrp {
     display: flex;
     justify-content: center;
-    margin: 25px 0 0 0;
+    margin: 25px 0 25px 0;
 }
 
 .cart-btn {
@@ -96,7 +96,7 @@
     border: #7FAD39;
     color: #FFFFFF;
     cursor: pointer;
-
+    margin: 10px;
 }
 
 .cart-btn:hover {
@@ -234,4 +234,10 @@
         line-height: 30px;
         color: #2A2A2A;
     }
+}
+
+.testModal {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 20px 0px;
 }
