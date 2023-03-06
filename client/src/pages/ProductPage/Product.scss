@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Celebri Sans Pro';
+    src: url(../../fonts/Cerebri.Sans.Pro/CerebriSansPro-Medium.woff2) format('woff2');
+}
+
 .product {
     margin-top: 25px;
 
@@ -7,7 +12,6 @@
         font-size: 16px;
         font-weight: 500;
         line-height: 36px;
-        font-family: 'Cerebri Sans Pro';
         text-align: center;
         text-decoration-line: underline;
         color: #2A2A2A;
@@ -76,7 +80,9 @@
 
     &__content__boxright {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
         background: #F5F5F5;
         width: 70%;
 
