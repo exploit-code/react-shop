@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './header.scss'
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/UserContext';
 import emailIcon from '../../images/emailIcon.png';
 import fbIcon from '../../images/fbIcon.svg';
@@ -20,6 +20,7 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const cartItems = useSelector((state) => state.cart.products)
   const favoritesItems = useSelector((state) => state.favorites.products)
+  const [state, setState] = useState(1)
 
 
   const handleSignOut = () => {
@@ -52,14 +53,18 @@ const Header = () => {
     return total;
   };
 
+  const updateData = (value) => {
+    setState(value)
+  }
+
   return (
     <header className='header' id='header'>
-      <ScrollToTop />
+      <ScrollToTop/>
       <div className='header__box header__box--black'>
         <div className='header__content container'>
           <div className='header__fx'>
-            <Link target="blank"className='header__email' to='#'>
-              <img className='header__email-icon' src={emailIcon} alt='' />
+            <Link target="blank" className='header__email' to='#'>
+              <img className='header__email-icon' src={emailIcon} alt=''/>
               <span className='header__email-text'>good.food23@mail.ru</span>
             </Link>
 
@@ -118,13 +123,14 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className='header__nav-item'>
-                  <Link className='header__nav-link' to='/products/1'>
+                  <Link className='header__nav-link' to={`/products/${state}`}
+                  >
                     PRODUCTS
                   </Link>
                 </li>
                 <li className='header__nav-item'>
                   <Link className='header__nav-link' to='/categories'>
-                   CATEGORIES
+                    CATEGORIES
                   </Link>
                 </li>
                 <li className='header__nav-item'>
@@ -173,7 +179,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-          <SearchTop />
+      <SearchTop updateData={updateData}/>
       </header>
     )
 }

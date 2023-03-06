@@ -9,9 +9,9 @@ import { useDispatch } from "react-redux";
 import { setValue } from "../../redux/searchReducer";
 
 
-const SearchTop = () => {
+const SearchTop = ({updateData}) => {
     const [stateCategories, setstateCategories] = useState(false)
-    const [nameCategories, setnameCategories] = useState('All')
+    const [nameCategories, setNameCategories] = useState('All')
     const [searchValue, setSearchValue] = useState("");
     const dispatch = useDispatch()
 
@@ -34,20 +34,24 @@ const SearchTop = () => {
 
     const categoriesClick = () => {
 
-        setnameCategories('All')
+        // setNameCategories('All')
         if(stateCategories) {
             setstateCategories(false)
         } else {
             setstateCategories(true)
+
         }
     }
 
     const handler = (item) => {
-        setnameCategories(item.attributes.title);
+        setNameCategories(item.attributes.title);
+        updateData(item.id)
         setstateCategories(false)
     }
 
-    const { data} = useFetch(
+    // console.log('nameCategories', nameCategories)
+
+    const {data} = useFetch(
       `/categories`
     );
 
