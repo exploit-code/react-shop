@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import './buyTogether.scss'
 import useFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
@@ -6,6 +6,17 @@ import { AddToCartBtn } from "../AddToCartBtn/AddToCartBtn";
 
 export const BuyTogether = () => {
   const { data } = useFetch(`/products/?populate=*`);
+
+  const randomItem = () => {
+    let min = 1
+    let max = data?.length - 3
+    let rand = min - 0.5 + Math.random() * (max - min + 1);
+    return Math.round(rand);
+  }
+
+  const startIndex = randomItem()
+  const endIndex = startIndex + 3
+
 
   return (
     <div className='buytogether'>
@@ -16,7 +27,7 @@ export const BuyTogether = () => {
         </div>
         <div className='buytogether__content__boxProds'>
           {/* рендерим массив продуктов, которые покупают вместе */}
-          {data?.slice(1, 4).map((item) => (
+          {data?.slice(startIndex, endIndex).map((item) => (
             <div key={item.id}>
               <div className="buytogether__content__item">
                 <Link to={`/productpage/${item.id}`} className="buytogether__content__link">
@@ -49,4 +60,4 @@ export const BuyTogether = () => {
   )
 }
 
-export default BuyTogether
+export default memo(BuyTogether) //лишний раз не перерисовыет элемент после обновления стэйта родителя
