@@ -7,7 +7,7 @@
   cursor: pointer;
   position: relative;
   outline: none;
-  border: none;
+  //border: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   font-size: 16px;
@@ -19,6 +19,7 @@
   background: var(--background);
   transition: transform .3s, box-shadow .3s;
   width: 141px;
+  border: 1px solid #7FAD39;
 
   .default {
     position: relative;

@@ -84,7 +84,7 @@ export const ProductPage = () => {
                 price={data?.attributes.price}
                 img={data?.attributes.img.data.attributes.url}
                 totalpriceitem={(Number(data?.attributes?.price)).toFixed(2)}
-                quantity={1}
+                quantity={quantity}
               />
 
               <div className="count__controls">
