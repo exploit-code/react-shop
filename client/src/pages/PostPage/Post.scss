@@ -29,13 +29,14 @@
         &_title {
             width: 628px;
             text-align: center;
-            @include mixins.font(40px, 400, 50px);
+            @include mixins.font(30px, 400, 50px);
             font-family: Inter;
         }
 
         &_writer {
-            @include mixins.font(16px, 400, 50px);
+            @include mixins.font(12px, 400, 50px);
             font-family: Inter;
+            color: #7F7F7F;
         }
     }
 
@@ -74,12 +75,12 @@
         margin-bottom: 73px;
 
         &_h1 {
-            @include mixins.font(32px, 400, 38px);
+            @include mixins.font(24px, 400, 38px);
             font-family: Inter;
         }
 
         &_p {
-            @include mixins.font(20px, 400, 24px);
+            @include mixins.font(16px, 400, 24px);
             font-family: Inter;
         }
     }
