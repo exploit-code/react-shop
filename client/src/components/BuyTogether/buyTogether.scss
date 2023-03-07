@@ -11,8 +11,8 @@
 }
 
 .buytogether {
-    margin-top: 80px;
-    
+    margin-top: 111px;
+
     &__content__heading {
         @include font(24px, 700, 35px);
         font-style: normal;
@@ -20,6 +20,7 @@
         color: #2A2A2A;
 
     }
+
     &__content__shortLine {
         width: 252px;
         height: 1px;
@@ -46,9 +47,7 @@
         margin: 0 0 25px 0;
     }
 
-    &__content__link {
-
-    }
+    &__content__link {}
 
     &__content__img {
         width: 110px;
@@ -64,9 +63,7 @@
         margin: 0 0 0 20px;
     }
 
-    &__content__name {
-
-    }
+    &__content__name {}
 
     &__content__price {
         @include font(20px, 900, 30px);
