@@ -27,7 +27,7 @@ const FilteredColumn = ({ type }) => {
             <div className="filterBlock__latestProducts_titleBlock_title">{type} products</div>
             {/* <img  onClick={arrLeft} className="filterBlock__latestProducts_titleBlock_arrowLeft" src={arrowLeft} alt="arrow left"></img> */}
             <div onClick={arrLeft} className="filterBlock__latestProducts_titleBlock_arrowLeft">&#8249;</div>
-            <div onClick={arrLeft} className="filterBlock__latestProducts_titleBlock_arrowRight">&#8250;</div>
+            <div onClick={arrRight} className="filterBlock__latestProducts_titleBlock_arrowRight">&#8250;</div>
           </div>
           <FilteredColumnList firstIdx={firstIdx} secondIdx={secondIdx} type={type} />
         </div>
