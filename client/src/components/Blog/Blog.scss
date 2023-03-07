@@ -48,18 +48,19 @@ body {
     display: block;
     text-decoration: none;
     width: 367px;
-}
+    height: 630px;
+    border: 1px solid #f3f3f3;
+    
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 
-.calendar-chat {
-    margin-left: 12px;
-    font-family: 'Cerebri Sans Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    color: #757575;
+    &:hover {
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.06);
+        transform: translateY(-5px);
+    }
+    &:hover .blog__readmore{
+        color: #7FAD39;
+        text-decoration-line: underline;
+    }
 }
 
 .chat {
@@ -76,6 +77,9 @@ body {
     align-items: center;
     text-transform: capitalize;
     color: #2A2A2A;
+    margin-top: 24px;
+    margin-bottom: 18px;
+    // text-align: justify;
 }
 
 .item-desc {
@@ -86,10 +90,9 @@ body {
     line-height: 24px;
     display: flex;
     align-items: center;
-    text-transform: capitalize;
     color: #757575;
+    text-align: justify;
 }
-
 
 .wrap {
     min-height: 100vh;
@@ -100,4 +103,47 @@ body {
 .container {
     width: 1140px;
     margin: 0 auto;
+}
+.blog{
+    &__item-pic{
+        margin-bottom: 15px;
+    }
+    &__readmore{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 36px;
+        text-decoration-line: underline;
+        color: #2A2A2A;
+        margin-top: 10px;
+        cursor: pointer;
+        &:hover{
+            color: #7FAD39;
+            text-decoration-line: underline;
+        }
+    }
+    &__txt-top{
+        display: flex;
+        justify-content: flex-end;
+        gap: 24px
+    }
+    &__txt-boxer{
+        display: flex;
+        align-items: baseline;
+        gap: 5px;
+    }
+    &__topimg{
+        height: 16px;
+        width: 16px;
+    }
+    &__toptext{
+        
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        
+        color: #757575;
+    }
 }
