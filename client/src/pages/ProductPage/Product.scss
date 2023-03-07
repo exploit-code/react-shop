@@ -126,14 +126,37 @@
 
 .count_block {
     display: flex;
+    justify-content: right;
+    width: 100%;
+    gap: 21px;
+}
+
+.count__controls {
+    display: flex;
     justify-content: space-between;
+    gap: 9px;
 }
 
 .count_up,
 .count_down {
-    margin-left: 15px;
     border: none;
     cursor: pointer;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.count_down:hover {
+    background: #cfcfcf;
+}
+
+.count_up:hover {
+    background: #cfcfcf;
 }
 
 .count_up_img,
@@ -143,11 +166,12 @@
 }
 
 .count__box {
-    font-size: 23px;
-    font-weight: 600;
-    margin-left: 30px;
-    text-align: center;
-    width: 30px;
-    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    width: 58px;
+    height: 58px;
     line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

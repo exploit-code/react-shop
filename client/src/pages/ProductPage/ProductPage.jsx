@@ -32,7 +32,7 @@ export const ProductPage = () => {
   }
 
   const isFavorite = favoritesItems.reduce((res, obj) => {
-    if(obj.id === Number(id)) {
+    if (obj.id === Number(id)) {
       return obj['isFavorite']; // возвращаем только одно значение
     } else {
       return res;
@@ -87,17 +87,17 @@ export const ProductPage = () => {
                 quantity={1}
               />
 
-              <div className="count__box">
-                {quantity}
-              </div>
               <div className="count__controls">
                 <button onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))} type="button"
-                        className="count_up">
-                  <img className="count_up_img" src={minusIcon} alt="Increase"/>
+                  className="count_up">
+                  <img className="count_up_img" src={minusIcon} alt="Increase" />
                 </button>
+                <div className="count__box">
+                  {quantity}
+                </div>
                 <button onClick={() => setQuantity((prev) => prev + 1)} type="button"
-                        className="count_down">
-                  <img className="count_down_img" src={plusIcon} alt="Decrease"/>
+                  className="count_down">
+                  <img className="count_down_img" src={plusIcon} alt="Decrease" />
                 </button>
               </div>
             </div>
