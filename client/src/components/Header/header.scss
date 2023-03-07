@@ -161,5 +161,22 @@
             font-family: Celebri Sans Pro;
         }
     }
+    &__social_buttons_box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        .social_link{
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .social_link:hover{
+            color: #7FAD39;
+        }
+
+    }
 
 }

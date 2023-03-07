@@ -53,24 +53,31 @@ const Footer = () => {
             </form>
             <address className='social_buttons_box'>
               <div className='social_button'>
-                <a href='#' className='social_link'>
-                  <i className='fab fa-facebook-f'></i>
-                </a>
+                <Link
+                  target='blank'
+                  to='https://vk.com/club219140677'
+                  className='social_link'
+                >
+                  <i class='fa-brands fa-vk fa-2x'></i>
+                </Link>
               </div>
               <div className='social_button'>
-                <a href='#' className='social_link'>
-                  <i className='fa-brands fa-whatsapp'></i>
-                </a>
+                <Link
+                  target='blank'
+                  to='https://t.me/good_food_chanal'
+                  className='social_link'
+                >
+                  <i class='fa-brands fa-telegram fa-2x'></i>
+                </Link>
               </div>
               <div className='social_button'>
-                <a href='#' className='social_link'>
-                  <i className='fa-brands fa-linkedin-in'></i>
-                </a>
-              </div>
-              <div className='social_button'>
-                <a href='#' className='social_link'>
-                  <i className='fab fa-twitter'></i>
-                </a>
+                <Link
+                  target='blank'
+                  to='https://chat.whatsapp.com/J7A58kQEO1679axpbCMoR6'
+                  className='social_link'
+                >
+                  <i class='fa-brands fa-whatsapp fa-2x'></i>
+                </Link>
               </div>
             </address>
           </div>
