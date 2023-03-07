@@ -136,20 +136,17 @@ body {
 .social_buttons_box{
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 
     .social_link{
-        color: black;
-        background: white;
-        width: 32px;
-        height: 32px;
+        color: white;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .social_link:hover{
-    background: #7FAD39;
-    color: white;
+        color: #7FAD39;
     }
 
 }
+
