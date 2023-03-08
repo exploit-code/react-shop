@@ -8,7 +8,7 @@ const CatalogPageList = ({ item }) => {
     `/products?populate=*&[filters][categories][id][$eq]=${item.id}`
   );
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <div className="featuredProducts">

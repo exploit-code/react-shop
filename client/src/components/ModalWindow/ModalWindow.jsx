@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import ChildModal from "./ChildModal";
+import './style-modalWindow.scss'
 
 const style = {
     position: 'absolute',
@@ -37,14 +38,18 @@ const ModalWindow = (props) => {
 
                     <div>
                         <fieldset>
-                            <legend>Choose your payment method</legend>
-                            <input type="radio" id="pay-card" name="payment" value="CC" checked={payment == 'CC'}
-                                onChange={((event) => setpayment(event.target.value))} />
-                            <label htmlFor="pay-card">Online payment</label>
+                            <legend className="payment-method" >Choose your payment method</legend>
+                            <div>
+                                <input type="radio" id="pay-card" name="payment" value="CC" checked={payment == 'CC'}
+                                    onChange={((event) => setpayment(event.target.value))} />
+                                <label className="modal-label" htmlFor="pay-card">Online payment</label>
+                            </div>
                             <br></br>
-                            <input type="radio" id="pay-cash" name="payment" value="CD" checked={payment == 'CD'}
-                                onChange={((event) => setpayment(event.target.value))} />
-                            <label htmlFor="pay-cash">Payment upon receipt</label>
+                            <div>
+                                <input type="radio" id="pay-cash" name="payment" value="CD" checked={payment == 'CD'}
+                                    onChange={((event) => setpayment(event.target.value))} />
+                                <label className="modal-label" htmlFor="pay-cash">Payment upon receipt</label>
+                            </div>
                         </fieldset>
                     </div>
 
@@ -52,7 +57,7 @@ const ModalWindow = (props) => {
                         <div>
                             <ChildModal payment={payment} checkoutPayment={props.checkoutPayment} />
                         </div>
-                        <div>
+                        <div className="button-cancel">
                             <Button onClick={handleClose}>Cancel</Button>
                         </div>
                     </div>

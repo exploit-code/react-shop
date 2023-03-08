@@ -42,61 +42,72 @@ const Form = () => {
 
     return (
         <>
+            <h1>Form of the order</h1>
             <div className="form-wrp">
-                <h1>Form of the order</h1>
+
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div className="form-radio">
                         <div>
-                            <label htmlFor="PayCard">Payment by terminal</label>
+                            <label className="form-label" htmlFor="PayCard">Payment by terminal</label>
                             <input type="radio" name="card" value="PayCard" id="pay-card"
                                 checked={payMethod === 'PayCard'}
                                 onChange={changePaymentMethod} />
                         </div>
                         <div>
-                            <label htmlFor="PayCard">Payment in cash</label>
+                            <label className="form-label" htmlFor="PayCard">Payment in cash</label>
                             <input type="radio" name="cash" value="PayCash" id="pay-cash"
                                 checked={payMethod === 'PayCash'}
                                 onChange={changePaymentMethod} />
                         </div>
                     </div>
-                    <div>
-                        <label htmlFor="firstName">First Name</label>
-                        <input
+                    <div className="form-buyOrder">
+                        <label className="form-label" htmlFor="firstName">First Name</label>
+                    </div>
+                    <div className="form-buyOrder">
+                        <input className="form-input"
                             id="firstName"
                             type="text"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="secondName">Second Name</label>
-                        <input
+                    <div className="form-buyOrder">
+                        <label className="form-label" htmlFor="secondName">Second Name</label>
+                    </div>
+                    <div className="form-buyOrder">
+                        <input className="form-input"
                             id="secondName"
                             type="text"
                             value={secondName}
                             onChange={(e) => setSecondName(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="email">Email</label>
-                        <input
+                    <div className="form-buyOrder">
+                        <label className="form-label" htmlFor="email">Email</label>
+                    </div>
+                    <div className="form-buyOrder">
+                        <input className="form-input"
                             id="email"
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="phone">Phone</label>
-                        <input
+                    <div className="form-buyOrder">
+                        <label className="form-label" htmlFor="phone">Phone</label>
+                    </div>
+                    <div className="form-buyOrder">
+                        <input className="form-input"
                             id="phone"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="deliveryAddress">Delivery Address</label>
-                        <input
+                    <div className="form-buyOrder" >
+                        <label className="form-label" htmlFor="deliveryAddress">Delivery Address</label>
+                    </div>
+                    <div className="form-buyOrder" >
+                        <input className="form-input"
                             id="deliveryAddress"
                             type="text"
                             value={deliveryAddress}

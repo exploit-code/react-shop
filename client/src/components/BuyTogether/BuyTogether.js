@@ -4,11 +4,15 @@ import useFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
 import { AddToCartBtn } from "../AddToCartBtn/AddToCartBtn";
 
-export const BuyTogether = () => {
-  const { data } = useFetch(`/products/?populate=*`);
+export const BuyTogether = ({selectedCats}) => {
+  const { data } = useFetch(
+    `/products?populate=*${selectedCats.map(
+      (selectedCats) => `&[filters][categories][id][$eq]=${selectedCats}`
+    )}`
+  );
 
   const randomItem = () => {
-    let min = 1
+    let min = 0
     let max = data?.length - 3
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
@@ -17,6 +21,8 @@ export const BuyTogether = () => {
   const startIndex = randomItem()
   const endIndex = startIndex + 3
 
+  console.log("data", data)
+  console.log("selectedCats", selectedCats)
 
   return (
     <div className='buytogether'>
