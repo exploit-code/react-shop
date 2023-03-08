@@ -4,6 +4,8 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Form from '../../pages/Cart/Form/Form';
 import '../Button/button.scss'
+import './style-modalWindow.scss'
+
 
 const style = {
     position: 'absolute',
@@ -35,20 +37,22 @@ function ChildModal(props) {
 
 
     return (
-        <React.Fragment>
-            <Button onClick={handleOpen}>Next</Button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="child-modal-title"
-                aria-describedby="child-modal-description"
-            >
-                <Box sx={style}>
-                    {/* Форма заказа при получении */}
-                    <Form />
-                </Box>
-            </Modal>
-        </React.Fragment>
+        <div className="button-cancel">
+            <React.Fragment>
+                <Button onClick={handleOpen}>Next</Button>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="child-modal-title"
+                    aria-describedby="child-modal-description"
+                >
+                    <Box sx={style}>
+                        {/* Форма заказа при получении */}
+                        <Form />
+                    </Box>
+                </Modal>
+            </React.Fragment>
+        </div>
     );
 }
 
