@@ -10,7 +10,7 @@ const ProductsList = ({ subCats, maxPrice, sort, catId, view}) => {
 
   // start of pagination
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(9);
+  const [rowsPerPage, setRowsPerPage] = React.useState(6);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
