@@ -7,15 +7,15 @@ import Categories from "../../components/Categories/Categories";
 import BannerMainPage from "../../components/BannerMainPage/BannerMainPage";
 
 const HomePage = () => {
-    return (
-        <>
-            <BannerMainPage />
-            <Categories />
-            <PartWithBannersAndFilters />
-            <Catalog />
-            <Blog />
-        </>
-    );
-};
+  return (
+    <>
+      <BannerMainPage />
+      <Categories />
+      <PartWithBannersAndFilters />
+      <Catalog />
+      <Blog />
+    </>
+  )
+}
 
 export default HomePage;

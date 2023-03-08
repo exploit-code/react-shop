@@ -57,6 +57,10 @@ body {
         box-shadow: 0 20px 35px rgba(0, 0, 0, 0.06);
         transform: translateY(-5px);
     }
+    
+   
+}
+.item-link-readmore{
     &:hover .blog__readmore{
         color: #7FAD39;
         text-decoration-line: underline;
@@ -149,4 +153,5 @@ body {
         
         color: #757575;
     }
+    
 }

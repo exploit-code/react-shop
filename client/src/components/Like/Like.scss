@@ -1,0 +1,34 @@
+@use '../../mixins.scss';
+
+.like {
+    // @include mixins.flex(center, center);
+    background: none;
+    border: none;
+    width: max-content;
+    cursor: pointer;
+    stroke: var(--dark-gray);
+    &:hover{
+        transform: scale(1.1);
+    }
+        
+    &--active {
+        &>.like__icon {
+            stroke: var(--green);
+        }
+        &:hover{
+            transform: scale(1);
+        }
+    }
+
+    &--disabled {
+        cursor: default;
+
+        &>.like__icon {
+            stroke: var(--dark-gray);
+            pointer-events: none;
+        }
+        &:hover{
+            transform: scale(1);
+        }
+    }
+}
