@@ -18,6 +18,7 @@ export const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const id = useParams().id;
   const { data } = useFetch(`/products/${id}?populate=*`);
+  const selectedCats = [data?.attributes?.categories?.data[0]?.id]
 
   const favoriteObj = {
     id: data?.id,
@@ -38,6 +39,9 @@ export const ProductPage = () => {
       return res;
     }
   }, false);
+
+  // console.log('data', data)
+  // console.log('category', data?.attributes?.categories?.data[0]?.id)
 
   return (
     <div className='product'>
@@ -119,7 +123,7 @@ export const ProductPage = () => {
           </div>
         </div>
         {/* нижний блок Покупают вместе - отдельный компонент */}
-        <BuyTogether />
+        <BuyTogether selectedCats={selectedCats}/>
       </div>
     </div>
   )
