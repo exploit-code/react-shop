@@ -55,7 +55,6 @@ const Register = () => {
           type='password'
           name='password'
           placeholder='Password'
-          minlength='6'
           required
         />
         <button className='register__btn'>Register</button>
