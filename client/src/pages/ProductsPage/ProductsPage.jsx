@@ -10,7 +10,7 @@ import iconList from '../../images/list.png';
 
 const ProductsPage = () => {
   const catId = parseInt(useParams().id);
-  const [maxPrice, setMaxPrice] = useState(200);
+  const [maxPrice, setMaxPrice] = useState(100);
   const [sort, setSort] = useState("asc");
   const [selectedSubCats, setSelectedSubCats] = useState([]);
 
@@ -55,7 +55,7 @@ const ProductsPage = () => {
             <input
               type="range"
               min={10}
-              max={200}
+              max={100}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
             <span>{maxPrice}</span>
