@@ -16,7 +16,7 @@ export function AddToCartBtn(props) {
     }
   }
 
-  console.log(props.title)
+  // console.log(props.title)
 
   const cartState = () => {
     dispatch(

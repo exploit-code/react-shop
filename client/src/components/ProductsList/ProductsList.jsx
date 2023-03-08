@@ -28,7 +28,7 @@ const ProductsList = ({ subCats, maxPrice, sort, catId, view}) => {
   );
 
   const filteredValue = useSelector((state) => state.search.inputValue)
-  console.log('filteredValue', filteredValue)
+  // console.log('filteredValue', filteredValue)
 
   const filtredItems = data?.filter((item) =>
       item.attributes.title.toLowerCase().includes(filteredValue.toLowerCase())
