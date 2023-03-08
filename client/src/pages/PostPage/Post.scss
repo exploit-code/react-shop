@@ -109,6 +109,10 @@
     &__button:hover {
         background-color: #57801a;
     }
+    &__like{
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 
 .formsubscribe {
