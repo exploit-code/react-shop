@@ -103,7 +103,7 @@ const Cart = () => {
                 ))}
               </section>
 
-              <div className='testModal cart-btn-wrp cart-btn'>
+              <div className='testModal cart-btn-wrp'>
                 <ModalWindow checkoutPayment={checkoutPayment}></ModalWindow>
               </div>
 

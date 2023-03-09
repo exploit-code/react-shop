@@ -27,7 +27,7 @@ const ModalWindow = (props) => {
 
     return (
         <>
-            <Button onClick={handleOpen}>Go to checkout</Button>
+            <button className="btncheckout" onClick={handleOpen}>Go to checkout</button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -53,12 +53,12 @@ const ModalWindow = (props) => {
                         </fieldset>
                     </div>
 
-                    <div className="testModal">
+                    <div className="testModal1">
                         <div>
                             <ChildModal payment={payment} checkoutPayment={props.checkoutPayment} />
                         </div>
                         <div className="button-cancel">
-                            <Button onClick={handleClose}>Cancel</Button>
+                            <button className="btncheckoutform" onClick={handleClose}>Cancel</button>
                         </div>
                     </div>
                 </Box>

@@ -71,7 +71,8 @@
   display: inline-block;
 }
 
-.favorites-item-title, .favorites-item-txt {
+.favorites-item-title,
+.favorites-item-txt {
   font-size: 20px;
   margin: 0 0 0 20px;
 }
@@ -117,7 +118,9 @@
 }
 
 .favorites-btn:hover {
-  background-color: #57801a;
+  background-color: #FFFFFF;
+  color: #7FAD39;
+  border: 1px solid #7FAD39;
 }
 
 .favorites-empty-container {
@@ -195,6 +198,7 @@
   height: 110px;
   justify-content: space-evenly;
   align-items: center;
+  gap: 10px;
 
   &-info {
     display: flex;
@@ -217,9 +221,12 @@
     color: var(--white);
     padding: 18px 20px;
     cursor: pointer;
+    border: 1px solid #AD4E39;
 
     &:hover {
-      background: #86382a;
+      background-color: #FFFFFF;
+      color: #AD4E39;
+      border: 1px solid #AD4E39;
     }
   }
 
