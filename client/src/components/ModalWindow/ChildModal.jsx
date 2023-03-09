@@ -39,7 +39,7 @@ function ChildModal(props) {
     return (
         <div className="button-cancel">
             <React.Fragment>
-                <Button onClick={handleOpen}>Next</Button>
+                <button className="btncheckoutform" onClick={handleOpen}>Next</button>
                 <Modal
                     open={open}
                     onClose={handleClose}
