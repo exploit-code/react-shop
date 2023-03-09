@@ -32,7 +32,8 @@ const Form = () => {
             payByCreditCard: payMethod,
             data: (JSON.stringify(cartItems))
         })
-            .then(response => console.log(response))
+            .then(response => (console.log(response),
+                alert('Success! Your food is coming!')))
             .catch(error => console.log(error));
     }
     //**END of axios request
