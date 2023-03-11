@@ -18,7 +18,7 @@ export const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const id = useParams().id;
   const { data } = useFetch(`/products/${id}?populate=*`);
-  const selectedCats = data?.attributes?.categories?.data[0]?.id
+  const selectedCats = data?.attributes?.categories?.data[0]?.id !== 1 ? data?.attributes?.categories?.data[0]?.id : data?.attributes?.categories?.data[1]?.id
 
   const favoriteObj = {
     id: data?.id,
@@ -40,8 +40,8 @@ export const ProductPage = () => {
     }
   }, false);
 
-  // console.log('data', data)
-  // console.log('category', data?.attributes?.categories?.data[0]?.id)
+  console.log('data', data)
+  console.log('category', selectedCats)
 
   return (
     <div className='product'>
