@@ -5,11 +5,7 @@ import { Link } from "react-router-dom";
 import { AddToCartBtn } from "../AddToCartBtn/AddToCartBtn";
 
 export const BuyTogether = ({selectedCats}) => {
-  const { data } = useFetch(
-    `/products?populate=*${[selectedCats].map(
-      (selectedCats) => `&[filters][categories][id][$eq]=${selectedCats}`
-    )}`
-  );
+  const { data } = useFetch(`/products?populate=*&[filters][categories][id][$eq]=${selectedCats}`);
 
   const randomItem = () => {
     let min = 0
