@@ -17,6 +17,9 @@
     },
     "cartItems": {
       "type": "json"
+    },
+    "mail": {
+      "type": "string"
     }
   }
 }

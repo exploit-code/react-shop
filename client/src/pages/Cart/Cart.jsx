@@ -20,11 +20,14 @@ const Cart = () => {
 
   const stripePromise = loadStripe("pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX");
 
+  const mail  = 'test@test.test';
+
   const checkoutPayment = async () => {
     try {
       const stripe = await stripePromise;
       const res = await makeRequest.post("/orders", {
         cartItems,
+        mail
       });
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
