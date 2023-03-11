@@ -1,4 +1,4 @@
-import React, {memo} from "react";
+import React, { memo } from "react";
 import './buyTogether.scss'
 import useFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { AddToCartBtn } from "../AddToCartBtn/AddToCartBtn";
 
 export const BuyTogether = ({selectedCats}) => {
   const { data } = useFetch(
-    `/products?populate=*${selectedCats.map(
+    `/products?populate=*${[selectedCats].map(
       (selectedCats) => `&[filters][categories][id][$eq]=${selectedCats}`
     )}`
   );
@@ -20,9 +20,6 @@ export const BuyTogether = ({selectedCats}) => {
 
   const startIndex = randomItem()
   const endIndex = startIndex + 3
-
-  console.log("data", data)
-  console.log("selectedCats", selectedCats)
 
   return (
     <div className='buytogether'>

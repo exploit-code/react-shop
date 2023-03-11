@@ -18,7 +18,7 @@ export const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const id = useParams().id;
   const { data } = useFetch(`/products/${id}?populate=*`);
-  const selectedCats = [data?.attributes?.categories?.data[0]?.id]
+  const selectedCats = data?.attributes?.categories?.data[0]?.id
 
   const favoriteObj = {
     id: data?.id,
