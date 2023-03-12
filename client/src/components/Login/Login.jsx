@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './Login.scss'
 
 const Login = () => {
-    const { signIn, user } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSubmit = event => {
@@ -20,9 +20,10 @@ const Login = () => {
                 navigate('/');
             })
             .catch(error => {
-                // console.error(error);
+                console.error(error);
             })
     }
+
     return (
         <form onSubmit={handleSubmit} className='login'>
             <h1 className='login__title'>Login</h1>

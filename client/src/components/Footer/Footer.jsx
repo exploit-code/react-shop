@@ -58,7 +58,7 @@ const Footer = () => {
                   to='https://vk.com/club219140677'
                   className='social_link'
                 >
-                  <i class='fa-brands fa-vk fa-2x'></i>
+                  <i className='fa-brands fa-vk fa-2x'></i>
                 </Link>
               </div>
               <div className='social_button'>
@@ -67,7 +67,7 @@ const Footer = () => {
                   to='https://t.me/good_food_chanal'
                   className='social_link'
                 >
-                  <i class='fa-brands fa-telegram fa-2x'></i>
+                  <i className='fa-brands fa-telegram fa-2x'></i>
                 </Link>
               </div>
               <div className='social_button'>
@@ -76,7 +76,7 @@ const Footer = () => {
                   to='https://chat.whatsapp.com/J7A58kQEO1679axpbCMoR6'
                   className='social_link'
                 >
-                  <i class='fa-brands fa-whatsapp fa-2x'></i>
+                  <i className='fa-brands fa-whatsapp fa-2x'></i>
                 </Link>
               </div>
             </address>
