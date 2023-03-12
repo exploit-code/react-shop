@@ -12,9 +12,11 @@ import likesIcon from '../../images/likes-icon.svg'
 import ScrollToTop from '../../utils/scrollToTop';
 import { useSelector } from "react-redux";
 import SearchTop from "../SearchTop/SearchTop";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.products)
   const favoritesItems = useSelector((state) => state.favorites.products)
   const [categoryId, setCategoryId] = useState(1)
@@ -22,25 +24,27 @@ const Header = () => {
 
   const handleSignOut = () => {
     logOut()
-    .then(() => { })
-    .catch(error => console.error(error));
+      .then(() => {
+        navigate('/');
+      })
+      .catch(error => console.error(error));
   }
 
   const totalPrice = () => {
     let total = 0;
     cartItems.forEach((item) => {
-            total += item.quantity * item.price;
-        });
-        return total.toFixed(2);
-    };
+      total += item.quantity * item.price;
+    });
+    return total.toFixed(2);
+  };
 
-    const totalQuantity = () => {
-        let total = 0;
-        cartItems.forEach((item) => {
-            total += item.quantity;
-        });
-        return total;
-    };
+  const totalQuantity = () => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.quantity;
+    });
+    return total;
+  };
 
   const totalQuantityFavorites = () => {
     let total = 0;
@@ -80,7 +84,7 @@ const Header = () => {
                   to='https://vk.com/club219140677'
                   className='social_link'
                 >
-                  <i class='fa-brands fa-vk fa-lg'></i>
+                  <i className='fa-brands fa-vk fa-lg'></i>
                 </Link>
               </div>
               <div className='social_button'>
@@ -89,7 +93,7 @@ const Header = () => {
                   to='https://t.me/good_food_chanal'
                   className='social_link'
                 >
-                  <i class='fa-brands fa-telegram fa-lg'></i>
+                  <i className='fa-brands fa-telegram fa-lg'></i>
                 </Link>
               </div>
               <div className='social_button'>
@@ -98,7 +102,7 @@ const Header = () => {
                   to='https://chat.whatsapp.com/J7A58kQEO1679axpbCMoR6'
                   className='social_link'
                 >
-                  <i class='fa-brands fa-whatsapp fa-lg'></i>
+                  <i className='fa-brands fa-whatsapp fa-lg'></i>
                 </Link>
               </div>
             </address>
@@ -106,7 +110,20 @@ const Header = () => {
             <div className='header__line'></div>
 
             <div className='header__login'>
-              <img className='header__login-icon' src={loginIcon} alt='' />
+
+              {user?.email ? (
+                <Link className='header__login-text' to='/profile'>
+                  <img className='header__login-icon' src={loginIcon} alt='profile-icon' />
+                </ Link>
+              ) : (
+                <Link className='header__login-text' to='/login'>
+                  <img className='header__login-icon' src={loginIcon} alt='profile-icon' />
+                </ Link>
+              )}
+
+
+              <div className='header__line'></div>
+
               {user?.email ? (
                 <Link className='header__login-text' onClick={handleSignOut}>
                   Log Out

@@ -37,8 +37,7 @@
 
     &__login {
         display: flex;
-        align-items: center;
-        gap: 10px;
+        gap: 20px;
 
         &-text {
             color: #fff;
@@ -161,19 +160,21 @@
             font-family: Celebri Sans Pro;
         }
     }
-    &__social_buttons_box{
+
+    &__social_buttons_box {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 20px;
 
-        .social_link{
+        .social_link {
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .social_link:hover{
+
+        .social_link:hover {
             color: #7FAD39;
         }
 

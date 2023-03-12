@@ -17,6 +17,7 @@ import Post from './pages/PostPage/Post';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import CatalogCategoriesList from "./components/CatalogPageList/CatalogPageList";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
+import Profile from './pages/Profile/Profile';
 
 function App() {
   const router = createBrowserRouter([
@@ -80,6 +81,10 @@ function App() {
         {
           path: '/categories',
           element: <CatalogPage />,
+        },
+        {
+          path: '/profile',
+          element: <Profile />,
         },
 
       ],

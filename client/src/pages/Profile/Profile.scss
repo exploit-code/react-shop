@@ -1,0 +1,281 @@
+.grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    padding: 64px 0;
+
+    &__box {
+        display: grid;
+        gap: 48px;
+    }
+}
+
+.profile {
+    display: grid;
+    gap: 16px;
+
+    &__title {
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        text-align: left;
+        text-transform: none;
+        margin: 0;
+    }
+
+    &__id {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        flex-wrap: wrap;
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+
+        &-text {
+            color: var(--dark-gray);
+        }
+
+        &-data {
+            color: var(--black);
+        }
+    }
+}
+
+.discount {
+    display: grid;
+    gap: 24px;
+
+    &__title {
+        font-family: inherit;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 100%;
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 64px;
+
+    }
+
+    &__card {
+        font-family: 'Inter';
+        display: grid;
+        gap: 86px;
+        padding: 16px;
+        border: 1px solid var(--green);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        width: 100%;
+        max-width: 280px;
+
+        &-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &--header {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &--footer {
+                display: flex;
+            }
+        }
+
+        &-logo {
+            font-family: inherit;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        &-number {
+            font-family: inherit;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+        }
+
+        &--black {
+            background-color: var(--black);
+
+            & .discount__card-logo {
+                color: var(--white);
+            }
+
+            & .discount__card-number {
+                color: var(--white);
+            }
+        }
+
+        &--white {
+            background-color: var(--white);
+
+            & .discount__card-logo {
+                color: var(--dark-gray);
+            }
+
+            & .discount__card-number {
+                color: var(--dark-gray);
+            }
+        }
+    }
+}
+
+.actions {
+    display: grid;
+    gap: 24px;
+
+    &__title {
+        font-family: inherit;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 100%;
+    }
+
+    &__list {
+        display: grid;
+        gap: 16px;
+    }
+
+    &__link {
+        color: var(--black);
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+
+        &--red {
+            color: var(--red);
+        }
+
+        &:hover {
+            color: var(--green);
+        }
+    }
+}
+
+.data {
+    display: grid;
+    gap: 24px;
+
+    &__title {
+        font-family: inherit;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 100%;
+    }
+
+    &__box {
+        display: grid;
+        gap: 16px;
+    }
+
+    &__item {
+        display: flex;
+        gap: 32px;
+        font-family: 'Cerebri Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+
+        &-text {
+            color: var(--dark-gray);
+        }
+
+        &-data {
+            color: var(--black);
+        }
+    }
+}
+
+.aside {
+    display: grid;
+    gap: 32px;
+    align-content: baseline;
+}
+
+.card {
+    width: 100%;
+    max-width: 240px;
+    padding: 32px 0 64px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--gray);
+    border-radius: 10px;
+
+    &__avatar {
+        min-width: 60px;
+        max-width: 60px;
+        min-height: 60px;
+        max-height: 60px;
+        background-color: var(--green);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--white);
+        text-transform: uppercase;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.13);
+    }
+
+    &__name {
+        display: flex;
+        gap: 8px;
+        color: var(--black);
+    }
+
+    &__email {
+        display: flex;
+        color: var(--black);
+    }
+}
+
+.nav {
+    display: flex;
+
+    &__list {
+        display: grid;
+        gap: 8px;
+        width: 100%;
+    }
+
+    &__item {
+        display: flex;
+    }
+
+    &__link {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        padding: 16px 0;
+        border-bottom: 2px solid var(--dark-gray);
+        width: 100%;
+        color: var(--black);
+
+        &:hover {
+            color: var(--green);
+            border-color: var(--green);
+        }
+    }
+
+}
