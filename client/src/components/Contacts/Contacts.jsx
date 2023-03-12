@@ -13,7 +13,10 @@ const Contacts = () => {
       </div>
       <form action='#' className='container contactsmain'>
         <div className='infocontactspage'>
-          <img className='pic' src='img/pngwing.png' alt='picturecontactus' />
+          <div className='align_img'>
+            <img className='pic' src='img/pngwing.png' alt='picturecontactus' />
+          </div>
+
           <h4
             className='heading-mini heading-mini_contactus
                     '
