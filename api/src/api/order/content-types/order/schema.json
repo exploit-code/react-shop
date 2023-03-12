@@ -20,6 +20,21 @@
     },
     "mail": {
       "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "secondName": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "deliveryAddress": {
+      "type": "text"
+    },
+    "payByCreditCard": {
+      "type": "string"
     }
   }
 }

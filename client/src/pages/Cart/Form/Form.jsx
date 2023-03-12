@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import './style-form.scss'
 import { useSelector } from "react-redux";
-import axios from "axios";
+// import axios from "axios";
 import Button from "../../../components/Button/Button";
+import {makeRequest} from "../../../makeRequest";
 
 
 const Form = () => {
@@ -19,24 +20,43 @@ const Form = () => {
     function handleSubmit(event) {
         event.preventDefault();
     }
-    // end of Checkout
-    //**START of axios request
-    const getOrder = () => {
-        axios.defaults.headers.post['Content-Type'] = 'application/json';
-        axios.post('https://formsubmit.co/ajax/9264549700@mail.ru', {
-            firstName: firstName,
-            secondName: secondName,
-            email: email,
-            phone: phone,
-            deliveryAddress: deliveryAddress,
-            payByCreditCard: payMethod,
-            data: (JSON.stringify(cartItems))
-        })
-            .then(response => (console.log(response),
-                alert('Success! Your food is coming!')))
-            .catch(error => console.log(error));
-    }
-    //**END of axios request
+
+    //** START get Order
+
+    //START of axios request
+    // const getOrder = () => {
+    //     axios.defaults.headers.post['Content-Type'] = 'application/json';
+    //     axios.post('https://formsubmit.co/ajax/9264549700@mail.ru', {
+    //         firstName: firstName,
+    //         secondName: secondName,
+    //         email: email,
+    //         phone: phone,
+    //         deliveryAddress: deliveryAddress,
+    //         payByCreditCard: payMethod,
+    //         data: (JSON.stringify(cartItems))
+    //     })
+    //         .then(response => (console.log(response),
+    //             alert('Success! Your food is coming!')))
+    //         .catch(error => console.log(error));
+    // }
+    //END of axios
+    const getOrder = async () => {
+        try {
+            await makeRequest.post("/orders", {
+                cartItems,
+                mail: 'test@test/test',
+                firstName,
+                secondName,
+                phone,
+                deliveryAddress,
+                payByCreditCard: payMethod,
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    //**END of getOrder
+
     const changePaymentMethod = (e) => {
         setPayMethod(e.target.value)
     }

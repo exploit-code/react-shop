@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import './cart-style.scss';
-import Form from './Form/Form';
 import cartPng from './img/cart.png'
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItems, deleteItem } from "../../redux/cartReducer";
@@ -27,7 +25,8 @@ const Cart = () => {
       const stripe = await stripePromise;
       const res = await makeRequest.post("/orders", {
         cartItems,
-        mail
+        mail,
+        payByCreditCard: 'OnlinePay'
       });
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
