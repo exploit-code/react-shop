@@ -5,6 +5,13 @@
     src: url(../../fonts/Cerebri.Sans.Pro/CerebriSansPro-Medium.woff2) format('woff2');
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url(../../fonts/Inter/Inter-Black.woff2) format('woff2');
+    font-style: normal;
+    font-weight: 900;
+}
+
 .header {
     &__box {
         padding: 20px 0;
@@ -54,9 +61,9 @@
 
 
     &__logo {
-        @include mixins.font(36px, 700, 100%);
-        color: #000;
-        font-family: Celebri Sans Pro;
+        font-family: Inter, sans-serif;
+        @include mixins.font(31px, 900, 100%);
+        color: #2A2A2A;
     }
 
     &__email {

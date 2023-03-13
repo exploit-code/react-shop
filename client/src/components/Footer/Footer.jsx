@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='container'>
         <div className='footer_top'>
           <Link className='footer__logo' to='/'>
-            GOOD-FOOD 🍎🥝
+            GOOD-FOOD🍎🥝
           </Link>
         </div>
 

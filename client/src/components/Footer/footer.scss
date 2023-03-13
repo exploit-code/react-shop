@@ -1,5 +1,12 @@
 @use '../../mixins.scss';
 
+@font-face {
+    font-family: 'Inter';
+    src: url(../../fonts/Inter/Inter-Black.woff2) format('woff2');
+    font-style: normal;
+    font-weight: 900;
+}
+
 .container {
     width: 1140px;
     margin: 0 auto;
@@ -15,7 +22,8 @@ body {
     margin: 137px 0 0 0;
 
     &__logo {
-        @include mixins.font(36px, 700, 100%);
+        font-family: Inter, sans-serif;
+        @include mixins.font(31px, 900, 100%);
         color: #FFF;
     }
     &_top{
