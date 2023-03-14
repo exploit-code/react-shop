@@ -18,6 +18,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import CatalogCategoriesList from "./components/CatalogPageList/CatalogPageList";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import Profile from './pages/Profile/Profile';
+import PostApi from './pages/PostPage/PostApi';
 
 function App() {
   const router = createBrowserRouter([
@@ -71,8 +72,8 @@ function App() {
           element: <Contacts />,
         },
         {
-          path: '/blog',
-          element: <Post />,
+          path: '/blog/:id?',
+          element: <PostApi />,
         },
         {
           path: '/FP',
