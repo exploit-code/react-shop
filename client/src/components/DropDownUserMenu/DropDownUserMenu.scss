@@ -1,0 +1,85 @@
+@use '../../mixins.scss';
+
+@font-face {
+  font-family: 'Celebri Sans Pro';
+  src: url(../../fonts/Cerebri.Sans.Pro/CerebriSansPro-Regular.woff2) format('woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+
+.DropDownUserMenu {
+  position: absolute;
+  width: 155px;
+  top: 61px;
+  max-height: 337px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.DropDownUserMenu__items {
+  padding: 13px 6px 20px 16px;
+}
+
+.DropDownUserMenu__item {
+  @include mixins.font(16px, 500, 100%);
+  font-style: normal;
+  cursor: pointer;
+  color: #999999;
+
+  &:first-child{
+    cursor: auto;
+  }
+
+  &:hover {
+    color: var(--green);
+  }
+
+  &-link {
+    @include mixins.font(16px, 500, 36px);
+    font-style: normal;
+    cursor: pointer;
+    color: #999999;
+
+    &:hover {
+      color: var(--green);
+    }
+  }
+}
+
+.DropDownUserMenu__item__userInfo {
+  display: inherit;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 400;
+  //line-height: 36px;
+  margin-left: 15px;
+  width: 100px;
+  pointer-events: none;
+  background: linear-gradient(to left, transparent 0%, #999999 30%, #999999 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  justify-content: center;
+
+  & p:first-child {
+    margin-bottom: 5px;
+  }
+
+  & p:last-child {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    //line-height: 36px;
+  }
+}
+
+li:first-child {
+  display: flex;
+  margin-bottom: 28px;
+}
