@@ -1,34 +1,37 @@
-import { Link } from 'react-router-dom';
-import './header.scss'
 import React, { useContext, useState } from 'react';
+import { useSelector } from "react-redux";
+// import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import { AuthContext } from '../../context/UserContext';
+import ScrollToTop from '../../utils/scrollToTop';
+import SearchTop from "../SearchTop/SearchTop";
+import DropDownUserMenu from "../DropDownUserMenu/DropDownUserMenu";
+
 import emailIcon from '../../images/emailIcon.png';
-
 import loginIcon from '../../images/loginIcon.svg'
-
 import cartIcon from '../../images/cart-icon.svg'
 import likesIcon from '../../images/likes-icon.svg'
 
-import ScrollToTop from '../../utils/scrollToTop';
-import { useSelector } from "react-redux";
-import SearchTop from "../SearchTop/SearchTop";
-import { useNavigate } from 'react-router-dom';
+import './header.scss'
+
 
 const Header = () => {
-  const { user, logOut } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  // const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.products)
   const favoritesItems = useSelector((state) => state.favorites.products)
   const [categoryId, setCategoryId] = useState(1)
+  const [visibleList, setvisibleList] = useState(false)
 
 
-  const handleSignOut = () => {
-    logOut()
-      .then(() => {
-        navigate('/');
-      })
-      .catch(error => console.error(error));
-  }
+  // const handleSignOut = () => {
+  //   logOut()
+  //   .then(() => {
+  //     navigate('/');
+  //   })
+  //   .catch(error => console.error(error));
+  // }
 
   const totalPrice = () => {
     let total = 0;
@@ -58,14 +61,18 @@ const Header = () => {
     setCategoryId(value)
   }
 
+  const categoriesClick = () => {
+    setvisibleList((visible) => !visible)
+  }
+
   return (
     <header className='header' id='header'>
-      <ScrollToTop />
+      <ScrollToTop/>
       <div className='header__box header__box--black'>
         <div className='header__content container'>
           <div className='header__fx'>
             <Link target='blank' className='header__email' to='#'>
-              <img className='header__email-icon' src={emailIcon} alt='' />
+              <img className='header__email-icon' src={emailIcon} alt=''/>
               <span className='header__email-text'>good.food23@mail.ru</span>
             </Link>
 
@@ -107,27 +114,33 @@ const Header = () => {
               </div>
             </address>
 
-            <div className='header__line'></div>
+            <div className='header__line'>
+              {visibleList && <DropDownUserMenu categoriesClick={categoriesClick}/>}
+            </div>
 
             <div className='header__login'>
 
               {user?.email ? (
-                <Link className='header__login-text' to='/profile'>
-                  <img className='header__login-icon' src={loginIcon} alt='profile-icon' />
-                </ Link>
+                <div>
+                  <div style={{ cursor: 'pointer' }} onMouseEnter={categoriesClick}>
+                    <img className='header__login-icon' src={loginIcon} alt='profile-icon'/>
+                  </div>
+                </div>
+
               ) : (
+
                 <Link className='header__login-text' to='/login'>
-                  <img className='header__login-icon' src={loginIcon} alt='profile-icon' />
+                  <img className='header__login-icon' src={loginIcon} alt='profile-icon'/>
                 </ Link>
               )}
 
 
-              <div className='header__line'></div>
+              {/*<div className='header__line'></div>*/}
 
               {user?.email ? (
-                <Link className='header__login-text' onClick={handleSignOut}>
-                  Log Out
-                </Link>
+                <div className='header__login-text no__hover'>
+                  {user.displayName == null ? `${user?.email}` : user.displayName}
+                </div>
               ) : (
                 <Link className='header__login-text' to='/login'>
                   Login
