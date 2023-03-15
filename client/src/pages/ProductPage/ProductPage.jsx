@@ -17,7 +17,7 @@ export const ProductPage = () => {
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1);
   const id = useParams().id;
-  const { data } = useFetch(`/products/${id}?populate=*`);
+  const { data, loading,error } = useFetch(`/products/${id}?populate=*`);
   const selectedCats = data?.attributes?.categories?.data[0]?.id !== 1 ? data?.attributes?.categories?.data[0]?.id : data?.attributes?.categories?.data[1]?.id
 
   const favoriteObj = {
@@ -45,6 +45,11 @@ export const ProductPage = () => {
 
   return (
     <div className='product'>
+      {error
+          ? "Something went wrong!"
+          : loading ? (
+          "loading"
+      ) : (
       <div className='product__content'>
         <a className='product__content__link' href='/catalog'>
           Back to catalog
@@ -125,8 +130,9 @@ export const ProductPage = () => {
         {/* нижний блок Покупают вместе - отдельный компонент */}
         <BuyTogether selectedCats={selectedCats}/>
       </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default ProductPage

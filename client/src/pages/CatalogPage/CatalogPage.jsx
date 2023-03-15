@@ -6,7 +6,7 @@ import {useParams} from "react-router-dom";
 
 const CatalogPage = () => {
     const catId = parseInt(useParams().id);
-    const { data} = useFetch(
+    const { data,loading,error} = useFetch(
         `/categories?[id][$eq]=${catId}`
     );
 
@@ -14,7 +14,11 @@ const CatalogPage = () => {
         <div>
             <div className="contain" >
                 <div>
-                    {data?.slice(1,8).map((item) => (
+                    {error
+                        ? "Something went wrong!"
+                        : loading
+                            ? "loading"
+                            : data?.slice(1,8).map((item) => (
                         <CatalogCategoriesList item={item}/>
                     ))}
                 </div>

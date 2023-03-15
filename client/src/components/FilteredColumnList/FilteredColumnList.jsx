@@ -9,14 +9,18 @@ import { Link } from "react-router-dom";
 
 const FilteredColumnList = ({ type ,firstIdx, secondIdx }) => {
   const dispatch = useDispatch()
-  const { data } = useFetch(
+  const { data,loading,error } = useFetch(
       `/products?populate=*&[filters][type][$eq]=${type}`
   );
   let quantity = 1
 
   return (
     <>
-            {data?.slice(firstIdx,secondIdx).map((item) => (
+            {error
+                ? "Something went wrong!"
+                : loading
+                    ? "loading"
+                    : data?.slice(firstIdx,secondIdx).map((item) => (
               <div key={item.id} className="filterBlock__latestProducts_item ">
                 <Link to={`/productpage/${item.id}`} className="filterBlock__latestProducts_item_left">
                   <div className='overlay'>
