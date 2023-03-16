@@ -25,51 +25,6 @@
   color: #2A2A2A;
 }
 
-.filterBlock__latestProducts_titleBlock_arrowLeft {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  mix-blend-mode: darken;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #F5F5F5;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  font-size: 25px;
-  font-weight: 400;
-  line-height: 30px;
-}
-
-.filterBlock__latestProducts_titleBlock_arrowLeft:hover {
-  background-color: #7FAD39;
-  color: #FFFFFF;
-}
-
-.filterBlock__latestProducts_titleBlock_arrowRight {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  mix-blend-mode: darken;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #F5F5F5;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  font-size: 25px;
-  font-weight: 400;
-  line-height: 30px;
-}
-
-.filterBlock__latestProducts_titleBlock_arrowRight:hover {
-  background-color: #7FAD39;
-  color: #FFFFFF;
-}
 
 .filterBlock__latestProducts_item_left_img {
   height: 110px;

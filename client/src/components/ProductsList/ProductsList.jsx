@@ -21,7 +21,7 @@ const ProductsList = ({ subCats, maxPrice, sort, catId, view}) => {
   //end of pagination
 
 
-  const { data, loading} = useFetch(
+  const { data, loading, error} = useFetch(
       `/products?populate=*&[filters][categories][id]=${catId}${subCats.map(
           (item) => `&[filters][sub_categories][id][$eq]=${item}`
       )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
@@ -62,7 +62,9 @@ const ProductsList = ({ subCats, maxPrice, sort, catId, view}) => {
             onRowsPerPageChange={handleChangeRowsPerPage}
         />
         <div className={view ? `${'products-box products-box--tile'}` : `${'products-box products-box--list'}`}>
-          {loading
+          {error
+              ? "Something went wrong!"
+              :loading
               ? "loading"
               : filtredItems?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((item) => {

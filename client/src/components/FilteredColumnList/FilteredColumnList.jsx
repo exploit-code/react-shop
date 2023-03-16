@@ -5,18 +5,48 @@ import useFetch from "../../hooks/useFetch";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartReducer";
 import { Link } from "react-router-dom";
+import {useState} from "react";
 
 
-const FilteredColumnList = ({ type ,firstIdx, secondIdx }) => {
-  const dispatch = useDispatch()
-  const { data } = useFetch(
+const FilteredColumnList = ({ type }) => {
+  const dispatch = useDispatch();
+
+  const { data,loading,error } = useFetch(
       `/products?populate=*&[filters][type][$eq]=${type}`
   );
-  let quantity = 1
+
+  let quantity = 1;
+
+  const [firstIdx, setFirstIdx] = useState(0);
+  const secondIdx = firstIdx + 3;
+
+  const arrRight = () => {
+    if(secondIdx >= data?.length){
+      console.log("листай влево")
+    }else{
+      setFirstIdx(firstIdx + 3);
+    }
+  }
+
+  const arrLeft = () => {
+    if(firstIdx <= 0){
+      console.log("листай вправо")
+    }else{
+      setFirstIdx(firstIdx - 3);
+    }
+  }
 
   return (
     <>
-            {data?.slice(firstIdx,secondIdx).map((item) => (
+      <div className="arrowBlock" >
+        <div onClick={arrLeft} className="filterBlock__latestProducts_titleBlock_arrowLeft">&#8249;</div>
+        <div onClick={arrRight} className="filterBlock__latestProducts_titleBlock_arrowRight">&#8250;</div>
+      </div>
+            {error
+                ? "Something went wrong!"
+                : loading
+                    ? "loading"
+                    : data?.slice(firstIdx,secondIdx).map((item) => (
               <div key={item.id} className="filterBlock__latestProducts_item ">
                 <Link to={`/productpage/${item.id}`} className="filterBlock__latestProducts_item_left">
                   <div className='overlay'>
