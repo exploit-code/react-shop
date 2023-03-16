@@ -43,15 +43,17 @@
             &_input {
                 border: none;
                 @include mixins.font(16px, 500, 20px);
-                padding-right: 337px;
-                padding-left: 25px;
+                // padding-right: 337px;
+                padding-right: 380px;
+                padding-left: 30px;
                 font-family: 'Celebri Sans Pro';
             }
 
             &_button {
                 margin: 0 auto;
                 height: 100%;
-                width: 100px;
+                // width: 100px;
+                width: 135px;
                 border: none;
                 background-color: #7FAD39;
                 color: #FFFFFF;
@@ -68,7 +70,8 @@
 
             &_delbutton {
                 position: absolute;
-                right: 110px;
+                // right: 110px;
+                right: 152px;
                 top: 10px;
                 cursor: pointer;
                 background: var(--grey);
@@ -141,8 +144,12 @@
             gap: 20px;
 
             &_number {
+                display:flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
                 &_p {
-                    @include mixins.font(12px, 400, 20px);
+                    @include mixins.font(12px, 400, 18px);
                     color: #999999;
                     font-family: 'Celebri Sans Pro';
                 }
@@ -150,6 +157,14 @@
                 &_span {
                     @include mixins.font(16px, 900, 20px);
                     font-family: 'Celebri Sans Pro';
+                }
+            }
+            &_img{
+                height: 32px;
+                cursor: pointer;
+                fill: #7FAD39;
+                &:hover {
+                    fill: #57801a;
                 }
             }
         }
