@@ -5,8 +5,16 @@ import { getAuth, deleteUser, sendPasswordResetEmail } from "firebase/auth";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './Profile.scss';
+import useFetch from "../../hooks/useFetch";
 
 const Profile = () => {
+
+    //
+    const { data } = useFetch(
+        `/orders`
+    );
+    console.log(data, 'History of Orders')
+    //
     const { user, logOut } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -50,8 +58,6 @@ const Profile = () => {
 
     const avatarName = user.displayName?.slice(0, 2);
     const emailName = user.email?.slice(0, 2);
-
-
 
     return (
         <div className='grid'>
