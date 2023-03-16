@@ -1,7 +1,8 @@
 import './Contacts.scss'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import Button from '../Button/Button'
 import MapOL from '../MapOL/MapOL'
+import MessageForm from '../MessageForm/MessageForm'
 
 const Contacts = () => {
   return (
@@ -55,30 +56,11 @@ const Contacts = () => {
             </li>
           </ul>
         </div>
-        <div className='formblock'>
-          <div className='formblock_padding'>
-            <h4
-              className='heading-mini heading-mini_form
-                    '
-            >
-              Send us message
-            </h4>
-            <div className='nametextbox'>Full name</div>
-            <input className='textbox' type='text' placeholder='Your Name' />
-            <div className='nametextbox'>Email</div>
-            <input className='textbox' type='email' placeholder='Your Email' />
-            <div className='nametextbox'>Message</div>
-            <textarea
-              className='textbox textbox_textarea'
-              cols='30'
-              rows='10'
-              placeholder='Your Message'
-            ></textarea>
-            <div className='contacts_button'>
-              <Button text='SUBMIT'></Button>
-            </div>
+        <MessageForm>
+          <div className='contacts_button'>
+            <Button text='SUBMIT'></Button>
           </div>
-        </div>
+        </MessageForm>
       </form>
       <MapOL />
     </div>
