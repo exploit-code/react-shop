@@ -1,11 +1,11 @@
 .switch-button {
-    width:50px;
-    height:50px;
+    width: 50px;
+    height: 50px;
 }
 
- .catalog-container {
-     margin-top: 32px;
- }
+.catalog-container {
+    margin-top: 32px;
+}
 
 .catalog-heading {
     font-weight: 900;
@@ -24,7 +24,7 @@
 
 .catalog-filter-btn {
     display: flex;
-    width: 600px;
+    width: 880px;
     justify-content: space-between;
     padding: 40px 0 40px 0;
     margin: 0 auto;
@@ -36,6 +36,7 @@
     user-select: none;
     position: relative;
 }
+
 .checkbox-btn input[type=checkbox] {
     z-index: -1;
     opacity: 0;
@@ -43,6 +44,7 @@
     width: 0;
     height: 0;
 }
+
 .checkbox-btn span {
     font-style: normal;
     font-weight: 500;
@@ -53,7 +55,7 @@
 }
 
 /* Checked */
-.checkbox-btn input[type=checkbox]:checked + span {
+.checkbox-btn input[type=checkbox]:checked+span {
     color: #2A2A2A;
     text-decoration: underline;
 }
@@ -65,19 +67,20 @@
 }
 
 /* Active */
-.checkbox-btn input[type=checkbox]:active:not(:disabled) + span {
+.checkbox-btn input[type=checkbox]:active:not(:disabled)+span {
     color: #2A2A2A;
     text-decoration: underline;
     text-decoration: underline;
 }
 
 /* Disabled */
-.checkbox-btn input[type=checkbox]:disabled + span {
+.checkbox-btn input[type=checkbox]:disabled+span {
     background: #efefef;
     color: #666;
     cursor: default;
 }
-.checkbox-btn input[type=checkbox]:checked:disabled + span {
+
+.checkbox-btn input[type=checkbox]:checked:disabled+span {
     background: #f7efdc;
 }
 
@@ -85,7 +88,7 @@
     color: #2A2A2A;
     text-decoration: underline;
     cursor: pointer;
-  }
+}
 
 .catalog-item-box {
     max-width: 1142px;
