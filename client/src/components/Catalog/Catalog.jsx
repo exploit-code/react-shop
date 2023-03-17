@@ -1,20 +1,20 @@
 import './catalog.scss';
 import line from '../../images/line.png';
 import useFetch from "../../hooks/useFetch";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import CatalogList from "../CalalogList/CatalogList";
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 
 const Catalog = () => {
 
   const catId = parseInt(useParams().id);
-  const [selectedCats, setSelectedCats] = useState([]);
-  const [value, setValue] = useState(1);
-
-  const { data, loading, error } = useFetch(
+  const { data } = useFetch(
     `/categories?[id][$eq]=${catId}`
   );
+
+  const [selectedCats, setSelectedCats] = useState([]);
+  const [value, setValue] = useState(1);
 
   const handleClick = (e) => {
     const value = e.target.value;
@@ -25,25 +25,19 @@ const Catalog = () => {
       isChecked
         ? [...selectedCats, value]
         : selectedCats.filter((item) => item !== value)
-
     );
 
     setValue(e.target.value);
   };
 
-  // console.log(data)
-
   return (
     <section className='catalog-container'>
       <div className='catalog-heading'>
         <b>Featured Product</b>
-        <img src={line} alt='line' className='heading-line-img'/>
+        <img src={line} alt='line' className='heading-line-img' />
         <div className="filterItem">
-          <div className="checkbox-btn-group">
-
-          </div>
           <div className='catalog-filter-btn'>
-            {data?.slice(0, 5).map((item) => (
+            {data?.slice(0, 8).map((item) => (
               <label htmlFor={item.id} className="checkbox-btn" key={item.id}>
                 <input
                   type="checkbox"
@@ -57,10 +51,14 @@ const Catalog = () => {
             ))}
           </div>
         </div>
-        </div>
-        <CatalogList catId={catId} selectedCats={selectedCats} />
-      </section>
-    )
+      </div>
+      <div>
+        {data?.slice(1, 2).map((item) => (
+          <CatalogList item={item} key={item.id} selectedCats={selectedCats} />
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default Catalog;

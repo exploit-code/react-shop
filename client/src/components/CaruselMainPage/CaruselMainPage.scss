@@ -1,0 +1,40 @@
+.mainPageSlider__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border: none;
+  background-color: var(--green);
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+}
+
+.Carousel__Container-sc-hyhecw-0.fPimMH {
+  display: flex;
+  align-items: center;
+}
+
+.mainPageSlider__btn {
+  z-index: 10;
+}
+
+.Carousel__ItemSet-sc-hyhecw-3.flDDKJ {
+  position: relative;
+}
+
+.mainPageSlider__btn_right {
+  position: absolute;
+  top: 46%;
+  right: 0;
+}
+
+.mainPageSlider__btn_left {
+  position: absolute;
+  top: 46%;
+  left: 0;
+}

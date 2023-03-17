@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import saleIcon from '../../images/saleIcon.svg';
 import topIcon from '../../images/topIcon.svg';
 
+
 const Card = ({ item, view }) => {
   return (
     <Link className="link" to={`/productpage/${item.id}`}>
