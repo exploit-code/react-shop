@@ -4,9 +4,12 @@ import Card from "../Card/Card";
 import useFetch from "../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import TablePagination from "@mui/material/TablePagination";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
 
 
-const ProductsList = ({ subCats, maxPrice, sort, catId, view}) => {
+const ProductsList = ({ subCats, maxPrice, sort, catId, view }) => {
 
   // start of pagination
   const [page, setPage] = React.useState(0);
@@ -61,15 +64,19 @@ const ProductsList = ({ subCats, maxPrice, sort, catId, view}) => {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
         />
+
         <div className={view ? `${'products-box products-box--tile'}` : `${'products-box products-box--list'}`}>
           {error
-              ? "Something went wrong!"
-              :loading
-              ? "loading"
+            ? <Alert severity="error">Something went wrong!</Alert>
+            : loading
+              ?
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <CircularProgress color="success"/>
+              </Box>
               : filtredItems?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((item) => {
-                    return ( <Card item={item} key={item.attributes.title} view={view} />)
-                  })}
+              .map((item) => {
+                return (<Card item={item} key={item.attributes.title} view={view}/>)
+              })}
         </div>
         <TablePagination
             rowsPerPageOptions={[6, 9, 15]}
