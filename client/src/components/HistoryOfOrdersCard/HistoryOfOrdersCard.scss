@@ -47,6 +47,7 @@
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         padding: 15px;
         max-width: 260px;
+        
     }
     &_status_order{
         padding: 5px 8px;
@@ -90,6 +91,8 @@
         width: 50px;
         height: 50px;
         display: flex;
+       
+       
     }
     .imgOrder_round{
         border-radius: 100px; /* Радиус скругления */
@@ -97,7 +100,10 @@
         box-shadow: 0px 4px 4px #9CC000;
         height: auto;
         width: 100%;
-        object-fit:contain;
+        padding: 6px;
+        object-fit: contain;
+        
+        
         &_dots{
             border-radius: 100px; /* Радиус скругления */
             background: #E7F0F1;
@@ -106,9 +112,42 @@
             width: 100%;
             object-fit:contain;
             padding: 0px 10px;
+            
         }
     
     }
-    
-   
+// для позиционирования картинок  
 }
+.posabsolute{
+     position:absolute;
+}
+.relative_0{
+    position: relative;
+    top: 196px;
+    left: 0px;
+    
+}
+.relative_1{
+    position: relative;
+    top: 196px;
+    // left: -15px;
+    left: -8px;
+}
+
+.relative_2{
+    position: relative;
+    top: 196px;
+    // left: -30px;
+    left: -16px;
+}
+.relative_3{
+    position: relative;
+    top: 196px;
+    // left: -45px;
+    left: -24px;
+}
+.paddingForPosition{
+    padding-bottom: 65px;
+}
+// *********************
+
