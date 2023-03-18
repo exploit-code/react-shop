@@ -5,11 +5,15 @@ import { useParams } from "react-router-dom";
 import CatalogList from "../CalalogList/CatalogList";
 import React, { useState } from "react";
 
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
+
 
 const Catalog = () => {
 
   const catId = parseInt(useParams().id);
-  const { data } = useFetch(
+  const { data, loading, error } = useFetch(
     `/categories?[id][$eq]=${catId}`
   );
 
@@ -53,9 +57,16 @@ const Catalog = () => {
         </div>
       </div>
       <div>
-        {data?.slice(1, 2).map((item) => (
+        {error
+          ? <Alert severity="error">Something went wrong!</Alert>
+          : loading ? (
+            <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+              <CircularProgress color="success"/>
+            </Box>
+          ) : (
+            data?.slice(1, 2).map((item) => (
           <CatalogList item={item} key={item.id} selectedCats={selectedCats} />
-        ))}
+        )))}
       </div>
     </section>
   );
