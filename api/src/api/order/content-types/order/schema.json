@@ -35,6 +35,9 @@
     },
     "payByCreditCard": {
       "type": "string"
+    },
+    "firebaseId": {
+      "type": "string"
     }
   }
 }

@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, {useContext, useState} from "react"
 import './style-form.scss'
 import { useSelector } from "react-redux";
 // import axios from "axios";
 import Button from "../../../components/Button/Button";
 import {makeRequest} from "../../../makeRequest";
+import {AuthContext} from "../../../context/UserContext";
 
 
 const Form = () => {
@@ -16,7 +17,7 @@ const Form = () => {
     const [phone, setPhone] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [payMethod, setPayMethod] = useState('')
-
+    const { user } = useContext(AuthContext);
     function handleSubmit(event) {
         event.preventDefault();
     }
@@ -44,12 +45,13 @@ const Form = () => {
         try {
             await makeRequest.post("/orders", {
                 cartItems,
-                mail: 'test@test/test',
+                mail: user.email,
                 firstName,
                 secondName,
                 phone,
                 deliveryAddress,
                 payByCreditCard: payMethod,
+                firebaseId: user.uid
             });
         } catch (err) {
             console.log(err);

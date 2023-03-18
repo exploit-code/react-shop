@@ -10,12 +10,12 @@ import useFetch from "../../hooks/useFetch";
 const Profile = () => {
 
     //
+    const { user, logOut } = useContext(AuthContext);
     const { data } = useFetch(
-        `/orders`
+        `/orders?filters[mail][$eq]=${user.email}`
     );
     console.log(data, 'History of Orders')
     //
-    const { user, logOut } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
