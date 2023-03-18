@@ -3,7 +3,7 @@ import './HistoryOfOrdersCard.scss'
 const HistoryOfOrdersCard = ({ order }) => {
   return (
     <div className='orderCardForHistory'>
-      <div className='orderCardForHistory_order_card paddingForPosition'>
+      <div className='orderCardForHistory_order_card'>
         <div
           className={'orderCardForHistory_status_order ' + order.statusOrder}
         >
@@ -53,14 +53,14 @@ const HistoryOfOrdersCard = ({ order }) => {
             {order.amount}$
           </div>
         </div>
-        <div className='orderCardForHistory_imgOrder_box posabsolute'>
+        <div className='orderCardForHistory_imgOrder_box posreletive'>
           {order['img'].map((img, i) => {
             if (i < 3) {
               return (
                 <img
                   src={img}
                   alt=''
-                  class={'imgOrder_round relative_' + i}
+                  class={'imgOrder_round absolute_' + i}
                   key={i}
                 ></img>
               )
@@ -70,7 +70,7 @@ const HistoryOfOrdersCard = ({ order }) => {
                 <img
                   src={'img/dots.png'}
                   alt=''
-                  class={'imgOrder_round_dots relative_' + i}
+                  class={'imgOrder_round_dots absolute_' + i}
                   key={i}
                 ></img>
               )
