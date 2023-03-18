@@ -4,7 +4,7 @@ import menuIcon from '../../images/menuIcon.svg';
 // import callIcon from '../../images/callIcon.svg';
 import useFetch from "../../hooks/useFetch";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setValue } from "../../redux/searchReducer";
 
@@ -17,6 +17,7 @@ const SearchTop = ({ takeCategoryId }) => {
   const [nameCategories, setNameCategories] = useState('All')
   const [searchValue, setSearchValue] = useState('')
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value)
@@ -25,6 +26,7 @@ const SearchTop = ({ takeCategoryId }) => {
   const handlerChangeSearchInput = (event) => {
     event.preventDefault()
     dispatch(setValue(searchValue))
+    navigate('products/1')
   }
 
   const handlerDeleteValueInput = (event) => {
