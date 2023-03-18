@@ -19,6 +19,7 @@ import CatalogCategoriesList from "./components/CatalogPageList/CatalogPageList"
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import Profile from './pages/Profile/Profile';
 import PostApi from './pages/PostPage/PostApi';
+import HistoryOfOrders from './components/HistoryOfOrders/HistoryOfOrders'
 
 function App() {
   const router = createBrowserRouter([
@@ -87,7 +88,10 @@ function App() {
           path: '/profile',
           element: <Profile />,
         },
-
+        {
+          path: '/historyOfOrders',
+          element: <HistoryOfOrders />,
+        },
       ],
     },
   ])
