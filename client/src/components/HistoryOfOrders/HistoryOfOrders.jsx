@@ -111,7 +111,7 @@ const HistoryOfOrders = () => {
         'http://localhost:1337/uploads/fresh_organic_apricot_6768d5fb9f.png',
         'http://localhost:1337/uploads/raw_broccoli_005aac881b.png',
         'http://localhost:1337/uploads/tomato_hybrid_4e77dbf9ff.png',
-        'http:http://localhost:1337/uploads/raisin_634970fc83.png',
+        'http://localhost:1337/uploads/raisin_634970fc83.png',
       ],
     },
     {
