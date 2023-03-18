@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import CatalogCategoriesList from "../../components/CatalogPageList/CatalogPageList";
 import useFetch from "../../hooks/useFetch";
 import {useParams} from "react-router-dom";
-import CircularProgress from "@mui/material/CircularProgress";
+import LinearProgress from '@mui/material/LinearProgress';
 import Alert from '@mui/material/Alert';
 
 const CatalogPage = () => {
@@ -18,7 +18,7 @@ const CatalogPage = () => {
                     {error
                         ? <Alert severity="error">Something went wrong!</Alert>
                         : loading
-                            ? <CircularProgress color="success"/>
+                            ? <LinearProgress color="success" />
                             : data?.slice(1,8).map((item) => (
                         <CatalogCategoriesList item={item}/>
                     ))}
