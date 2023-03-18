@@ -1,5 +1,6 @@
 import './HistoryOfOrders.scss'
 import HistoryOfOrdersCard from '../HistoryOfOrdersCard/HistoryOfOrdersCard'
+import LeftSideProfile from '../LeftSideProfile/LeftSideProfile'
 
 const HistoryOfOrders = () => {
   const countAll = 20
@@ -129,7 +130,9 @@ const HistoryOfOrders = () => {
   ]
   return (
     <div className='historyOfOrders'>
-      <div className='historyOfOrders_leftPart'></div>
+      <div className='historyOfOrders_leftPart'>
+        <LeftSideProfile />
+      </div>
       <div className='historyOfOrders_rightPart'>
         <div className='historyOfOrders_heading'>History of orders</div>
         <div className='historyOfOrders_filter_box'>

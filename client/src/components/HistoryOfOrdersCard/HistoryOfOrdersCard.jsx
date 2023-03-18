@@ -1,9 +1,5 @@
 import './HistoryOfOrdersCard.scss'
 
-// statusOrder: 'current',
-// statusOrder: 'completed',
-// statusOrder: 'canceled',
-
 const HistoryOfOrdersCard = ({ order }) => {
   return (
     <div className='orderCardForHistory'>
