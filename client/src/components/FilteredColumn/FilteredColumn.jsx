@@ -14,7 +14,7 @@ const FilteredColumn = ({ type }) => {
               {type} products
             </div>
           </div>
-          <FilteredColumnList   type={type} />
+          <FilteredColumnList type={type} />
         </div>
       </div>
     </>

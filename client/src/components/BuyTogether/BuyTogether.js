@@ -4,8 +4,12 @@ import useFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
 import { AddToCartBtn } from "../AddToCartBtn/AddToCartBtn";
 
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
+import Box from '@mui/material/Box';
+
 export const BuyTogether = ({selectedCats}) => {
-  const { data } = useFetch(`/products?populate=*&[filters][categories][id][$eq]=${selectedCats}`);
+  const { data, loading, error } = useFetch(`/products?populate=*&[filters][categories][id][$eq]=${selectedCats}`);
 
   const randomItem = () => {
     let min = 0
@@ -26,7 +30,14 @@ export const BuyTogether = ({selectedCats}) => {
         </div>
         <div className='buytogether__content__boxProds'>
           {/* рендерим массив продуктов, которые покупают вместе */}
-          {data?.slice(startIndex, endIndex).map((item) => (
+          {error
+            ? <Alert severity="error">Something went wrong!</Alert>
+            : loading ?
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <CircularProgress color="success"/>
+              </Box>
+              :
+              data?.slice(startIndex, endIndex).map((item) => (
             <div key={item.id}>
               <div className="buytogether__content__item">
                 <Link to={`/productpage/${item.id}`} className="buytogether__content__link">

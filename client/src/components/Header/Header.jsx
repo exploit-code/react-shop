@@ -122,7 +122,7 @@ const Header = () => {
 
               {user?.email ? (
                 <div>
-                  <div style={{ cursor: 'pointer' }} onMouseEnter={categoriesClick}>
+                  <div style={{ cursor: 'pointer' }} onClick={categoriesClick}>
                     <img className='header__login-icon' src={loginIcon} alt='profile-icon'/>
                   </div>
                 </div>
@@ -138,7 +138,7 @@ const Header = () => {
               {/*<div className='header__line'></div>*/}
 
               {user?.email ? (
-                <div className='header__login-text no__hover'>
+                <div className='header__login-text' style={{ cursor: 'pointer' }} onClick={categoriesClick}>
                   {user.displayName == null ? `${user?.email}` : user.displayName}
                 </div>
               ) : (
