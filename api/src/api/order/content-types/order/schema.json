@@ -38,6 +38,14 @@
     },
     "firebaseId": {
       "type": "string"
+    },
+    "orderStatus": {
+      "type": "enumeration",
+      "enum": [
+        "current",
+        "completed",
+        "canceled"
+      ]
     }
   }
 }

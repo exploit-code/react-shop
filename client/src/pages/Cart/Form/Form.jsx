@@ -51,7 +51,8 @@ const Form = () => {
                 phone,
                 deliveryAddress,
                 payByCreditCard: payMethod,
-                firebaseId: user.uid
+                firebaseId: user.uid,
+                orderStatus: 'current'
             });
         } catch (err) {
             console.log(err);
