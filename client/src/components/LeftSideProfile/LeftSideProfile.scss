@@ -1,0 +1,92 @@
+.asideLeftSideProfile {
+    display: grid;
+    gap: 32px;
+    align-content: baseline;
+}
+
+.cardLeftSideProfile {
+    width: 100%;
+    max-width: 240px;
+    padding: 32px 0 64px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--gray);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    &__avatar {
+        min-width: 60px;
+        max-width: 60px;
+        min-height: 60px;
+        max-height: 60px;
+        background-color: var(--green);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--white);
+        text-transform: uppercase;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.13);
+    }
+
+    &__name {
+        display: flex;
+        gap: 8px;
+        color: var(--black);
+    }
+
+    &__email {
+        display: flex;
+        color: var(--black);
+    }
+}
+
+.navLeftSideProfile {
+    display: flex;
+
+    &__list {
+        display: grid;
+        width: 100%;
+        
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        padding: 24px 0;
+        width: 100%;
+        color: var(--black);
+
+        &:hover {
+            color: var(--green);
+            border-color: var(--green);
+        }
+    }
+    .firstLinkProfile{
+        margin-bottom: 0px;
+    }
+    &_line{
+        align-self: center;
+        width: 85%;
+        border: 1px solid #FFFFFF;
+        box-sizing: border-box;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+       
+    }
+
+}

@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { setValue } from "../../redux/searchReducer";
 
 import Button from '../Button/Button'
-import TestModalWindow from '../ModalWindowSupport/ModalWindowSupport'
+import ModalWindowSupport from '../ModalWindowSupport/ModalWindowSupport'
 import MessageForm from '../MessageForm/MessageForm'
 
 const SearchTop = ({ takeCategoryId }) => {
@@ -140,15 +140,14 @@ const SearchTop = ({ takeCategoryId }) => {
                 <path d='M36 0H4C1.8 0 0.02 1.66533 0.02 3.70073L0 25.9051C0 27.9405 1.8 29.6058 4 29.6058H36C38.2 29.6058 40 27.9405 40 25.9051V3.70073C40 1.66533 38.2 0 36 0ZM36 7.40146L20 16.6533L4 7.40146V3.70073L20 12.9525L36 3.70073V7.40146Z' />
               </svg>
 
-              {console.log('open', open)}
               {open ? (
-                <TestModalWindow
+                <ModalWindowSupport
                   open={open}
                   setOpen={setOpen}
                   dopname='support'
                 >
                   <MessageForm dopname='support_' />
-                </TestModalWindow>
+                </ModalWindowSupport>
               ) : (
                 () => handleClose()
               )}

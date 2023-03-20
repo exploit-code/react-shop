@@ -1,0 +1,149 @@
+// стили для статусов заказов и их иконок
+.completed{
+    background-color: var(--green);
+}
+.current{
+    background-color: #f08e04;
+}
+.canceled{
+    background-color: var(--dark-gray);
+}
+.icon::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin-right: 4px;
+}
+.icompleted::before{
+    font-family: "Font Awesome 5 Free"; font-weight: 700; content: "\f015";
+   background: var(--light-green);
+   border-radius: 10px;
+   box-sizing: border-box;
+   padding: 4px;
+}
+.icanceled::before{
+    font-family: "Font Awesome 5 Free"; font-weight: 700; content: "\f05e";
+   background: rgb(179, 176, 176);
+   border-radius: 10px;
+   box-sizing: border-box;
+   padding: 4px;
+}
+.icurrent::before{
+   font-family: "Font Awesome 5 Free"; font-weight: 700; content: "\f0d1";
+   background: rgb(255, 185, 21);
+   border-radius: 10px;
+   box-sizing: border-box;
+   padding: 4px;
+}
+// *********************
+.orderCardForHistory{
+    display: flex;
+    &_order_card{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background: #F5F5F5;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 15px;
+        max-width: 260px;
+        
+    }
+    &_status_order{
+        padding: 5px 8px;
+        margin-bottom: 7px;
+        cursor: pointer;
+        color:#FFFFFF;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        box-sizing: border-box;
+        min-width: 131px;
+        text-align: left;
+        text-transform: capitalize;
+         
+    }
+    
+    &_infoOrder_box{
+        display: flex;
+    }
+    &_infoOrder_title{
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 25px;
+        color: #000000;
+
+    }
+    &_infoOrder_info{
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 25px;
+        color: #000000;
+    }
+    &_number_order{
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+        margin-bottom: 9px;
+    }
+    &_imgOrder_box{
+        width: 50px;
+        height: 50px;
+        display: flex;
+           
+    }
+    .imgOrder_round{
+        border-radius: 100px;
+        background: #E7F0F1;
+        box-shadow: 0px 4px 4px #9CC000;
+        height: 100%;
+        width: 100%;
+        padding: 6px;
+        object-fit: contain;
+        
+        &_dots{
+            border-radius: 100px;
+            background: #E7F0F1;
+            box-shadow: 0px 4px 4px #9CC000;
+            height: 100%;
+            width: 100%;
+            object-fit:contain;
+            padding: 0px 10px;
+            
+        }
+    
+    }
+
+}
+// для позиционирования картинок  
+.posreletive{
+    position:relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+}
+.absolute_0{
+    position: absolute;
+    // top: 196px;
+    left: 0px;
+    
+}
+.absolute_1{
+    position: absolute;
+    // top: 196px;
+    left: 42px;
+}
+
+.absolute_2{
+    position: absolute;
+    // top: 196px;
+    left: 84px;
+}
+.absolute_3{
+    position: absolute;
+    // top: 196px;
+    left: 126px;
+}
+
+// *********************

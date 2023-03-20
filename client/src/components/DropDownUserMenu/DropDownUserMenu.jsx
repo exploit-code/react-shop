@@ -30,27 +30,47 @@ const DropDownUserMenu = ({ categoriesClick }) => {
             </div>
           </div>
           <div className='DropDownUserMenu__item__userInfo'>
-            <p>{user?.displayName == null ? `${user?.email?.split('@')[0]}` : user?.displayName}</p>
+            <p>
+              {user?.displayName == null
+                ? `${user?.email?.split('@')[0]}`
+                : user?.displayName}
+            </p>
             <p>ID:{user?.uid?.slice(0, 6)}</p>
           </div>
         </li>
         <li className='DropDownUserMenu__item'>
-          <Link className='DropDownUserMenu__item-link' to='/profile'>Profile</Link>
+          <Link className='DropDownUserMenu__item-link' to='/profile'>
+            Profile
+          </Link>
         </li>
         <li className='DropDownUserMenu__item'>
-          <Link className='DropDownUserMenu__item-link' to='/profile'>History of orders</Link>
+          <Link className='DropDownUserMenu__item-link' to='/historyOfOrders'>
+            History of orders
+          </Link>
         </li>
         <li className='DropDownUserMenu__item'>
-          <Link className='DropDownUserMenu__item-link' to='/favorites'>Favorites</Link>
+          <Link className='DropDownUserMenu__item-link' to='/favorites'>
+            Favorites
+          </Link>
         </li>
         <li className='DropDownUserMenu__item'>
-          <Link className='DropDownUserMenu__item-link' to='/profile'>Reviews</Link>
+          <Link className='DropDownUserMenu__item-link' to='/profile'>
+            Reviews
+          </Link>
         </li>
         <li className='DropDownUserMenu__item'>
-          <Link className='DropDownUserMenu__item-link' to='/profile'>Promo codes</Link>
+          <Link className='DropDownUserMenu__item-link' to='/profile'>
+            Promo codes
+          </Link>
         </li>
         <li className='DropDownUserMenu__item'>
-          <Link to='/' className='DropDownUserMenu__item-link' onClick={handleSignOut}>Exit </Link>
+          <Link
+            to='/'
+            className='DropDownUserMenu__item-link'
+            onClick={handleSignOut}
+          >
+            Exit{' '}
+          </Link>
         </li>
       </ul>
     </div>

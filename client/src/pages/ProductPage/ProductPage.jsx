@@ -97,7 +97,7 @@ export const ProductPage = () => {
                     desc={data?.attributes.desc}
                     price={data?.attributes.price}
                     img={data?.attributes.img.data.attributes.url}
-                    totalpriceitem={(Number(data?.attributes?.price)).toFixed(2)}
+                    totalpriceitem={(Number(data?.attributes?.price) * quantity).toFixed(2)}
                     quantity={quantity}
                   />
 

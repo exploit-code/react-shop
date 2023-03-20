@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import './cart-style.scss';
 import cartPng from './img/cart.png'
@@ -7,6 +7,7 @@ import { addItem, removeItems, deleteItem } from "../../redux/cartReducer";
 import { makeRequest } from "../../makeRequest";
 import { loadStripe } from "@stripe/stripe-js";
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
+import {AuthContext} from "../../context/UserContext";
 
 
 const Cart = () => {
@@ -18,7 +19,9 @@ const Cart = () => {
 
   const stripePromise = loadStripe("pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX");
 
-  const mail  = 'test@test.test';
+  const { user } = useContext(AuthContext);
+  const mail  = user?.email;
+  const firebaseId = user?.uid;
 
   const checkoutPayment = async () => {
     try {
@@ -26,7 +29,9 @@ const Cart = () => {
       const res = await makeRequest.post("/orders", {
         cartItems,
         mail,
-        payByCreditCard: 'OnlinePay'
+        firebaseId,
+        payByCreditCard: 'OnlinePay',
+        orderStatus: 'current'
       });
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
@@ -36,6 +41,10 @@ const Cart = () => {
       console.log(err);
     }
   };
+
+
+
+  console.log('cartitems', cartItems)
 
   // end of Checkout
 
@@ -106,7 +115,7 @@ const Cart = () => {
               </section>
 
               <div className='testModal cart-btn-wrp'>
-                <ModalWindow checkoutPayment={checkoutPayment}></ModalWindow>
+                <ModalWindow checkoutPayment={checkoutPayment} mail={mail}></ModalWindow>
               </div>
 
               {/* new code 05.03*/}
