@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import ChildModal from "./ChildModal";
 import './style-modalWindow.scss'
+import { useNavigate } from "react-router-dom";
 
 const style = {
     position: 'absolute',
@@ -19,35 +20,38 @@ const style = {
     p: 4,
 };
 
-const ModalWindow = (props) => {
+const ModalWindow = ({ checkoutPayment, mail }) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [payment, setpayment] = useState('')
+    const navigate = useNavigate()
 
     return (
-        <>
-            <button className="btncheckout" onClick={handleOpen}>Go to checkout</button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
+      <>
+          <button className="btncheckout" onClick={handleOpen}>Go to checkout</button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+
+              {mail ? (
                 <Box sx={style}>
 
                     <div>
                         <fieldset>
-                            <legend className="payment-method" >Choose your payment method</legend>
+                            <legend className="payment-method">Choose your payment method</legend>
                             <div>
                                 <input type="radio" id="pay-card" name="payment" value="CC" checked={payment == 'CC'}
-                                    onChange={((event) => setpayment(event.target.value))} />
+                                       onChange={((event) => setpayment(event.target.value))}/>
                                 <label className="modal-label" htmlFor="pay-card">Online payment</label>
                             </div>
                             <br></br>
                             <div>
                                 <input type="radio" id="pay-cash" name="payment" value="CD" checked={payment == 'CD'}
-                                    onChange={((event) => setpayment(event.target.value))} />
+                                       onChange={((event) => setpayment(event.target.value))}/>
                                 <label className="modal-label" htmlFor="pay-cash">Payment upon receipt</label>
                             </div>
                         </fieldset>
@@ -55,14 +59,30 @@ const ModalWindow = (props) => {
 
                     <div className="testModal1">
                         <div>
-                            <ChildModal payment={payment} checkoutPayment={props.checkoutPayment} />
+                            <ChildModal payment={payment} checkoutPayment={checkoutPayment}/>
                         </div>
                         <div className="button-cancel">
                             <button className="btncheckoutform" onClick={handleClose}>Cancel</button>
                         </div>
                     </div>
                 </Box>
-            </Modal>
+              ) : (
+                <Box sx={style}>
+
+                    <p className="payment-method">You need to login</p>
+
+                    <div className="testModal1">
+                        <div>
+                            <button className="btncheckoutform" onClick={() => {navigate('/login')}}>Login</button>
+                        </div>
+                        <div className="button-cancel">
+                            <button className="btncheckoutform" onClick={handleClose}>Cancel</button>
+                        </div>
+                    </div>
+                </Box>
+              )}
+
+          </Modal>
         </>
     )
 }

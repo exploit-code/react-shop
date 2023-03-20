@@ -20,8 +20,8 @@ const Cart = () => {
   const stripePromise = loadStripe("pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX");
 
   const { user } = useContext(AuthContext);
-  const mail  = user.email;
-  const firebaseId = user.uid;
+  const mail  = user?.email;
+  const firebaseId = user?.uid;
 
   const checkoutPayment = async () => {
     try {
@@ -114,7 +114,7 @@ const Cart = () => {
               </section>
 
               <div className='testModal cart-btn-wrp'>
-                <ModalWindow checkoutPayment={checkoutPayment}></ModalWindow>
+                <ModalWindow checkoutPayment={checkoutPayment} mail={mail}></ModalWindow>
               </div>
 
               {/* new code 05.03*/}
