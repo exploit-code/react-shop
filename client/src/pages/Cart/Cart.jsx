@@ -97,7 +97,7 @@ const Cart = () => {
                     </Link>
                     <div className='cart-total'>
                       <div className='cart-total-info'>
-                        <h3 className='cart-total-title'>${(item.quantity * item.price).toFixed(2)}</h3>
+                        <h3 className='cart-total-title'>${item.totalPriceItem}</h3>
                         <button onClick={() => dispatch(deleteItem(item))} className='cart-total-count-btn'>-</button>
                         <span className='cart-total-txt'>{item.quantity}</span>
                         <button onClick={() => dispatch(addItem(item))} className='cart-total-count-btn'>+</button>
