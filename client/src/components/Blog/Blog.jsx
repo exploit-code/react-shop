@@ -21,7 +21,7 @@ const _getDefaultProps = () => {
         text: `This is usually said when someone is trying to lose weight
                     or be “super healthy.” First, to lose weight, it is widely
                     understood that we must burn more calories than we eat.`,
-        linkReadMore: '#',
+        linkReadMore: 'blog/1',
       },
       {
         id: 2,
@@ -34,7 +34,7 @@ const _getDefaultProps = () => {
                     prevent illness or speed up how fast we recover from
                     illness. One such strategy many employ is the use of Vitamin
                     C for a natural remedy.`,
-        linkReadMore: '#',
+        linkReadMore: 'blog/3',
       },
       {
         id: 3,
@@ -45,7 +45,7 @@ const _getDefaultProps = () => {
         text: `We’ve all been here before: When it seems the long, gray
                     winter will never end and you make one more pot of hearty
                     vegetable soup or another casserole.`,
-        linkReadMore: '#',
+        linkReadMore: 'blog/2',
       },
     ],
   }
