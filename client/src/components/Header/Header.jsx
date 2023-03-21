@@ -140,7 +140,7 @@ const Header = () => {
 
               {user?.email ? (
                 <div className='header__login-text' style={{ cursor: 'pointer' }} onClick={categoriesClick}>
-                  {user.displayName == null ? `${user?.email}` : user.displayName}
+                  {user.displayName}
                 </div>
               ) : (
                 <Link className='header__login-text' to='/login'>

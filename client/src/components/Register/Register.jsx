@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import './Register.scss';
+import { getAuth, updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const auth = getAuth();
   const { createUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -14,11 +16,14 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(name, email, password);
 
-    createUser(email, password, name)
+    createUser(email, password)
       .then(result => {
-        navigate('/');
+        updateProfile(auth.currentUser, {
+          displayName: name
+        }).then(() => {
+          navigate('/');
+        })
       })
       .catch(error => {
         console.error(error)
@@ -36,6 +41,13 @@ const Register = () => {
   return (
     <form onSubmit={handleSubmit} className='register'>
       <h1 className='register__title'>Register now!</h1>
+      <input
+        className='register__input'
+        type='text'
+        name='name'
+        placeholder='Name'
+        required
+      />
       <input
         className='register__input'
         type='email'
