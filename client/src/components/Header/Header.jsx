@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useSelector } from "react-redux";
 // import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import CustomLink from '../CustomLink/CustomLink';
 
 import { AuthContext } from '../../context/UserContext';
 import ScrollToTop from '../../utils/scrollToTop';
@@ -153,39 +154,39 @@ const Header = () => {
 
       <div className='header__box header__box--white'>
         <div className='header__content container'>
-          <Link className='header__logo' to='/'>
+          <CustomLink className='header__logo' to='/'>
             GOOD-FOOD🍎🥝
-          </Link>
+          </CustomLink>
 
           <nav className='header__nav'>
             <ul className='header__nav-list'>
               <li className='header__nav-item'>
-                <Link className='header__nav-link' to='/'>
+                <CustomLink className='header__nav-link' to='/'>
                   HOME
-                </Link>
+                </CustomLink>
               </li>
               <li className='header__nav-item'>
-                <Link
+                <CustomLink
                   className='header__nav-link'
                   to={`/products/${categoryId}`}
                 >
                   PRODUCTS
-                </Link>
+                </CustomLink>
               </li>
               <li className='header__nav-item'>
-                <Link className='header__nav-link' to='/categories'>
+                <CustomLink className='header__nav-link' to='/categories'>
                   CATEGORIES
-                </Link>
+                </CustomLink>
               </li>
               <li className='header__nav-item'>
-                <Link className='header__nav-link' to='/blog'>
+                <CustomLink className='header__nav-link' to='/blog'>
                   BLOG
-                </Link>
+                </CustomLink>
               </li>
               <li className='header__nav-item'>
-                <Link className='header__nav-link' to='/contacts'>
+                <CustomLink className='header__nav-link' to='/contacts'>
                   CONTACT
-                </Link>
+                </CustomLink>
               </li>
             </ul>
           </nav>

@@ -21,7 +21,7 @@ const Footer = () => {
             <Link className='footer__link' to='/'>
               SHOP
             </Link>
-            <Link className='footer__link' to='/'>
+            <Link className='footer__link' to='/blog'>
               BLOG
             </Link>
             <Link className='footer__link' to='/contacts'>
