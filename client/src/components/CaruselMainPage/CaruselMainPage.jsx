@@ -8,14 +8,28 @@ import SliderIconRight from "../../images/slider-icon_next.svg";
 
 const CaruselMainPage = ({ data }) => {
 
+  let classNameSliderBtns = '';
+
+  let count = 0;
+  for (let key in data) {
+    count++;
+  }
+
+  if (count <= 8) {
+    classNameSliderBtns += 'hiddenSliderBtns';
+
+  } else {
+    classNameSliderBtns -= 'hiddenSliderBtns';
+  }
+
   const sliderIconPrev = () => (
-    <button className="mainPageSlider__btn mainPageSlider__btn_left" >
+    <button className={`${classNameSliderBtns} mainPageSlider__btn mainPageSlider__btn_left`} >
       <img src={SliderIconLeft} alt='' />
     </button>
   )
 
   const sliderIconNext = () => (
-    <button className="mainPageSlider__btn mainPageSlider__btn_right" >
+    <button className={`${classNameSliderBtns} mainPageSlider__btn mainPageSlider__btn_right`} >
       <img src={SliderIconRight} alt='' />
     </button>
   )
