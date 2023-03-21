@@ -225,9 +225,11 @@ const Form = () => {
                         />
                     </div>
                     <div className="form-btn-buyOrder">
-                        <Button onClick={getOrder} type='submit' text='Place an order'
-                            className="form-btn-buyOrder">
-                        </Button>
+                        {email.length != 0 && firstName.length != 0 && deliveryAddress != 0 && secondName != 0 ? (
+                            <Button onClick={getOrder} type='submit' text='Place an order'
+                                className="form-btn-display-none">
+                            </Button>
+                        ) : (<p>Заполните поля формы</p>)}
                     </div>
                 </form>
             </div>
