@@ -12,7 +12,9 @@ const HistoryOfOrders = () => {
 
   const { user } = useContext(AuthContext);
   const { data, error, loading } = useFetch(`orders?filters[mail][$eq]=${user.email}`)
-  console.log(data)
+
+  const fnSort = (a, b) => (a.id < b.id) ? 1 : -1
+  data?.sort(fnSort)
 
   const sumCurrentOrders= data?.filter(el =>el.attributes.orderStatus === 'current')
   const sumCompletedOrders= data?.filter(el =>el.attributes.orderStatus === 'completed')
