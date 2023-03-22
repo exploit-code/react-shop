@@ -15,14 +15,13 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           const item = await strapi
             .service("api::product.product")
             .findOne(product.id);
-
           return {
             price_data: {
               currency: "usd",
               product_data: {
                 name: item.title,
               },
-              unit_amount: Math.round(item.price * 100),
+              unit_amount: Math.round(product.price * 100),
             },
             quantity: product.quantity,
           };
