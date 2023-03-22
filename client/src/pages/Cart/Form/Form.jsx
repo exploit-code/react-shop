@@ -1,14 +1,15 @@
-import React, { useState } from "react"
+import React, {useContext, useState} from "react"
 import './style-form.scss'
 import { useSelector } from "react-redux";
 // import axios from "axios";
 import Button from "../../../components/Button/Button";
 import { makeRequest } from "../../../makeRequest";
+import {AuthContext} from "../../../context/UserContext";
 
 
 const Form = () => {
     const cartItems = useSelector((state) => state.cart.products)
-
+    const { user } = useContext(AuthContext);
     //**START of controlled input
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
@@ -121,12 +122,14 @@ const Form = () => {
         try {
             await makeRequest.post("/orders", {
                 cartItems,
-                mail: 'test@test/test',
+                mail: user?.email,
                 firstName,
                 secondName,
                 phone,
                 deliveryAddress,
                 payByCreditCard: payMethod,
+                orderStatus: 'current',
+                firebaseId: user?.uid
             });
         } catch (err) {
             console.log(err);
