@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import {useContext, useState} from 'react'
 import '../MessageForm/MessageForm.scss'
+import {AuthContext} from "../../context/UserContext";
 
 const MessageForm = (props) => {
-  const [mail, setMail] = useState('')
+  const { user } = useContext(AuthContext);
+  const [mail, setMail] = useState(user?.email)
   const [fullName, setName] = useState('')
-  const [message, setMessage] = useState('')
 
+  const [message, setMessage] = useState('test')
   const [mailValid, setMailValid] = useState(false)
   const [nameValid, setNameValid] = useState(false)
   const [messageValid, setMessageValid] = useState(false)
@@ -15,11 +17,49 @@ const MessageForm = (props) => {
 
   const dopname = props.dopname ? props.dopname : ''
 
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  // }
+
+  //START of getForm
+  function getForm(e) {
+    e.preventDefault();
+    let message = 'test';
+    let body = {
+      data: {
+        fullName,
+        mail,
+        message
+      }
+    };
+    fetch(`${process.env.REACT_APP_API_URL}/forms`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+        .then(() => {
+          console.log('Thank You! Form Posted to Database');
+        })}
+
+  // const getForm = async () => {
+  //   try {
+  //     await makeRequest.post("/forms", {
+  //       mail,
+  //       fullName,
+  //       message,
+  //     });
+  //   } catch (err) {
+  //     console.log(err, 'fuck');
+  //   }
+  // };
+  //**END of getForm
   // Валидация поле email
   const emailHandler = (e) => {
     setMail(e.target.value)
     const re =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     if (!re.test(String(e.target.value).toLowerCase())) {
       setEmailError('Email должен содержать @domen.ru')
     } else {
@@ -48,9 +88,9 @@ const MessageForm = (props) => {
     }
   }
 
-
   return (
     <div>
+      <form onSubmit={getForm}>
       <div className={dopname + 'formblock'}>
         <div className={dopname + 'formblock_padding'}>
           <h4 className={dopname + 'heading-mini heading-mini_form'}>
@@ -88,9 +128,11 @@ const MessageForm = (props) => {
             rows='10'
             placeholder='Your Message'
           ></textarea>
-          <div className={dopname + 'contacts_button'}>{props.children}</div>
+          <div  className={dopname + 'contacts_button'}>{props.children}</div>
+          <button type="submit" className={dopname + 'contacts_button'}>eee</button>
         </div>
       </div>
+      </form>
     </div>
   )
 }
