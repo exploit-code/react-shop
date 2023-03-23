@@ -87,6 +87,11 @@ const Profile = () => {
           <nav className='nav'>
             <ul className='nav__list'>
               <li className='nav__item'>
+                <Link className='nav__link' to='/profile'>
+                  Profile
+                </Link>
+              </li>
+              <li className='nav__item'>
                 <Link className='nav__link' to='/historyOfOrders'>
                   History of orders
                 </Link>
