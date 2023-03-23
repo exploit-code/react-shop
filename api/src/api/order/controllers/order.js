@@ -20,6 +20,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
               currency: "usd",
               product_data: {
                 name: item.title,
+                images: [`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjhvlNVIhPr0-3KfmZWQ3YdSWjqb-kHQSvX63ILu68KNEsPQ6x`],
               },
               unit_amount: Math.round(product.price * 100),
             },
@@ -39,7 +40,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
       await strapi
         .service("api::order.order")
-        .create({ data: {  cartItems, stripeId: session.id, mail, firstName, secondName, phone, deliveryAddress, payByCreditCard,firebaseId,orderStatus } });
+        .create({ data: {  lineItems, stripeId: session.id, mail, firstName, secondName, phone, deliveryAddress, payByCreditCard,firebaseId,orderStatus } });
 
       return { stripeSession: session };
     } catch (error) {
