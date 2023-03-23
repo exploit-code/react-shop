@@ -1,6 +1,7 @@
 import {useContext, useState} from 'react'
 import '../MessageForm/MessageForm.scss'
 import {AuthContext} from "../../context/UserContext";
+import Button from "../Button/Button";
 
 const MessageForm = (props) => {
   const { user } = useContext(AuthContext);
@@ -17,13 +18,12 @@ const MessageForm = (props) => {
 
   const dopname = props.dopname ? props.dopname : ''
 
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  // }
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
 
   //START of getForm
-  function getForm(e) {
-    e.preventDefault();
+  function getForm() {
     let message = 'test';
     let body = {
       data: {
@@ -40,7 +40,7 @@ const MessageForm = (props) => {
       body: JSON.stringify(body)
     })
         .then(() => {
-          console.log('Thank You! Form Posted to Database');
+          alert('Thank You! Form Posted to Database');
         })}
 
   // const getForm = async () => {
@@ -90,7 +90,7 @@ const MessageForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={getForm}>
+      <form onSubmit={handleSubmit}>
       <div className={dopname + 'formblock'}>
         <div className={dopname + 'formblock_padding'}>
           <h4 className={dopname + 'heading-mini heading-mini_form'}>
@@ -129,7 +129,7 @@ const MessageForm = (props) => {
             placeholder='Your Message'
           ></textarea>
           <div  className={dopname + 'contacts_button'}>{props.children}</div>
-          <button type="submit" className={dopname + 'contacts_button'}>eee</button>
+          <Button onClick={getForm} className={dopname + 'contacts_button'}>eee</Button>
         </div>
       </div>
       </form>
