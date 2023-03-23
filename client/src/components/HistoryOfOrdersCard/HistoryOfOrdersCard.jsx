@@ -14,10 +14,11 @@ const HistoryOfOrdersCard = ({ order }) => {
 
   const array =[]
   order.cartItems.map(el => array.push(el.price * el.quantity))
-  const totalAmount = array.reduce((prev, cur) => prev + cur, 0)
-  
+  const totalAmount = array.reduce((prev, cur) => prev + cur, 0).toFixed(2)
   
   console.log(createdAt)
+
+  
   return (
     <div className='orderCardForHistory'>
       <div className='orderCardForHistory_order_card'>

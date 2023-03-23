@@ -30,15 +30,22 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 322px;
+        width: 314px;
+        transition: box-shadow 0.5s;
+        transition: transform 0.5s;
     }
 
     &__link:hover {
-        filter: blur(1px)
+        -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+        box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
     }
 
     &__img {
-        width: 322px;
+        width: 314px;
         height: 207px;
     }
 
@@ -242,4 +249,415 @@
             background-color: #57801a;
         }
     }
+}
+
+@media (max-width: 1024px) {
+
+    .post {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__up {
+            margin-bottom: 45px;
+            margin-top: 31px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            &_stick {
+                width: 600px;
+                height: 3px;
+                background-color: #CCCCCC;
+            }
+
+            &_title {
+                width: 650px;
+                text-align: center;
+                @include mixins.font(32px, 400, 50px);
+                font-family: Inter;
+            }
+
+            &_writer {
+                @include mixins.font(16px, 400, 50px);
+                font-family: Inter;
+                color: #7F7F7F;
+            }
+        }
+
+        &__photo {
+            @include mixins.flex(center, center);
+            flex-direction: column-reverse;
+            gap: 31px;
+            margin-bottom: 20px;
+
+            &_left {
+                width: 650px;
+                height: 133px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include mixins.font(16px, 400, 19px);
+                font-family: Inter;
+
+            }
+
+            &_right {
+                width: 650px;
+                height: 398px;
+            }
+
+            &_img {
+                width: inherit;
+                height: inherit;
+            }
+        }
+
+        &__text {
+            text-align: center;
+            width: 650px;
+            gap: 15px;
+            margin-bottom: 20px;
+
+            &_h1 {
+                @include mixins.font(24px, 400, 38px);
+                font-family: Inter;
+            }
+
+            &_p {
+                @include mixins.font(16px, 400, 19px);
+                font-family: Inter;
+                text-align: justify;
+
+            }
+        }
+
+        &__text:last-child {
+            margin-bottom: 39px;
+        }
+
+        &__button {
+            width: 582px;
+            height: 70px;
+            background: #7FAD39;
+            box-shadow: 0px 20px 40px rgba(111, 72, 72, 0.25);
+            margin-left: 0;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-family: Inter;
+            @include mixins.font(14px, 700, 17px);
+            @include mixins.flex(center, center);
+        }
+
+        &__button:hover {
+            background-color: #57801a;
+        }
+
+        &__like {
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+    }
+
+    .parentPost {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formsubscribe {
+        background-color: #FFFFFF;
+        width: 500px;
+        height: 348px;
+        left: auto;
+        top: 500px;
+        position: absolute;
+        box-shadow: 1px 4px 17px rgba(127, 173, 57, 0.5);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+        justify-content: center;
+
+        &_title {
+            font-family: Inter;
+            @include mixins.font(20px, 400, 24px);
+            width: 336px;
+        }
+
+        &_input {
+            width: 350px;
+            height: 45px;
+            font-family: Inter;
+            @include mixins.font(16px, 300, 30px);
+            text-align: center;
+            background: #FFFFFF;
+            box-shadow: 5px 10px 50px rgba(127, 173, 57, 0.2);
+            border-radius: 10px;
+            border: none;
+        }
+
+        &_confirm {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+
+            &_checkbox {
+                width: 1.3em;
+                height: 1.3em;
+                background-color: white;
+                border-radius: 50%;
+                vertical-align: middle;
+                border: 1px solid #ddd;
+                appearance: none;
+                -webkit-appearance: none;
+                outline: none;
+                cursor: pointer;
+                margin-bottom: 5px;
+            }
+
+            &_checkbox:checked {
+                background-color: #7FAD39;
+            }
+
+            &_label {
+                @include mixins.font(16px, 300, 30px);
+                font-family: Inter;
+            }
+        }
+
+        &_bottom {
+            @include mixins.flex(space-between, center);
+            gap: 63px;
+
+            &_button {
+                width: 120px;
+                height: 41px;
+                background: #7FAD39;
+                box-shadow: 0px 20px 40px rgba(111, 72, 72, 0.25);
+                border-radius: 0px;
+                border: none;
+                @include mixins.font(12px, 700, 26px);
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+
+            &_button:hover {
+                background-color: #57801a;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 390px)and (max-width: 667) {
+    .post {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__up {
+            width: 320px;
+            margin-bottom: 41px;
+            margin-top: 41px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            &_stick {
+                width: 300px;
+                height: 3px;
+                background-color: #CCCCCC;
+            }
+
+            &_title {
+                width: inherit;
+                text-align: center;
+                @include mixins.font(20px, 400, 50px);
+                font-family: Inter;
+            }
+
+            &_writer {
+                width: inherit;
+                @include mixins.font(14px, 400, 50px);
+                font-family: Inter;
+                color: #7F7F7F;
+            }
+        }
+
+        &__photo {
+            @include mixins.flex(center, center);
+            flex-direction: column-reverse;
+            gap: 25px;
+            margin-bottom: 20px;
+
+            &_left {
+                width: 320px;
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include mixins.font(14px, 400, 17px);
+                font-family: Inter;
+
+            }
+
+            &_right {
+                width: inherit;
+                height: 212px;
+            }
+
+            &_img {
+                width: inherit;
+                height: inherit;
+            }
+        }
+
+        &__text {
+            text-align: center;
+            width: 320px;
+            gap: 10px;
+            margin-bottom: 15px;
+
+            &_h1 {
+                @include mixins.font(20px, 400, 24px);
+                font-family: Inter;
+            }
+
+            &_p {
+                @include mixins.font(14px, 400, 17px);
+                font-family: Inter;
+                text-align: justify;
+
+            }
+        }
+
+        &__text:last-child {
+            margin-bottom: 37px;
+        }
+
+        &__button {
+            width: 320px;
+            height: 50px;
+            background: #7FAD39;
+            box-shadow: 0px 20px 40px rgba(111, 72, 72, 0.25);
+            margin-left: 0;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-family: Inter;
+            @include mixins.font(11px, 700, 14px);
+            @include mixins.flex(center, center);
+            text-align: center;
+            padding: 0 5px 0 5px;
+        }
+
+        &__button:hover {
+            background-color: #57801a;
+        }
+
+        &__like {
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+    }
+
+    .parentPost {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formsubscribe {
+        background-color: #FFFFFF;
+        width: 260px;
+        height: 196px;
+        left: auto;
+        top: 500px;
+        position: absolute;
+        box-shadow: 1px 4px 17px rgba(127, 173, 57, 0.5);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+
+        &_title {
+            font-family: Inter;
+            @include mixins.font(11px, 400, 13px);
+            width: 336px;
+        }
+
+        &_input {
+            width: 182px;
+            height: 25px;
+            font-family: Inter;
+            @include mixins.font(11px, 300, 30px);
+            text-align: center;
+            background: #FFFFFF;
+            box-shadow: 5px 10px 50px rgba(127, 173, 57, 0.2);
+            border-radius: 10px;
+            border: none;
+        }
+
+        &_confirm {
+            display: flex;
+            gap: 37px;
+            justify-content: center;
+            align-items: center;
+
+            &_checkbox {
+                width: 1.3em;
+                height: 1.3em;
+                background-color: white;
+                border-radius: 50%;
+                vertical-align: middle;
+                border: 1px solid #ddd;
+                appearance: none;
+                -webkit-appearance: none;
+                outline: none;
+                cursor: pointer;
+                margin-bottom: 5px;
+            }
+
+            &_checkbox:checked {
+                background-color: #7FAD39;
+            }
+
+            &_label {
+                @include mixins.font(11px, 300, 15px);
+                font-family: Inter;
+            }
+        }
+
+        &_bottom {
+            @include mixins.flex(space-between, center);
+            gap: 63px;
+
+            &_button {
+                width: 82px;
+                height: 25px;
+                background: #7FAD39;
+                box-shadow: 0px 20px 40px rgba(111, 72, 72, 0.25);
+                border-radius: 0px;
+                border: none;
+                @include mixins.font(10px, 700, 10px);
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+
+            &_button:hover {
+                background-color: #57801a;
+            }
+        }
+    }
+
 }

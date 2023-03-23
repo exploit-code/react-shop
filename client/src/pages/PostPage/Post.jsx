@@ -38,7 +38,7 @@ const Post = (props) => {
   }
   else {
     return (
-      <div>
+      <div className='parentPost'>
         <div className='post' id='post'>
           <div className='post__up'>
             <div className='post__up_title'>{props.blogNeed.maintitle}</div>

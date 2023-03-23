@@ -32,6 +32,12 @@ const LeftSideProfile = () => {
         <ul className='navLeftSideProfile__list'>
           <li className='navLeftSideProfile__item firstLinkProfile'>
             <div className='navLeftSideProfile_line'></div>
+            <Link className='navLeftSideProfile__link' to='/profile'>
+              Profile
+            </Link>
+          </li>
+          <li className='navLeftSideProfile__item firstLinkProfile'>
+            <div className='navLeftSideProfile_line'></div>
             <Link className='navLeftSideProfile__link' to='/historyOfOrders'>
               History of orders
             </Link>
