@@ -7,35 +7,6 @@ import './ModalWindowSupport.scss'
 let style = {}
 
 const TestModalWindow = (props) => {
-
-///
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
-
-  //START of getForm
-  function getForm() {
-    let message = 'test';
-    let body = {
-      data: {
-        fullName,
-        mail,
-        message
-      }
-    };
-    fetch(`${process.env.REACT_APP_API_URL}/forms`, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    })
-        .then(() => {
-          alert('Thank You! Form Posted to Database');
-        })}
-  ///
-
-
   const handleClose = () => props.setOpen(false)
   console.log('props.dopname', props.dopname)
   let dopname = props.dopname ? props.dopname : ''
@@ -75,7 +46,7 @@ const TestModalWindow = (props) => {
           <div>{props.children}</div>
 
           <div className='modal_buttons_box'>
-            <Button onClick={getForm} type='submit' text='SUBMIT' classname='modal_button'></Button>
+            {/*<Button onClick={getForm} type='submit' text='SUBMIT' classname='modal_button'></Button>*/}
             <Button
               text='CANCEL'
               classname='modal_button'
