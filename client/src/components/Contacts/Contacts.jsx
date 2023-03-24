@@ -56,11 +56,7 @@ const Contacts = () => {
             </li>
           </ul>
         </div>
-        <MessageForm>
-          <div className='contacts_button'>
-            <Button text='SUBMIT'></Button>
-          </div>
-        </MessageForm>
+        <MessageForm/>
       </form>
       <MapOL />
     </div>

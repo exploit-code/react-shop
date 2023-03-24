@@ -33,6 +33,7 @@ const TestModalWindow = (props) => {
     bgcolor,
     borderRadius,
   }
+
   return (
     <>
       <Modal
@@ -45,8 +46,7 @@ const TestModalWindow = (props) => {
           <div>{props.children}</div>
 
           <div className='modal_buttons_box'>
-            <Button text='SUBMIT' classname='modal_button'></Button>
-
+            {/*<Button onClick={getForm} type='submit' text='SUBMIT' classname='modal_button'></Button>*/}
             <Button
               text='CANCEL'
               classname='modal_button'

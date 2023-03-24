@@ -1,8 +1,36 @@
 import './Post.scss'
 import Like from '../../components/Like/Like'
 import { Link } from 'react-router-dom'
+import {useContext} from "react";
+import {AuthContext} from "../../context/UserContext";
 
 const Post = (props) => {
+  const { user } = useContext(AuthContext);
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  //START of getForm
+  function getForm() {
+    let message = 'BlogSubscriber';
+    let body = {
+      data: {
+        fullName: 'BlogSubscriber',
+        mail: user.email,
+        message
+      }
+    };
+    fetch(`${process.env.REACT_APP_API_URL}/forms`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+        .then(() => {
+          alert('Thank You! Form Posted to Database');
+        })}
+
   if (!props.blogId) {
     return (
       <div>
@@ -75,6 +103,7 @@ const Post = (props) => {
           </div>
         </div>
         <form
+            onSubmit={handleSubmit}
           className='formsubscribe'
           style={{ display: props.showForm ? 'flex' : 'none' }}
         >
@@ -99,7 +128,7 @@ const Post = (props) => {
           <div className='formsubscribe_bottom'>
             <button
               className='formsubscribe_bottom_button'
-              onClick={props.handleSubmit}
+              onClick={getForm}
             >
               SUBSCRIBE
             </button>

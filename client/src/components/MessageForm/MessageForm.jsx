@@ -128,8 +128,7 @@ const MessageForm = (props) => {
             rows='10'
             placeholder='Your Message'
           ></textarea>
-          <div  className={dopname + 'contacts_button'}>{props.children}</div>
-          <Button onClick={getForm} className={dopname + 'contacts_button'}>eee</Button>
+            <button onClick={getForm}  className={dopname + 'contacts_button'}>SUBMIT</button>
         </div>
       </div>
       </form>
