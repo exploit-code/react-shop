@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setValue } from "../../redux/searchReducer";
 
-import Button from '../Button/Button'
 import ModalWindowSupport from '../ModalWindowSupport/ModalWindowSupport'
 import MessageForm from '../MessageForm/MessageForm'
 

@@ -8,13 +8,11 @@ const MessageForm = (props) => {
   const [mail, setMail] = useState(user?.email)
   const [fullName, setName] = useState('')
 
-  const [message, setMessage] = useState('test')
+  const [message, setMessage] = useState('')
   const [mailValid, setMailValid] = useState(false)
   const [nameValid, setNameValid] = useState(false)
-  const [messageValid, setMessageValid] = useState(false)
   const [mailError, setEmailError] = useState('Email не может быть пустым')
   const [nameError, setNameError] = useState('Имя не может быть пустым')
-  const [messageError, setMessageError] = useState('Введите сообщение')
 
   const dopname = props.dopname ? props.dopname : ''
   const handleClose = () => props.setOpen(false)
@@ -25,7 +23,6 @@ const MessageForm = (props) => {
 
   //START of getForm
   function getForm() {
-    let message = 'test'
     let body = {
       data: {
         fullName,
@@ -82,11 +79,17 @@ const MessageForm = (props) => {
     switch (e.target.name) {
       case 'mail':
         setMailValid(true)
-        break
+        break;
       case 'fullName':
         setNameValid(true)
-        break
+        break;
+      default:
     }
+  }
+
+  // Валидация поле
+  const messageHandler = (e) => {
+    setMessage(e.target.value)
   }
 
   return (
@@ -129,9 +132,12 @@ const MessageForm = (props) => {
             <div className={dopname + 'nametextbox'}>Message</div>
             <textarea
               className={dopname + 'textbox ' + dopname + 'textbox_textarea'}
+              name='message'
               cols='30'
               rows='10'
               placeholder='Your Message'
+              value={message}
+              onChange={(e) => messageHandler(e)}
             ></textarea>
 
             {dopname === 'support_' ? (
