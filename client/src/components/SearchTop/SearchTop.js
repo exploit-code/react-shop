@@ -146,7 +146,10 @@ const SearchTop = ({ takeCategoryId }) => {
                   setOpen={setOpen}
                   dopname='support'
                 >
-                  <MessageForm dopname='support_' />
+                  <MessageForm
+                    dopname='support_'
+                    setOpen={() => handleClose()}
+                  />
                 </ModalWindowSupport>
               ) : (
                 () => handleClose()
