@@ -32,15 +32,11 @@ const Form = () => {
     const [deliveryError, setDeliveryError] = useState('Адресс не может быть пустым')
 
 
-    function handleSubmit(event) {
-        event.preventDefault();
-    }
-
     // Валидация полей формы (email, firstName, secondName, deliveryAdress)
     const emailHandler = (e) => {
         setEmail(e.target.value)
         const re =
-            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
         if (!re.test(String(e.target.value).toLowerCase())) {
             setEmailError('Email должен содержать @domen.ru')
         } else {
@@ -118,6 +114,10 @@ const Form = () => {
     //         .catch(error => console.log(error));
     // }
     //END of axios
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
     const getOrder = async () => {
         try {
             await makeRequest.post("/orders", {

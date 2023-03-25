@@ -8,7 +8,6 @@ let style = {}
 
 const TestModalWindow = (props) => {
   const handleClose = () => props.setOpen(false)
-  console.log('props.dopname', props.dopname)
   let dopname = props.dopname ? props.dopname : ''
   const position = 'absolute'
   const top = '50%'
@@ -33,6 +32,7 @@ const TestModalWindow = (props) => {
     bgcolor,
     borderRadius,
   }
+
   return (
     <>
       <Modal
@@ -43,16 +43,6 @@ const TestModalWindow = (props) => {
       >
         <Box sx={style}>
           <div>{props.children}</div>
-
-          <div className='modal_buttons_box'>
-            <Button text='SUBMIT' classname='modal_button'></Button>
-
-            <Button
-              text='CANCEL'
-              classname='modal_button'
-              onClick={handleClose}
-            ></Button>
-          </div>
         </Box>
       </Modal>
     </>

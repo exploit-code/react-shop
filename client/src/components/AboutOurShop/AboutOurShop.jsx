@@ -1,5 +1,4 @@
 import './AboutOurShop.scss'
-import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 
 const AboutOurShop = () => {
@@ -9,7 +8,7 @@ const AboutOurShop = () => {
       <div className='aboutourshop__content'>
         <div className='aboutourshop__content_left'>
           <div className='aboutourshop__content_left_headingtop'>
-            We do not buy from the open market &amp; traders.
+            We do not buy <br />from the open market<br /> &amp; traders.
           </div>
 
           <div className='aboutourshop__content_left_downtext'>

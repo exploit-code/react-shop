@@ -1,7 +1,50 @@
 import './footer.scss'
 import { Link } from 'react-router-dom'
+import {useState} from "react";
 
 const Footer = () => {
+///new
+  const [email, setEmail] = useState('');
+  const [mailValid, setMailValid] = useState(false)
+  const [mailError, setEmailError] = useState('Email не может быть пустым')
+  // Валидация полей формы (email, firstName, secondName, deliveryAdress)
+  const emailHandler = (e) => {
+    setEmail(e.target.value)
+    const re =
+        /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    if (!re.test(String(e.target.value).toLowerCase())) {
+      setEmailError('Email должен содержать @domen.ru')
+    } else {
+      setEmailError('')
+    }
+  }
+
+  /////////
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  //START of getForm
+  function getForm() {
+    let message = 'test';
+    let body = {
+      data: {
+        fullName: 'SubscribeForm',
+        mail:email,
+        message: 'SubscribeForm'
+      }
+    };
+    fetch(`${process.env.REACT_APP_API_URL}/forms`, {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+        .then(() => {
+          alert('Thank You! Form Posted to Database');
+        })}
+
   return (
     <footer className='footer' id='footer'>
       <div className='container'>
@@ -41,13 +84,17 @@ const Footer = () => {
             <p className='footer__top__right__subtitle'>
               Get e-mail updates about our latest Shop and special offers.
             </p>
-            <form action='#' className='footer__top__right__form'>
+            <form onSubmit={handleSubmit} className='footer__top__right__form'>
               <input
-                type='email'
+                  name="email"
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => emailHandler(e)}
                 className='footer__top__right__input'
                 placeholder='Enter Your Email Address'
               />
-              <button type='submit' className='footer__top__right__btn'>
+              <button onClick={getForm} type='submit' className='footer__top__right__btn'>
                 Subscribe
               </button>
             </form>

@@ -12,7 +12,7 @@ const Contacts = () => {
           <div className='contacts__content_headingh'>Contact Us</div>
         </div>
       </div>
-      <form action='#' className='container contactsmain'>
+      <form  className='container contactsmain'>
         <div className='infocontactspage'>
           <div className='align_img'>
             <img className='pic' src='img/pngwing.png' alt='picturecontactus' />
@@ -56,11 +56,7 @@ const Contacts = () => {
             </li>
           </ul>
         </div>
-        <MessageForm>
-          <div className='contacts_button'>
-            <Button text='SUBMIT'></Button>
-          </div>
-        </MessageForm>
+        <MessageForm/>
       </form>
       <MapOL />
     </div>
