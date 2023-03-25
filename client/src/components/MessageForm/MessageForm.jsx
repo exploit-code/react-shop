@@ -133,11 +133,9 @@ const MessageForm = (props) => {
               rows='10'
               placeholder='Your Message'
             ></textarea>
-            {/* <button onClick={getForm}  className={dopname + 'contacts_button'}>SUBMIT</button> */}
 
             {dopname === 'support_' ? (
               <div className='modal_buttons_box'>
-                {/*<Button onClick={getForm} type='submit' text='SUBMIT' classname='modal_button'></Button>*/}
                 <button onClick={getForm} className='button modal_button'>
                   SUBMIT
                 </button>
