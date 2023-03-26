@@ -1,6 +1,7 @@
 import './button.scss';
 
 const Button = ({
+  type,
   text,
   classname,
   onClick = () => {
@@ -9,7 +10,7 @@ const Button = ({
 }) => {
   classname = classname ? classname : ''
   return (
-    <button type='button' className={'button ' + classname} onClick={onClick}>
+    <button type='submit' className={'button ' + classname} onClick={onClick}>
       {text}
     </button>
   )
