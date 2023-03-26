@@ -1,7 +1,7 @@
 
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/UserContext';
-import { getAuth, deleteUser, sendPasswordResetEmail, updateProfile } from "firebase/auth";
+import { getAuth, deleteUser, sendPasswordResetEmail, updateProfile, updateEmail } from "firebase/auth";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './Profile.scss';
@@ -11,7 +11,8 @@ const Profile = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const { user, logOut } = useContext(AuthContext);
-  const [name, setName] = useState(user.displayName);
+  const [customName, setCustomName] = useState(user.displayName);
+  const [customEmail, setCustomEmail] = useState(user.email);
 
   //
   const { data } = useFetch(
@@ -57,13 +58,22 @@ const Profile = () => {
   }
 
 
-  const updateAccount = () => {
+  const upName = () => {
     updateProfile(auth.currentUser, {
-      displayName: name
+      displayName: customName,
     }).then(() => {
       navigate('/profile');
     })
   }
+
+  const upEmail = () => {
+    updateEmail(auth.currentUser, customEmail).then(() => {
+      navigate('/profile');
+    }).catch(() => {
+      handleSignOut();
+    })
+  }
+
 
 
   const avatarName = user.displayName?.slice(0, 2);
@@ -170,11 +180,22 @@ const Profile = () => {
           <ul className='actions__list'>
 
 
-            <li >
-              <input type="text"
-                onChange={(e) => setName(e.target.value)} />
-              <button type='submit' onClick={updateAccount}>edit</button>
-            </li>
+
+            <section className='edit-data'>
+              <div className='edit-data__item'>
+                <input className='edit-data__input' type="text"
+                  onChange={(e) => setCustomName(e.target.value)} required />
+                <button className='edit-data__btn' type='submit' onClick={upName}>edit name</button>
+              </div>
+
+              <div className='edit-data__item'>
+                <input className='edit-data__input' type="email"
+                  onChange={(e) => setCustomEmail(e.target.value)} required />
+                <button className='edit-data__btn' type='submit' onClick={upEmail}>edit email</button>
+              </div>
+            </section>
+
+
 
 
             <li className='actions__link' onClick={changePassword}>
