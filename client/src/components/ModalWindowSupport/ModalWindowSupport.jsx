@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '../Button/Button'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import './ModalWindowSupport.scss'
@@ -12,7 +11,7 @@ const TestModalWindow = (props) => {
   const position = 'absolute'
   const top = '50%'
   const left = '50%'
-  let width = 0
+  let width
   const transform = 'translate(-50%, -50%)'
   if (dopname === 'support') {
     width = 444
