@@ -243,3 +243,12 @@
     justify-content: center;
     //margin-top: 100px;
 }
+
+.disabled {
+    cursor: not-allowed;
+    background-color: grey;
+
+    &:hover{
+        background-color: grey;
+    }
+}

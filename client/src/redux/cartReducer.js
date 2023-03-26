@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
-  promo: '',
+  promoCode: [],
 };
 
 export const cartSlice = createSlice({
@@ -39,28 +39,50 @@ export const cartSlice = createSlice({
       }
     },
     setPromo: (state, action) => {
-      state.promo = action.payload
+      const promo = state.promoCode.find((item) => item === action.payload);
+      if(promo !== action.payload) {
+        state.promoCode.push(action.payload)
+      } else {
+        // state.promoCode = state.promoCode.filter((item) => item !== action.payload)
+      }
     },
     addPromo: (state, action) => {
       const item = state.products.find((item) => item.id === action.payload.id);
-      const GOOD10 = 'GOOD10';
       const GOOD5 = 'GOOD5';
-
-      if(state.promo === GOOD10) {
-        item.price = (Number(item.price) * 0.9).toFixed(2);
-        item.totalPriceItem = (Number(item.totalPriceItem) * 0.9).toFixed(2);
-      } else if(state.promo === GOOD5) {
+      const GOOD10 = 'GOOD10';
+      const GOOD15 = 'GOOD15';
+      const GOOD20 = 'GOOD20';
+      const promo = state.promoCode.find((item) => item === action.payload.value);
+      if(promo === GOOD5) {
         item.price = (Number(item.price) * 0.95).toFixed(2);
         item.totalPriceItem = (Number(item.totalPriceItem) * 0.95).toFixed(2);
-      } else if(state.promo === null || undefined || '') {
-        (item.price).toFixed(2);
-        (item.totalPriceItem).toFixed(2);
-      } else {}
+      } else if(promo === GOOD10) {
+        item.price = (Number(item.price) * 0.9).toFixed(2);
+        item.totalPriceItem = (Number(item.totalPriceItem) * 0.9).toFixed(2);
+      }else if(promo === GOOD15) {
+        item.price = (Number(item.price) * 0.85).toFixed(2);
+        item.totalPriceItem = (Number(item.totalPriceItem) * 0.85).toFixed(2);
+      }else if(promo === GOOD20) {
+        item.price = (Number(item.price) * 0.8).toFixed(2);
+        item.totalPriceItem = (Number(item.totalPriceItem) * 0.8).toFixed(2);
+      }
+    },
+    resetPromo: (state) => {
+      state.promoCode = []
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart, removeItems, resetCart, addItem, deleteItem, setPromo, addPromo } = cartSlice.actions;
+export const {
+  addToCart,
+  removeItems,
+  resetCart,
+  addItem,
+  deleteItem,
+  setPromo,
+  addPromo,
+  resetPromo
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
