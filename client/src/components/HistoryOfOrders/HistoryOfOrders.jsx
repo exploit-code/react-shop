@@ -1,7 +1,7 @@
 import './HistoryOfOrders.scss'
 import HistoryOfOrdersCard from '../HistoryOfOrdersCard/HistoryOfOrdersCard'
 import LeftSideProfile from '../LeftSideProfile/LeftSideProfile'
-import { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../context/UserContext'
 import useFetch from '../../hooks/useFetch'
 import Alert from '@mui/material/Alert'
@@ -12,42 +12,86 @@ const HistoryOfOrders = () => {
 
   const { user } = useContext(AuthContext);
   const { data, error, loading } = useFetch(`orders?filters[mail][$eq]=${user.email}`)
+  const [value, setValue] = useState('all');
 
   const fnSort = (a, b) => (a.id < b.id) ? 1 : -1
   data?.sort(fnSort)
 
-  const sumCurrentOrders= data?.filter(el =>el.attributes.orderStatus === 'current')
-  const sumCompletedOrders= data?.filter(el =>el.attributes.orderStatus === 'completed')
-  const sumCanceledOrders= data?.filter(el =>el.attributes.orderStatus === 'canceled')
-  
- 
+  const selectOrders = (value === 'all') ? data : data?.filter(el => el.attributes.orderStatus === value)
+  const sumCurrentOrders = data?.filter(el => el.attributes.orderStatus === 'current')
+  const sumCompletedOrders = data?.filter(el => el.attributes.orderStatus === 'completed')
+  const sumCanceledOrders = data?.filter(el => el.attributes.orderStatus === 'canceled')
+
+  const handleClick = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div className='historyOfOrders'>
       <div className='historyOfOrders_leftPart'>
-        <LeftSideProfile />
+        <LeftSideProfile/>
       </div>
-      <div className='historyOfOrders_rightPart'>
+      <form className='historyOfOrders_rightPart'>
         <div className='historyOfOrders_heading'>History of orders</div>
         <div className='historyOfOrders_filter_box'>
           <ul className='historyOfOrders_filter_ul'>
+            <input
+              className='historyOfOrders_filter_input'
+              id='1'
+              type="radio"
+              name='radio'
+              value='all'
+              onChange={handleClick}
+              checked={value === 'all'}
+            />
             <li className='historyOfOrders_filter_link linkorders_first'>
-              All orders ({data?.length})
+
+              <label className='historyOfOrders_filter_label' htmlFor='1'>All orders ({data?.length})</label>
             </li>
+            <input
+              className='historyOfOrders_filter_input'
+              id='2'
+              type="radio"
+              name='radio'
+              value='current'
+              onChange={handleClick}
+              checked={value === 'current'}
+            />
             <li className='historyOfOrders_filter_link'>
-              Current ({sumCurrentOrders?.length})
+
+              <label className='historyOfOrders_filter_label' htmlFor='2'>Current ({sumCurrentOrders?.length})</label>
             </li>
+            <input
+              className='historyOfOrders_filter_input'
+              id='3'
+              type="radio"
+              name='radio'
+              value='completed'
+              onChange={handleClick}
+              checked={value === 'completed'}
+            />
             <li className='historyOfOrders_filter_link'>
-              Completed ({sumCompletedOrders?.length})
+
+              <label className='historyOfOrders_filter_label' htmlFor='3'>Completed ({sumCompletedOrders?.length})</label>
             </li>
+            <input
+              className='historyOfOrders_filter_input'
+              id='4'
+              type="radio"
+              name='radio'
+              value='canceled'
+              onChange={handleClick}
+              checked={value === 'canceled'}
+            />
             <li className='historyOfOrders_filter_link'>
-              Canceled ({sumCanceledOrders?.length})
+
+              <label className='historyOfOrders_filter_label' htmlFor='4'>Canceled ({sumCanceledOrders?.length})</label>
             </li>
           </ul>
           <div className='historyOfOrders_heading-mini_box'>
-            <div className='historyOfOrders_heading-mini'>All orders</div>
+            <div className='historyOfOrders_heading-mini'>{value}</div>
             <div className='historyOfOrders_heading-mini'>
-              {data?.length} orders
+              {selectOrders?.length} orders
             </div>
           </div>
           <div className='historyOfOrders_line'></div>
@@ -59,11 +103,11 @@ const HistoryOfOrders = () => {
                   ? (<Box sx={{ display: 'flex', justifyContent: 'center' }}>
                       <CircularProgress color="success"/>
                     </Box>) 
-                  : data?.map((order, i) => {
-            return <HistoryOfOrdersCard order={order.attributes} key={i} />
+                  : selectOrders?.map((order, i) => {
+            return <HistoryOfOrdersCard value={value} order={order.attributes} key={i} />
           })}
         </div>
-      </div>
+      </form>
     </div>
   )
 }
