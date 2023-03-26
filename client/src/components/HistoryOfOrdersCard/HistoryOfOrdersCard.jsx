@@ -15,17 +15,14 @@ const HistoryOfOrdersCard = ({ order }) => {
   const array =[]
   order.cartItems.map(el => array.push(el.price * el.quantity))
   const totalAmount = array.reduce((prev, cur) => prev + cur, 0).toFixed(2)
-  
-  console.log(createdAt)
 
-  
-  return (
+   return (
     <div className='orderCardForHistory'>
       <div className='orderCardForHistory_order_card'>
         <div
           className={'orderCardForHistory_status_order ' + order.orderStatus}
         >
-          <span class={'icon i' + order.orderStatus}></span>
+          <span className={'icon i' + order.orderStatus}></span>
           {order.orderStatus}
         </div>
         <div className={'orderCardForHistory_number_order'}>
@@ -78,7 +75,7 @@ const HistoryOfOrdersCard = ({ order }) => {
                 <img
                   src={process.env.REACT_APP_UPLOAD_URL + img}
                   alt=''
-                  class={'imgOrder_round absolute_' + i}
+                  className={'imgOrder_round absolute_' + i}
                   key={i}
                 ></img>
               )
@@ -88,7 +85,7 @@ const HistoryOfOrdersCard = ({ order }) => {
                 <img
                   src={'img/dots.png'}
                   alt=''
-                  class={'imgOrder_round_dots absolute_' + i}
+                  className={'imgOrder_round_dots absolute_' + i}
                   key={i}
                 ></img>
               )
