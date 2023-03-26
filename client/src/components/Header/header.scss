@@ -71,7 +71,7 @@
     &__logo {
         font-family: Inter, sans-serif;
         @include mixins.font(31px, 900, 100%);
-        color: #2A2A2A;
+        color: #2A2A2A!important;
     }
 
     &__email {

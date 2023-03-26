@@ -154,7 +154,7 @@ const Header = () => {
 
       <div className='header__box header__box--white'>
         <div className='header__content container'>
-          <CustomLink className='header__logo' to='/'>
+          <CustomLink classes='header__logo' to='/'>
             GOOD-FOOD🍎🥝
           </CustomLink>
 
