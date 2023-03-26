@@ -1,25 +1,44 @@
-import React, {useContext} from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './cart-style.scss';
 import cartPng from './img/cart.png'
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItems, deleteItem } from "../../redux/cartReducer";
+import { addItem, removeItems, deleteItem, setPromo, addPromo, resetPromo } from "../../redux/cartReducer";
 import { makeRequest } from "../../makeRequest";
 import { loadStripe } from "@stripe/stripe-js";
 import ModalWindow from '../../components/ModalWindow/ModalWindow';
-import {AuthContext} from "../../context/UserContext";
+import { AuthContext } from "../../context/UserContext";
 
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.products)
+  const promo = useSelector((state) => state.cart.promoCode)
   const dispatch = useDispatch()
-  // const [shopOrder, setShopOrder] = useState(false)
-  // const [payMethod, setValuePayMethod] = useState('')
-  // const [payCash, setPayCash] = useState(false);
 
   const stripePromise = loadStripe("pk_test_51MS8CGDhtufCoDjnZyf7MYjgOOjpS7OPMLd0RRfnO5xTJjNotjTNT4xB5N9V72Znd5CnXxrThvAHQVtwdIAyHuOF00Mh08hlMX");
-
   const { user } = useContext(AuthContext);
+
+  const [promoCodes, setPromoCodes] = useState([])
+  const [promoValue, setPromoValue] = useState('')
+
+  const addPromoCode = () => (
+    cartItems.forEach((item) => {
+      dispatch(addPromo({ id: item.id, value: promoValue }))
+    })
+  )
+
+  const handlerChangePromoInput = (event) => {
+    event.preventDefault();
+    setPromoCodes([...promoCodes, promoValue]);
+    (() => {
+      return promoValue !== '' || null ? dispatch(setPromo(promoValue)) : ''
+    })()
+    addPromoCode();
+    setPromoValue('')
+  }
+
+  // console.log('promoValue', promoValue)
+  console.log('promo', promo)
 
   const checkoutPayment = async () => {
     try {
@@ -40,9 +59,9 @@ const Cart = () => {
     }
   };
 
-
-
-  console.log('cartitems', cartItems)
+  const onChangePromoInput = (event) => {
+    setPromoValue(event.target.value)
+  }
 
   // end of Checkout
 
@@ -66,6 +85,10 @@ const Cart = () => {
   //   }
   // };
 
+  const handleDeleteItem = (item) => {
+    dispatch(removeItems(item))
+    dispatch(resetPromo())
+  }
 
   return (
     <>
@@ -102,7 +125,7 @@ const Cart = () => {
                       </div>
                       <div>
                         <button className='cart-total-remove-btn'
-                          onClick={() => dispatch(removeItems(item))}
+                                onClick={() => handleDeleteItem(item)}
                         >
                           Remove
                         </button>
@@ -110,6 +133,23 @@ const Cart = () => {
                     </div>
                   </div>
                 ))}
+
+                <form onSubmit={handlerChangePromoInput} className='login'>
+                  <h3
+                    className='login__title'>{promo.find((item) => item === promoValue) ? 'Invalid promo code!' : 'Do you have a promo code?'}</h3>
+                  <input
+                    onChange={(event) => onChangePromoInput(event)}
+                    value={promoValue}
+                    className='login__input'
+                    type="text"
+                    placeholder="Your secret phrase..."
+                  />
+                  {promo.find((item) => item === promoValue) ? (
+                    <button disabled className='login__btn disabled'> I want a discount!!! </button>
+                  ) : (
+                    <button className='login__btn '> I want a discount!!! </button>
+                  )}
+                </form>
               </section>
 
               <div className='testModal cart-btn-wrp'>
