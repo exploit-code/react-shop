@@ -3,16 +3,17 @@ import PartWithBannersAndFilters from "../../components/PartWithBannersAndFilter
 import Blog from '../../components/Blog/Blog';
 import Catalog from "../../components/Catalog/Catalog";
 // import SearchTop from '../../components/SearchTop/SearchTop'
-import Categories from "../../components/Categories/Categories";
+// import Categories from "../../components/Categories/Categories";
 import BannerMainPage from "../../components/BannerMainPage/BannerMainPage";
 
 const HomePage = () => {
   return (
     <>
       <BannerMainPage />
-      <Categories />
+      {/*<Categories />*/}
+
       <PartWithBannersAndFilters />
-      <Catalog />
+        <Catalog />
       <Blog />
     </>
   )
