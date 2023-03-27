@@ -8,7 +8,7 @@ const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
-    const { cartItems, mail, firstName, secondName, phone, deliveryAddress, payByCreditCard,firebaseId,orderStatus  } = ctx.request.body;
+    const { cartItems,promo, mail, firstName, secondName, phone, deliveryAddress, payByCreditCard,firebaseId,orderStatus  } = ctx.request.body;
     try {
       const lineItems = await Promise.all(
           cartItems.map(async (product) => {
@@ -20,9 +20,9 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
               currency: "usd",
               product_data: {
                 name: item.title,
-                images: [`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjhvlNVIhPr0-3KfmZWQ3YdSWjqb-kHQSvX63ILu68KNEsPQ6x`],
+                images: [item.img],
               },
-              unit_amount: Math.round(product.price * 100),
+              unit_amount: Math.round(item.price * 100),
             },
             quantity: product.quantity,
           };
@@ -33,6 +33,9 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         shipping_address_collection: {allowed_countries: ['US', 'CA']},
         payment_method_types: ["card"],
         mode: "payment",
+        discounts: [{
+          coupon: promo[0],
+        }],
         success_url: process.env.CLIENT_URL+"/success.html",
         cancel_url: process.env.CLIENT_URL+"?success=false",
         line_items: lineItems,

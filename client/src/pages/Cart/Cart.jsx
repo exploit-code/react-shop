@@ -45,6 +45,7 @@ const Cart = () => {
       const stripe = await stripePromise;
       const res = await makeRequest.post("/orders", {
         cartItems,
+        promo,
         mail: user?.email,
         firebaseId: user?.uid,
         payByCreditCard: 'OnlinePay',
