@@ -137,7 +137,7 @@ const Cart = () => {
 
                 <form onSubmit={handlerChangePromoInput} className='login'>
                   <h3
-                    className='login__title'>{promo.find((item) => item === promoValue) ? 'Invalid promo code!' : 'Do you have a promo code?'}</h3>
+                    className='login__title'>{promo.find((item) => item === promoValue) ? 'Promo code is not valid!' : 'Do you have a promo code?'}</h3>
                   <input
                     onChange={(event) => onChangePromoInput(event)}
                     value={promoValue}
