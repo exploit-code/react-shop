@@ -10,7 +10,7 @@ const Button = ({
 }) => {
   classname = classname ? classname : ''
   return (
-    <button type='submit' className={'button ' + classname} onClick={onClick}>
+    <button type={'submit'} className={'button ' + classname} onClick={onClick}>
       {text}
     </button>
   )

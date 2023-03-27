@@ -1,63 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductsList from "../../components/ProductsList/ProductsList";
 import useFetch from "../../hooks/useFetch";
+import PrettoSlider from './SliderStyle'
 import "./ProductsPage.scss";
 import iconTile from '../../images/tiles.png';
 import iconList from '../../images/list.png';
 import Button from "../../components/Button/Button";
 import Stack from '@mui/material/Stack';
-import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 
-const PrettoSlider = styled(Slider)({
-  color: '#52af77',
-  height: 8,
-  '& .MuiSlider-track': {
-    border: 'none',
-  },
-  '& .MuiSlider-thumb': {
-    height: 24,
-    width: 24,
-    backgroundColor: '#fff',
-    border: '2px solid currentColor',
-    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-      boxShadow: 'inherit',
-    },
-    '&:before': {
-      display: 'none',
-    },
-  },
-  '& .MuiSlider-valueLabel': {
-    lineHeight: 1.2,
-    fontSize: 12,
-    background: 'unset',
-    padding: 0,
-    width: 32,
-    height: 32,
-    borderRadius: '50% 50% 50% 0',
-    backgroundColor: '#52af77',
-    transformOrigin: 'bottom left',
-    transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
-    '&:before': { display: 'none' },
-    '&.MuiSlider-valueLabelOpen': {
-      transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
-    },
-    '& > *': {
-      transform: 'rotate(45deg)',
-    },
-  },
-});
 
 const ProductsPage = () => {
   const catId = parseInt(useParams().id);
-  const [maxPrice, setMaxPrice] = useState(100);
+  const [maxPrice, setMaxPrice] = useState(50);
   const [sort, setSort] = useState("asc");
   const [selectedSubCats, setSelectedSubCats] = useState([]);
   const [value, setValue] = useState(0);
-  const [priceValue, setPriceValue] = React.useState(30);
+  const [priceValue, setPriceValue] = useState(50);
+  const [products, setProducts] = useState([])
 
   const { data } = useFetch(
     `/sub-categories?[filters][categories][id][$eq]=${catId}`
@@ -74,52 +40,79 @@ const ProductsPage = () => {
     );
     setValue(value);
   };
-  const resetChange = () => {
-    setSelectedSubCats([]);
-  };
-
-  console.log('priceValue', priceValue)
 
   const [view, setView] = useState(true);
 
-  const handleChangePrice = (event, newValue) => {
-    setPriceValue(newValue);
+  const marks = [
+    {
+      value: 0,
+      label: '0$',
+    },
+    {
+      value: 50,
+      label: '50$',
+    },
+    {
+      value: 100,
+      label: '100$',
+    },
+  ];
+
+  function valuetext(value) {
+    return `${value}°C`;
+  }
+
+  const handleValueChange = (event, newValue) => {
+    setMaxPrice(newValue);
   };
+  const handlePriceChange = (event) => {
+    event.preventDefault();
+    setPriceValue(maxPrice);
+  };
+
+  useEffect(() => {
+    const title = data?.map((item) => ({
+      title: item.attributes.title,
+      id: item.id
+    }))
+    let copy = Object.assign([], title);
+    copy.push({ title: 'All Products', id: 0 })
+    copy.reverse()
+    setProducts(copy)
+  }, [data])
 
   return (
     <div className="products">
       <div className="left">
         <div className="filterItem">
           <h2>Product Filters</h2>
-          <form>
-            <div className="inputItem">
-              <input
-                type="radio"
-                name='filter'
-                value={value}
-                id='0'
-                onClick={resetChange}
-              />
-              <label htmlFor='0'>All Products</label>
-            </div>
-
-            {data?.map((item) => (
-              <div className="inputItem" key={item.id}>
-                <input
-                  type="radio"
-                  name='filter'
-                  id={item.id}
+          <FormControl className="inputItem">
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+              value={value}
+              onChange={handleChange}
+            >
+              {products.map((item) => (
+                <FormControlLabel
+                  key={item.id}
+                  className="inputItem"
                   value={item.id}
-                  onClick={handleChange}
-                  // checked={Number(value) === Number(item.id)}
+                  control={
+                    <Radio
+                      color='success'
+                      size='small'
+                    />
+                  }
+                  label={item.title}
                 />
-                <label htmlFor={item.id}>{item.attributes.title}</label>
-              </div>
-            ))}
-          </form>
+              ))}
+            </RadioGroup>
+          </FormControl>
 
         </div>
-        <div className="filterItem">
+        <form className="filterItem">
           <h2>Filter by price</h2>
           <Box sx={{ width: 150 }}>
             <Stack
@@ -129,53 +122,53 @@ const ProductsPage = () => {
               alignItems="center"
             >
               <PrettoSlider
+                aria-labelledby="track-false-slider"
                 valueLabelDisplay="auto"
                 aria-label="pretto slider"
-                defaultValue={20}
-                max={300}
-                onChange={handleChangePrice}
+                max={100}
+                defaultValue={50}
+                marks={marks}
+                getAriaValueText={valuetext}
+                onChange={handleValueChange}
               />
             </Stack>
+            <Button onClick={handlePriceChange} classname='filter__btn' text='Apply'/>
           </Box>
-          <div className="inputItem">
-            <span>0</span>
-            <input
-              type="range"
-              min={10}
-              max={100}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            />
-            <span>{maxPrice}</span>
-          </div>
-        </div>
+        </form>
         <div className="filterItem">
           <h2>Sort by</h2>
-          <div className="inputItem">
-            <input
-              type="radio"
-              id="asc"
-              value="asc"
-              name="price"
-              onChange={(e) => setSort("asc")}
-            />
-            <label htmlFor="asc"> Price (Lowest first)</label>
-          </div>
-          <div className="inputItem">
-            <input
-              type="radio"
-              id="desc"
-              value="desc"
-              name="price"
-              onChange={(e) => setSort("desc")}
-            />
-            <label htmlFor="desc">Price (Highest first)</label>
-          </div>
-          {/*<Button*/}
-          {/*  classname='input__btn'*/}
-          {/*  type='submit'*/}
-          {/*  text='Apply filter'*/}
-          {/*  // onClick={() => handleChange}*/}
-          {/*/>*/}
+          <FormControl className="inputItem">
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+            >
+              <FormControlLabel
+                className="inputItem"
+                value="asc"
+                control={
+                  <Radio
+                    color='success'
+                    size='small'
+                  />
+                }
+                label="Price (Lowest first)"
+              />
+              <FormControlLabel
+                className="inputItem"
+                value="desc"
+                control={
+                  <Radio
+                    color='success'
+                    size='small'
+                  />
+                }
+                label="Price (Highest first)"
+              />
+            </RadioGroup>
+          </FormControl>
         </div>
 
         <div className="filterItem">
@@ -188,10 +181,14 @@ const ProductsPage = () => {
 
       </div>
       <div className="right">
-
-        {/*<Catalog />*/}
-        <ProductsList catId={catId} maxPrice={maxPrice} sort={sort} subCats={selectedSubCats} view={view}
-                      setView={setView}/>
+        <ProductsList
+          catId={catId}
+          maxPrice={priceValue}
+          sort={sort}
+          subCats={selectedSubCats.find(el => el === '0') ? setSelectedSubCats([]) : selectedSubCats}
+          view={view}
+          setView={setView}
+        />
       </div>
     </div>
   );
