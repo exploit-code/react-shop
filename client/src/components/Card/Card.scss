@@ -67,3 +67,14 @@
     color: var(--green);
   }
 }
+
+@media screen and (max-width:768px) {
+
+  .product-card {
+    max-width: 270px;
+
+    &__content {
+      max-width: 202px;
+    }
+  }
+}

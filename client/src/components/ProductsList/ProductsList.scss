@@ -33,3 +33,14 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+
+  .products-box {
+    gap: 10px;
+
+    &.products-box--tile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
