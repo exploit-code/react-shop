@@ -97,14 +97,14 @@ const HistoryOfOrders = () => {
           <div className='historyOfOrders_line'></div>
         </div>
         <div className='historyOfOrders_orders_box'>
-          {error 
-          ? <Alert severity="error">Something went wrong!</Alert> 
-          : loading 
+          {error
+          ? <Alert severity="error">Something went wrong!</Alert>
+          : loading
                   ? (<Box sx={{ display: 'flex', justifyContent: 'center' }}>
                       <CircularProgress color="success"/>
-                    </Box>) 
+                    </Box>)
                   : selectOrders?.map((order, i) => {
-            return <HistoryOfOrdersCard value={value} order={order.attributes} key={i} />
+            return <HistoryOfOrdersCard value={value} order={order} key={i} />
           })}
         </div>
       </form>
