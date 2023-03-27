@@ -154,7 +154,7 @@ const Cart = () => {
               </section>
 
               <div className='testModal cart-btn-wrp'>
-                <ModalWindow checkoutPayment={checkoutPayment}  mail={user?.email}></ModalWindow>
+                <ModalWindow checkoutPayment={checkoutPayment} promo={promo}  mail={user?.email}></ModalWindow>
               </div>
 
               {/* new code 05.03*/}

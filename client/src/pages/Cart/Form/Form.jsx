@@ -7,7 +7,7 @@ import { makeRequest } from "../../../makeRequest";
 import {AuthContext} from "../../../context/UserContext";
 
 
-const Form = () => {
+const Form = (promo) => {
     const cartItems = useSelector((state) => state.cart.products)
     const { user } = useContext(AuthContext);
     //**START of controlled input
@@ -124,6 +124,7 @@ const Form = () => {
                 cartItems,
                 mail: user?.email,
                 firstName,
+                promo,
                 secondName,
                 phone,
                 deliveryAddress,

@@ -43,7 +43,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
       await strapi
         .service("api::order.order")
-        .create({ data: {  lineItems, stripeId: session.id, mail, firstName, secondName, phone, deliveryAddress, payByCreditCard,firebaseId,orderStatus } });
+        .create({ data: {  cartItems, stripeId: session.id, mail, firstName, secondName, phone, deliveryAddress, payByCreditCard,firebaseId,orderStatus } });
 
       return { stripeSession: session };
     } catch (error) {
