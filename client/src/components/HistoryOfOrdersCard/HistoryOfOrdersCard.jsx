@@ -1,9 +1,9 @@
 import './HistoryOfOrdersCard.scss'
 
 const HistoryOfOrdersCard = ({ order }) => {
-  
 
-  const registrationDate = order.createdAt
+
+  const registrationDate = order.attributes.createdAt
   const createdAtStr = registrationDate.slice(0, 10);
   const dateCreatedAtArr = createdAtStr.split('')
   dateCreatedAtArr.splice(4, 1, '/')
@@ -13,20 +13,20 @@ const HistoryOfOrdersCard = ({ order }) => {
   const timeDelivery = registrationDate.slice(11, 19)
 
   const array =[]
-  order.cartItems.map(el => array.push(el.price * el.quantity))
+  order.attributes.cartItems.map(el => array.push(el.price * el.quantity))
   const totalAmount = array.reduce((prev, cur) => prev + cur, 0).toFixed(2)
 
    return (
     <div className='orderCardForHistory'>
       <div className='orderCardForHistory_order_card'>
         <div
-          className={'orderCardForHistory_status_order ' + order.orderStatus}
+          className={'orderCardForHistory_status_order ' + order.attributes.orderStatus}
         >
-          <span className={'icon i' + order.orderStatus}></span>
-          {order.orderStatus}
+          <span className={'icon i' + order.attributes.orderStatus}></span>
+          {order.attributes.orderStatus}
         </div>
         <div className={'orderCardForHistory_number_order'}>
-          Courier delivery No.{order.number ? order.number : '32568'}
+          Courier delivery No.{order.id}
         </div>
         <div className='orderCardForHistory_infoOrder_box'>
           <div className={'orderCardForHistory_infoOrder_title'}>
@@ -49,7 +49,7 @@ const HistoryOfOrdersCard = ({ order }) => {
             Address:&nbsp;
           </div>
           <div className={'orderCardForHistory_infoOrder_info'}>
-            {order.deliveryAddress ? order.deliveryAddress : '60-49 Road 11378 NewYork'}
+            {order.attributes.deliveryAddress ? order.attributes.deliveryAddress : '60-49 Road 11378 NewYork'}
           </div>
         </div>
         <div className='orderCardForHistory_infoOrder_box'>
@@ -57,7 +57,7 @@ const HistoryOfOrdersCard = ({ order }) => {
             Payment method:&nbsp;
           </div>
           <div className={'orderCardForHistory_infoOrder_info'}>
-            {order.payByCreditCard}
+            {order.attributes.payByCreditCard}
           </div>
         </div>
         <div className='orderCardForHistory_infoOrder_box'>
@@ -69,7 +69,7 @@ const HistoryOfOrdersCard = ({ order }) => {
           </div>
         </div>
         <div className='orderCardForHistory_imgOrder_box posreletive'>
-          {order.cartItems.map(({img}, i) => {
+          {order.attributes.cartItems.map(({img}, i) => {
             if (i < 3) {
               return (
                 <img
