@@ -2,8 +2,9 @@
     font-family: 'Cerebri Sans Pro';
     src: url(../../fonts/Cerebri.Sans.Pro/CerebriSansPro-Medium.ttf) format('truetype');
 }
-.contacts__content{
-    &_textheader{
+
+.contacts__content {
+    &_textheader {
         background-image: url("img/Rectangle.png");
         background-repeat: no-repeat;
         background-position: center;
@@ -11,7 +12,8 @@
         text-align: center;
         margin-top: 24px;
     }
-    &_headingh{
+
+    &_headingh {
         font-weight: 500;
         font-size: 58px;
         line-height: 24px;
@@ -20,8 +22,9 @@
         color: #7FAD39;
     }
 }
-.text{
-      
+
+.text {
+
     color: #7FAD39;
     letter-spacing: 0.05em;
     text-align: left;
@@ -30,95 +33,106 @@
     line-height: 30px;
 }
 
-.containermap{
+.containermap {
     max-width: 1140px;
     margin: 0 auto;
 }
 
-.container_contactus{
-    
+.container_contactus {
+
     padding-bottom: 80px;
     padding-top: 80px;
 }
 
-.heading-mini{
+.heading-mini {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     line-height: 30px;
     font-size: 20px;
     color: #2A2A2A;
+
     // 
-    &_contactus{
-        
+    &_contactus {
+
         margin-bottom: 24px;
         margin-top: 24px;
-    
+
     }
 }
 
-.infocontactspage{
+.infocontactspage {
     max-width: 466px;
 }
 
-.pic{
+.pic {
     height: 248px;
-  
+
 }
 
-.listcontacts{
+.listcontacts {
     display: flex;
     list-style-type: none;
 }
-.listcontacts_first{
+
+.listcontacts_first {
     margin-bottom: 12px;
 }
-.listcontacts:first-child::before{
-content: url("img/phone.svg");
-    
-    display: block;
-    margin-right: 19px;
-}
- .listcontacts:nth-child(2)::before {
+
+.listcontacts:first-child::before {
     content: url("img/phone.svg");
-   
+
     display: block;
     margin-right: 19px;
 }
-.contactslink{
+
+.listcontacts:nth-child(2)::before {
+    content: url("img/phone.svg");
+
+    display: block;
+    margin-right: 19px;
+}
+
+.contactslink {
     color: #7FAD39;
 }
-.listcontactsweb{
+
+.listcontactsweb {
     display: flex;
     list-style-type: none;
-    
-}
-.listcontactsweb_first{
-    margin-bottom: 16px;
-    
-}
-.listcontactsweb:first-child::before{
-    content: url("img/web.svg");
-    
-    display: block;
-    margin-right: 19px;
-    
 
 }
-.listcontactsweb:nth-child(2)::before {
-    content: url("img/mail.svg");
-    
+
+.listcontactsweb_first {
+    margin-bottom: 16px;
+
+}
+
+.listcontactsweb:first-child::before {
+    content: url("img/web.svg");
+
     display: block;
     margin-right: 19px;
-    
+
+
 }
-.contactsmain{
+
+.listcontactsweb:nth-child(2)::before {
+    content: url("img/mail.svg");
+
+    display: block;
+    margin-right: 19px;
+
+}
+
+.contactsmain {
     display: flex;
     justify-content: space-between;
     margin-bottom: 68px;
     max-width: 1024px;
     margin-top: 68px;
 }
-.contacts_button{
+
+.contacts_button {
     display: grid;
 }

@@ -1,0 +1,69 @@
+// 768 390
+@media (max-width: 1140px) {
+
+  .contactsmain {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1029px) {
+
+  .infocontactspage {
+    margin-right: 30px;
+  }
+
+  .contactsmain {
+    justify-content: center;
+  }
+
+  .formblock_padding {
+    margin-top: 35px;
+  }
+
+  .infocontactspage {
+    text-align: center;
+  }
+
+  .listcontacts {
+    justify-content: center;
+  }
+
+  .listcontactsweb {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .infocontactspage {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 722px) {
+  .container_contactus {
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 598px) {
+  .formblock_padding {
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  .contacts__content_headingh {
+    font-size: 43px;
+  }
+
+  .contactsmain {
+    margin-bottom: 35px;
+    margin-top: 35px;
+  }
+}
+
+@media (max-width: 450px) {
+  .formblock_padding {
+    padding: 25px 20px;
+  }
+}

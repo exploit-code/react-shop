@@ -1,6 +1,7 @@
-import {useContext, useState} from 'react'
-import '../MessageForm/MessageForm.scss'
-import {AuthContext} from "../../context/UserContext";
+import { useContext, useState } from "react";
+import "./MessageForm.scss";
+import "./MessageForm.medi.scss";
+import { AuthContext } from "../../context/UserContext";
 import Button from "../Button/Button";
 
 const MessageForm = (props) => {
