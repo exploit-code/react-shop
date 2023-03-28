@@ -9,7 +9,7 @@ const MessageForm = (props) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [mail, setMail] = useState(user?.email)
-  const [fullName, setName] = useState('')
+  const [fullName, setName] = useState(user?.displayName)
 
   const [message, setMessage] = useState('')
   const [mailValid, setMailValid] = useState(false)
@@ -23,7 +23,6 @@ const MessageForm = (props) => {
   // function handleSubmit(event) {
   //   event.preventDefault()
   // }
-
   //START of getForm
   function getForm(event) {
     event.preventDefault()
@@ -42,16 +41,19 @@ const MessageForm = (props) => {
       body: JSON.stringify(body),
     })
         .then((response) => {
-      if(response.status === 200) {
-        handleClose()
-        navigate('/success');
+      if(response.status === 200 ) {
+        console.log(response)
+        navigate('/success')
+            props.setOpen(false)
+      } else  {
+        console.log(response.status, 'Form not Posted')
       }
     })
     .catch((error) => {
       console.log(error);
     });
   }
-
+//END of getForm
   const emailHandler = (e) => {
     setMail(e.target.value)
     const re =
