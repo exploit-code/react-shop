@@ -78,3 +78,14 @@
     }
   }
 }
+
+@media (min-device-width: 320px) and (max-device-width: 568px) {
+
+  .product-card {
+    min-width: 210px;
+
+    &__content {
+      width: 100%;
+    }
+  }
+}

@@ -41,6 +41,20 @@
 
     &.products-box--tile {
       grid-template-columns: repeat(2, 1fr);
+      margin: 0 7px 0 7px;
+    }
+  }
+}
+
+@media (min-device-width: 320px) and (max-device-width: 568px) {
+
+  .products-box {
+    gap: 5px;
+
+    &.products-box--tile {
+      grid-template-columns: auto;
+      justify-items: center;
+      margin: 0 4px 0 4px;
     }
   }
 }
