@@ -3,9 +3,11 @@ import "./MessageForm.scss";
 import "./MessageForm.medi.scss";
 import { AuthContext } from "../../context/UserContext";
 import Button from "../Button/Button";
+import {useNavigate} from "react-router-dom";
 
 const MessageForm = (props) => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [mail, setMail] = useState(user?.email)
   const [fullName, setName] = useState('')
 
@@ -37,24 +39,17 @@ const MessageForm = (props) => {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(body),
-    }).then(() => {
-      alert('Thank You! Form Posted to Database')
     })
+        .then((response) => {
+      if(response.status === 200) {
+        navigate('/success');
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
-  // const getForm = async () => {
-  //   try {
-  //     await makeRequest.post("/forms", {
-  //       mail,
-  //       fullName,
-  //       message,
-  //     });
-  //   } catch (err) {
-  //     console.log(err, 'fuck');
-  //   }
-  // };
-  //**END of getForm
-  // Валидация поле email
   const emailHandler = (e) => {
     setMail(e.target.value)
     const re =
@@ -154,7 +149,7 @@ const MessageForm = (props) => {
               </div>
             ) : (
               <div className={dopname + 'contacts_button'}>
-                <button onClick={getForm} className={dopname + 'button'}>
+                <button onClick={getForm}  className={dopname + 'button'}>
                   SUBMIT
                 </button>
               </div>
