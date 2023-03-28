@@ -3,11 +3,13 @@ import "./MessageForm.scss";
 import "./MessageForm.medi.scss";
 import { AuthContext } from "../../context/UserContext";
 import Button from "../Button/Button";
+import {useNavigate} from "react-router-dom";
 
 const MessageForm = (props) => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [mail, setMail] = useState(user?.email)
-  const [fullName, setName] = useState('')
+  const [fullName, setName] = useState(user?.displayName)
 
   const [message, setMessage] = useState('')
   const [mailValid, setMailValid] = useState(false)
@@ -18,12 +20,12 @@ const MessageForm = (props) => {
   const dopname = props.dopname ? props.dopname : ''
   const handleClose = () => props.setOpen(false)
 
-  function handleSubmit(event) {
-    event.preventDefault()
-  }
-
+  // function handleSubmit(event) {
+  //   event.preventDefault()
+  // }
   //START of getForm
-  function getForm() {
+  function getForm(event) {
+    event.preventDefault()
     let body = {
       data: {
         fullName,
@@ -37,24 +39,21 @@ const MessageForm = (props) => {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(body),
-    }).then(() => {
-      alert('Thank You! Form Posted to Database')
     })
+        .then((response) => {
+      if(response.status === 200 ) {
+        console.log(response)
+        navigate('/success')
+            props.setOpen(false)
+      } else  {
+        console.log(response.status, 'Form not Posted')
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
-
-  // const getForm = async () => {
-  //   try {
-  //     await makeRequest.post("/forms", {
-  //       mail,
-  //       fullName,
-  //       message,
-  //     });
-  //   } catch (err) {
-  //     console.log(err, 'fuck');
-  //   }
-  // };
-  //**END of getForm
-  // Валидация поле email
+//END of getForm
   const emailHandler = (e) => {
     setMail(e.target.value)
     const re =
@@ -95,7 +94,7 @@ const MessageForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={getForm}>
         <div className={dopname + 'formblock'}>
           <div className={dopname + 'formblock_padding'}>
             <h4 className={dopname + 'heading-mini heading-mini_form'}>
@@ -143,7 +142,7 @@ const MessageForm = (props) => {
 
             {dopname === 'support_' ? (
               <div className='modal_buttons_box'>
-                <button onClick={getForm} className='button modal_button'>
+                <button type='submit'  className='button modal_button'>
                   SUBMIT
                 </button>
                 <Button
@@ -154,7 +153,7 @@ const MessageForm = (props) => {
               </div>
             ) : (
               <div className={dopname + 'contacts_button'}>
-                <button onClick={getForm} className={dopname + 'button'}>
+                <button  type='submit'   className={dopname + 'button'}>
                   SUBMIT
                 </button>
               </div>

@@ -36,7 +36,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         discounts: [{
           coupon: promo[0],
         }],
-        success_url: process.env.CLIENT_URL+"/success.html",
+        success_url: process.env.CLIENT_URL+"/success",
         cancel_url: process.env.CLIENT_URL+"?success=false",
         line_items: lineItems,
       });

@@ -1,7 +1,6 @@
 import './Contacts.scss'
 import './Contacts.medi.scss'
 import React from 'react'
-import Button from '../Button/Button'
 import MapOL from '../MapOL/MapOL'
 import MessageForm from '../MessageForm/MessageForm'
 
@@ -13,7 +12,7 @@ const Contacts = () => {
           <div className='contacts__content_headingh'>Contact Us</div>
         </div>
       </div>
-      <form className='container contactsmain'>
+      <div className='container contactsmain'>
         <div className='infocontactspage'>
           <div className='align_img'>
             <img className='pic' src='img/pngwing.png' alt='picturecontactus' />
@@ -58,7 +57,7 @@ const Contacts = () => {
           </ul>
         </div>
         <MessageForm />
-      </form>
+      </div>
       <MapOL />
     </div>
   )
