@@ -14,14 +14,6 @@
         font-weight: 400;
         margin-bottom: 20px;
       }
-
-      .inputItem {
-        margin-bottom: 10px;
-
-        label {
-          margin-left: 10px;
-        }
-      }
     }
   }
 
@@ -44,10 +36,19 @@
   gap: 16px;
   padding: 8px 16px;
   line-height: 100%;
-  border: none;
   min-width: 120px;
   border: 1px solid var(--green);
   background-color: var(--transparent);
   color: var(--black);
   cursor: pointer;
+}
+
+.input__btn{
+  margin: 30px 0 0 0;
+  width: 227px;
+}
+
+.filter__btn{
+  min-width: 150px;
+  height: 24px;
 }
