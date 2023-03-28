@@ -1,0 +1,15 @@
+.orderPage{
+    display: flex;
+    margin-top: 64px;
+    gap: 44px;
+    
+    &__leftPart{
+        min-width: 240px;
+        // max-width: 240px;
+        // flex-grow: 1;
+    }
+    &__rightPart{
+        width: 100%;
+        // flex-grow: 1;
+    }
+}

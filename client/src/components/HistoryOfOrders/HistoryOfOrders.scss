@@ -187,4 +187,12 @@
             width: auto;
         }
     }
+    &_linkOrder{
+        transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+    }
 }
