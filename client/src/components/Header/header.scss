@@ -71,7 +71,7 @@
     &__logo {
         font-family: Inter, sans-serif;
         @include mixins.font(31px, 900, 100%);
-        color: #2A2A2A!important;
+        color: #2A2A2A !important;
     }
 
     &__email {
@@ -197,5 +197,28 @@
             color: #7FAD39;
         }
 
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .header__box {
+        padding: 10px 0;
+
+        &--white {
+            margin-top: 15px;
+        }
+    }
+
+    .header__content {
+        height: 52px;
+    }
+
+    .header__nav-list {
+        gap: 15px;
+    }
+
+    .header__info {
+        gap: 15px;
     }
 }

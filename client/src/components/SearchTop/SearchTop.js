@@ -113,8 +113,10 @@ const SearchTop = ({ takeCategoryId }) => {
                 className='upmainpage__left_search_input'
                 placeholder='What do you need?'
               />
-              <button className='upmainpage__left_search_button'>SEARCH</button>
             </form>
+            <div>
+              <button className='upmainpage__left_search_button'>SEARCH</button>
+            </div>
             <img
               onClick={handlerDeleteValueInput}
               className='upmainpage__left_search_delbutton'

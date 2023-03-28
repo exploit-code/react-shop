@@ -44,6 +44,7 @@
                 border: none;
                 @include mixins.font(16px, 500, 20px);
                 // padding-right: 337px;
+                padding-top: 12px;
                 padding-right: 380px;
                 padding-left: 30px;
                 font-family: 'Celebri Sans Pro';
@@ -144,10 +145,11 @@
             gap: 20px;
 
             &_number {
-                display:flex;
+                display: flex;
                 justify-content: center;
                 flex-direction: column;
                 align-items: center;
+
                 &_p {
                     @include mixins.font(12px, 400, 18px);
                     color: #999999;
@@ -159,13 +161,49 @@
                     font-family: 'Celebri Sans Pro';
                 }
             }
-            &_img{
+
+            &_img {
                 height: 32px;
                 cursor: pointer;
                 fill: #7FAD39;
+
                 &:hover {
                     fill: #57801a;
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .upmainpage {
+        width: 0;
+        gap: 10px;
+
+        &__left {
+
+            &_depart {
+                width: 182px;
+            }
+
+            &_search_input {
+                max-width: 350px;
+                padding: 15px 40px 0 10px;
+            }
+        }
+
+        &__right {
+            gap: 0;
+            height: 50px;
+
+            &_info_number {
+                flex-direction: row;
+            }
+
+            &_info_img {
+                height: 50px;
+                width: 60px;
             }
         }
     }
