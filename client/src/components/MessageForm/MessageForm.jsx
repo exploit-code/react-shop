@@ -20,12 +20,13 @@ const MessageForm = (props) => {
   const dopname = props.dopname ? props.dopname : ''
   const handleClose = () => props.setOpen(false)
 
-  function handleSubmit(event) {
-    event.preventDefault()
-  }
+  // function handleSubmit(event) {
+  //   event.preventDefault()
+  // }
 
   //START of getForm
-  function getForm() {
+  function getForm(event) {
+    event.preventDefault()
     let body = {
       data: {
         fullName,
@@ -42,6 +43,7 @@ const MessageForm = (props) => {
     })
         .then((response) => {
       if(response.status === 200) {
+        handleClose()
         navigate('/success');
       }
     })
@@ -90,7 +92,7 @@ const MessageForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={getForm}>
         <div className={dopname + 'formblock'}>
           <div className={dopname + 'formblock_padding'}>
             <h4 className={dopname + 'heading-mini heading-mini_form'}>
@@ -138,7 +140,7 @@ const MessageForm = (props) => {
 
             {dopname === 'support_' ? (
               <div className='modal_buttons_box'>
-                <button onClick={getForm} className='button modal_button'>
+                <button type='submit'  className='button modal_button'>
                   SUBMIT
                 </button>
                 <Button
@@ -149,7 +151,7 @@ const MessageForm = (props) => {
               </div>
             ) : (
               <div className={dopname + 'contacts_button'}>
-                <button onClick={getForm}  className={dopname + 'button'}>
+                <button  type='submit'   className={dopname + 'button'}>
                   SUBMIT
                 </button>
               </div>
