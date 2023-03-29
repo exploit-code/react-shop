@@ -124,24 +124,24 @@
 
     }
 
-    &_filter_input{
+    &_filter_input {
         cursor: pointer;
         display: none;
 
-        &:checked + li {
+        &:checked+li {
             color: #FFFFFF;
             background-color: var(--green);
         }
     }
 
-    &_filter_label{
+    &_filter_label {
         cursor: pointer;
     }
 
     &_heading-mini_box {
         display: flex;
         justify-content: space-between;
-        min-width: 852px;
+        width: 100%;
 
         @media (min-width: 390px) and (max-width: 767px) {
             width: 75%
@@ -154,7 +154,7 @@
         line-height: 29px;
         color: #000000;
 
-        &:first-letter{
+        &:first-letter {
             text-transform: uppercase;
         }
 
@@ -187,7 +187,8 @@
             width: auto;
         }
     }
-    &_linkOrder{
+
+    &_linkOrder {
         transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 
         &:hover {
