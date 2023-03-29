@@ -20,6 +20,9 @@ import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import Profile from './pages/Profile/Profile';
 import PostApi from './pages/PostPage/PostApi';
 import HistoryOfOrders from './components/HistoryOfOrders/HistoryOfOrders'
+import OrderCard from './components/OrderCard/OrderCard'
+import OrderPage from './pages/OrderPage/OrderPage'
+import Success from './pages/Success/success'
 
 function App() {
   const router = createBrowserRouter([
@@ -91,6 +94,18 @@ function App() {
         {
           path: '/historyOfOrders',
           element: <HistoryOfOrders />,
+        },
+        {
+          path: '/success',
+          element: <Success />,
+        },
+        {
+          path: '/orderCard',
+          element: <OrderCard />,
+        },
+        {
+          path: '/orderPage',
+          element: <OrderPage />,
         },
       ],
     },

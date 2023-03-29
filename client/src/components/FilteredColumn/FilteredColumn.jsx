@@ -11,7 +11,7 @@ const FilteredColumn = ({ type }) => {
         <div className="filterBlock__latestProducts">
           <div className="filterBlock__latestProducts_titleBlock">
             <div className="filterBlock__latestProducts_titleBlock_title">
-              {type} products
+              {type} Products
             </div>
           </div>
           <FilteredColumnList type={type} />

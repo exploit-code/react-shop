@@ -5,9 +5,11 @@ import { useSelector } from "react-redux";
 import Button from "../../../components/Button/Button";
 import { makeRequest } from "../../../makeRequest";
 import {AuthContext} from "../../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 
 const Form = (promo) => {
+    const navigate = useNavigate();
     const cartItems = useSelector((state) => state.cart.products)
     const { user } = useContext(AuthContext);
     //**START of controlled input
@@ -84,16 +86,17 @@ const Form = (promo) => {
                 break
             case 'deliveryAddress':
                 setDeliveryValid(true)
-                break
+                break;
+            default:
         }
     }
 
-    const goOrder = (event) => {
-        // if (email.length != 0 && firstName.length != 0 && secondName.length != 0 && deliveryAddress.length != 0) {
-        //     event.preventDefault();
-        console.log('Форма не отправилась')
-        // }
-    }
+    // const goOrder = (event) => {
+    //     // if (email.length != 0 && firstName.length != 0 && secondName.length != 0 && deliveryAddress.length != 0) {
+    //     //     event.preventDefault();
+    //     console.log('Форма не отправилась')
+    //     // }
+    // }
 
     //** START get Order
 
@@ -131,8 +134,9 @@ const Form = (promo) => {
                 payByCreditCard: payMethod,
                 orderStatus: 'current',
                 firebaseId: user?.uid
-            });
-        } catch (err) {
+            })
+            navigate('/success');
+        }  catch (err) {
             console.log(err);
         }
     };
