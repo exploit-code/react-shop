@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import TablePagination from "@mui/material/TablePagination";
 import LinearProgress from '@mui/material/LinearProgress';
 import Alert from '@mui/material/Alert';
-import Box from '@mui/material/Box';
 
 
 const ProductsList = ({ subCats, maxPrice, sort, catId, view }) => {

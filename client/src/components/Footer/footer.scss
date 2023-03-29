@@ -16,14 +16,44 @@ body {
     background-color: black;
     margin: 137px 0 0 0;
 
+    &_menu {
+
+        @media (min-width: 390px) and (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &_mobile {
+        display: flex;
+        justify-content: space-between;
+        gap: 149px;
+
+        @media screen and (max-width: 768px) {
+            gap: 100px;
+        }
+
+        @media (min-width: 390px) and (max-width: 767px) {
+            flex-direction: column;
+            gap: 36px;
+        }
+
+    }
+
     &__logo {
         font-family: Inter, sans-serif;
         @include mixins.font(31px, 900, 100%);
         color: #FFF;
     }
-    &_top{
+
+    &_top {
         margin-top: 60px;
         margin-bottom: 30px;
+
+        @media (min-width: 390px) and (max-width: 767px) {
+            text-align: center;
+        }
     }
 
     &__link {
@@ -37,12 +67,13 @@ body {
         align-items: center;
         color: #FFFFFF;
         text-decoration: none;
-        &:hover{
-            color:#7FAD39;
+
+        &:hover {
+            color: #7FAD39;
         }
     }
 
-    &__address{
+    &__address {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
@@ -55,26 +86,53 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+
+        @media screen and (max-width: 768px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-bottom: 76px;
+        }
+
+        @media (min-width: 390px) and (max-width: 767px) {
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 35px;
+        }
     }
-    &_subscribe{
+
+    &_subscribe {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+
+        @media (min-width: 390px) and (max-width: 767px) {
+            text-align: center;
+            align-items: center;
+        }
     }
-    &__content{
+
+    &__content {
         display: flex;
         justify-content: space-between;
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+        }
     }
 
 }
+
 .footer__top__right__form {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 28px;
 }
+
 .footer__top__right__form:hover .footer__top__right__btn {
     background-color: #57801a;
 }
+
 .footer__top__right__btn {
     border: none;
     background-color: #7FAD39;
@@ -89,6 +147,18 @@ body {
     text-transform: capitalize;
     color: #FFFFFF;
     cursor: pointer;
+
+
+    @media screen and (max-width: 768px) {
+        padding: 19px 17px 18px 17px;
+        margin-left: 0.5px;
+    }
+
+
+    @media (min-width: 390px) and (max-width: 767px) {
+        height: 53px;
+        margin-left: -1px;
+    }
 }
 
 .footer__top__right__input {
@@ -97,7 +167,13 @@ body {
     padding: 19px 118px 18px 30px;
     font-size: 14px;
     font-weight: 400;
+
+    @media (min-width: 390px) and (max-width: 767px) {
+        width: 195px;
+        padding: 19px 0px 18px 16px;
+    }
 }
+
 .footer__top__right__heading {
     font-family: 'Cerebri Sans Pro';
     font-style: normal;
@@ -107,6 +183,7 @@ body {
     text-transform: capitalize;
     color: #FFFFFF;
 }
+
 .footer__top__right__subtitle {
     font-family: 'Inter';
     font-style: normal;
@@ -117,7 +194,8 @@ body {
     align-items: center;
     color: #FFFFFF;
 }
-.footer_bottom{
+
+.footer_bottom {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -126,7 +204,7 @@ body {
     gap: 40px;
     align-items: center;
 
-    .copyright{
+    .copyright {
         font-size: 16px;
         line-height: 19px;
         color: #FBFBFB;
@@ -136,20 +214,21 @@ body {
     }
 
 }
-.social_buttons_box{
+
+.social_buttons_box {
     display: flex;
     justify-content: center;
     gap: 20px;
 
-    .social_link{
+    .social_link {
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .social_link:hover{
+
+    .social_link:hover {
         color: #7FAD39;
     }
 
 }
-

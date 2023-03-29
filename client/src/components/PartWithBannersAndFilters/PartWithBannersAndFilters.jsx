@@ -9,12 +9,12 @@ const PartWithBannersAndFilters = () => {
   return (
     <>
       <div className="containerPartWithBannersAndFilters">
-        <BannerPart/>
         <div className="filterBlock">
           <FilteredColumn type="latest"/>
           <FilteredColumn type="top-rated"/>
           <FilteredColumn type="sale" />
         </div>
+        <BannerPart/>
       </div>
     </>
   )
