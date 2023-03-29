@@ -45,7 +45,19 @@
         "current",
         "completed",
         "canceled"
-      ]
+      ],
+      "default": "current"
+    },
+    "currentOrderStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Processed",
+        "Going",
+        "Collected",
+        "OnWay",
+        "Delivered"
+      ],
+      "default": "Processed"
     }
   }
 }
