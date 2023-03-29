@@ -4,7 +4,7 @@
   padding-bottom: 32px;
 
   &--tile {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     & .product-card__content {
       grid-template-columns: 1fr;

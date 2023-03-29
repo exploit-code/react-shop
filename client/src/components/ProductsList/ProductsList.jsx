@@ -12,12 +12,12 @@ const ProductsList = ({ subCats, maxPrice, sort, catId, view }) => {
 
   // start of pagination
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(6);
+  const [rowsPerPage, setRowsPerPage] = React.useState(8);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
+    setRowsPerPage(parseInt(event.target.value, 8));
     setPage(0);
   };
   //end of pagination
@@ -55,7 +55,7 @@ const ProductsList = ({ subCats, maxPrice, sort, catId, view }) => {
   return (
     <>
       <TablePagination
-        rowsPerPageOptions={[6, 9, 15]}
+        rowsPerPageOptions={[8, 16, 24]}
         component="div"
         count={filtredItems?.length}
         rowsPerPage={rowsPerPage}
