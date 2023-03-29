@@ -7,7 +7,7 @@
 
 
 .upmainpage {
-    @include mixins.flex(space-between, center);
+    @include mixins.flex(flex-start, center);
     width: 100%;
     gap: 36px;
     margin-bottom: 10px;
@@ -41,11 +41,12 @@
             position: relative;
 
             &_input {
+                width: 100%;
                 border: none;
                 @include mixins.font(16px, 500, 20px);
                 // padding-right: 337px;
                 padding-top: 12px;
-                padding-right: 380px;
+                padding-right: 280px;
                 padding-left: 30px;
                 font-family: 'Celebri Sans Pro';
             }
@@ -175,11 +176,25 @@
     }
 }
 
+@media (min-width: 769px) and (max-width: 984px) {
+
+    .upmainpage__left_search_input {
+        padding-right: 149px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1102px) {
+
+    .header__nav-list {
+        gap: 25px;
+    }
+}
+
 @media screen and (max-width:768px) {
 
     .upmainpage {
-        width: 0;
         gap: 10px;
+        justify-content: center;
 
         &__left {
 
@@ -204,6 +219,7 @@
             &_info_img {
                 height: 50px;
                 width: 60px;
+                margin: 0 5px 0 0;
             }
         }
     }

@@ -200,6 +200,21 @@
     }
 }
 
+.header__nav-list {
+    gap: 40px;
+}
+
+@media (min-width:769px) and (max-width:1010px) {
+
+    .header__nav-list {
+        gap: 32px;
+    }
+
+    .header__nav-item {
+        font-size: 14px;
+    }
+}
+
 @media screen and (max-width:768px) {
 
     .header__box {
@@ -215,7 +230,15 @@
     }
 
     .header__nav-list {
-        gap: 15px;
+        gap: 12px;
+    }
+
+    .header__nav-item {
+        font-size: 13px;
+    }
+
+    .header__info-price-value {
+        font-size: 13px;
     }
 
     .header__info {
