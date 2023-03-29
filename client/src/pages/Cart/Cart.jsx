@@ -66,7 +66,6 @@ const Cart = () => {
         mail: user?.email,
         firebaseId: user?.uid,
         payByCreditCard: 'OnlinePay',
-        orderStatus: 'current'
       });
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
