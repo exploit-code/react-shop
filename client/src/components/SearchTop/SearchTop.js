@@ -105,7 +105,7 @@ const SearchTop = ({ takeCategoryId }) => {
               <img src={menuIcon} alt='menu'></img>
               {nameCategories}
             </div>
-            <form onSubmit={handlerChangeSearchInput}>
+            <form onSubmit={handlerChangeSearchInput} id="search">
               <input
                 onChange={(event) => onChangeSearchInput(event)}
                 value={searchValue}
@@ -115,7 +115,7 @@ const SearchTop = ({ takeCategoryId }) => {
               />
             </form>
             <div>
-              <button className='upmainpage__left_search_button'>SEARCH</button>
+              <button className='upmainpage__left_search_button' form='search'>SEARCH</button>
             </div>
             <img
               onClick={handlerDeleteValueInput}
