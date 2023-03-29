@@ -1,10 +1,10 @@
 import './footer.scss'
-import {Link, useNavigate} from 'react-router-dom'
-import {useState} from "react";
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from "react";
 
 const Footer = () => {
     const navigate = useNavigate();
-///new
+    ///new
     const [email, setEmail] = useState('');
     const [mailValid, setMailValid] = useState(false)
     const [mailError, setEmailError] = useState('Email не может быть пустым')
@@ -68,73 +68,76 @@ const Footer = () => {
                         <div>Phone: +65 11.188.888</div>
                         <div>Email: good.food23@mail.ru</div>
                     </address>
-                    <div className='footer_menu'>
-                        <Link className='footer__link' to='/'>
-                            SHOP
-                        </Link>
-                        <Link className='footer__link' to='/blog'>
-                            BLOG
-                        </Link>
-                        <Link className='footer__link' to='/contacts'>
-                            CONTACT
-                        </Link>
-                        <Link className='footer__link' to='/aboutus'>
-                            ABOUT US
-                        </Link>
-                        <Link className='footer__link' to='/aboutourshop'>
-                            ABOUT OUR SHOP
-                        </Link>
-                    </div>
-                    <div className='footer_subscribe'>
-                        <h2 className='footer__top__right__heading'>
-                            Sign up for our newsletter
-                        </h2>
-                        <p className='footer__top__right__subtitle'>
-                            Get e-mail updates about our latest Shop and special offers.
-                        </p>
-                        <form onSubmit={handleSubmit} className='footer__top__right__form'>
-                            <input
-                                name="email"
-                                id="email"
-                                type="email"
-                                value={email}
-                                onChange={(e) => emailHandler(e)}
-                                className='footer__top__right__input'
-                                placeholder='Enter Your Email Address'
-                            />
-                            <button onClick={getForm} type='submit' className='footer__top__right__btn'>
-                                Subscribe
-                            </button>
-                        </form>
-                        <address className='social_buttons_box'>
-                            <div className='social_button'>
-                                <Link
-                                    target='blank'
-                                    to='https://vk.com/club219140677'
-                                    className='social_link'
-                                >
-                                    <i className='fa-brands fa-vk fa-2x'></i>
-                                </Link>
-                            </div>
-                            <div className='social_button'>
-                                <Link
-                                    target='blank'
-                                    to='https://t.me/good_food_chanal'
-                                    className='social_link'
-                                >
-                                    <i className='fa-brands fa-telegram fa-2x'></i>
-                                </Link>
-                            </div>
-                            <div className='social_button'>
-                                <Link
-                                    target='blank'
-                                    to='https://chat.whatsapp.com/J7A58kQEO1679axpbCMoR6'
-                                    className='social_link'
-                                >
-                                    <i className='fa-brands fa-whatsapp fa-2x'></i>
-                                </Link>
-                            </div>
-                        </address>
+                    <div className='footer_mobile'>
+                        <div className='footer_menu'>
+                            <Link className='footer__link' to='/'>
+                                SHOP
+                            </Link>
+                            <Link className='footer__link' to='/blog'>
+                                BLOG
+                            </Link>
+                            <Link className='footer__link' to='/contacts'>
+                                CONTACT
+                            </Link>
+                            <Link className='footer__link' to='/aboutus'>
+                                ABOUT US
+                            </Link>
+                            <Link className='footer__link' to='/aboutourshop'>
+                                ABOUT OUR SHOP
+                            </Link>
+                        </div>
+
+                        <div className='footer_subscribe'>
+                            <h2 className='footer__top__right__heading'>
+                                Sign up for our newsletter
+                            </h2>
+                            <p className='footer__top__right__subtitle'>
+                                Get e-mail updates about our latest Shop and special offers.
+                            </p>
+                            <form onSubmit={handleSubmit} className='footer__top__right__form'>
+                                <input
+                                    name="email"
+                                    id="email"
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => emailHandler(e)}
+                                    className='footer__top__right__input'
+                                    placeholder='Enter Your Email Address'
+                                />
+                                <button onClick={getForm} type='submit' className='footer__top__right__btn'>
+                                    Subscribe
+                                </button>
+                            </form>
+                            <address className='social_buttons_box'>
+                                <div className='social_button'>
+                                    <Link
+                                        target='blank'
+                                        to='https://vk.com/club219140677'
+                                        className='social_link'
+                                    >
+                                        <i className='fa-brands fa-vk fa-2x'></i>
+                                    </Link>
+                                </div>
+                                <div className='social_button'>
+                                    <Link
+                                        target='blank'
+                                        to='https://t.me/good_food_chanal'
+                                        className='social_link'
+                                    >
+                                        <i className='fa-brands fa-telegram fa-2x'></i>
+                                    </Link>
+                                </div>
+                                <div className='social_button'>
+                                    <Link
+                                        target='blank'
+                                        to='https://chat.whatsapp.com/J7A58kQEO1679axpbCMoR6'
+                                        className='social_link'
+                                    >
+                                        <i className='fa-brands fa-whatsapp fa-2x'></i>
+                                    </Link>
+                                </div>
+                            </address>
+                        </div>
                     </div>
                 </div>
 
