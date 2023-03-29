@@ -1,31 +1,25 @@
 import './LeftSideProfile.scss'
 import React from 'react'
-// import { getAuth } from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
 import { Link } from 'react-router-dom'
 
-// const auth = getAuth()
-// const user = auth.currentUser
 
-const avatarName = 'TE'
-const emailName = 'test@test.ru'
+const LeftSideProfile = ({ avatarName }) => {
 
-const LeftSideProfile = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
   return (
     <aside className='asideLeftSideProfile'>
       <div className='cardLeftSideProfile'>
         <div className='cardLeftSideProfile__avatar'>
-          {/* {avatarName == null ? emailName : avatarName} */}
           {avatarName}
         </div>
         <p className='cardLeftSideProfile__name'>
           <span>Hello</span>
-          {/* {user.displayName == null ? `${user?.email}` : user.displayName} */}
-          {emailName}
+          <span className='cardLeftSideProfile__userName'>{user?.displayName == null ? `${user?.email}` : user?.displayName}</span>
         </p>
-        <p className='cardLeftSideProfile__email'>
-          {/* {user?.email} */}
-          {emailName}
-        </p>
+        <p className='cardLeftSideProfile__email'>{user?.email}</p>
       </div>
 
       <nav className='navLeftSideProfile'>

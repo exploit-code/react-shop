@@ -2,7 +2,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/UserContext';
 import { getAuth, deleteUser, sendPasswordResetEmail, updateProfile, updateEmail } from "firebase/auth";
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './Profile.scss';
 import useFetch from "../../hooks/useFetch";
@@ -14,6 +13,8 @@ const Profile = () => {
   const { user, logOut } = useContext(AuthContext);
   const [customName, setCustomName] = useState(user.displayName);
   const [customEmail, setCustomEmail] = useState(user.email);
+
+  const avatarName = user.displayName?.slice(0, 2);
 
   //
   const { data } = useFetch(
@@ -75,15 +76,10 @@ const Profile = () => {
     })
   }
 
-
-
-  const avatarName = user.displayName?.slice(0, 2);
-  const emailName = user.email?.slice(0, 2);
-
   return (
     <div className='grid'>
       <div className='grid__box'>
-        <LeftSideProfile />
+        <LeftSideProfile avatarName={avatarName} />
       </div>
 
       <div className='grid__box'>
