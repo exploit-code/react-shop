@@ -73,3 +73,105 @@
 .bold {
     font-weight: 900;
 }
+
+@media screen and (max-width: 1024px) {
+    .buytogether {
+        margin-top: 104px;
+    
+        &__content__heading {
+            @include font(20px, 700, 35px);
+            font-style: bold;
+        }
+    
+        &__content__shortLine {
+            width: 207px;
+            margin-bottom: 47px;
+        }
+
+        &__content__boxProds {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        &__content__img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+    
+        &__content__text {
+            @include font(20px, 400, 30px);
+            text-align: left;
+            color: #2A2A2A;
+            text-transform: capitalize;
+    
+        }
+    
+        &__content__item {
+            margin: 0 0 16px 0;
+        }
+    
+        &__content__title {
+            @include font(20px, 400, 30px);
+            margin: 0 0 0 27px;
+        }
+
+        &__content__name {
+            @include font(17px, 400, 20px);
+        }
+
+        &__content__price {
+            @include font(20px, 900, 30px);
+        }
+    }
+}
+
+@media (min-width: 390px)and (max-width: 667px) {
+    .buytogether {
+        margin-top: 39px;
+
+        &__content__heading {
+            @include font(20px, 700, 35px);
+            text-align: center;
+        }
+    
+        &__content__shortLine {
+            width: 207px;
+            margin-bottom: 47px;
+        }
+
+        &__content__boxProds {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+    
+        &__content__text {
+            @include font(20px, 400, 30px);
+            text-align: left;
+            color: #2A2A2A;
+            text-transform: capitalize;
+    
+        }
+    
+        &__content__item {
+            margin: 0 0 16px 0;
+        }
+    
+        &__content__title {
+            @include font(20px, 400, 30px);
+            margin: 0 0 0 27px;
+        }
+
+        &__content__name {
+            @include font(17px, 400, 20px);
+        }
+
+        &__content__price {
+            @include font(20px, 900, 30px);
+        }
+    }
+
+    .alignCenter {
+        align-items: center;
+    }
+}

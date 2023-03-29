@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './Profile.scss';
 import useFetch from "../../hooks/useFetch";
+import LeftSideProfile from '../../components/LeftSideProfile/LeftSideProfile'
 
 const Profile = () => {
   const auth = getAuth();
@@ -82,47 +83,7 @@ const Profile = () => {
   return (
     <div className='grid'>
       <div className='grid__box'>
-        <aside className='aside'>
-          <div className='card'>
-            <div className='card__avatar'>
-              {avatarName == null ? emailName : avatarName}
-            </div>
-            <p className='card__name'>
-              <span>Hello</span>
-              <span className='card__userName'>{user.displayName == null ? `${user?.email}` : user.displayName}</span>
-            </p>
-            <p className='card__email'>{user?.email}</p>
-          </div>
-
-          <nav className='nav'>
-            <ul className='nav__list'>
-              <li className='nav__item'>
-                <Link className='nav__link' to='/profile'>
-                  Profile
-                </Link>
-              </li>
-              <li className='nav__item'>
-                <Link className='nav__link' to='/historyOfOrders'>
-                  History of orders
-                </Link>
-              </li>
-              <li className='nav__item'>
-                <Link className='nav__link' to='/favorites'>
-                  Favorites
-                </Link>
-              </li>
-              <li className='nav__item'>
-                <Link className='nav__link'>Promo codes</Link>
-              </li>
-              <li className='nav__item'>
-                <Link className='nav__link'>Certificates</Link>
-              </li>
-              <li className='nav__item'>
-                <Link className='nav__link'>Reviews</Link>
-              </li>
-            </ul>
-          </nav>
-        </aside>
+        <LeftSideProfile />
       </div>
 
       <div className='grid__box'>
