@@ -68,12 +68,12 @@ const Header = () => {
 
   return (
     <header className='header' id='header'>
-      <ScrollToTop />
+      <ScrollToTop/>
       <div className='header__box header__box--black'>
         <div className='header__content container'>
           <div className='header__fx'>
             <Link target='blank' className='header__email' to='#'>
-              <img className='header__email-icon' src={emailIcon} alt='' />
+              <img className='header__email-icon' src={emailIcon} alt=''/>
               <span className='header__email-text'>good.food23@mail.ru</span>
             </Link>
 
@@ -84,7 +84,7 @@ const Header = () => {
             </span>
           </div>
 
-          <div className='header__fix'>
+          <div className='header__fx'>
             <address className='header__social_buttons_box'>
               <div className='social_button'>
                 <Link
@@ -116,7 +116,7 @@ const Header = () => {
             </address>
 
             <div className='header__line'>
-              {visibleList && <DropDownUserMenu categoriesClick={categoriesClick} />}
+              {visibleList && <DropDownUserMenu categoriesClick={categoriesClick}/>}
             </div>
 
             <div className='header__login'>
@@ -124,14 +124,14 @@ const Header = () => {
               {user?.email ? (
                 <div>
                   <div style={{ cursor: 'pointer' }} onClick={categoriesClick}>
-                    <img className='header__login-icon' src={loginIcon} alt='profile-icon' />
+                    <img className='header__login-icon' src={loginIcon} alt='profile-icon'/>
                   </div>
                 </div>
 
               ) : (
 
                 <Link className='header__login-text' to='/login'>
-                  <img className='header__login-icon' src={loginIcon} alt='profile-icon' />
+                  <img className='header__login-icon' src={loginIcon} alt='profile-icon'/>
                 </ Link>
               )}
 
@@ -153,8 +153,7 @@ const Header = () => {
       </div>
 
       <div className='header__box header__box--white'>
-        <div className='header__ccontent container'>
-
+        <div className='header__content container'>
           <CustomLink classes='header__logo' to='/'>
             GOOD-FOOD🍎🥝
           </CustomLink>
