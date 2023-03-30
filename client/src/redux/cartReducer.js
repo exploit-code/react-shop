@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   promoCode: [],
+  checkPromo: true,
 };
 
 export const cartSlice = createSlice({
@@ -39,11 +40,18 @@ export const cartSlice = createSlice({
       }
     },
     setPromo: (state, action) => {
-      const promo = state.promoCode.find((item) => item === action.payload);
-      if(promo !== action.payload) {
+      const GOOD5 = 'GOOD5';
+      const GOOD10 = 'GOOD10';
+      const GOOD15 = 'GOOD15';
+      const GOOD20 = 'GOOD20';
+      if(action.payload === GOOD5) {
         state.promoCode.push(action.payload)
-      } else {
-        // state.promoCode = state.promoCode.filter((item) => item !== action.payload)
+      } else if(action.payload === GOOD10) {
+        state.promoCode.push(action.payload)
+      } else if(action.payload === GOOD15) {
+        state.promoCode.push(action.payload)
+      } else if(action.payload === GOOD20) {
+        state.promoCode.push(action.payload)
       }
     },
     addPromo: (state, action) => {
@@ -53,19 +61,31 @@ export const cartSlice = createSlice({
       const GOOD15 = 'GOOD15';
       const GOOD20 = 'GOOD20';
       const promo = state.promoCode.find((item) => item === action.payload.value);
-      if(promo === GOOD5) {
-        item.price = (Number(item.price) * 0.95).toFixed(2);
-        item.totalPriceItem = (Number(item.totalPriceItem) * 0.95).toFixed(2);
-      } else if(promo === GOOD10) {
-        item.price = (Number(item.price) * 0.9).toFixed(2);
-        item.totalPriceItem = (Number(item.totalPriceItem) * 0.9).toFixed(2);
-      }else if(promo === GOOD15) {
-        item.price = (Number(item.price) * 0.85).toFixed(2);
-        item.totalPriceItem = (Number(item.totalPriceItem) * 0.85).toFixed(2);
-      }else if(promo === GOOD20) {
-        item.price = (Number(item.price) * 0.8).toFixed(2);
-        item.totalPriceItem = (Number(item.totalPriceItem) * 0.8).toFixed(2);
+
+      if(state.checkPromo) {
+        switch (promo) {
+          case GOOD5:
+            item.price = (Number(item.price) * 0.95).toFixed(2);
+            item.totalPriceItem = (Number(item.totalPriceItem) * 0.95).toFixed(2);
+            break;
+          case GOOD10:
+            item.price = (Number(item.price) * 0.9).toFixed(2);
+            item.totalPriceItem = (Number(item.totalPriceItem) * 0.9).toFixed(2);
+            break;
+          case GOOD15:
+            item.price = (Number(item.price) * 0.85).toFixed(2);
+            item.totalPriceItem = (Number(item.totalPriceItem) * 0.85).toFixed(2);
+            break;
+          case GOOD20:
+            item.price = (Number(item.price) * 0.8).toFixed(2);
+            item.totalPriceItem = (Number(item.totalPriceItem) * 0.8).toFixed(2);
+            break;
+          default:
+        }
       }
+    },
+    togglePromo: (state, { payload }) => {
+      state.checkPromo = payload;
     },
     resetPromo: (state) => {
       state.promoCode = []
@@ -82,7 +102,8 @@ export const {
   deleteItem,
   setPromo,
   addPromo,
-  resetPromo
+  resetPromo,
+  togglePromo
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

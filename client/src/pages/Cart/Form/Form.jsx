@@ -132,7 +132,6 @@ const Form = (promo) => {
                 phone,
                 deliveryAddress,
                 payByCreditCard: payMethod,
-                orderStatus: 'current',
                 firebaseId: user?.uid
             })
             navigate('/success');

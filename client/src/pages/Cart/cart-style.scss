@@ -252,3 +252,12 @@
         background-color: grey;
     }
 }
+
+.cart__reset{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart__reset-right{
+    margin-left: auto;
+}

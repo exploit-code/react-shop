@@ -18,11 +18,11 @@ import FormControl from '@mui/material/FormControl';
 
 const ProductsPage = () => {
   const catId = parseInt(useParams().id);
-  const [maxPrice, setMaxPrice] = useState(50);
-  const [sort, setSort] = useState("asc");
+  const [maxPrice, setMaxPrice] = useState(100);
+  const [sort, setSort] = useState("desc");
   const [selectedSubCats, setSelectedSubCats] = useState([]);
   const [value, setValue] = useState(0);
-  const [priceValue, setPriceValue] = useState(50);
+  const [priceValue, setPriceValue] = useState(100);
   const [products, setProducts] = useState([])
 
   const { data } = useFetch(
@@ -126,7 +126,7 @@ const ProductsPage = () => {
                 valueLabelDisplay="auto"
                 aria-label="pretto slider"
                 max={100}
-                defaultValue={50}
+                defaultValue={100}
                 marks={marks}
                 getAriaValueText={valuetext}
                 onChange={handleValueChange}
