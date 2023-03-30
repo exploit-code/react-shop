@@ -70,7 +70,7 @@ const Footer = () => {
                     </address>
                     <div className='footer_mobile'>
                         <div className='footer_menu'>
-                            <Link className='footer__link' to='/'>
+                            <Link className='footer__link' to='/products/1'>
                                 SHOP
                             </Link>
                             <Link className='footer__link' to='/blog'>
