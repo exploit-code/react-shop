@@ -53,13 +53,13 @@
     }
 }
 
-@media screen and (min-width: 391px) and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .aboutourshop {
         margin-top: 53px;
         margin-bottom: 112px;
 
-        background-position: 350px;
-        background-size: 27%;
+        background-position: 400px;
+        background-size: 35%;
 
         &__heading {
             margin-bottom: 23px;
@@ -84,11 +84,12 @@
     }
 }
 
-@media screen and (max-width: 390px) {
+@media (min-width: 390px) and (max-width: 667px) {
     .aboutourshop {
+        background-position-x: 200px;
+        background-position-y: 250px;
         margin-top: 41px;
         margin-bottom: 108px;
-        background-image: none;
 
 
         &__heading {
@@ -103,7 +104,7 @@
             &_headingtop {
                 font-size: 20px;
                 line-height: 24.14px;
-                width: 351px;
+                width: 360px;
                 margin-bottom: 33px;
             }
 
@@ -111,9 +112,13 @@
                 font-size: 14px;
                 font-weight: 265px;
                 line-height: 16.52px;
-                width: 357px;
-                margin-bottom: 85px;
+                width: 360px;
+                margin-bottom: 110px;
             }
+        }
+
+        &__btn_down {
+            padding-bottom: 100px;
         }
     }
 }

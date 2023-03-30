@@ -18,7 +18,9 @@ const AboutOurShop = () => {
           </div>
         </div>
       </div>
-      <Button text='Read More'></Button>
+      <div className='aboutourshop__btn_down'>
+        <Button text='Read More'></Button>
+      </div>
     </div>
   )
 }
