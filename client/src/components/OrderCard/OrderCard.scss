@@ -52,7 +52,16 @@
 
 // *********************
 .orderCard {
-    margin-top: 25px;
+    // margin-top: 25px;
+    display: flex;
+    gap: 44px;
+
+    &__leftPart{
+        width:70%;
+    }
+    &__rightPart{
+        width: 30%;
+    }
 
     &__linkBack {
         display: flex;
@@ -121,8 +130,10 @@
         &_info {
             font-weight: 400;
             font-size: 14px;
-            line-height: 50px;
+            line-height: 20px;
             color: #000000;
+            display: flex;
+            align-items: center;
         }
 
         &_buttonRepeatOrder{
@@ -137,7 +148,18 @@
             margin-bottom: 32px;
             
         }
-        
+
+        &_imgOrder_box{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .orderCardPosreletive {
+            position: relative;
+           
+        }
+               
         .orderCardImgOrder_round {
             border-radius: 100px;
             background: #E7F0F1;
@@ -146,17 +168,74 @@
             height: 50px;
             padding: 6px;
             object-fit: contain;
-            margin-bottom: 22px;      
+            margin-bottom: 10px;  
             
-            // transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+            
+            transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 
-            // &:hover {
-            //     box-shadow: 0px 4px 4px #9CC000;
-            //     transform: translateY(-5px);
-            // }
+            &:hover {
+                box-shadow: 0px 4px 4px #9CC000;
+                transform: translateY(-5px);
+            }
         }
+        
 
        
+    }
+
+    &_amountItems{
+        color: #436216;
+        position: absolute;
+        bottom: 8px;
+        right: -5px;
+        
+    }
+    
+    &__statusTree{
+
+        &_box:last-of-type &_info{
+            border: none;
+        }
+
+        
+        &_title{
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 15px;
+            color: #000000;
+        }
+
+        &_title::before{
+            //  content: "\2228";
+            content: "\f078"; 
+            font-family: FontAwesome;
+            font-size: 10px;
+            color: #FFFFFF;
+            padding: 5px 5px 5px 5px;
+            background-color: #7FAD39;
+            border-radius: 20px;
+            margin-right: 21px;
+            
+            
+        }
+
+        &_info{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 15px;
+            color: #000000;
+            margin-left: 9px;
+            border-left-style: dotted;
+            border-color: #4091c7;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            min-height: 67px;
+            display: flex;
+            align-items: center;
+        }
+
+        
     }
 
     

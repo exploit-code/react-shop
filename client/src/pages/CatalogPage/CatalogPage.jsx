@@ -1,16 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import CatalogCategoriesList from "../../components/CatalogPageList/CatalogPageList";
 import useFetch from "../../hooks/useFetch";
-import {useParams} from "react-router-dom";
 import LinearProgress from '@mui/material/LinearProgress';
 import Alert from '@mui/material/Alert';
 
 const CatalogPage = () => {
-    const catId = parseInt(useParams().id);
     const { data,loading,error} = useFetch(
-        `/categories?[id][$eq]=${catId}`
+        `/categories?`
     );
-
     return (
         <div>
             <div className="contain" >
