@@ -68,16 +68,16 @@
   }
 }
 
-@media screen and (max-width:768px) {
+// @media screen and (max-width:768px) {
 
-  .product-card {
-    max-width: 270px;
+//   .product-card {
+//     max-width: 270px;
 
-    &__content {
-      max-width: 202px;
-    }
-  }
-}
+//     &__content {
+//       max-width: 202px;
+//     }
+//   }
+// }
 
 @media (min-device-width: 320px) and (max-device-width: 568px) {
 
