@@ -1,92 +1,28 @@
-@media (max-width: 850px) {
-  .product-card-img {
-    height: 229px;
-    width: 229px;
+@media (max-width: 1500px) {
+
+  .featuredProducts .bottom {
+    max-width: 100vw;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 670px) {
+@media (max-width: 957px) {
 
-  .slider {
-    width: calc(86% - 80px);
-  }
-
-  .product-card-img {
-    height: 300px;
-    width: 300px;
-  }
-
-  .slider__btn {
-    height: 85px;
-    width: 85px;
-  }
-
-  .product-card-marker__sale {
-    height: 70px;
-    width: 70px;
-  }
-
-  .product-card-marker__top {
-    height: 70px;
-    width: 70px;
-  }
-
-  .price-product-card {
-    font-size: 45px;
-  }
-
-  .text-product-card {
-    font-size: 40px;
-  }
-
-  .text-box-roduct-card {
-    gap: 28px;
-  }
-
-  .featuredProducts .top {
-    font-size: 26px;
+  .featuredProducts .product-card {
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 846px) {
 
-  .slider {
-    width: calc(72% - 80px);
+  .featuredProducts .product-card-img {
+    height: 121px
   }
+}
 
-  .product-card-img {
-    height: 500px;
-    width: 500px;
-  }
+@media (max-width: 569px) {
 
-  .slider__btn {
-    height: 95px;
-    width: 95px;
-  }
-
-  .product-card-marker__sale {
-    height: 80px;
-    width: 80px;
-  }
-
-  .product-card-marker__top {
-    height: 80px;
-    width: 80px;
-  }
-
-  .featuredProducts .top {
-    font-size: 30px;
-  }
-
-  .text-product-card {
-    font-size: 55px;
-  }
-
-  .price-product-card {
-    font-size: 60px;
-  }
-
-  .text-box-roduct-card {
-    gap: 40px;
+  .featuredProducts .slider {
+    padding: 0 10px;
   }
 }
