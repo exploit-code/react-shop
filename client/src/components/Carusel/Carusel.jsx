@@ -11,16 +11,16 @@ const Carusel = ({ data }) => {
     let w = window.screen.availWidth
     let startNoOfCards;
     let startChevronWidth;
-    if (w >= 850) {
+    if (w >= 957) {
         startNoOfCards = 4;
         startChevronWidth = 80;
-    } else if (w < 850 && w >= 670) {
+    } else if (w < 957 && w >= 846) {
         startNoOfCards = 3;
         startChevronWidth = 80;
-    } else if (w < 670 && w >= 540) {
+    } else if (w < 846 && w >= 569) {
         startNoOfCards = 2;
         startChevronWidth = 0;
-    } else if (w < 540) {
+    } else if (w < 569) {
         startNoOfCards = 1;
         startChevronWidth = 0;
     }
@@ -33,16 +33,16 @@ const Carusel = ({ data }) => {
     function displayWindowSize() {
         let w = window.screen.availWidth;
 
-        if (w >= 850) {
+        if (w >= 957) {
             setNoOfCards(4);
             setChevronWidth(80);
-        } else if (w < 850 && w >= 670) {
+        } else if (w < 957 && w >= 846) {
             setNoOfCards(3);
             setChevronWidth(0);
-        } else if (w < 670 && w >= 540) {
+        } else if (w < 846 && w >= 569) {
             setNoOfCards(2);
             setChevronWidth(0);
-        } else if (w < 540) {
+        } else if (w < 569) {
             setNoOfCards(1)
             setChevronWidth(0);
         }
