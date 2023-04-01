@@ -87,7 +87,6 @@
     &__status_order {
         padding: 5px 8px;
         margin-bottom: 7px;
-        cursor: pointer;
         color: #FFFFFF;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
@@ -178,9 +177,7 @@
                 transform: translateY(-5px);
             }
         }
-        
-
-       
+      
     }
 
     &_amountItems{
@@ -205,8 +202,8 @@
             color: #000000;
         }
 
-        &_title::before{
-            //  content: "\2228";
+        &_titlestatusActive::before{
+            
             content: "\f078"; 
             font-family: FontAwesome;
             font-size: 10px;
@@ -215,8 +212,20 @@
             background-color: #7FAD39;
             border-radius: 20px;
             margin-right: 21px;
+         
+        }
+        
+        &_titlestatusClose::before{
             
-            
+            content: "\f078"; 
+            font-family: FontAwesome;
+            font-size: 10px;
+            color: #FFFFFF;
+            padding: 5px 5px 5px 5px;
+            background-color: rgb(214, 212, 212);
+            border-radius: 20px;
+            margin-right: 21px;
+         
         }
 
         &_info{
@@ -234,9 +243,7 @@
             display: flex;
             align-items: center;
         }
-
-        
+  
     }
-
-    
+   
 }

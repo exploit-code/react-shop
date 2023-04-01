@@ -104,7 +104,7 @@ function App() {
           element: <OrderCard />,
         },
         {
-          path: '/orderPage',
+          path: '/orderPage/:id?',
           element: <OrderPage />,
         },
       ],
