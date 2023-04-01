@@ -26,6 +26,12 @@
         }
     }
 
+    &__ccontent {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     &__content {
         display: flex;
         align-items: center;
@@ -33,6 +39,11 @@
     }
 
     &__fx {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__fix {
         display: flex;
         gap: 20px;
     }
@@ -71,7 +82,7 @@
     &__logo {
         font-family: Inter, sans-serif;
         @include mixins.font(31px, 900, 100%);
-        color: #2A2A2A!important;
+        color: #2A2A2A !important;
     }
 
     &__email {
@@ -197,5 +208,86 @@
             color: #7FAD39;
         }
 
+    }
+}
+
+.header__nav-list {
+    gap: 40px;
+}
+
+@media (min-width:769px) and (max-width:1010px) {
+
+    .header__nav-list {
+        gap: 32px;
+    }
+
+    .header__nav-item {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .header__box {
+        padding: 10px 0;
+
+        &--white {
+            margin-top: 15px;
+        }
+    }
+
+    .header__content {
+        height: 52px;
+    }
+
+    .header__nav-list {
+        gap: 12px;
+    }
+
+    .header__nav-item {
+        font-size: 13px;
+    }
+
+    .header__info-price-value {
+        font-size: 13px;
+    }
+
+    .header__info {
+        gap: 15px;
+    }
+}
+
+@media (min-device-width: 320px) and (max-device-width: 568px) {
+
+    .header__fx {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .header__ccontent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header__nav {
+        margin: 15px 0;
+        width: 100%;
+        justify-content: space-around;
+
+        &-list {
+            gap: 30px;
+            justify-content: space-evenly;
+        }
+    }
+
+    .upmainpage__right_info_number {
+        flex-direction: column;
+    }
+
+    .upmainpage__right_info_img {
+        height: 25px;
+        width: 25px;
     }
 }

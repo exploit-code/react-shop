@@ -28,7 +28,8 @@ const Catalog = () => {
 
       isChecked
         ? [...selectedCats, value]
-        : selectedCats.filter((item) => item !== value)
+        : selectedCats
+      // : selectedCats.filter((item) => item !== value)
     );
 
     setValue(e.target.value);
@@ -60,13 +61,13 @@ const Catalog = () => {
         {error
           ? <Alert severity="error">Something went wrong!</Alert>
           : loading ? (
-            <Box sx={{ display: 'flex', justifyContent: 'center'}}>
-              <CircularProgress color="success"/>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <CircularProgress color="success" />
             </Box>
           ) : (
             data?.slice(1, 2).map((item) => (
-          <CatalogList item={item} key={item.id} selectedCats={selectedCats} />
-        )))}
+              <CatalogList item={item} key={item.id} selectedCats={selectedCats} />
+            )))}
       </div>
     </section>
   );

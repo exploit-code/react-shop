@@ -1,12 +1,25 @@
-import React, {useContext} from 'react'
+import React, { useContext, useEffect } from 'react'
 import './success.scss'
 import success from "../Success/img/success.png";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../context/UserContext";
+import { useDispatch } from "react-redux";
+import { resetPromo, resetCart, togglePromo} from "../../redux/cartReducer";
 
 
 const Success = () => {
+    const dispatch = useDispatch()
     const { user } = useContext(AuthContext);
+    const handleDeleteCart = () => {
+        dispatch(resetCart())
+        dispatch(resetPromo())
+        dispatch(togglePromo(true))
+    }
+
+    useEffect(() => {
+        handleDeleteCart()
+    }, [])
+
     return (
         <div className='cart-empty-container'>
             <div className='cart-empty-wrp'>
