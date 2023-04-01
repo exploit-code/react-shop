@@ -14,6 +14,7 @@ const HistoryOfOrders = () => {
   const { data, error, loading } = useFetch(
     `orders?filters[mail][$eq]=${user.email}`
   )
+  console.log('data2', data)
   const [value, setValue] = useState('all')
 
   const fnSort = (a, b) => (a.id < b.id ? 1 : -1)
@@ -120,15 +121,7 @@ const HistoryOfOrders = () => {
             </Box>
           ) : (
             selectOrders?.map((order, i) => {
-              return (
-                <Link
-                  className='historyOfOrders_linkOrder'
-                  to='/orderPage'
-                  key={i}
-                >
-                  <HistoryOfOrdersCard value={value} order={order} key={i} />
-                </Link>
-              )
+              return <HistoryOfOrdersCard value={value} order={order} key={i} />
             })
           )}
         </div>
