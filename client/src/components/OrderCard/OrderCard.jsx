@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import { useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch'
-import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../context/UserContext'
+import React from 'react'
 import Alert from '@mui/material/Alert'
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
@@ -41,15 +40,8 @@ const OrderCard = () => {
   const id = Number(useParams().id)
   const { data, error, loading } = useFetch(`orders?filters[id][$eq]=${id}`)
 
-  console.log('data', data)
-  console.log('idInUrl', id)
-
   const order = data?.find((el) => el.id === id)
 
-  console.log('order', order)
-  console.log('order.id', order?.id)
-  console.log('order.attributes.createdAt', order?.attributes?.createdAt)
-  console.log('order.attributes.orderStatus', order?.attributes?.orderStatus)
   const registrationDate = order?.attributes?.createdAt
   const createdAtStr = registrationDate?.slice(0, 10)
   const dateCreatedAtArr = createdAtStr?.split('')
@@ -75,8 +67,6 @@ const OrderCard = () => {
   } else if (order?.attributes?.orderStatus === 'canceled') {
     index = -1
   }
-
-  console.log('index', index)
 
   return (
     <div className='orderCard'>
@@ -158,25 +148,29 @@ const OrderCard = () => {
               </div>
 
               <div className='orderCard__content_imgOrder_box'>
-                {order?.attributes?.cartItems?.map(({ img, id }, i) => {
-                  return (
-                    <div key={i}>
-                      <div className='orderCard_boxForItems orderCardPosreletive'>
-                        <Link
-                          className='orderCard__linkItem'
-                          to={`/productpage/${id}`}
-                        >
-                          <img
-                            src={process.env.REACT_APP_UPLOAD_URL + img}
-                            alt=''
-                            className={'orderCardImgOrder_round'}
-                          />
-                        </Link>
-                        <div className='orderCard_amountItems'>x6</div>
+                {order?.attributes?.cartItems?.map(
+                  ({ img, id, quantity }, i) => {
+                    return (
+                      <div key={i}>
+                        <div className='orderCard_boxForItems orderCardPosreletive'>
+                          <Link
+                            className='orderCard__linkItem'
+                            to={`/productpage/${id}`}
+                          >
+                            <img
+                              src={process.env.REACT_APP_UPLOAD_URL + img}
+                              alt=''
+                              className={'orderCardImgOrder_round'}
+                            />
+                          </Link>
+                          <div className='orderCard_amountItems'>
+                            x{quantity}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
+                    )
+                  }
+                )}
               </div>
             </div>
           </div>
