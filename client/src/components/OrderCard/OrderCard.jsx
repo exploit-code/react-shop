@@ -7,6 +7,9 @@ import React from 'react'
 import Alert from '@mui/material/Alert'
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../redux/cartReducer'
+import { AddToCartBtnCollection } from '../../components/AddToCartBtnCollection/AddToCartBtnCollection'
 
 const statusTree = [
   {
@@ -36,7 +39,26 @@ const statusTree = [
   },
 ]
 
+// function addToCartFunc(order) {
+//   const dispatch = useDispatch()
+//   let { id, title, desc, price, img, totalPriceItem, quantity } = order
+//   for (let i = 0; i <= order?.attributes?.cartItems?.lenght; i++) {
+//     dispatch(
+//       addToCart({
+//         id: id,
+//         title: title,
+//         desc: desc,
+//         price: price,
+//         img: img,
+//         totalPriceItem: totalPriceItem,
+//         quantity: quantity,
+//       })
+//     )
+//   }
+// }
+
 const OrderCard = () => {
+  const dispatch = useDispatch()
   const id = Number(useParams().id)
   const { data, error, loading } = useFetch(`orders?filters[id][$eq]=${id}`)
 
@@ -66,6 +88,22 @@ const OrderCard = () => {
     index = statusTree.findIndex((el) => el.nameStatus === searchName)
   } else if (order?.attributes?.orderStatus === 'canceled') {
     index = -1
+  }
+
+  const addToCartFunc = (order) => {
+    for (let i = 0; i < order?.attributes?.cartItems?.length; i++) {
+      dispatch(
+        addToCart({
+          id: order?.attributes?.cartItems[i].id,
+          title: order?.attributes?.cartItems[i].title,
+          desc: order?.attributes?.cartItems[i].desc,
+          price: order?.attributes?.cartItems[i].price,
+          img: order?.attributes?.cartItems[i].img,
+          totalPriceItem: order?.attributes?.cartItems[i].totalPriceItem,
+          quantity: order?.attributes?.cartItems[i].quantity,
+        })
+      )
+    }
   }
 
   return (
@@ -136,11 +174,15 @@ const OrderCard = () => {
                   {totalAmount ? totalAmount : ''}$
                 </div>
               </div>
-              <Button
+
+              {/* <Button
                 type='button'
-                text='Repeat order'
+                text='Add to cart Order'
                 classname='orderCard__content_buttonRepeatOrder'
-              ></Button>
+                onClick={() => addToCartFunc(order)}
+              /> */}
+
+              <AddToCartBtnCollection order={order} name='ADD TO CART' />
             </div>
             <div className='orderCard__content_orderItems'>
               <div className='orderCard__content_orderItemsBox_heading'>
