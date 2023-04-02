@@ -6,6 +6,15 @@ import { Link } from 'react-router-dom'
 
 const LeftSideProfile = ({ avatarName }) => {
 
+  let profilePageIsCheck = true;
+
+  function switchProfilePageIsCheck() {
+    profilePageIsCheck = false;
+  }
+  if (document.location.pathname != '/profile') {
+    switchProfilePageIsCheck()
+  }
+
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -25,10 +34,17 @@ const LeftSideProfile = ({ avatarName }) => {
       <nav className='navLeftSideProfile'>
         <ul className='navLeftSideProfile__list'>
           <li className='navLeftSideProfile__item firstLinkProfile'>
-            <div className='navLeftSideProfile_line'></div>
-            <Link className='navLeftSideProfile__link' to='/profile'>
-              Profile
-            </Link>
+            {
+              profilePageIsCheck ?
+                (<li className='navLeftSideProfile__item firstLinkProfile'>
+                  <a className='navLeftSideProfile__link' href="#profileInfo">Profile info</a>
+                </li>) :
+                (
+                  <Link className='navLeftSideProfile__link' to='/profile'>
+                    Profile page
+                  </Link>
+                )
+            }
           </li>
           <li className='navLeftSideProfile__item firstLinkProfile'>
             <div className='navLeftSideProfile_line'></div>
