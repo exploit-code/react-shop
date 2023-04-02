@@ -84,6 +84,7 @@ const Profile = () => {
 
       <div className='grid__box'>
         <section className='profile'>
+          <div id='profileInfo'></div>
           <h1 className='profile__title'>Profile</h1>
           <p className='profile__id'>
             <span className='profile__id-text'>Your client ID is:</span>

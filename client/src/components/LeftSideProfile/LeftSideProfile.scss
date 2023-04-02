@@ -2,13 +2,31 @@
     display: grid;
     gap: 32px;
     align-content: baseline;
-    
-    @media (min-width: 390px) and (max-width: 767px) {
+}
+
+
+// @media (min-width: 390px) and (max-width: 767px) {
+@media (max-width: 768px) {
+
+    .grid__box,
+    .asideLeftSideProfile {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
+    .grid__box,
+    .profile__title {
+        text-align: center;
+    }
+
+    .discount__cards,
+    .edit-data__item,
+    .profile__id {
+        justify-content: center;
+    }
 }
+
 
 .cardLeftSideProfile {
     width: 100%;
