@@ -1,6 +1,6 @@
-.footer {
-    background-color: black;
-}
+// .footer {
+//     background-color: black;
+// }
 
 body {
     font-family: 'Cerebri Sans Pro';
@@ -39,15 +39,12 @@ body {
 }
 
 .item-flex {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .item-link {
-    display: block;
-    text-decoration: none;
-    width: 367px;
     height: 630px;
     border: 1px solid #f3f3f3;
     
@@ -60,6 +57,15 @@ body {
     
    
 }
+.blog__item-parent {
+    width: inherit;
+}
+
+.blog__item-pic {
+    display: block;
+    width: 100%;
+}
+
 .item-link-readmore{
     &:hover .blog__readmore{
         color: #7FAD39;
@@ -106,7 +112,8 @@ body {
 
 .blog{
     &__item-pic{
-        margin-bottom: 15px;
+        display: block;
+        width: 100%;
     }
     &__readmore{
         font-style: normal;
@@ -133,7 +140,7 @@ body {
         gap: 5px;
     }
     &__txt-box{
-        padding: 15px;
+        padding: 26px;
     }
     &__topimg{
         height: 16px;
@@ -150,4 +157,92 @@ body {
         color: #757575;
     }
     
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .desc {
+        font-family: 'Cerebri Sans Pro';
+        font-weight: 900;
+        font-size: 34px;
+        margin-top: 50px;
+    }
+
+    .green-line {
+        margin-bottom: 62px;
+    }
+
+    .item {
+        width: inherit;
+    }
+
+    .item-desc {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .item-flex {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+    }
+
+    .item-link {
+        width: inherit;
+    }
+
+    .item-heading-box {
+        font-size: 17px;
+        line-height: 25px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .blog{
+        &__toptext {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        &__txt-top{
+            justify-content: space-between;
+        }
+
+        &__txt-boxer{
+            gap: 12px;
+        }
+
+        &__txt-box{
+            padding: 19px;
+        } 
+    }
+}
+
+@media (min-width: 390px) and (max-width: 667px) {
+    .item-flex {
+        display: grid;
+        grid-template-columns: 350px;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .desc {
+        margin-top: 64px;
+    }
+
+    .line {
+        width: 67px;
+        height: 3px;
+    }
+
+    .green-line {
+        margin-top: 20px;
+        margin-bottom: 34px;
+    }
+
+    .item-link {
+        height: auto;
+    }
 }

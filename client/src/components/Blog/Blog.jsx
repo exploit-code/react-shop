@@ -57,7 +57,7 @@ const Blog = (props) => {
 
   return (
     <div className='item-sec'>
-      <div className='container'>
+      <div>
         <h3 className='desc'>From The Blog</h3>
         <div className='green-line'>
           <img className='line' src={Green_line} alt='line' />
@@ -67,11 +67,13 @@ const Blog = (props) => {
             return (
               <div className='item' key={i}>
                 <div className='item-link'>
-                  <img
+                  <div className='blog__item-parent'>
+                    <img
                     className='blog__item-pic'
                     src={blog.img}
                     alt='product'
-                  />
+                    />
+                  </div>
 
                   <div className='blog__txt-box'>
                     <div className='blog__txt-top'>
