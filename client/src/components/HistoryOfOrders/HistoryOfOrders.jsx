@@ -14,7 +14,7 @@ const HistoryOfOrders = () => {
   const { data, error, loading } = useFetch(
     `orders?filters[mail][$eq]=${user.email}`
   )
-  console.log('data2', data)
+
   const [value, setValue] = useState('all')
 
   const fnSort = (a, b) => (a.id < b.id ? 1 : -1)
