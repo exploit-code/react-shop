@@ -6,13 +6,26 @@ import { Link } from 'react-router-dom'
 
 const LeftSideProfile = ({ avatarName }) => {
 
-  let profilePageIsCheck = true;
+  let profilePageIsCheck;
+  let histiryOfOrdersPageIsCheck;
+  let favoritesPageIsCheck;
 
-  function switchProfilePageIsCheck() {
+  if (document.location.pathname === '/profile') {
+    profilePageIsCheck = true;
+  } else {
     profilePageIsCheck = false;
   }
-  if (document.location.pathname != '/profile') {
-    switchProfilePageIsCheck()
+
+  if (document.location.pathname === '/historyOfOrders') {
+    histiryOfOrdersPageIsCheck = true;
+  } else {
+    histiryOfOrdersPageIsCheck = false;
+  }
+
+  if (document.location.pathname === '/favorites') {
+    favoritesPageIsCheck = true;
+  } else {
+    favoritesPageIsCheck = false;
   }
 
   const auth = getAuth();
@@ -36,9 +49,8 @@ const LeftSideProfile = ({ avatarName }) => {
           <li className='navLeftSideProfile__item firstLinkProfile'>
             {
               profilePageIsCheck ?
-                (<li className='navLeftSideProfile__item firstLinkProfile'>
-                  <a className='navLeftSideProfile__link' href="#profileInfo">Profile info</a>
-                </li>) :
+                <a className='navLeftSideProfile__link' href='#profileInfo'>Profile info</a>
+                :
                 (
                   <Link className='navLeftSideProfile__link' to='/profile'>
                     Profile page
@@ -48,15 +60,29 @@ const LeftSideProfile = ({ avatarName }) => {
           </li>
           <li className='navLeftSideProfile__item firstLinkProfile'>
             <div className='navLeftSideProfile_line'></div>
-            <Link className='navLeftSideProfile__link' to='/historyOfOrders'>
-              History of orders
-            </Link>
+            {
+              histiryOfOrdersPageIsCheck ?
+                <a className='navLeftSideProfile__link' href='#historyOfOrdersInfo'>History of orders info</a>
+                :
+                (
+                  <Link className='navLeftSideProfile__link' to='/historyOfOrders'>
+                    History of orders
+                  </Link>
+                )
+            }
           </li>
           <li className='navLeftSideProfile__item'>
             <div className='navLeftSideProfile_line'></div>
-            <Link className='navLeftSideProfile__link' to='/favorites'>
-              Favorites
-            </Link>
+            {
+              favoritesPageIsCheck ?
+                <a className='navLeftSideProfile__link' href='#favoritesInfo'>Favorites info</a>
+                :
+                (
+                  <Link className='navLeftSideProfile__link' to='/favorites'>
+                    Favorites
+                  </Link>
+                )
+            }
           </li>
           <li className='navLeftSideProfile__item'>
             <div className='navLeftSideProfile_line'></div>
