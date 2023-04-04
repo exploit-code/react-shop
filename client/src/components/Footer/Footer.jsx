@@ -8,6 +8,7 @@ const Footer = () => {
     const [email, setEmail] = useState('');
     const [mailValid, setMailValid] = useState(false)
     const [mailError, setEmailError] = useState('Email не может быть пустым')
+    const [disableBtn, setDisableBtn] = useState(false)
     // Валидация полей формы (email, firstName, secondName, deliveryAdress)
     const emailHandler = (e) => {
         setEmail(e.target.value)
@@ -19,6 +20,18 @@ const Footer = () => {
             setEmailError('')
         }
     }
+
+    const blurHandler = (e) => {
+        switch (e.target.name) {
+            case 'email':
+                setMailValid(true)
+                break;
+            default:
+                setMailValid(false)
+        }
+    }
+
+    const changeDisableBtn = () => setDisableBtn(!disableBtn)
 
     /////////
     function handleSubmit(event) {
@@ -35,23 +48,32 @@ const Footer = () => {
                 message: 'SUBSCRIBER',
             },
         }
-        fetch(`${process.env.REACT_APP_API_URL}/forms`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(body),
-        })
-            .then((response) => {
-                if (response.status === 200) {
-                    console.log(response)
-                    navigate('/success')
-                }
+        event.preventDefault()
+        if (email.length > 7) {
+            changeDisableBtn()
+            fetch(`${process.env.REACT_APP_API_URL}/forms`, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(body),
             })
-            .catch((error) => {
-                console.log(error);
-            });
+                .then((response) => {
+                    if (response.status === 200) {
+                        console.log(response)
+                        navigate('/success')
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        } else {
+            console.log('Кнопка не активна')
+            changeDisableBtn()
+            console.log(disableBtn)
+        }
     }
+
 
     return (
         <footer className='footer' id='footer'>
@@ -94,6 +116,9 @@ const Footer = () => {
                             <p className='footer__top__right__subtitle'>
                                 Get e-mail updates about our latest Shop and special offers.
                             </p>
+                            {mailValid && mailError && (
+                                <div style={{ color: 'red' }}>{mailError}</div>
+                            )}
                             <form onSubmit={handleSubmit} className='footer__top__right__form'>
                                 <input
                                     name="email"
@@ -101,10 +126,11 @@ const Footer = () => {
                                     type="email"
                                     value={email}
                                     onChange={(e) => emailHandler(e)}
+                                    onBlur={(e) => blurHandler(e)}
                                     className='footer__top__right__input'
                                     placeholder='Enter Your Email Address'
                                 />
-                                <button onClick={getForm} type='submit' className='footer__top__right__btn'>
+                                <button disabled={disableBtn} onClick={getForm} type='submit' className='footer__top__right__btn'>
                                     Subscribe
                                 </button>
                             </form>
