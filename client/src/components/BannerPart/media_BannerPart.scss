@@ -2,7 +2,8 @@
 
 @media (max-width: 1145px) {
   .bannerBlock {
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .bannerBlock__item {
@@ -17,13 +18,21 @@
   }
 }
 
+@media (max-width: 1055px) {
+  .bannerBlock {
+    grid-template-columns: 560px;
+    gap: 44px;
+  }
+}
+
 @media (max-width: 560px) {
   .bannerBlock {
+    grid-template-columns: 100%;
     margin-top: 50px;
   }
 
   .bannerBlock__item {
-    width: 453px;
+    width: 100%;
     height: inherit;
   }
 
@@ -54,7 +63,7 @@
 
 @media (max-width: 453px) {
   .bannerBlock__item {
-    width: 410px;
+    width: 100%;
   }
 
   .bannerBlock__item_titleLeft {
@@ -90,7 +99,7 @@
 
 @media (max-width: 410px) {
   .bannerBlock__item {
-    width: 370px;
+    width: 100%;
   }
 
   .bannerBlock__item_titleLeft {

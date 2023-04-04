@@ -75,3 +75,10 @@
     color: var(--green);
   }
 }
+
+
+@media (max-width: 768px) {
+  .filterBlock__latestProducts {
+    width: 350px;
+  }
+}

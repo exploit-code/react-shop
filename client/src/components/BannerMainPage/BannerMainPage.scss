@@ -126,3 +126,159 @@
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+
+    .bannermainpage {
+        gap: 0px;
+    
+        &__top {
+            @include mixins.flex(center, center);
+            gap: 0px;
+    
+            &_poster {
+                @include mixins.flex(space-around, center);
+                height: 401px;
+                margin-bottom: 44px;
+    
+                &_left {
+                    position: static;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    margin-left: 0px;
+    
+                    &_p {
+                        margin-left: 0px;
+                    }
+                }
+    
+                &_right {
+                    position: static;
+                    margin-left: 0px;
+                    width: 40%;
+    
+                    &_img {
+                        mix-blend-mode: darken;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    
+        &__bottom {
+            @include mixins.flex(space-between, center);
+            gap: 20px;
+    
+            &_fruit {
+                width: 270px;
+                height: 270px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 19px;
+                justify-content: center;
+                background-color: #F5F5F5;
+    
+                &_img {
+                    mix-blend-mode: darken;
+                }
+    
+                &_button {
+                    width: 230px;
+                    height: 43px;
+                    background-color: #FFFFFF;
+                    border: none;
+                    @include mixins.font(20px, 900, 50px);
+                    text-align: center;
+                    cursor: pointer;
+                    font-family: Celebri Sans Pro;
+                }
+    
+                &_button:hover {
+                    background-color: #7FAD39;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 490px) {
+    .bannermainpage {
+
+        &__top {
+    
+            &_poster {
+                @include mixins.flex(center, center);
+                flex-wrap: wrap;
+                height: 303px;
+                margin-bottom: 20px;
+                padding: 20px;
+    
+                &_left {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    text-align: center;
+    
+                    &_p {
+                        margin-left: 77px;
+    
+                        &_ff {
+                            @include mixins.font(16px, 800, 20px);
+                            font-family: Celebri Sans Pro;
+                            color: #7FAD39;
+                        }
+    
+                        &_free {
+                            color: #999999;
+                            @include mixins.font(16px, 500, 20px);
+                            font-family: Celebri Sans Pro;
+                        }
+                    }
+    
+                    &_h1 {
+                        @include mixins.font(27px, 900, 35px);
+                    }
+                }
+            }
+        }
+    
+        &__bottom {
+            @include mixins.flex(space-between, center);
+            gap: 20px;
+    
+            &_fruit {
+                width: 270px;
+                height: 270px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 19px;
+                justify-content: center;
+                background-color: #F5F5F5;
+    
+                &_img {
+                    mix-blend-mode: darken;
+                }
+    
+                &_button {
+                    width: 230px;
+                    height: 43px;
+                    background-color: #FFFFFF;
+                    border: none;
+                    @include mixins.font(20px, 900, 50px);
+                    text-align: center;
+                    cursor: pointer;
+                    font-family: Celebri Sans Pro;
+                }
+    
+                &_button:hover {
+                    background-color: #7FAD39;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
