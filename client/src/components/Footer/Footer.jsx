@@ -8,6 +8,7 @@ const Footer = () => {
     const [email, setEmail] = useState('');
     const [mailValid, setMailValid] = useState(false)
     const [mailError, setEmailError] = useState('Email не может быть пустым')
+
     // Валидация полей формы (email, firstName, secondName, deliveryAdress)
     const emailHandler = (e) => {
         setEmail(e.target.value)
@@ -20,10 +21,24 @@ const Footer = () => {
         }
     }
 
+    const blurHandler = (e) => {
+        switch (e.target.name) {
+            case 'email':
+                setMailValid(true)
+                break;
+            default:
+                setMailValid(false)
+        }
+    }
+
     /////////
     function handleSubmit(event) {
         event.preventDefault();
     }
+
+    // Регулярное выражение для проверки email;
+    const re =
+        /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
 
     //START of getForm
     function getForm(event) {
@@ -35,23 +50,27 @@ const Footer = () => {
                 message: 'SUBSCRIBER',
             },
         }
-        fetch(`${process.env.REACT_APP_API_URL}/forms`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(body),
-        })
-            .then((response) => {
-                if (response.status === 200) {
-                    console.log(response)
-                    navigate('/success')
-                }
+        event.preventDefault()
+        if (re.test(String(email).toLowerCase())) {
+            fetch(`${process.env.REACT_APP_API_URL}/forms`, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(body),
             })
-            .catch((error) => {
-                console.log(error);
-            });
+                .then((response) => {
+                    if (response.status === 200) {
+                        console.log(response)
+                        navigate('/success')
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
     }
+
 
     return (
         <footer className='footer' id='footer'>
@@ -94,6 +113,9 @@ const Footer = () => {
                             <p className='footer__top__right__subtitle'>
                                 Get e-mail updates about our latest Shop and special offers.
                             </p>
+                            {mailValid && mailError && (
+                                <div style={{ color: 'red' }}>{mailError}</div>
+                            )}
                             <form onSubmit={handleSubmit} className='footer__top__right__form'>
                                 <input
                                     name="email"
@@ -101,6 +123,7 @@ const Footer = () => {
                                     type="email"
                                     value={email}
                                     onChange={(e) => emailHandler(e)}
+                                    onBlur={(e) => blurHandler(e)}
                                     className='footer__top__right__input'
                                     placeholder='Enter Your Email Address'
                                 />
