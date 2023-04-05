@@ -56,12 +56,31 @@
     display: flex;
     gap: 44px;
 
+    
     &__leftPart{
         width:70%;
+
+        @media screen and (max-width: 768px){
+            width: 100%
+        }
     }
     &__rightPart{
         width: 30%;
+
+        @media screen and (max-width: 768px){
+            width: 100%
+        }
+       
     }
+
+    @media screen and (max-width: 768px){
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+    }   
+
+    
 
     &__linkBack {
         display: flex;
@@ -100,9 +119,16 @@
         display: flex;
         align-items: flex-start;
         gap: 27px;
-       
-    }
 
+        @media screen and (max-width: 768px){
+            display: flex;
+            flex-wrap: wrap;
+        
+        }
+
+   
+    }   
+    
    
     &__content{
         
@@ -246,4 +272,6 @@
   
     }
    
+
 }
+ 
