@@ -8,7 +8,7 @@ const Footer = () => {
     const [email, setEmail] = useState('');
     const [mailValid, setMailValid] = useState(false)
     const [mailError, setEmailError] = useState('Email не может быть пустым')
-    const [disableBtn, setDisableBtn] = useState(false)
+
     // Валидация полей формы (email, firstName, secondName, deliveryAdress)
     const emailHandler = (e) => {
         setEmail(e.target.value)
@@ -31,12 +31,14 @@ const Footer = () => {
         }
     }
 
-    const changeDisableBtn = () => setDisableBtn(!disableBtn)
-
     /////////
     function handleSubmit(event) {
         event.preventDefault();
     }
+
+    // Регулярное выражение для проверки email;
+    const re =
+        /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
 
     //START of getForm
     function getForm(event) {
@@ -49,8 +51,7 @@ const Footer = () => {
             },
         }
         event.preventDefault()
-        if (email.length > 7) {
-            changeDisableBtn()
+        if (re.test(String(email).toLowerCase())) {
             fetch(`${process.env.REACT_APP_API_URL}/forms`, {
                 method: 'POST',
                 headers: {
@@ -67,10 +68,6 @@ const Footer = () => {
                 .catch((error) => {
                     console.log(error);
                 });
-        } else {
-            console.log('Кнопка не активна')
-            changeDisableBtn()
-            console.log(disableBtn)
         }
     }
 
@@ -130,7 +127,7 @@ const Footer = () => {
                                     className='footer__top__right__input'
                                     placeholder='Enter Your Email Address'
                                 />
-                                <button disabled={disableBtn} onClick={getForm} type='submit' className='footer__top__right__btn'>
+                                <button onClick={getForm} type='submit' className='footer__top__right__btn'>
                                     Subscribe
                                 </button>
                             </form>
