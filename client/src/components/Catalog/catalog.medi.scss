@@ -1,0 +1,16 @@
+@media (max-width: 973px) {
+  .catalog-filter-btn {
+    flex-wrap: wrap;
+    width: 300px;
+    justify-content: center;
+    gap: 9px;
+  }
+
+  .catalog-heading {
+    line-height: 32px;
+  }
+
+  .checkbox-btn {
+    margin: 0;
+  }
+}

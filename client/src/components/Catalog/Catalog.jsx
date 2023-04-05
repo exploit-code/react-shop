@@ -1,4 +1,5 @@
 import './catalog.scss';
+import './catalog.medi.scss';
 import line from '../../images/line.png';
 import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
@@ -57,7 +58,7 @@ const Catalog = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className='catalogList-wrap'>
         {error
           ? <Alert severity="error">Something went wrong!</Alert>
           : loading ? (
