@@ -209,6 +209,15 @@
         }
 
     }
+
+    &__favorits-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
 }
 
 .header__nav-list {
