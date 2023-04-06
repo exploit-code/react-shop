@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useSelector } from "react-redux";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import CustomLink from '../CustomLink/CustomLink';
 
@@ -23,7 +23,8 @@ const Header = () => {
   const cartItems = useSelector((state) => state.cart.products)
   const favoritesItems = useSelector((state) => state.favorites.products)
   const [categoryId, setCategoryId] = useState(1)
-  const [visibleList, setvisibleList] = useState(false)
+  const [visibleList, setvisibleList] = useState(false);
+  const navigate = useNavigate();
 
 
   // const handleSignOut = () => {
@@ -64,6 +65,14 @@ const Header = () => {
 
   const categoriesClick = () => {
     setvisibleList((visible) => !visible)
+  }
+
+  const favorits = () => {
+    if (user?.displayName != undefined) {
+      navigate('/favorites');
+    } else {
+      navigate('/login');
+    }
   }
 
   return (
@@ -194,7 +203,7 @@ const Header = () => {
 
           <div className='header__info'>
             <div className='header__info-likes'>
-              <Link to='/favorites'>
+              <button className='header__favorits-btn' onClick={favorits}>
                 <img
                   className='header__info-icon'
                   src={likesIcon}
@@ -203,7 +212,7 @@ const Header = () => {
                 <span className='header__info-count'>
                   {totalQuantityFavorites()}
                 </span>
-              </Link>
+              </button>
             </div>
 
             <div className='header__info-cart'>
