@@ -1,5 +1,6 @@
 import React from "react";
 import "./CaruselMainPage.scss";
+import "./CaruselMainPage.medi.scss";
 import Carousel from "better-react-carousel";
 import Card from '../Card/Card';
 import SliderIconLeft from "../../images/slider-icon_prev.svg";
@@ -34,8 +35,14 @@ const CaruselMainPage = ({ data }) => {
     </button>
   )
 
+  const responsiveLayout = [
+    { breakpoint: 1204, cols: 3, rows: 2, gap: 10 },
+    { breakpoint: 830, cols: 2, rows: 2, gap: 10 },
+    { breakpoint: 627, cols: 1, rows: 2, gap: 5 },
+  ]
+
   return (
-    <Carousel cols={4} rows={2} gap={10} loop arrowLeft={sliderIconPrev} arrowRight={sliderIconNext}>
+    <Carousel responsiveLayout={responsiveLayout} mobileBreakpoint={435} cols={4} rows={2} gap={10} loop arrowLeft={sliderIconPrev} arrowRight={sliderIconNext}>
       {data?.map((item) => (
         <Carousel.Item key={item.id}>
           <Card item={item} key={item.id} />
